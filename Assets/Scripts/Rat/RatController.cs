@@ -20,6 +20,9 @@ public class RatController : MonoBehaviour
     private int jumpsLeft;
     private bool onGround = false;
 
+    // Variables for hiding: if number of covers is 0, you are not hidden by the chef. 
+    private int numCovers = 0;
+
     // Reference variables
     private Rigidbody2D rigidBody;
 
@@ -61,5 +64,20 @@ public class RatController : MonoBehaviour
     public void onLeavingGround() {
         onGround = false;
         jumpsLeft = maxJumps - 1;
+    }
+
+    /* Method to hide the rat from the chef, taking cover. Multiple covers can apply to the rat */
+    public void takeCover() {
+        numCovers++;
+    }
+
+    /* Method to reveal the rat after the rat gets out from cover */
+    public void revealCover() {
+        numCovers--;
+    }
+
+    /* Access method to check if the rat is hidden by cover */
+    public bool isHidden() {
+        return numCovers > 0;
     }
 }
