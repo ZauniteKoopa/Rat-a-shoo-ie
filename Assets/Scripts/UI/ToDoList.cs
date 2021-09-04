@@ -25,7 +25,14 @@ public class ToDoList : MonoBehaviour
     private List<TaskType> initialTasks = null;
     [SerializeField]
     private List<TMP_Text> taskLabels = null;
+    [SerializeField]
+    private Image indicator = null;
     private const float DELTA_TIME = 0.04f;
+
+    // Task management
+    private int numTasksLeft = 0;
+    private bool canEscape = false;
+
 
     // On start, initialize the list
     private void Start() {
@@ -44,6 +51,8 @@ public class ToDoList : MonoBehaviour
                 taskLabels[i].text = "- Poison da soup!";
             }
         }
+
+        numTasksLeft = initialTasks.Count;
     }
     
     // Main method to checks if someone wants to look at the list
@@ -58,6 +67,7 @@ public class ToDoList : MonoBehaviour
         Time.timeScale = 0.0f;
         Vector3 targetPosition = new Vector3(inViewX, 0, 0);
         Vector3 sourcePosition = new Vector3(outOfViewX, 0, 0);
+        indicator.gameObject.SetActive(false);
         float timer = 0f;
         WaitForSecondsRealtime wait = new WaitForSecondsRealtime(DELTA_TIME);
 
@@ -86,5 +96,48 @@ public class ToDoList : MonoBehaviour
         }
 
         listImage.rectTransform.anchoredPosition3D = sourcePosition;
-    } 
+    }
+
+    // Event handler for when a task is done
+    private void onTaskDone(TaskType taskType) {
+        int i = -1;
+        bool found = false;
+
+        // Go through list to get the exact position of the task type
+        while (i < initialTasks.Count - 1 && !found) {
+            i++;
+
+            TaskType curType = initialTasks[i];
+            found = curType == taskType;
+        }
+
+        // If found, modify the associated task in the to-do list
+        if (found) {
+            taskLabels[i].color = Color.green;
+            numTasksLeft--;
+
+            indicator.gameObject.SetActive(true);
+
+            // If number of tasks is equal to zero, allow escape
+            if (numTasksLeft <= 0) {
+                taskLabels[initialTasks.Count].text = "- ESCAPE!!!";
+                taskLabels[initialTasks.Count].color = Color.red;
+                canEscape = true;
+            }
+        }
+    }
+
+    // Wrapper functions for task done event handlers
+    public void onPoisonedMeal() {
+        onTaskDone(TaskType.POISON_SOUP);
+    }
+
+    // Method when player tries to escape
+    public void onPlayerEscape() {
+        if (canEscape) {
+            Debug.Log("YOU WIN");
+        } else {
+            Debug.Log("You still haven't finished tasks yet");
+        }
+    }
 }
