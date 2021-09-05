@@ -27,11 +27,16 @@ public class ToDoList : MonoBehaviour
     private List<TMP_Text> taskLabels = null;
     [SerializeField]
     private Image indicator = null;
+    [SerializeField]
+    private TMP_Text healthUI = null;
     private const float DELTA_TIME = 0.04f;
 
     // Task management
     private int numTasksLeft = 0;
     private bool canEscape = false;
+
+    // Health management
+    private int curHealth = 0;
 
 
     // On start, initialize the list
@@ -139,5 +144,17 @@ public class ToDoList : MonoBehaviour
         } else {
             Debug.Log("You still haven't finished tasks yet");
         }
+    }
+
+    // Method to update health to a fixed amount
+    public void updateHealthUI(int currentHealth) {
+        healthUI.text = "Health: " + currentHealth;
+        curHealth = currentHealth;
+    }
+
+    // Event handler method when player lose health
+    public void onPlayerHealthLoss() {
+        curHealth--;
+        healthUI.text = "Health: " + curHealth;
     }
 }

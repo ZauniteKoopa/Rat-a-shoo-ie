@@ -1,16 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RatController3D : MonoBehaviour
 {
     // Serialized movement variables
+    [Header("Movement variables")]
     [SerializeField]
     private float landSpeed = 7f;
     [SerializeField]
     private float airControl = 0.75f;
     [SerializeField]
     private float landJumpVelocity = 18f;
+
+    // Health management
+    [Header("Health Management")]
+    [SerializeField]
+    private int maxHealth = 3;
+    [SerializeField]
+    private float invincibilityDuration = 1.5f;
+    [SerializeField]
+    private Color invinicibleColor = Color.black;
+    private Color normalColor;
+    private int curHealth;
+    private bool invincible = false;
+    public UnityEvent playerHealthLossEvent;
 
     // Variables for jumping
     private bool onGround = false;
@@ -19,18 +34,30 @@ public class RatController3D : MonoBehaviour
     private Vector3 groundForward = Vector3.back;
 
     // Variables for interactables / grabbables
+    [Header("Interactables")]
     [SerializeField]
     private Vector3 grabbableHook = Vector3.up;
     private Transform grabbedInteractable = null;
     private Transform targetInteractable = null;
 
+    [Header("User interface")]
+    [SerializeField]
+    private ToDoList userInterface = null;
+
     // Reference variables
     private Rigidbody rigidBody;
+    private MeshRenderer meshRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        userInterface.updateHealthUI(maxHealth);
+        curHealth = maxHealth;
+
         rigidBody = GetComponent<Rigidbody>();
+        meshRenderer = GetComponent<MeshRenderer>();
+
+        normalColor = meshRenderer.material.color;
     }
 
     // Update is called once per frame
@@ -112,5 +139,30 @@ public class RatController3D : MonoBehaviour
         if (targetInteractable == interactable) {
             targetInteractable = null;
         }
+    }
+
+    /* Method for taking damage */
+    public void takeDamage() {
+        if (!invincible) {
+            curHealth--;
+            playerHealthLossEvent.Invoke();
+
+            if (curHealth <= 0) {
+                Debug.Log("You died!");
+            } else {
+                StartCoroutine(invincibilityRoutine());
+            }
+        }
+    }
+
+    /* Main coroutine to do invincibility */
+    private IEnumerator invincibilityRoutine() {
+        invincible = true;
+        meshRenderer.material.color = invinicibleColor;
+
+        yield return new WaitForSeconds(invincibilityDuration);
+
+        meshRenderer.material.color = normalColor;
+        invincible = false;
     }
 }
