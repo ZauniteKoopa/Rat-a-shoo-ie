@@ -147,6 +147,7 @@ public class RatController3D : MonoBehaviour
             if (Input.GetButtonDown("Fire2")) {
                 grabbedInteractable = targetInteractable;
 
+                audioManager.emitPickupSound();
                 // Disable physics and place transform in hook
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 grabbedInteractable.parent = transform;
@@ -155,6 +156,7 @@ public class RatController3D : MonoBehaviour
         }
         else if (grabbedInteractable != null) {
             if (Input.GetButtonDown("Fire2")) {
+                audioManager.emitDropSound();
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 grabbedInteractable.localPosition = groundForward + grabbableHook;
                 grabbedInteractable.parent = null;

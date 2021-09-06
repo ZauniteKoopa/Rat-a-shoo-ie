@@ -937,6 +937,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e853babd15f0c1b7a8e5c85d61657d6d, type: 3}
   - {fileID: 8300000, guid: 70e02545b55efafcaac866876120d641, type: 3}
   - {fileID: 8300000, guid: aa41b80ddd6beb06cb763fc26cda2f05, type: 3}
+  ratPickupSoundClips:
+  - {fileID: 8300000, guid: 1c9cc6a4c8b559c4f894704f7fbbef13, type: 3}
+  ratDropSoundClips:
+  - {fileID: 8300000, guid: 0000edc7803fa1848ba674b7c64c1ffa, type: 3}
 --- !u!4 &1275943822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7801452236015366833, guid: 737e23cccf88c6c90a13bce1e2a1de33,
@@ -1277,6 +1281,12 @@ MonoBehaviour:
   alertSounds:
   - {fileID: 8300000, guid: d78b1530f050aa115977ea2cf6223b92, type: 3}
   - {fileID: 8300000, guid: 475efa7a3fe0c66e4bbdbc7583b2bd7e, type: 3}
+  attackSounds:
+  - {fileID: 8300000, guid: 108eb935b40e6f042a49ab7babfaf90a, type: 3}
+  - {fileID: 8300000, guid: 88df5f29d36e20d48aad8565e3cf196a, type: 3}
+  lostSounds:
+  - {fileID: 8300000, guid: d17a8a9087f2da441925b27b0623f95d, type: 3}
+  - {fileID: 8300000, guid: edbda631a74a4b644992d3f52d8d3a53, type: 3}
 --- !u!82 &2046898192
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1289,7 +1299,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

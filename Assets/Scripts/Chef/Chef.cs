@@ -147,6 +147,7 @@ public class Chef : MonoBehaviour
             yield return new WaitForSeconds(anticipationTime);
 
             // Activate hit box and attack
+            audioManager.playChefAttack();
             chefHitbox.SetActive(true);
             meshRenderer.material.color = attackColor;
 
@@ -160,6 +161,7 @@ public class Chef : MonoBehaviour
 
         // If AI can't see user anymore, act confused
         if (chefSensing.currentTarget == null) {
+            audioManager.playChefLost();
             yield return actConfused();
         }
     }
@@ -190,5 +192,6 @@ public class Chef : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
         navMeshAgent.enabled = true;
+        audioManager.playChefAlert();
     }
 }
