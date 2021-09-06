@@ -25,7 +25,6 @@ public class RatController3D : MonoBehaviour
     private BlockerSensor forwardBlockSensor = null;
     [SerializeField]
     private BlockerSensor backwardBlockSensor = null;
-
     public LayerMask spotShadowIgnoreLayer;
 
     // Health management
@@ -110,6 +109,8 @@ public class RatController3D : MonoBehaviour
         if (moveVector != Vector3.zero) {
             groundForward = moveVector;
         }
+
+        moveVector.Normalize();
         
         // Add conditional effects to move vector
         if (moveVector != Vector3.zero) {
