@@ -10,11 +10,22 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float landSpeed = 7f;
     [SerializeField]
+    private float carryingSpeed = 3f;
+    [SerializeField]
     private float airControl = 0.75f;
     [SerializeField]
     private float landJumpVelocity = 18f;
     [SerializeField]
     private Transform spotShadow = null;
+    [SerializeField]
+    private BlockerSensor leftBlockSensor = null;
+    [SerializeField]
+    private BlockerSensor rightBlockSensor = null;
+    [SerializeField]
+    private BlockerSensor forwardBlockSensor = null;
+    [SerializeField]
+    private BlockerSensor backwardBlockSensor = null;
+
     public LayerMask spotShadowIgnoreLayer;
 
     // Health management
@@ -66,25 +77,8 @@ public class RatController3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Handles ground Velocity
-        Vector3 moveVector = Input.GetAxis("Horizontal") * Vector3.right;
-        moveVector += Input.GetAxis("Vertical") * Vector3.forward;
-        if (moveVector != Vector3.zero) {
-            groundForward = moveVector;
-        }
         
-        if (moveVector != Vector3.zero) {
-            moveVector.Normalize();
-
-            moveVector *= (landSpeed * Time.deltaTime);
-            if (!onGround) {
-                moveVector *= airControl;
-            }
-        }
-
-        transform.Translate(moveVector);
-        manageSpotShadow();
-        
+        handleGroundMovement();
 
         // Handle jump
         float heightVelocity = rigidBody.velocity.y;
@@ -98,6 +92,41 @@ public class RatController3D : MonoBehaviour
         // Handling interactable
         handleInteractable();
     }
+
+    /* Main method to handle ground movement */
+    private void handleGroundMovement() {
+        // Calculate the exact axis values based on blockers
+        float horizontalAxis = Input.GetAxis("Horizontal");
+        horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
+        horizontalAxis = (rightBlockSensor.isBlocked() && horizontalAxis > 0f) ? 0f : horizontalAxis;
+
+        float verticalAxis = Input.GetAxis("Vertical");
+        verticalAxis = (backwardBlockSensor.isBlocked() && verticalAxis < 0f) ? 0f : verticalAxis;
+        verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
+
+        // Calculate the actual move vector
+        Vector3 moveVector = horizontalAxis * Vector3.right;
+        moveVector += verticalAxis * Vector3.forward;
+        if (moveVector != Vector3.zero) {
+            groundForward = moveVector;
+        }
+        
+        // Add conditional effects to move vector
+        if (moveVector != Vector3.zero) {
+            moveVector.Normalize();
+            float currentSpeed = (grabbedInteractable != null) ? carryingSpeed : landSpeed;
+
+            moveVector *= (currentSpeed * Time.deltaTime);
+            if (!onGround) {
+                moveVector *= airControl;
+            }
+        }
+
+        // Do translation and manage spot shadow
+        transform.Translate(moveVector);
+        manageSpotShadow();
+    }
+
 
     /* Main method to manage spot shadow */
     private void manageSpotShadow() {
