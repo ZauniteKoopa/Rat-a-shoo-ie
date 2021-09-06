@@ -13,6 +13,9 @@ public class RatController3D : MonoBehaviour
     private float airControl = 0.75f;
     [SerializeField]
     private float landJumpVelocity = 18f;
+    [SerializeField]
+    private Transform spotShadow = null;
+    public LayerMask spotShadowIgnoreLayer;
 
     // Health management
     [Header("Health Management")]
@@ -80,6 +83,7 @@ public class RatController3D : MonoBehaviour
         }
 
         transform.Translate(moveVector);
+        manageSpotShadow();
         
 
         // Handle jump
@@ -93,6 +97,15 @@ public class RatController3D : MonoBehaviour
 
         // Handling interactable
         handleInteractable();
+    }
+
+    /* Main method to manage spot shadow */
+    private void manageSpotShadow() {
+        RaycastHit hit; 
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, ~spotShadowIgnoreLayer)) {
+            spotShadow.position = hit.point;
+        }
     }
 
     /* Method to handle interactable */
