@@ -44,6 +44,8 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private Color attackColor = Color.red;
 
+    private ChefAudioManager audioManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,7 @@ public class Chef : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         normalColor = meshRenderer.material.color;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        audioManager = GetComponent<ChefAudioManager>();
 
         StartCoroutine(mainIntelligenceLoop());
     }
@@ -89,6 +92,11 @@ public class Chef : MonoBehaviour
             yield return waitFrame;
             flatCurrentPosition = new Vector3(transform.position.x, 0, transform.position.z);
         }
+
+        // Do alert if spotted rat
+        if (chefSensing.currentTarget != null) {
+            yield return spotRat();
+        }
     }
 
     // Main IEnumerator to do passive action (Probably stirring soup or something, but for now, just standing)
@@ -100,6 +108,11 @@ public class Chef : MonoBehaviour
         while (timer < 3f && chefSensing.currentTarget == null) {
             yield return waitFrame;
             timer += Time.deltaTime;
+        }
+
+        // Do alert if spotted rat
+        if (chefSensing.currentTarget != null) {
+            yield return spotRat();
         }
     }
 
@@ -162,6 +175,20 @@ public class Chef : MonoBehaviour
             confusionTimer += Time.deltaTime;
         }
 
+        navMeshAgent.enabled = true;
+    }
+
+    // Main sequence when chef has spot rat
+    private IEnumerator spotRat() {
+        navMeshAgent.enabled = false;
+
+        // Face target
+        Transform lockedTarget = chefSensing.currentTarget;
+        Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
+        Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.forward = (flattenTarget - flattenPosition).normalized;
+
+        yield return new WaitForSeconds(0.3f);
         navMeshAgent.enabled = true;
     }
 }

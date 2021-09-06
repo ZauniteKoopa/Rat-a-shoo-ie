@@ -60,6 +60,7 @@ public class RatController3D : MonoBehaviour
     // Reference variables
     private Rigidbody rigidBody;
     private MeshRenderer meshRenderer;
+    private RatAudioManager audioManager = null;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,7 @@ public class RatController3D : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
+        audioManager = GetComponent<RatAudioManager>();
 
         normalColor = meshRenderer.material.color;
     }
@@ -188,6 +190,7 @@ public class RatController3D : MonoBehaviour
     public void takeDamage() {
         if (!invincible) {
             curHealth--;
+            audioManager.emitDamageSound();
             playerHealthLossEvent.Invoke();
 
             if (curHealth <= 0) {
