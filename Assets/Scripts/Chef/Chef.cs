@@ -35,6 +35,8 @@ public class Chef : MonoBehaviour
     private float anticipationTime = 0.65f;
     [SerializeField]
     private float attackingTime = 0.3f;
+    private bool aggressive = false;
+    private Vector3 lastSeenTarget = Vector3.zero;
 
     // Testing variables
     private Color normalColor;
@@ -62,7 +64,7 @@ public class Chef : MonoBehaviour
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         while (true) {
-            if (chefSensing.currentTarget == null) {
+            if (!aggressive) {
                 yield return moveToNextWaypoint();
                 yield return doPassiveAction();
             }
@@ -119,7 +121,7 @@ public class Chef : MonoBehaviour
     // Main IEnumerator to do aggressive action
     private IEnumerator doAggressiveAction() {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        navMeshAgent.destination = chefSensing.currentTarget.position;
+        navMeshAgent.destination = lastSeenTarget;
         navMeshAgent.speed = chaseMovementSpeed;
 
         // Make sure the path has been fully processed before running
@@ -127,48 +129,52 @@ public class Chef : MonoBehaviour
             yield return waitFrame;
         }
 
-        // Chase the player
-        while (chefSensing.currentTarget != null && navMeshAgent.remainingDistance > attackingRange) {
-            navMeshAgent.destination = chefSensing.currentTarget.position;
-            yield return waitFrame;
-        }
-
-        // Another loop, go to last known destination for rat
+        // Chase the player: if player out of sight, go to the last position chef saw the player
         while (navMeshAgent.remainingDistance > attackingRange) {
+            if (chefSensing.currentTarget != null) {
+                navMeshAgent.destination = chefSensing.currentTarget.position;
+            }
+
             yield return waitFrame;
         }
 
         // Attack the player if in range, once in this mode, locked in this mode
         if (chefSensing.currentTarget != null && navMeshAgent.remainingDistance <= attackingRange) {
-            navMeshAgent.enabled = false;
-            Transform lockedTarget = chefSensing.currentTarget;
-
-            // Face target
-            Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
-            Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
-            transform.forward = (flattenTarget - flattenPosition).normalized;
-
-            meshRenderer.material.color = anticipationColor;
-            yield return new WaitForSeconds(anticipationTime);
-
-            // Activate hit box and attack
-            audioManager.playChefAttack();
-            chefHitbox.SetActive(true);
-            meshRenderer.material.color = attackColor;
-
-            yield return new WaitForSeconds(attackingTime);
-
-            // Disable attack and go back to normal
-            chefHitbox.SetActive(false);
-            meshRenderer.material.color = normalColor;
-            navMeshAgent.enabled = true;
+            yield return attackRat();
         }
 
         // If AI can't see user anymore, act confused
         if (chefSensing.currentTarget == null) {
             audioManager.playChefLost();
+            aggressive = false;
             yield return actConfused();
         }
+    }
+
+    // Main IEnumerator to attackRat
+    private IEnumerator attackRat() {
+        navMeshAgent.enabled = false;
+        Transform lockedTarget = chefSensing.currentTarget;
+
+        // Face target
+        Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
+        Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.forward = (flattenTarget - flattenPosition).normalized;
+
+        meshRenderer.material.color = anticipationColor;
+        yield return new WaitForSeconds(anticipationTime);
+
+        // Activate hit box and attack
+        audioManager.playChefAttack();
+        chefHitbox.SetActive(true);
+        meshRenderer.material.color = attackColor;
+
+        yield return new WaitForSeconds(attackingTime);
+
+        // Disable attack and go back to normal
+        chefHitbox.SetActive(false);
+        meshRenderer.material.color = normalColor;
+        navMeshAgent.enabled = true;
     }
 
     // Main IEnumerator sequence to act confused until either the confusion timer runs out or chef sees the player again
@@ -188,9 +194,11 @@ public class Chef : MonoBehaviour
     // Main sequence when chef has spot rat
     private IEnumerator spotRat() {
         navMeshAgent.enabled = false;
+        aggressive = true;
 
         // Face target
         Transform lockedTarget = chefSensing.currentTarget;
+        lastSeenTarget = lockedTarget.position;
         Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
         transform.forward = (flattenTarget - flattenPosition).normalized;

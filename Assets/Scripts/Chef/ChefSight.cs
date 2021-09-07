@@ -20,13 +20,15 @@ public class ChefSight : MonoBehaviour
             float distanceToTarget = Vector3.Distance(inRangePlayer.position, chefEye.position);
 
             if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask)) {
+                Debug.Log("I can see");
                 currentTarget = inRangePlayer;
             } else {
+                Debug.Log("I can't see");
                 currentTarget = null;
             }
         }
         // Assumes that the only possible current target is player
-        else if (inRangePlayer == null && currentTarget != null)
+        else if (currentTarget != null)
         {
             Vector3 directionToTarget = (currentTarget.position - chefEye.position).normalized;
             float distanceToTarget = Vector3.Distance(currentTarget.position, chefEye.position);
