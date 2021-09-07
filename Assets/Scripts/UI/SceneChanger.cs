@@ -7,6 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     // Method to change the scene, given the scene name
     public void ChangeScene(string sceneName) {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(sceneName);
     }
 

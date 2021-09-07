@@ -29,6 +29,8 @@ public class ToDoList : MonoBehaviour
     private Image indicator = null;
     [SerializeField]
     private TMP_Text healthUI = null;
+    [SerializeField]
+    private GameObject pauseMenu = null;
     private const float DELTA_TIME = 0.04f;
 
     // Task management
@@ -37,6 +39,9 @@ public class ToDoList : MonoBehaviour
 
     // Health management
     private int curHealth = 0;
+
+    // Pause management
+    private bool paused = false;
 
     //Reference variables
     private UIAudioManager audioManager = null;
@@ -69,6 +74,8 @@ public class ToDoList : MonoBehaviour
         if (Input.GetButtonDown("Fire3")) {
             audioManager.playUISounds(0);
             StartCoroutine(lookAtList());
+        } else if (Input.GetButtonDown("Cancel")) {
+            StartCoroutine(pauseMenuSequence());
         }
     }
 
@@ -108,6 +115,34 @@ public class ToDoList : MonoBehaviour
 
         listImage.rectTransform.anchoredPosition3D = sourcePosition;
     }
+
+    // Method to open up the pause menu
+    private IEnumerator pauseMenuSequence() {
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(DELTA_TIME);
+        Time.timeScale = 0.0f;
+        pauseMenu.SetActive(true);
+        paused = true;
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        while (paused) {
+            yield return wait;
+
+            if (Input.GetButtonDown("Cancel")) {
+                paused = false;
+            }
+        }
+
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
+    }
+
+    // Public method to unpause the game is paused: meant to be used by buttons
+    public void unpauseGame() {
+        if (paused) {
+            paused = false;
+        }
+    }
+
 
     // Event handler for when a task is done
     private void onTaskDone(TaskType taskType) {
