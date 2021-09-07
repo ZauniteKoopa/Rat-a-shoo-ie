@@ -133,6 +133,11 @@ public class Chef : MonoBehaviour
             yield return waitFrame;
         }
 
+        // Another loop, go to last known destination for rat
+        while (navMeshAgent.remainingDistance > attackingRange) {
+            yield return waitFrame;
+        }
+
         // Attack the player if in range, once in this mode, locked in this mode
         if (chefSensing.currentTarget != null && navMeshAgent.remainingDistance <= attackingRange) {
             navMeshAgent.enabled = false;
