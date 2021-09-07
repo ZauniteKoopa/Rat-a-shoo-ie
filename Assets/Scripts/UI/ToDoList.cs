@@ -38,10 +38,14 @@ public class ToDoList : MonoBehaviour
     // Health management
     private int curHealth = 0;
 
+    //Reference variables
+    private UIAudioManager audioManager = null;
+
 
     // On start, initialize the list
     private void Start() {
         initializeList();
+        audioManager = GetComponent<UIAudioManager>();
     }
 
     // Main method to initialize list: set all tasks to unfinished (colored red) and give their associated text
@@ -63,6 +67,7 @@ public class ToDoList : MonoBehaviour
     // Main method to checks if someone wants to look at the list
     void Update() {
         if (Input.GetButtonDown("Fire3")) {
+            audioManager.playUISounds(0);
             StartCoroutine(lookAtList());
         }
     }
@@ -78,6 +83,7 @@ public class ToDoList : MonoBehaviour
 
         // Bringing the list up
         while (timer < transitionTime) {
+            //audioManager.playUISounds(0);
             yield return wait;
             timer += DELTA_TIME;
             listImage.rectTransform.anchoredPosition3D = Vector3.Lerp(sourcePosition, targetPosition, timer / transitionTime);
