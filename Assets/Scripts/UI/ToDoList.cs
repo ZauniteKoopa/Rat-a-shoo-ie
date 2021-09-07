@@ -31,6 +31,9 @@ public class ToDoList : MonoBehaviour
     private TMP_Text healthUI = null;
     [SerializeField]
     private GameObject pauseMenu = null;
+    [SerializeField]
+    private TMP_Text warningUI = null;
+    private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
     // Task management
@@ -136,6 +139,18 @@ public class ToDoList : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
+    // Sequence to display warning
+    private IEnumerator warningSequence(string warning) {
+        warningActive = true;
+        warningUI.text = warning;
+        warningUI.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        warningUI.gameObject.SetActive(false);
+        warningActive = false;
+    }
+
     // Public method to unpause the game is paused: meant to be used by buttons
     public void unpauseGame() {
         if (paused) {
@@ -181,9 +196,11 @@ public class ToDoList : MonoBehaviour
     // Method when player tries to escape
     public void onPlayerEscape() {
         if (canEscape) {
-            Debug.Log("YOU WIN");
+            GetComponent<SceneChanger>().ChangeScene("MainMenu");
         } else {
-            Debug.Log("You still haven't finished tasks yet");
+            if (!warningActive) {
+                StartCoroutine(warningSequence("You still haven't finished tasks yet"));
+            }
         }
     }
 
@@ -197,5 +214,9 @@ public class ToDoList : MonoBehaviour
     public void onPlayerHealthLoss() {
         curHealth--;
         healthUI.text = "Health: " + curHealth;
+
+        if (curHealth <= 0) {
+            GetComponent<SceneChanger>().ChangeScene("MainMenu");
+        }
     }
 }
