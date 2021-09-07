@@ -157,7 +157,7 @@ public class RatController3D : MonoBehaviour
         else if (grabbedInteractable != null) {
             if (Input.GetButtonDown("Fire2")) {
                 audioManager.emitDropSound();
-                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 grabbedInteractable.localPosition = groundForward + grabbableHook;
                 grabbedInteractable.parent = null;
 

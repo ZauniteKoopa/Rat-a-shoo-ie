@@ -1677,17 +1677,17 @@ PrefabInstance:
     - target: {fileID: 847688713126582264, guid: b848c93aa844685f38a6bdb017a0fac4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.15
+      value: 8.98
       objectReference: {fileID: 0}
     - target: {fileID: 847688713126582264, guid: b848c93aa844685f38a6bdb017a0fac4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.27
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 847688713126582264, guid: b848c93aa844685f38a6bdb017a0fac4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.91
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 847688713126582264, guid: b848c93aa844685f38a6bdb017a0fac4,
         type: 3}
@@ -2014,6 +2014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cheese
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299455592705188470, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
