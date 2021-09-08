@@ -127,10 +127,16 @@ public class ToDoList : MonoBehaviour
         paused = true;
         yield return new WaitForSecondsRealtime(0.1f);
 
+        // Don't cancel on the same escape button press that paused the menu on the same frame
+        while (paused && Input.GetButton("Cancel")) {
+            yield return wait;
+        }
+
+        // Main pause menu loop that considers user input
         while (paused) {
             yield return wait;
 
-            if (Input.GetButtonDown("Cancel")) {
+            if (Input.GetButton("Cancel")) {
                 paused = false;
             }
         }
