@@ -65,11 +65,16 @@ public class Chef : MonoBehaviour
         StartCoroutine(mainIntelligenceLoop());
     }
 
+    private void Update()
+    {
+        animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
+
+    }
+
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         while (true) {
             animator.SetBool("aggro", aggressive);
-            animator.SetFloat("movementspeed", navMeshAgent.speed);
 
             if (!aggressive) {
                 yield return moveToNextWaypoint();
