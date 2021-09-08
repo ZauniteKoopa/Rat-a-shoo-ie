@@ -127,10 +127,14 @@ public class ToDoList : MonoBehaviour
         paused = true;
         yield return new WaitForSecondsRealtime(0.1f);
 
+        while (paused && Input.GetButton("Cancel")) {
+            yield return wait;
+        }
+
         while (paused) {
             yield return wait;
 
-            if (Input.GetButtonDown("Cancel")) {
+            if (Input.GetButton("Cancel")) {
                 paused = false;
             }
         }
