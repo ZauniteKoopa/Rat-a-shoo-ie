@@ -149,11 +149,11 @@ public class ToDoList : MonoBehaviour
     private IEnumerator warningSequence(string warning) {
         warningActive = true;
         warningUI.text = warning;
-        warningUI.gameObject.SetActive(true);
+        warningUI.transform.parent.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(2f);
 
-        warningUI.gameObject.SetActive(false);
+        warningUI.transform.parent.gameObject.SetActive(false);
         warningActive = false;
     }
 
