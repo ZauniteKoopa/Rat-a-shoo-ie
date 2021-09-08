@@ -5,6 +5,11 @@ using UnityEngine.Events;
 
 public class RatController3D : MonoBehaviour
 {
+
+    [Header("Animation")]
+    [SerializeField]
+    private Animator animator = null;
+
     // Serialized movement variables
     [Header("Movement variables")]
     [SerializeField]
@@ -113,7 +118,10 @@ public class RatController3D : MonoBehaviour
         }
 
         moveVector.Normalize();
-        
+
+        // for animation
+        animator.SetFloat("movementspeed", moveVector.magnitude);
+
         // Add conditional effects to move vector
         if (moveVector != Vector3.zero) {
             moveVector.Normalize();
@@ -147,6 +155,9 @@ public class RatController3D : MonoBehaviour
             if (Input.GetButtonDown("Fire2")) {
                 grabbedInteractable = targetInteractable;
 
+                // for animation TODO
+                //animator.SetBool("interacting", true);
+
                 audioManager.emitPickupSound();
                 // Disable physics and place transform in hook
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -156,6 +167,10 @@ public class RatController3D : MonoBehaviour
         }
         else if (grabbedInteractable != null) {
             if (Input.GetButtonDown("Fire2")) {
+
+                //for animation TODO
+                //animator.SetBool("interacting", true);
+
                 audioManager.emitDropSound();
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 grabbedInteractable.localPosition = groundForward + grabbableHook;

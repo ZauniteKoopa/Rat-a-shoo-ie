@@ -38,6 +38,10 @@ public class Chef : MonoBehaviour
     private bool aggressive = false;
     private Vector3 lastSeenTarget = Vector3.zero;
 
+    [Header("Animation")]
+    [SerializeField]
+    private Animator animator = null;
+
     // Testing variables
     private Color normalColor;
     [Header("Testing colors")]
@@ -64,6 +68,9 @@ public class Chef : MonoBehaviour
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         while (true) {
+            animator.SetBool("aggro", aggressive);
+            animator.SetFloat("movementspeed", navMeshAgent.speed);
+
             if (!aggressive) {
                 yield return moveToNextWaypoint();
                 yield return doPassiveAction();
