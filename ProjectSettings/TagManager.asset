@@ -17,8 +17,8 @@ TagManager:
   - 
   - ObstructView
   - Player
-  - 
-  - 
+  - Enemies
+  - EnemyPathing
   - 
   - 
   - 
