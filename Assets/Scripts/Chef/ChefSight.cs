@@ -18,8 +18,9 @@ public class ChefSight : MonoBehaviour
         if (inRangePlayer != null) {
             Vector3 directionToTarget = (inRangePlayer.position - chefEye.position).normalized;
             float distanceToTarget = Vector3.Distance(inRangePlayer.position, chefEye.position);
+            Debug.DrawRay(chefEye.position, directionToTarget * distanceToTarget, Color.red);
 
-            if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask)) {
+            if (!Physics.Raycast(chefEye.position, directionToTarget, distanceToTarget, obstructionMask)) {
                 currentTarget = inRangePlayer;
             } else {
                 currentTarget = null;
@@ -31,7 +32,7 @@ public class ChefSight : MonoBehaviour
             Vector3 directionToTarget = (currentTarget.position - chefEye.position).normalized;
             float distanceToTarget = Vector3.Distance(currentTarget.position, chefEye.position);
 
-            if (Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask)) {
+            if (Physics.Raycast(chefEye.position, directionToTarget, distanceToTarget, obstructionMask)) {
                 currentTarget = null;
             }
         }
