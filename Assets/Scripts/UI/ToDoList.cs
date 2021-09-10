@@ -123,6 +123,7 @@ public class ToDoList : MonoBehaviour
     private IEnumerator pauseMenuSequence() {
         WaitForSecondsRealtime wait = new WaitForSecondsRealtime(DELTA_TIME);
         Time.timeScale = 0.0f;
+        audioManager.playUISounds(3);
         pauseMenu.SetActive(true);
         paused = true;
         yield return new WaitForSecondsRealtime(0.1f);
@@ -142,6 +143,7 @@ public class ToDoList : MonoBehaviour
         }
 
         Time.timeScale = 1.0f;
+        audioManager.playUISounds(4);
         pauseMenu.SetActive(false);
     }
 
