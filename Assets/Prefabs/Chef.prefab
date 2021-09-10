@@ -657,11 +657,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alertSounds:
-  - {fileID: 8300000, guid: d78b1530f050aa115977ea2cf6223b92, type: 3}
-  - {fileID: 8300000, guid: 475efa7a3fe0c66e4bbdbc7583b2bd7e, type: 3}
+  - {fileID: 8300000, guid: a71afa9d489264641a69a15cd20b99a8, type: 3}
+  - {fileID: 8300000, guid: f34abc961ecaeca4fb6298de7e879a07, type: 3}
   attackSounds:
-  - {fileID: 8300000, guid: 108eb935b40e6f042a49ab7babfaf90a, type: 3}
-  - {fileID: 8300000, guid: 88df5f29d36e20d48aad8565e3cf196a, type: 3}
+  - {fileID: 8300000, guid: 5c45126e035cac8489697a55e2d5530c, type: 3}
+  - {fileID: 8300000, guid: e0c27b76d64033242b77d42ff6c67614, type: 3}
   lostSounds:
-  - {fileID: 8300000, guid: d17a8a9087f2da441925b27b0623f95d, type: 3}
-  - {fileID: 8300000, guid: edbda631a74a4b644992d3f52d8d3a53, type: 3}
+  - {fileID: 8300000, guid: 83acedf23605b4f4ea4abcf3fb5c9bd6, type: 3}
+  - {fileID: 8300000, guid: 8f9fad4fb5d15b6469d5da83efcfa079, type: 3}

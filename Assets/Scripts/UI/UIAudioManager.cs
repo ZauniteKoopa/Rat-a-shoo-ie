@@ -18,6 +18,14 @@ public class UIAudioManager : MonoBehaviour
     public void playUISounds(int sound)
     {
         AudioClip curClip = UISounds[sound];
+        if (sound == 0)
+        {
+            speaker.volume = 0.5f;
+        }
+        else
+        {
+            speaker.volume = 1f;
+        }
 
         speaker.clip = curClip;
         speaker.Play();
