@@ -226,6 +226,19 @@ public class Chef : MonoBehaviour
         audioManager.playChefAlert();
     }
 
+    // Main Sequence when chef is trying to solve an issue, as seen in highestPriorityIssue
+    private IEnumerator solveIssue() {
+        // Get list of solutions from the issueObject
+
+        // For each solution in the issueObject
+        //      go to nearest solution location (interruptable)
+        //          if nearest solution is not there, go to next one (assume that there is always one that is reachable)
+        //      go to issue location    (interruptable)
+        //      interact (duration in the solution)
+
+        yield return 0;
+    }
+
     
     // Main event handler method when an issue object has been spotted by the sensor
     public void onIssueSpotted(IssueObject newIssue) {

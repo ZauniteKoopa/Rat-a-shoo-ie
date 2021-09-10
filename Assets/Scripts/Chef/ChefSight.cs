@@ -19,6 +19,7 @@ public class ChefSight : MonoBehaviour
 
     // Variables concerning IssueObjects that are in range
     private HashSet<IssueObject> inRangeIssues = null;
+
     public IntelligenceIssueDelegate issueEnterEvent;
 
     // On awake, initialize inRangeIssue objects
@@ -64,7 +65,6 @@ public class ChefSight : MonoBehaviour
 
         // If an issue went in range, record the issue and alert the parent chef AI that an issue has surfaced
         if (issue != null) {
-            Debug.Log("Issue entered");
             inRangeIssues.Add(issue);
             issueEnterEvent.Invoke(issue);
         }
