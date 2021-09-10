@@ -11,7 +11,7 @@ public class Chef : MonoBehaviour
     private MeshRenderer meshRenderer;
     private int waypointIndex = 0;
 
-    // Serialized variables
+    // Serialized variables for navigation and speed
     [Header("Navigation")]
     [SerializeField]
     private List<Transform> waypoints = null;
@@ -22,6 +22,7 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private float confusionDuration = 0.75f;
 
+    // Serialized variables for attacking and chasing the rat
     [Header("Aggression")]
     [SerializeField]
     private GameObject chefHitbox = null;
@@ -38,6 +39,10 @@ public class Chef : MonoBehaviour
     private bool aggressive = false;
     private Vector3 lastSeenTarget = Vector3.zero;
 
+    // Variables for issue management
+    private IssueObject highestPriorityIssue = null;
+
+    // Variables for animation
     [Header("Animation")]
     [SerializeField]
     private Animator animator = null;
@@ -50,6 +55,7 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private Color attackColor = Color.red;
 
+    // Audio variables
     private ChefAudioManager audioManager;
 
 
@@ -62,13 +68,13 @@ public class Chef : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         audioManager = GetComponent<ChefAudioManager>();
 
+        chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         StartCoroutine(mainIntelligenceLoop());
     }
 
     private void Update()
     {
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
-
     }
 
     // Main intelligence loop
@@ -102,13 +108,13 @@ public class Chef : MonoBehaviour
         Vector3 flatCurrentPosition = new Vector3(transform.position.x, 0, transform.position.z);
 
         // Main wait loop until agent gets to destination point
-        while (Vector3.Distance(flatTargetPosition, flatCurrentPosition) > navDistance && chefSensing.currentTarget == null) {
+        while (Vector3.Distance(flatTargetPosition, flatCurrentPosition) > navDistance && chefSensing.currentRatTarget == null) {
             yield return waitFrame;
             flatCurrentPosition = new Vector3(transform.position.x, 0, transform.position.z);
         }
 
         // Do alert if spotted rat
-        if (chefSensing.currentTarget != null) {
+        if (chefSensing.currentRatTarget != null) {
             yield return spotRat();
         }
     }
@@ -119,13 +125,13 @@ public class Chef : MonoBehaviour
         float timer = 0f;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
         
-        while (timer < 3f && chefSensing.currentTarget == null) {
+        while (timer < 3f && chefSensing.currentRatTarget == null) {
             yield return waitFrame;
             timer += Time.deltaTime;
         }
 
         // Do alert if spotted rat
-        if (chefSensing.currentTarget != null) {
+        if (chefSensing.currentRatTarget != null) {
             yield return spotRat();
         }
     }
@@ -143,20 +149,20 @@ public class Chef : MonoBehaviour
 
         // Chase the player: if player out of sight, go to the last position chef saw the player
         while (navMeshAgent.remainingDistance > attackingRange) {
-            if (chefSensing.currentTarget != null) {
-                navMeshAgent.destination = chefSensing.currentTarget.position;
+            if (chefSensing.currentRatTarget != null) {
+                navMeshAgent.destination = chefSensing.currentRatTarget.position;
             }
 
             yield return waitFrame;
         }
 
         // Attack the player if in range, once in this mode, locked in this mode
-        if (chefSensing.currentTarget != null && navMeshAgent.remainingDistance <= attackingRange) {
+        if (chefSensing.currentRatTarget != null && navMeshAgent.remainingDistance <= attackingRange) {
             yield return attackRat();
         }
 
         // If AI can't see user anymore, act confused
-        if (chefSensing.currentTarget == null) {
+        if (chefSensing.currentRatTarget == null) {
             audioManager.playChefLost();
             aggressive = false;
             yield return actConfused();
@@ -166,7 +172,7 @@ public class Chef : MonoBehaviour
     // Main IEnumerator to attackRat
     private IEnumerator attackRat() {
         navMeshAgent.enabled = false;
-        Transform lockedTarget = chefSensing.currentTarget;
+        Transform lockedTarget = chefSensing.currentRatTarget;
 
         // Face target
         Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
@@ -195,7 +201,7 @@ public class Chef : MonoBehaviour
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
         navMeshAgent.enabled = false;
 
-        while (confusionTimer < confusionDuration && chefSensing.currentTarget == null) {
+        while (confusionTimer < confusionDuration && chefSensing.currentRatTarget == null) {
             yield return waitFrame;
             confusionTimer += Time.deltaTime;
         }
@@ -209,7 +215,7 @@ public class Chef : MonoBehaviour
         aggressive = true;
 
         // Face target
-        Transform lockedTarget = chefSensing.currentTarget;
+        Transform lockedTarget = chefSensing.currentRatTarget;
         lastSeenTarget = lockedTarget.position;
         Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
@@ -219,4 +225,15 @@ public class Chef : MonoBehaviour
         navMeshAgent.enabled = true;
         audioManager.playChefAlert();
     }
+
+    
+    // Main event handler method when an issue object has been spotted by the sensor
+    public void onIssueSpotted(IssueObject newIssue) {
+        if (newIssue.getPriority() > highestPriorityIssue.getPriority()) {
+
+            highestPriorityIssue = newIssue;
+            // Do something to interrupt the current coroutine associated solving this solution
+        }
+    } 
+
 }
