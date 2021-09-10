@@ -229,9 +229,10 @@ public class Chef : MonoBehaviour
     
     // Main event handler method when an issue object has been spotted by the sensor
     public void onIssueSpotted(IssueObject newIssue) {
-        if (newIssue.getPriority() > highestPriorityIssue.getPriority()) {
+        if (highestPriorityIssue == null || newIssue.getPriority() > highestPriorityIssue.getPriority()) {
 
             highestPriorityIssue = newIssue;
+            Debug.Log("New high priority issue in mind: " +  newIssue);
             // Do something to interrupt the current coroutine associated solving this solution
         }
     } 
