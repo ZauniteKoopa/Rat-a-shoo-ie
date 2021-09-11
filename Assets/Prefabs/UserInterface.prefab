@@ -1505,7 +1505,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1602,7 +1602,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UISounds:
-  - {fileID: 8300000, guid: d0243af4c942eb14c8f657c9be53cd1e, type: 3}
+  - {fileID: 8300000, guid: 7bfa5cc51131d894ba3dfc7c6940055a, type: 3}
+  - {fileID: 8300000, guid: ac4e82cff660af74089a81c023c5c13a, type: 3}
+  - {fileID: 8300000, guid: b9eb496a27495e44ab3274c4769759e9, type: 3}
+  - {fileID: 8300000, guid: 85ec7134c3680f445b03f550e8fdbd9a, type: 3}
+  - {fileID: 8300000, guid: b7df25d8c4f0223479a8420d61333b04, type: 3}
 --- !u!114 &1093684107
 MonoBehaviour:
   m_ObjectHideFlags: 0
