@@ -18,6 +18,8 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private ChefSight chefSensing = null;
     [SerializeField]
+    private ChefSolutionSensor solutionSensor = null;
+    [SerializeField]
     private float passiveMovementSpeed = 3.5f;
     [SerializeField]
     private float confusionDuration = 0.75f;
@@ -40,7 +42,16 @@ public class Chef : MonoBehaviour
     private Vector3 lastSeenTarget = Vector3.zero;
 
     // Variables for issue management
+    [Header("IssueHandling")]
+    [SerializeField]
+    private LevelInfo levelInfo = null;
     private IssueObject highestPriorityIssue = null;
+
+    // Variables for getting solutions
+    private bool sensingSolutions = false;
+    private SolutionObject targetedSolution = null;
+    private SolutionType targetedSolutionType = SolutionType.FIRE_EXTINGUISHER;
+    private Vector3 targetedSolutionPosition = Vector3.zero;
 
     // Variables for animation
     [Header("Animation")]
@@ -69,6 +80,7 @@ public class Chef : MonoBehaviour
         audioManager = GetComponent<ChefAudioManager>();
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
+        solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
         StartCoroutine(mainIntelligenceLoop());
     }
 
@@ -82,7 +94,11 @@ public class Chef : MonoBehaviour
         while (true) {
             animator.SetBool("aggro", aggressive);
 
-            if (!aggressive) {
+            if (highestPriorityIssue != null) {
+                yield return solveIssue();
+            }
+            else if (!aggressive)
+            {
                 yield return moveToNextWaypoint();
                 yield return doPassiveAction();
             }
@@ -121,11 +137,11 @@ public class Chef : MonoBehaviour
 
     // Main IEnumerator to do passive action (Probably stirring soup or something, but for now, just standing)
     private IEnumerator doPassiveAction() {
-
+        //Debug.Log("wait on patrol point");
         float timer = 0f;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
         
-        while (timer < 3f && chefSensing.currentRatTarget == null) {
+        while (timer < 1f && chefSensing.currentRatTarget == null) {
             yield return waitFrame;
             timer += Time.deltaTime;
         }
@@ -227,16 +243,86 @@ public class Chef : MonoBehaviour
     }
 
     // Main Sequence when chef is trying to solve an issue, as seen in highestPriorityIssue
+    //  Pre: highestPriorityIssue != null
     private IEnumerator solveIssue() {
-        // Get list of solutions from the issueObject
+        Debug.Assert(highestPriorityIssue != null);
+        navMeshAgent.enabled = false;
+        yield return new WaitForSeconds(1.0f);
+        navMeshAgent.enabled = true;
+
+        for (int i = 0; i < highestPriorityIssue.getTotalSequenceSteps(); i++) {
+            SolutionType currentStep = highestPriorityIssue.getNthStep(i);
+
+            yield return goToSolutionObject(currentStep);
+            yield return goToPosition(highestPriorityIssue.transform.position);
+
+            navMeshAgent.enabled = false;
+            yield return new WaitForSeconds(targetedSolution.getDuration());
+            navMeshAgent.enabled = true;
+
+            if (i == highestPriorityIssue.getTotalSequenceSteps() - 1) {
+                Object.Destroy(highestPriorityIssue.gameObject);
+            }
+
+            yield return goToPosition(targetedSolutionPosition);
+
+            targetedSolution.gameObject.SetActive(true);
+            targetedSolution = null;
+        }
+
+        // Once issue has been fully solved, destroy object and get the next highest priority issue sensed (if there is any)
+        highestPriorityIssue = chefSensing.getHighestPriorityIssue();
+        Debug.Log("I solved an issue");
 
         // For each solution in the issueObject
         //      go to nearest solution location (interruptable)
         //          if nearest solution is not there, go to next one (assume that there is always one that is reachable)
         //      go to issue location    (interruptable)
         //      interact (duration in the solution)
+    }
 
-        yield return 0;
+    // Main sequence for going to a targeted solution object
+    private IEnumerator goToSolutionObject(SolutionType solutionType) {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        List<Vector3> initialSolutionPositions = levelInfo.getPositions(solutionType);
+        Vector3 closestPoint = initialSolutionPositions[0]; //TO BE CHANGED
+        targetedSolutionPosition = closestPoint;
+
+        navMeshAgent.destination = closestPoint;
+        navMeshAgent.speed = chaseMovementSpeed;
+        sensingSolutions = true;
+
+        // Make sure the path has been fully processed before running
+        while (navMeshAgent.pathPending) {
+            yield return waitFrame;
+        }
+
+        // Keep going until targetedSolution != null    ASSUMPTION: TARGET-SOLUTION POSITIONS ARE STATIC
+        while (targetedSolution == null) {
+            yield return waitFrame;
+        }
+
+        sensingSolutions = false;
+        targetedSolution.gameObject.SetActive(false); // another assumption to changed
+    }
+
+
+    // Main sequence to go to issue location (hazards will not change in location)
+    private IEnumerator goToPosition(Vector3 position) {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        yield return waitFrame;
+        navMeshAgent.destination = position;
+
+        // Make sure the path has been fully processed before running
+        while (navMeshAgent.pathPending) {
+            yield return waitFrame;
+        }
+
+        // Go towards the highest priority issue
+        while(navMeshAgent.remainingDistance > 1.0f) {
+            yield return waitFrame;
+        }
+
     }
 
     
@@ -246,8 +332,19 @@ public class Chef : MonoBehaviour
 
             highestPriorityIssue = newIssue;
             Debug.Log("New high priority issue in mind: " +  newIssue);
-            // Do something to interrupt the current coroutine associated solving this solution
+            StopAllCoroutines();
+            StartCoroutine(mainIntelligenceLoop());
         }
-    } 
+    }
+
+    // Main event handler method when a solution object is in range:
+    //  Only take not of what solutions sensed 
+    public void onSolutionSpotted(SolutionObject solutionObject) {
+        if (sensingSolutions) {
+            if (targetedSolutionType == solutionObject.solutionType && targetedSolution == null) {
+                targetedSolution = solutionObject;
+            }
+        }
+    }
 
 }

@@ -337,8 +337,9 @@ GameObject:
   - component: {fileID: 278661840}
   - component: {fileID: 278661839}
   - component: {fileID: 278661838}
-  m_Layer: 0
-  m_Name: Solution1
+  - component: {fileID: 278661842}
+  m_Layer: 12
+  m_Name: FireExtinguisherSolution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,12 +413,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278661837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71, y: 3.8, z: 4.38}
+  m_LocalPosition: {x: -13.32, y: 1.93, z: -9.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &278661842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278661837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &347400586
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,12 +557,12 @@ GameObject:
   - component: {fileID: 381708648}
   - component: {fileID: 381708647}
   m_Layer: 0
-  m_Name: Solution2
+  m_Name: TowelSolution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &381708647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &555603014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,28 +1226,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62968b18b3138b24da1f77257bf9ba0f, type: 3}
---- !u!1 &688823626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1632642251, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-    type: 3}
-  m_PrefabInstance: {fileID: 1854490734}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &688823632
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688823626}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1001 &704604367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1316,12 +1308,12 @@ GameObject:
   - component: {fileID: 805665435}
   - component: {fileID: 805665434}
   m_Layer: 0
-  m_Name: Solution3
+  m_Name: BroomSolution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &805665434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,7 +1668,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285409626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1788,7 +1780,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396140510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1963,7 +1955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618266212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.32, y: 4.94, z: 2.18}
+  m_LocalPosition: {x: 7.32, y: 3.94, z: 2.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2005,10 +1997,15 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1275943822}
+    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: levelInfo
+      value: 
+      objectReference: {fileID: 102729489}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.35
+      value: -24.52
       objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
@@ -2018,7 +2015,7 @@ PrefabInstance:
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.93
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
