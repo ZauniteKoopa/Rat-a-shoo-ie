@@ -12,10 +12,12 @@ public class ChefSolutionSensor : MonoBehaviour
 {
 
     public SolutionSensedDelegate solutionSensedEvent;
+    private HashSet<SolutionObject> inRangeSolutions;
 
     // On awake, create unity event
     private void Awake() {
         solutionSensedEvent = new SolutionSensedDelegate();
+        inRangeSolutions = new HashSet<SolutionObject>();
     }
 
     // If chef finds a solution object in range, try to grab that solution object
@@ -23,8 +25,29 @@ public class ChefSolutionSensor : MonoBehaviour
         SolutionObject possibleSolution = collider.GetComponent<SolutionObject>();
 
         if (possibleSolution != null) {
-            Debug.Log("I sensed a solution nearby");
+            inRangeSolutions.Add(possibleSolution);
             solutionSensedEvent.Invoke(possibleSolution);
         }
+    }
+
+    // If a solution object has left the trigger box,take it out of the inRangeSolutions
+    private void OnTriggerExit(Collider collider) {
+        SolutionObject possibleSolution = collider.GetComponent<SolutionObject>();
+
+        if (possibleSolution != null) {
+            inRangeSolutions.Remove(possibleSolution);
+        }
+    }
+
+    // Public method to check if there's a solution in range with the specified solution type
+    //  If no solution object of solutionType exists, return null
+    public SolutionObject getSolutionInRange(SolutionType solutionType) {
+        foreach(SolutionObject solution in inRangeSolutions) {
+            if (solution.solutionType == solutionType) {
+                return solution;
+            }
+        }
+
+        return null;
     }
 }

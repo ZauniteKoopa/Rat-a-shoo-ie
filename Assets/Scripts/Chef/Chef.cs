@@ -4,6 +4,27 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
 
+// Main comparer method for getting positions
+public class SolutionPosComparer : IComparer<Vector3> {
+    private Transform transform;
+
+    // main constructor
+    public SolutionPosComparer (Transform t) {
+        transform = t;
+    }
+
+    // Main compare method, value vector3 positions based on how close they are to current transform
+    //  If x < y, return something less than 0
+    //  If x == y, return 0
+    //  If x > y, return something more than 0
+    public int Compare(Vector3 x, Vector3 y) {
+        Vector3 curPosition = transform.position;
+        return (int)(Vector3.Distance(x, curPosition) - Vector3.Distance(y, curPosition));
+    }
+}
+
+
+// Main AI behavior for the chef
 public class Chef : MonoBehaviour
 {
     // Variables for navigation
@@ -52,6 +73,7 @@ public class Chef : MonoBehaviour
     private SolutionObject targetedSolution = null;
     private SolutionType targetedSolutionType = SolutionType.FIRE_EXTINGUISHER;
     private Vector3 targetedSolutionPosition = Vector3.zero;
+    private SolutionPosComparer solutionPosComparer;
 
     // Variables for animation
     [Header("Animation")]
@@ -78,6 +100,7 @@ public class Chef : MonoBehaviour
         normalColor = meshRenderer.material.color;
         navMeshAgent = GetComponent<NavMeshAgent>();
         audioManager = GetComponent<ChefAudioManager>();
+        solutionPosComparer = new SolutionPosComparer(transform);
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
@@ -91,11 +114,30 @@ public class Chef : MonoBehaviour
 
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
+        bool interrupted = false;
+
+        // If you were interrupted by a higher priority issue and you were holding onto a solutionObject, put the solution object back
+        if (targetedSolution != null) {
+            navMeshAgent.enabled = false;
+            faceHighPriorityIssue();
+            yield return new WaitForSeconds(2.0f);
+            navMeshAgent.enabled = true;
+
+            navMeshAgent.speed = chaseMovementSpeed;
+            yield return goToPosition(targetedSolutionPosition);
+            targetedSolution.gameObject.SetActive(true);
+            targetedSolution = null;
+
+            interrupted = true;
+        }
+
+        // Main loop
         while (true) {
             animator.SetBool("aggro", aggressive);
 
             if (highestPriorityIssue != null) {
-                yield return solveIssue();
+                yield return solveIssue(interrupted);
+                interrupted = false;
             }
             else if (!aggressive)
             {
@@ -137,7 +179,6 @@ public class Chef : MonoBehaviour
 
     // Main IEnumerator to do passive action (Probably stirring soup or something, but for now, just standing)
     private IEnumerator doPassiveAction() {
-        //Debug.Log("wait on patrol point");
         float timer = 0f;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
         
@@ -244,11 +285,15 @@ public class Chef : MonoBehaviour
 
     // Main Sequence when chef is trying to solve an issue, as seen in highestPriorityIssue
     //  Pre: highestPriorityIssue != null
-    private IEnumerator solveIssue() {
+    private IEnumerator solveIssue(bool interrupted) {
         Debug.Assert(highestPriorityIssue != null);
-        navMeshAgent.enabled = false;
-        yield return new WaitForSeconds(1.0f);
-        navMeshAgent.enabled = true;
+
+        if (!interrupted) {
+            navMeshAgent.enabled = false;
+            faceHighPriorityIssue();
+            yield return new WaitForSeconds(2.0f);
+            navMeshAgent.enabled = true;
+        }
 
         for (int i = 0; i < highestPriorityIssue.getTotalSequenceSteps(); i++) {
             SolutionType currentStep = highestPriorityIssue.getNthStep(i);
@@ -262,6 +307,7 @@ public class Chef : MonoBehaviour
 
             if (i == highestPriorityIssue.getTotalSequenceSteps() - 1) {
                 Object.Destroy(highestPriorityIssue.gameObject);
+                navMeshAgent.speed = passiveMovementSpeed;
             }
 
             yield return goToPosition(targetedSolutionPosition);
@@ -272,38 +318,74 @@ public class Chef : MonoBehaviour
 
         // Once issue has been fully solved, destroy object and get the next highest priority issue sensed (if there is any)
         highestPriorityIssue = chefSensing.getHighestPriorityIssue();
-        Debug.Log("I solved an issue");
-
-        // For each solution in the issueObject
-        //      go to nearest solution location (interruptable)
-        //          if nearest solution is not there, go to next one (assume that there is always one that is reachable)
-        //      go to issue location    (interruptable)
-        //      interact (duration in the solution)
     }
+
+
+    // Private helper method to get forward to highestPriorityIssue
+    private void faceHighPriorityIssue() {
+        Vector3 flattenedIssuePos = new Vector3(highestPriorityIssue.transform.position.x, transform.position.y, highestPriorityIssue.transform.position.z);
+        transform.forward = (flattenedIssuePos - transform.position).normalized;
+    }
+
 
     // Main sequence for going to a targeted solution object
     private IEnumerator goToSolutionObject(SolutionType solutionType) {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        List<Vector3> initialSolutionPositions = levelInfo.getPositions(solutionType);
-        Vector3 closestPoint = initialSolutionPositions[0]; //TO BE CHANGED
-        targetedSolutionPosition = closestPoint;
+        List<Vector3> initialSolutionPositions = getSortedSolutionPositions(levelInfo.getPositions(solutionType));
 
-        navMeshAgent.destination = closestPoint;
+        int s = 0;
         navMeshAgent.speed = chaseMovementSpeed;
+
+        targetedSolution = solutionSensor.getSolutionInRange(solutionType);
+        targetedSolutionType = solutionType;
         sensingSolutions = true;
 
-        // Make sure the path has been fully processed before running
-        while (navMeshAgent.pathPending) {
-            yield return waitFrame;
-        }
-
-        // Keep going until targetedSolution != null    ASSUMPTION: TARGET-SOLUTION POSITIONS ARE STATIC
+        // Main loop for trying to get a solution
         while (targetedSolution == null) {
-            yield return waitFrame;
+            // get the current targeted solution
+            targetedSolutionPosition = initialSolutionPositions[s];
+            navMeshAgent.destination = targetedSolutionPosition;
+
+            // make sure path has been fully processed before running
+            while (navMeshAgent.pathPending) {
+                yield return waitFrame;
+            }
+
+            // Keep going on path until navMeshAgent.remainingDistance is less than a threshold
+            while (navMeshAgent.remainingDistance > 0.5f) {
+                yield return waitFrame;
+            }
+
+            // Act confused until either the confused timer went out or the targetSolution was found
+            float timer = 0f;
+            while (targetedSolution == null && timer < 2.0f) {
+                yield return waitFrame;
+                timer += Time.deltaTime;
+            }
+
+            // set up for geting the next targeted solution
+            s++;
         }
 
         sensingSolutions = false;
         targetedSolution.gameObject.SetActive(false); // another assumption to changed
+    }
+
+
+    // Private helper method to get a new list and sort them based on vector3 position
+    //  Pre: the solution position is not null
+    //  Post: returns a copy of the list with the positions sorted based on who's closest to this AI
+    private List<Vector3> getSortedSolutionPositions(List<Vector3> solutionPositions) {
+        // Make a new list and copy contents of position to the new list
+        List<Vector3> sortedPositions = new List<Vector3>();
+
+        for(int i = 0; i < solutionPositions.Count; i++) {
+            sortedPositions.Add(solutionPositions[i]);
+        }
+
+        // Sort the list using the comparater, uses quicksort O(NlogN)
+        sortedPositions.Sort(solutionPosComparer);
+        return sortedPositions;
     }
 
 
@@ -331,6 +413,7 @@ public class Chef : MonoBehaviour
         if (highestPriorityIssue == null || newIssue.getPriority() > highestPriorityIssue.getPriority()) {
 
             highestPriorityIssue = newIssue;
+
             Debug.Log("New high priority issue in mind: " +  newIssue);
             StopAllCoroutines();
             StartCoroutine(mainIntelligenceLoop());
