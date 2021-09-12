@@ -44,13 +44,13 @@ public class Chef : MonoBehaviour
     private float passiveMovementSpeed = 3.5f;
     [SerializeField]
     private float confusionDuration = 0.75f;
+    [SerializeField]
+    private float navDistance = 1f;
 
     // Serialized variables for attacking and chasing the rat
     [Header("Aggression")]
     [SerializeField]
     private GameObject chefHitbox = null;
-    [SerializeField]
-    private float navDistance = 1f;
     [SerializeField]
     private float attackingRange = 5f;
     [SerializeField]
@@ -66,6 +66,10 @@ public class Chef : MonoBehaviour
     [Header("IssueHandling")]
     [SerializeField]
     private LevelInfo levelInfo = null;
+    [SerializeField]
+    private float surprisedAtIssueDuration = 2.0f;
+    [SerializeField]
+    private float noSolutionFoundDuration = 2.0f;
     private IssueObject highestPriorityIssue = null;
 
     // Variables for getting solutions
@@ -120,7 +124,7 @@ public class Chef : MonoBehaviour
         if (targetedSolution != null) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(surprisedAtIssueDuration);
             navMeshAgent.enabled = true;
 
             navMeshAgent.speed = chaseMovementSpeed;
@@ -291,7 +295,7 @@ public class Chef : MonoBehaviour
         if (!interrupted) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(surprisedAtIssueDuration);
             navMeshAgent.enabled = true;
         }
 
@@ -352,13 +356,13 @@ public class Chef : MonoBehaviour
             }
 
             // Keep going on path until navMeshAgent.remainingDistance is less than a threshold
-            while (navMeshAgent.remainingDistance > 0.5f) {
+            while (navMeshAgent.remainingDistance > navDistance) {
                 yield return waitFrame;
             }
 
             // Act confused until either the confused timer went out or the targetSolution was found
             float timer = 0f;
-            while (targetedSolution == null && timer < 2.0f) {
+            while (targetedSolution == null && timer < noSolutionFoundDuration) {
                 yield return waitFrame;
                 timer += Time.deltaTime;
             }
@@ -401,7 +405,7 @@ public class Chef : MonoBehaviour
         }
 
         // Go towards the highest priority issue
-        while(navMeshAgent.remainingDistance > 1.0f) {
+        while(navMeshAgent.remainingDistance > navDistance) {
             yield return waitFrame;
         }
 

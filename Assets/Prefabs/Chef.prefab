@@ -155,8 +155,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632642251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.56}
-  m_LocalScale: {x: 5, y: 1, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 1.95}
+  m_LocalScale: {x: 5, y: 1, z: 6}
   m_Children: []
   m_Father: {fileID: 4813905236207517747}
   m_RootOrder: 0
@@ -687,13 +687,15 @@ MonoBehaviour:
   solutionSensor: {fileID: 1320174790}
   passiveMovementSpeed: 3.5
   confusionDuration: 0.75
-  chefHitbox: {fileID: 1710969171}
   navDistance: 1
+  chefHitbox: {fileID: 1710969171}
   attackingRange: 3
   chaseMovementSpeed: 6
   anticipationTime: 0.5
   attackingTime: 0.3
   levelInfo: {fileID: 0}
+  surprisedAtIssueDuration: 2
+  noSolutionFoundDuration: 2
   animator: {fileID: 5897396795823706298}
   anticipationColor: {r: 1, g: 0, b: 1, a: 1}
   attackColor: {r: 1, g: 0, b: 0, a: 1}
