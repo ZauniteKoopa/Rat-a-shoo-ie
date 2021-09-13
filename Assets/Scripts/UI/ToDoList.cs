@@ -28,7 +28,7 @@ public class ToDoList : MonoBehaviour
     [SerializeField]
     private Image indicator = null;
     [SerializeField]
-    private TMP_Text healthUI = null;
+    private Image[] healthIcons = null;
     [SerializeField]
     private GameObject pauseMenu = null;
     [SerializeField]
@@ -65,7 +65,7 @@ public class ToDoList : MonoBehaviour
 
             // Give the text associated with the task type
             if (initialTasks[i] == TaskType.POISON_SOUP) {
-                taskLabels[i].text = "- Poison da soup!";
+                taskLabels[i].text = "Poison da soup!";
             }
         }
 
@@ -189,7 +189,7 @@ public class ToDoList : MonoBehaviour
 
             // If number of tasks is equal to zero, allow escape
             if (numTasksLeft <= 0) {
-                taskLabels[initialTasks.Count].text = "- ESCAPE!!!";
+                taskLabels[initialTasks.Count].text = "ESCAPE!!!";
                 taskLabels[initialTasks.Count].color = Color.red;
                 canEscape = true;
             }
@@ -214,14 +214,18 @@ public class ToDoList : MonoBehaviour
 
     // Method to update health to a fixed amount
     public void updateHealthUI(int currentHealth) {
-        healthUI.text = "Health: " + currentHealth;
+        Debug.Assert(healthIcons.Length >= currentHealth);
+        for (int i = 0; i < healthIcons.Length; i++) {
+            healthIcons[i].gameObject.SetActive(i < currentHealth);
+        }
+
         curHealth = currentHealth;
     }
 
     // Event handler method when player lose health
     public void onPlayerHealthLoss() {
+        healthIcons[curHealth - 1].gameObject.SetActive(false);
         curHealth--;
-        healthUI.text = "Health: " + curHealth;
 
         if (curHealth <= 0) {
             GetComponent<SceneChanger>().ChangeScene("MainMenu");
