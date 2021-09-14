@@ -38,8 +38,25 @@ public class InteractableSensor : MonoBehaviour
         return bestInteractable;
     }
 
-    // Public method to check if you're nearby an interactable
+    // Public method to check if you're nearby an interactable: cull out null interactables first before checking the count
     public bool isNearInteractable() {
+        // Cull out any objects that have been destroyed if there are any objects to process
+        if (inRangeInteractables.Count > 0) {
+            List<GeneralInteractable> destroyedInteractables = new List<GeneralInteractable>();
+
+            foreach (GeneralInteractable interactable in inRangeInteractables) {
+                if (interactable == null) {
+                    destroyedInteractables.Add(interactable);
+                }
+            }
+
+            foreach (GeneralInteractable interactable in destroyedInteractables) {
+                inRangeInteractables.Remove(interactable);
+            }
+        }
+
+
+        // Return if there's any way to interact
         return inRangeInteractables.Count > 0;
     }
 
@@ -57,7 +74,7 @@ public class InteractableSensor : MonoBehaviour
         GeneralInteractable hitInteractable = collider.transform.GetComponent<GeneralInteractable>();
 
         if (hitInteractable != null) {
-            inRangeInteractables.Add(hitInteractable);
+            inRangeInteractables.Remove(hitInteractable);
         }
     }
 }

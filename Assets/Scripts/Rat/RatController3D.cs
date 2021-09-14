@@ -175,6 +175,7 @@ public class RatController3D : MonoBehaviour
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
         if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
             grabbedInteractable = interactableSensor.getNearestInteractable(groundForward);
+            grabbedInteractable.onPlayerInteractStart();
 
             // for animation TODO
             //animator.SetBool("interacting", true);
@@ -253,6 +254,7 @@ public class RatController3D : MonoBehaviour
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
 
+            grabbedInteractable.onPlayerInteractEnd();
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }

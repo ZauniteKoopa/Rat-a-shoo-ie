@@ -37,4 +37,11 @@ public class GeneralInteractable : MonoBehaviour
 
        return bestPosition;
    }
+
+   // Event method to indicate interaction start, can be overrided
+   public virtual void onPlayerInteractStart() {}
+
+   // Event method to indicate interaction end
+   public virtual void onPlayerInteractEnd() {}
+
 }
