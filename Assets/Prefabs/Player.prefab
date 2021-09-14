@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 336077377}
   - component: {fileID: 336077376}
   - component: {fileID: 336077375}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: InteractableSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2242664134585493020}
   landSpeed: 5
-  carryingSpeed: 3
+  carryingLightSpeed: 3
+  carryingHeavySpeed: 1.5
   airControl: 0.75
   landJumpVelocity: 7
   spotShadow: {fileID: 1816739406}

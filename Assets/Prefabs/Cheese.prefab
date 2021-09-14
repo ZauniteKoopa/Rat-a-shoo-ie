@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8299455592705188471}
   - component: {fileID: 8299455592705188470}
   - component: {fileID: 7682760123373325965}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cheese
   m_TagString: BadFood
   m_Icon: {fileID: 0}
@@ -218,3 +218,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8046ddf83a62ca74b7149fed26835cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight: 0
+  heavyItemHooks: []
