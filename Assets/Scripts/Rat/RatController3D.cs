@@ -15,7 +15,9 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float landSpeed = 7f;
     [SerializeField]
-    private float carryingSpeed = 3f;
+    private float carryingLightSpeed = 3f;
+    [SerializeField]
+    private float carryingHeavySpeed = 1.5f;
     [SerializeField]
     private float airControl = 0.75f;
     [SerializeField]
@@ -58,6 +60,7 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private InteractableSensor interactableSensor = null;
     private GeneralInteractable grabbedInteractable = null;
+    private float heavyInteractableDistance = 0.0f;
 
     [Header("User interface")]
     [SerializeField]
@@ -87,30 +90,43 @@ public class RatController3D : MonoBehaviour
         
         handleGroundMovement();
 
-        // Handle jump
-        float heightVelocity = rigidBody.velocity.y;
-
-        if (onGround && Input.GetButtonDown("Jump")) {
-            heightVelocity = landJumpVelocity;
+        // Handling interactable
+        if (Input.GetButtonDown("Fire2")) {
+            handleInteractable();
         }
 
-        rigidBody.velocity = (Vector3.up * heightVelocity);
+        // If handling heavy, check for cases where you drop the interactable automatically. Otherwise, handle jump
+        if (grabbedInteractable != null && grabbedInteractable.weight == InteractableWeight.HEAVY) {
+            if (!onGround || Vector3.Distance(grabbedInteractable.transform.position, transform.position) > 0.1 + heavyInteractableDistance) {
+                dropGrabbedInteractable();
+            }
+        } else {
+            // Handle jump
+            float heightVelocity = rigidBody.velocity.y;
 
-        // Handling interactable
-        handleInteractable();
+            if (onGround && Input.GetButtonDown("Jump")) {
+                heightVelocity = landJumpVelocity;
+            }
+
+            rigidBody.velocity = (Vector3.up * heightVelocity);
+        }
     }
 
     /* Main method to handle ground movement */
     private void handleGroundMovement() {
         // Calculate the exact axis values based on blockers
         float horizontalAxis = Input.GetAxis("Horizontal");
-        horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
-        horizontalAxis = (rightBlockSensor.isBlocked() && horizontalAxis > 0f) ? 0f : horizontalAxis;
-
         float verticalAxis = Input.GetAxis("Vertical");
-        verticalAxis = (backwardBlockSensor.isBlocked() && verticalAxis < 0f) ? 0f : verticalAxis;
-        verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
 
+        // Only constrain movement if not dragging heavy object
+        if (grabbedInteractable == null || grabbedInteractable.weight != InteractableWeight.HEAVY) {
+            horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
+            horizontalAxis = (rightBlockSensor.isBlocked() && horizontalAxis > 0f) ? 0f : horizontalAxis;
+
+            verticalAxis = (backwardBlockSensor.isBlocked() && verticalAxis < 0f) ? 0f : verticalAxis;
+            verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
+        }
+        
         // Calculate the actual move vector
         Vector3 moveVector = horizontalAxis * Vector3.right;
         moveVector += verticalAxis * Vector3.forward;
@@ -123,10 +139,15 @@ public class RatController3D : MonoBehaviour
         // for animation
         animator.SetFloat("movementspeed", moveVector.magnitude);
 
-        // Add conditional effects to move vector
+        // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
             moveVector.Normalize();
-            float currentSpeed = (grabbedInteractable != null) ? carryingSpeed : landSpeed;
+            float currentSpeed = landSpeed;
+
+            // If currently grabbing something, change the speed accordingly
+            if (grabbedInteractable != null) {
+                currentSpeed = (grabbedInteractable.weight == InteractableWeight.LIGHT) ? carryingLightSpeed : carryingHeavySpeed;
+            }
 
             moveVector *= (currentSpeed * Time.deltaTime);
             if (!onGround) {
@@ -153,32 +174,35 @@ public class RatController3D : MonoBehaviour
     private void handleInteractable() {
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
         if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
-            if (Input.GetButtonDown("Fire2")) {
-                grabbedInteractable = interactableSensor.getNearestInteractable(groundForward);
+            grabbedInteractable = interactableSensor.getNearestInteractable(groundForward);
 
-                // for animation TODO
-                //animator.SetBool("interacting", true);
+            // for animation TODO
+            //animator.SetBool("interacting", true);
 
+            if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
                 audioManager.emitPickupSound();
                 // Disable physics and place transform in hook
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 grabbedInteractable.transform.parent = transform;
                 grabbedInteractable.transform.localPosition = grabbableHook;
             }
-        }
-        else if (grabbedInteractable != null) {
-            if (Input.GetButtonDown("Fire2")) {
-
-                //for animation TODO
-                //animator.SetBool("interacting", true);
-
-                audioManager.emitDropSound();
-                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-                grabbedInteractable.transform.localPosition = groundForward + grabbableHook;
-                grabbedInteractable.transform.parent = null;
-
-                grabbedInteractable = null;
+            else if (grabbedInteractable.weight == InteractableWeight.HEAVY) {
+                transform.position = grabbedInteractable.getNearestHeavyItemHook(transform);
+                grabbedInteractable.transform.parent = transform;
+                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                heavyInteractableDistance = Vector3.Distance(transform.position, grabbedInteractable.transform.position);
             }
+
+        }
+
+        // If the rat is grabbing an interactable, set the interactable's parent to null
+        else if (grabbedInteractable != null) {
+
+            //for animation TODO
+            //animator.SetBool("interacting", true);
+
+            dropGrabbedInteractable();
+
         }
     }
 
@@ -216,5 +240,21 @@ public class RatController3D : MonoBehaviour
 
         meshRenderer.material.color = normalColor;
         invincible = false;
+    }
+
+    // Private helper method to drop thrown
+    private void dropGrabbedInteractable() {
+        if (grabbedInteractable != null) {
+            audioManager.emitDropSound();
+
+            // If the rat is grabbing a light object, drop light object in front of you and freeze its rotation
+            if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
+                grabbedInteractable.transform.localPosition = groundForward + grabbableHook;
+                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            }
+
+            grabbedInteractable.transform.parent = null;
+            grabbedInteractable = null;
+        }
     }
 }
