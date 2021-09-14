@@ -55,8 +55,9 @@ public class RatController3D : MonoBehaviour
     [Header("Interactables")]
     [SerializeField]
     private Vector3 grabbableHook = Vector3.up;
-    private Transform grabbedInteractable = null;
-    private Transform targetInteractable = null;
+    [SerializeField]
+    private InteractableSensor interactableSensor = null;
+    private GeneralInteractable grabbedInteractable = null;
 
     [Header("User interface")]
     [SerializeField]
@@ -151,9 +152,9 @@ public class RatController3D : MonoBehaviour
     /* Method to handle interactable */
     private void handleInteractable() {
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
-        if (onGround && grabbedInteractable == null && targetInteractable != null) {
+        if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
             if (Input.GetButtonDown("Fire2")) {
-                grabbedInteractable = targetInteractable;
+                grabbedInteractable = interactableSensor.getNearestInteractable(groundForward);
 
                 // for animation TODO
                 //animator.SetBool("interacting", true);
@@ -161,8 +162,8 @@ public class RatController3D : MonoBehaviour
                 audioManager.emitPickupSound();
                 // Disable physics and place transform in hook
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                grabbedInteractable.parent = transform;
-                grabbedInteractable.localPosition = grabbableHook;
+                grabbedInteractable.transform.parent = transform;
+                grabbedInteractable.transform.localPosition = grabbableHook;
             }
         }
         else if (grabbedInteractable != null) {
@@ -173,8 +174,8 @@ public class RatController3D : MonoBehaviour
 
                 audioManager.emitDropSound();
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-                grabbedInteractable.localPosition = groundForward + grabbableHook;
-                grabbedInteractable.parent = null;
+                grabbedInteractable.transform.localPosition = groundForward + grabbableHook;
+                grabbedInteractable.transform.parent = null;
 
                 grabbedInteractable = null;
             }
@@ -189,18 +190,6 @@ public class RatController3D : MonoBehaviour
     /* Event handler method when rat leaves the ground */
     public void onLeavingGround() {
         onGround = false;
-    }
-
-    /* Event handler method for targeting interactable */
-    public void setTargetedInteractable(Transform interactable) {
-        targetInteractable = interactable;
-    }
-
-    /* Event handler method for clearing interactable */
-    public void clearTargetedInteractable(Transform interactable) {
-        if (targetInteractable == interactable) {
-            targetInteractable = null;
-        }
     }
 
     /* Method for taking damage */
