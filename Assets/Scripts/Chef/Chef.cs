@@ -146,7 +146,9 @@ public class Chef : MonoBehaviour
             else if (!aggressive)
             {
                 yield return moveToNextWaypoint();
-                yield return doPassiveAction();
+
+                if (!aggressive)
+                    yield return doPassiveAction();
             }
             else
             {
@@ -226,6 +228,7 @@ public class Chef : MonoBehaviour
         if (chefSensing.currentRatTarget == null) {
             audioManager.playChefLost();
             aggressive = false;
+            levelInfo.onChefChaseEnd();
             yield return actConfused();
         }
     }
@@ -281,6 +284,7 @@ public class Chef : MonoBehaviour
         Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
         transform.forward = (flattenTarget - flattenPosition).normalized;
+        levelInfo.onChefChaseStart();
 
         yield return new WaitForSeconds(0.3f);
         navMeshAgent.enabled = true;
@@ -415,6 +419,11 @@ public class Chef : MonoBehaviour
     // Main event handler method when an issue object has been spotted by the sensor
     public void onIssueSpotted(IssueObject newIssue) {
         if (highestPriorityIssue == null || newIssue.getPriority() > highestPriorityIssue.getPriority()) {
+
+            if (aggressive) {
+                aggressive = false;
+                levelInfo.onChefChaseEnd();
+            }
 
             highestPriorityIssue = newIssue;
 

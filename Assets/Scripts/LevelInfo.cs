@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelInfo : MonoBehaviour
 {
     private Dictionary<SolutionType, List<Vector3>> solutionLocations;
+    private int numNPCsChasing = 0;
+
+    public UnityEvent onPlayerAttacked;
+    public UnityEvent onPlayerSafe;
+
 
     // Run before the first frame
     private void Start() {
@@ -30,5 +36,23 @@ public class LevelInfo : MonoBehaviour
     // Method to get the positions of all possible solution of solutionType
     public List<Vector3> getPositions(SolutionType solutionType) {
         return solutionLocations[solutionType];
+    }
+
+    // Public method to update that someone's chasing the player
+    public void onChefChaseStart() {
+        if (numNPCsChasing == 0) {
+            onPlayerAttacked.Invoke();
+        }
+
+        numNPCsChasing++;
+    }
+
+    // Public method to update someone losing the player
+    public void onChefChaseEnd() {
+        numNPCsChasing--;
+
+        if (numNPCsChasing == 0) {
+            onPlayerSafe.Invoke();
+        }
     }
 }
