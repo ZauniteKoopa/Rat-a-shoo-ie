@@ -12,6 +12,12 @@ public class SolutionObject : MonoBehaviour
 {
 
     public SolutionType solutionType = SolutionType.FIRE_EXTINGUISHER;
+    private Vector3 initialLocation = Vector3.zero;
+
+    // On start, get the initial location of this solution
+    private void Start() {
+        initialLocation = transform.position;
+    }
 
     // in getDuration, make a switch statement that decides the duration of the object based on enum
     //  MUST BE UPDATED WHEN ADDING ANOTHER SOLUTION TYPE TO THE ENUM
@@ -26,5 +32,10 @@ public class SolutionObject : MonoBehaviour
             default:
                 throw new System.Exception("Invalid Solution Type");
         }
+    }
+
+    // Method to access initial location
+    public Vector3 getInitialLocation() {
+        return initialLocation;
     }
 }

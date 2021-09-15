@@ -696,6 +696,8 @@ MonoBehaviour:
   levelInfo: {fileID: 0}
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
+  chefSprite: {fileID: 6423770004464214873}
+  solutionHook: {x: 3, y: -2.2, z: 0}
   animator: {fileID: 5897396795823706298}
   anticipationColor: {r: 1, g: 0, b: 1, a: 1}
   attackColor: {r: 1, g: 0, b: 0, a: 1}

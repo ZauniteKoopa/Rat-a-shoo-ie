@@ -70,6 +70,10 @@ public class Chef : MonoBehaviour
     private float surprisedAtIssueDuration = 2.0f;
     [SerializeField]
     private float noSolutionFoundDuration = 2.0f;
+    [SerializeField]
+    private Transform chefSprite = null;
+    [SerializeField]
+    private Vector3 solutionHook = Vector3.zero;
     private IssueObject highestPriorityIssue = null;
 
     // Variables for getting solutions
@@ -128,8 +132,8 @@ public class Chef : MonoBehaviour
             navMeshAgent.enabled = true;
 
             navMeshAgent.speed = chaseMovementSpeed;
-            yield return goToPosition(targetedSolutionPosition);
-            targetedSolution.gameObject.SetActive(true);
+            yield return goToPosition(targetedSolution.getInitialLocation());
+            dropSolutionObject(targetedSolution);
             targetedSolution = null;
 
             interrupted = true;
@@ -318,9 +322,9 @@ public class Chef : MonoBehaviour
                 navMeshAgent.speed = passiveMovementSpeed;
             }
 
-            yield return goToPosition(targetedSolutionPosition);
+            yield return goToPosition(targetedSolution.getInitialLocation());
 
-            targetedSolution.gameObject.SetActive(true);
+            dropSolutionObject(targetedSolution);
             targetedSolution = null;
         }
 
@@ -360,7 +364,7 @@ public class Chef : MonoBehaviour
             }
 
             // Keep going on path until navMeshAgent.remainingDistance is less than a threshold
-            while (navMeshAgent.remainingDistance > navDistance) {
+            while (targetedSolution == null && navMeshAgent.remainingDistance > navDistance) {
                 yield return waitFrame;
             }
 
@@ -375,8 +379,9 @@ public class Chef : MonoBehaviour
             s++;
         }
 
+        grabSolutionObject(targetedSolution);
         sensingSolutions = false;
-        targetedSolution.gameObject.SetActive(false); // another assumption to changed
+        
     }
 
 
@@ -441,6 +446,21 @@ public class Chef : MonoBehaviour
                 targetedSolution = solutionObject;
             }
         }
+    }
+
+
+    // Private helper method to get solution object
+    private void grabSolutionObject(SolutionObject solution) {
+        solution.transform.parent = chefSprite;
+        solution.transform.localPosition = solutionHook;
+        solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    // Private helper method to drop a solution object to its initial position
+    private void dropSolutionObject(SolutionObject solution) {
+        solution.transform.parent = null;
+        solution.transform.position = targetedSolution.getInitialLocation();
+        solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
     }
 
 }
