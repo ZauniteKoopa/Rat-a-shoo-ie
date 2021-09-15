@@ -9,5 +9,6 @@ public class WorldSprite : MonoBehaviour
     void Update()
     {
         transform.forward = (transform.position - Camera.main.transform.position).normalized;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
     }
 }

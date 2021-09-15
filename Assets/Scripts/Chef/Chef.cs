@@ -439,6 +439,7 @@ public class Chef : MonoBehaviour
 
             Debug.Log("New high priority issue in mind: " +  newIssue);
             StopAllCoroutines();
+            chefHitbox.SetActive(false);
             StartCoroutine(mainIntelligenceLoop());
         }
     }
