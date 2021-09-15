@@ -10,6 +10,7 @@ public class IssueObject : MonoBehaviour
     private int issuePriority = 1;
     [SerializeField]
     private List<SolutionType> sequentialSolutionSteps = null;
+    public bool isBeingDealtWith = false;
     
     // Accessor method to get the priority
     public int getPriority() {

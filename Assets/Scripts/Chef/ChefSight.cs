@@ -64,7 +64,7 @@ public class ChefSight : MonoBehaviour
         }
 
         // If an issue went in range, record the issue and alert the parent chef AI that an issue has surfaced
-        if (issue != null) {
+        if (issue != null && !issue.isBeingDealtWith) {
             inRangeIssues.Add(issue);
             issueEnterEvent.Invoke(issue);
         }

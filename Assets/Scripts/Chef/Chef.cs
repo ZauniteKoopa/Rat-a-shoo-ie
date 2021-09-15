@@ -424,6 +424,11 @@ public class Chef : MonoBehaviour
     // Main event handler method when an issue object has been spotted by the sensor
     public void onIssueSpotted(IssueObject newIssue) {
         if (highestPriorityIssue == null || newIssue.getPriority() > highestPriorityIssue.getPriority()) {
+            newIssue.isBeingDealtWith = true;
+
+            if (highestPriorityIssue != null) {
+                highestPriorityIssue.isBeingDealtWith = false;
+            }
 
             if (aggressive) {
                 aggressive = false;

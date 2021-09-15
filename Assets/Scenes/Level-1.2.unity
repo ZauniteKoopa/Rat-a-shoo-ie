@@ -4903,6 +4903,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 798645874}
+    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: levelInfo
+      value: 
+      objectReference: {fileID: 2143206805}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6167,6 +6172,7 @@ GameObject:
   - component: {fileID: 2143206803}
   - component: {fileID: 2143206802}
   - component: {fileID: 2143206801}
+  - component: {fileID: 2143206805}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Platform
@@ -6248,3 +6254,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143206805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143206800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a15cd651d49bd07b2d0bc85611e647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlayerAttacked:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerSafe:
+    m_PersistentCalls:
+      m_Calls: []
