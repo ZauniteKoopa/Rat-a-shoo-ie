@@ -118,6 +118,9 @@ public class Chef : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
+        
+        // get the int from transform forward
+        // animator set int (preferably enum)
     }
 
     // Main intelligence loop

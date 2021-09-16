@@ -44,4 +44,17 @@ public class WorldSprite : MonoBehaviour
         }
 
     }
+
+    //  0: back
+    //  1: forward
+    public static int getSpriteLookDirectionTest(Vector3 spriteForward) {
+        Vector3 dividerVector = Vector3.forward;
+        float dotProduct = Vector3.Dot(dividerVector, spriteForward);
+
+        if (dotProduct >= 0.0f) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

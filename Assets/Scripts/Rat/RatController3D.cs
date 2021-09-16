@@ -132,6 +132,7 @@ public class RatController3D : MonoBehaviour
         moveVector += verticalAxis * Vector3.forward;
         if (moveVector != Vector3.zero) {
             groundForward = moveVector;
+            // set animator controller for sprite look direction
         }
 
         moveVector.Normalize();
