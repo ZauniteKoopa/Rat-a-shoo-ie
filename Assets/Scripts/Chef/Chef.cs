@@ -214,7 +214,7 @@ public class Chef : MonoBehaviour
     // Main IEnumerator to do aggressive action
     private IEnumerator doAggressiveAction() {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        navMeshAgent.destination = lastSeenTarget;
+        navMeshAgent.destination = (chefSensing.currentRatTarget != null) ? chefSensing.currentRatTarget.position : lastSeenTarget;
         navMeshAgent.speed = chaseMovementSpeed;
 
         // Make sure the path has been fully processed before running
@@ -226,6 +226,11 @@ public class Chef : MonoBehaviour
         while (navMeshAgent.remainingDistance > attackingRange) {
             if (chefSensing.currentRatTarget != null) {
                 navMeshAgent.destination = chefSensing.currentRatTarget.position;
+            }
+
+            // process path
+            while (navMeshAgent.pathPending) {
+                yield return waitFrame;
             }
 
             yield return waitFrame;
