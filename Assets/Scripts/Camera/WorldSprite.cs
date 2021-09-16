@@ -52,9 +52,9 @@ public class WorldSprite : MonoBehaviour
         float dotProduct = Vector3.Dot(dividerVector, spriteForward);
 
         if (dotProduct >= 0.0f) {
-            return 1;
-        } else {
             return 0;
+        } else {
+            return 1;
         }
     }
 }
