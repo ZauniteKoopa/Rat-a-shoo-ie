@@ -1981,6 +1981,20 @@ MonoBehaviour:
   hazardCaused: {fileID: 3773964375345041852, guid: 3ce119886afb60f5d95fb7c1fd46c88a,
     type: 3}
   initiatedTag: Platform
+  hazardCreatedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 996590189}
+        m_MethodName: onMadeMess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &1747575159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2109,6 +2123,20 @@ MonoBehaviour:
   hazardCaused: {fileID: 2542394599253882352, guid: 25e5c390d80173066a3b86a802aa7d28,
     type: 3}
   initiatedTag: Platform
+  hazardCreatedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 996590189}
+        m_MethodName: onMadeFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &1768617853
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3198,6 +3226,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: initialTasks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: initialTasks.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: initialTasks.Array.data[2]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}

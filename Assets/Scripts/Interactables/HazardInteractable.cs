@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HazardInteractable : GeneralInteractable
 {
@@ -10,6 +11,8 @@ public class HazardInteractable : GeneralInteractable
     private string initiatedTag = null;
     private bool falling = false;
     private Rigidbody rb;
+
+    public UnityEvent hazardCreatedEvent;
 
     // On awake, get rigidbody component
     private void Awake() {
@@ -44,6 +47,7 @@ public class HazardInteractable : GeneralInteractable
             Collider collider = collision.collider;
 
             if (collider.tag == initiatedTag) {
+                hazardCreatedEvent.Invoke();
                 Object.Instantiate(hazardCaused, transform.position, Quaternion.identity);
                 Object.Destroy(gameObject);
             }

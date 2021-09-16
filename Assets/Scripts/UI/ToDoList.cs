@@ -9,7 +9,9 @@ public class ToDoList : MonoBehaviour
 {
     // List of task types that can be used
     public enum TaskType {
-        POISON_SOUP
+        POISON_SOUP,
+        MAKE_FIRE,
+        MAKE_MESS
     }
 
     // Serialized fields
@@ -66,6 +68,10 @@ public class ToDoList : MonoBehaviour
             // Give the text associated with the task type
             if (initialTasks[i] == TaskType.POISON_SOUP) {
                 taskLabels[i].text = "Poison da soup!";
+            } else if (initialTasks[i] == TaskType.MAKE_FIRE) {
+                taskLabels[i].text = "Make fire!";
+            } else if (initialTasks[i] == TaskType.MAKE_MESS) {
+                taskLabels[i].text = "Make mess!";
             }
         }
 
@@ -166,6 +172,36 @@ public class ToDoList : MonoBehaviour
         }
     }
 
+    // Method when player tries to escape
+    public void onPlayerEscape() {
+        if (canEscape) {
+            GetComponent<SceneChanger>().ChangeScene("MainMenu");
+        } else {
+            if (!warningActive) {
+                StartCoroutine(warningSequence("You still haven't finished tasks yet"));
+            }
+        }
+    }
+
+    // Method to update health to a fixed amount
+    public void updateHealthUI(int currentHealth) {
+        Debug.Assert(healthIcons.Length >= currentHealth);
+        for (int i = 0; i < healthIcons.Length; i++) {
+            healthIcons[i].gameObject.SetActive(i < currentHealth);
+        }
+
+        curHealth = currentHealth;
+    }
+
+    // Event handler method when player lose health
+    public void onPlayerHealthLoss() {
+        healthIcons[curHealth - 1].gameObject.SetActive(false);
+        curHealth--;
+
+        if (curHealth <= 0) {
+            GetComponent<SceneChanger>().ChangeScene("MainMenu");
+        }
+    }
 
     // Event handler for when a task is done
     private void onTaskDone(TaskType taskType) {
@@ -201,34 +237,12 @@ public class ToDoList : MonoBehaviour
         onTaskDone(TaskType.POISON_SOUP);
     }
 
-    // Method when player tries to escape
-    public void onPlayerEscape() {
-        if (canEscape) {
-            GetComponent<SceneChanger>().ChangeScene("MainMenu");
-        } else {
-            if (!warningActive) {
-                StartCoroutine(warningSequence("You still haven't finished tasks yet"));
-            }
-        }
+    public void onMadeFire() {
+        onTaskDone(TaskType.MAKE_FIRE);
     }
 
-    // Method to update health to a fixed amount
-    public void updateHealthUI(int currentHealth) {
-        Debug.Assert(healthIcons.Length >= currentHealth);
-        for (int i = 0; i < healthIcons.Length; i++) {
-            healthIcons[i].gameObject.SetActive(i < currentHealth);
-        }
-
-        curHealth = currentHealth;
+    public void onMadeMess() {
+        onTaskDone(TaskType.MAKE_MESS);
     }
 
-    // Event handler method when player lose health
-    public void onPlayerHealthLoss() {
-        healthIcons[curHealth - 1].gameObject.SetActive(false);
-        curHealth--;
-
-        if (curHealth <= 0) {
-            GetComponent<SceneChanger>().ChangeScene("MainMenu");
-        }
-    }
 }

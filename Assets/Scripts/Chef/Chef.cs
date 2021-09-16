@@ -135,6 +135,7 @@ public class Chef : MonoBehaviour
         if (targetedSolution != null) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
+            audioManager.playChefAlert();
             yield return new WaitForSeconds(surprisedAtIssueDuration);
             navMeshAgent.enabled = true;
 
@@ -310,6 +311,7 @@ public class Chef : MonoBehaviour
         if (!interrupted) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
+            audioManager.playChefAlert();
             yield return new WaitForSeconds(surprisedAtIssueDuration);
             navMeshAgent.enabled = true;
         }
