@@ -15,8 +15,14 @@ public class CameraController : MonoBehaviour
     // private IEnumerator to move the camera
     private IEnumerator moveCameraSequence(RoomView roomView) {
         transform.parent = roomView.transform;
+
+        // get positions
         Vector3 startLocalPosition = transform.localPosition;
         Vector3 endLocalPosition = roomView.localCameraPosition;
+
+        // get rotation
+        Vector3 startLocalRotation = transform.localEulerAngles;
+        Vector3 endLocalRotation = roomView.localCameraRotation;
 
         float timer = 0f;
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
@@ -28,6 +34,7 @@ public class CameraController : MonoBehaviour
             float progress = timer / CAMERA_MOVE_TIME;
 
             transform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, progress);
+            transform.localEulerAngles = Vector3.Lerp(startLocalRotation, endLocalRotation, progress);
         }
     }
 }

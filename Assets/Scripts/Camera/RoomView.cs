@@ -5,8 +5,11 @@ using UnityEngine.Events;
 
 public class RoomView : MonoBehaviour
 {
-    // Public variables
+    // Public variables: decides the camera's local rotation and position to the room
     public Vector3 localCameraPosition;
+    public Vector3 localCameraRotation;
+
+    // Method to get camera controller
     private CameraController cameraController;
 
     // On awake, get camera.main

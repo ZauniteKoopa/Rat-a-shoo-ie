@@ -213,30 +213,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &102729483 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4242813612573538847, guid: 857026dbda7f43f788d677268f179822,
+--- !u!114 &102729489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 102729489, guid: 857026dbda7f43f788d677268f179822,
     type: 3}
   m_PrefabInstance: {fileID: 4242813611787612364}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &102729489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102729483}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97a15cd651d49bd07b2d0bc85611e647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPlayerAttacked:
-    m_PersistentCalls:
-      m_Calls: []
-  onPlayerSafe:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &145147134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: 15, z: -0.8}
+  localCameraRotation: {x: 50, y: 0, z: 0}
 --- !u!65 &1909120460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2948,11 +2937,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4242813612573538841, guid: 857026dbda7f43f788d677268f179822,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4242813612573538843, guid: 857026dbda7f43f788d677268f179822,
         type: 3}
       propertyPath: m_LocalPosition.x
