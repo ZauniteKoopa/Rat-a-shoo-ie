@@ -12,6 +12,8 @@ public class SolutionObject : MonoBehaviour
 {
 
     public SolutionType solutionType = SolutionType.FIRE_EXTINGUISHER;
+    [SerializeField]
+    private Sprite solutionSprite = null;
     private Vector3 initialLocation = Vector3.zero;
 
     // On start, get the initial location of this solution
@@ -37,5 +39,10 @@ public class SolutionObject : MonoBehaviour
     // Method to access initial location
     public Vector3 getInitialLocation() {
         return initialLocation;
+    }
+
+    // Method to access solution sprite, most likely just the 2D sprite used in the game
+    public Sprite getThoughtSprite() {
+        return solutionSprite;
     }
 }
