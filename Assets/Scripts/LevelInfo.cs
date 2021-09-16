@@ -7,9 +7,12 @@ public class LevelInfo : MonoBehaviour
 {
     private Dictionary<SolutionType, List<Vector3>> solutionLocations;
     private int numNPCsChasing = 0;
+    private Dictionary<SolutionType, Sprite> thoughtPool;
 
     public UnityEvent onPlayerAttacked;
     public UnityEvent onPlayerSafe;
+    [SerializeField]
+    private SolutionTypeSpriteMap initialThoughtMap = null;
 
 
     // Run before the first frame
@@ -31,6 +34,9 @@ public class LevelInfo : MonoBehaviour
             // Add initial position to the list
             solutionLocations[curType].Add(initialLocation);
         }
+
+        // Set up thought pool
+        thoughtPool = initialThoughtMap.getThoughtBubbleDictionary();
     }
 
     // Method to get the positions of all possible solution of solutionType
@@ -55,4 +61,10 @@ public class LevelInfo : MonoBehaviour
             onPlayerSafe.Invoke();
         }
     }
+
+    // Public method to access from thought bubble dictionary
+    public Sprite getThoughtSprite(SolutionType solutionType) {
+        return thoughtPool[solutionType];
+    }
+
 }

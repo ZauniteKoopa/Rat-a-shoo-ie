@@ -112,6 +112,8 @@ public class Chef : MonoBehaviour
         audioManager = GetComponent<ChefAudioManager>();
         solutionPosComparer = new SolutionPosComparer(transform);
 
+        thoughtBubble.mainLevel = levelInfo;
+
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
         StartCoroutine(mainIntelligenceLoop());
@@ -314,7 +316,6 @@ public class Chef : MonoBehaviour
 
         for (int i = 0; i < highestPriorityIssue.getTotalSequenceSteps(); i++) {
             SolutionType currentStep = highestPriorityIssue.getNthStep(i);
-
             yield return goToSolutionObject(currentStep);
             yield return goToPosition(highestPriorityIssue.transform.position);
 
@@ -356,6 +357,7 @@ public class Chef : MonoBehaviour
         targetedSolution = solutionSensor.getSolutionInRange(solutionType);
         targetedSolutionType = solutionType;
         sensingSolutions = true;
+        thoughtBubble.thinkOfSolution(solutionType);
 
         // Main loop for trying to get a solution
         while (targetedSolution == null) {
@@ -384,6 +386,7 @@ public class Chef : MonoBehaviour
             s++;
         }
 
+        thoughtBubble.clearUpThoughts();
         grabSolutionObject(targetedSolution);
         sensingSolutions = false;
         
@@ -445,6 +448,7 @@ public class Chef : MonoBehaviour
             Debug.Log("New high priority issue in mind: " +  newIssue);
             StopAllCoroutines();
             chefHitbox.SetActive(false);
+            thoughtBubble.clearUpThoughts();
             StartCoroutine(mainIntelligenceLoop());
         }
     }

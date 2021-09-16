@@ -7,12 +7,11 @@ public class ThoughtBubble : MonoBehaviour
 {
     [SerializeField]
     private Image solutionIconSlot = null;
-    [SerializeField]
-    private SolutionTypeSpriteMap thoughtsPool = null;
+    public LevelInfo mainLevel = null;
 
     // Public method to set up thought bubble
-    public void thinkOfSolution(SolutionObject solution) {
-        solutionIconSlot.sprite = solution.getThoughtSprite();
+    public void thinkOfSolution(SolutionType solutionThought) {
+        solutionIconSlot.sprite = mainLevel.getThoughtSprite(solutionThought);
         gameObject.SetActive(true);
     }
 

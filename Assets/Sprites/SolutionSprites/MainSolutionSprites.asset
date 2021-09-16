@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dd45b0da2721bf0a173ed0b64f4d99, type: 3}
   m_Name: MainSolutionSprites
   m_EditorClassIdentifier: 
-  solutionTypeSprites: []
+  solutionTypeKeys: 000000000100000002000000
+  solutionTypeSprites:
+  - {fileID: -7448187089240853168, guid: 789ba4f44d6da3c3faafece6cc58d330, type: 3}
+  - {fileID: -6182139567355005811, guid: da281a91b3b77c3feaaf3caefd11f350, type: 3}
+  - {fileID: 939837267777948332, guid: cc256524fdd9def11b50b8a069c5a7fb, type: 3}
