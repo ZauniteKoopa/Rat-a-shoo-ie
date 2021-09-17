@@ -124,6 +124,8 @@ public class Chef : MonoBehaviour
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
 
         // get the int from transform forward
+        int lookDirection = WorldSprite.getSpriteLookDirectionTest(transform.forward);
+        animator.SetFloat("direction", lookDirection);
         // animator set int (preferably enum)
     }
 

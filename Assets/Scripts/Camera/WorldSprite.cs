@@ -12,6 +12,8 @@ public class WorldSprite : MonoBehaviour
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
     }
 
+
+    // TODO return float and let blend tree handle thresholds
     // Static method to decide what type of sprite to present based on what the unit is facing
     //  Returns an int representing what the sprite should look at
     //      0: back
