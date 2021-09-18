@@ -122,6 +122,7 @@ public class Chef : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
+        animator.SetBool("aggro", aggressive);
 
         // get the int from transform forward
         int lookDirection = WorldSprite.getSpriteLookDirectionTest(transform.forward);
@@ -151,7 +152,6 @@ public class Chef : MonoBehaviour
 
         // Main loop
         while (true) {
-            animator.SetBool("aggro", aggressive);
 
             if (highestPriorityIssue != null) {
                 yield return solveIssue(interrupted);

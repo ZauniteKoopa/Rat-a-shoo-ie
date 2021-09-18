@@ -26,17 +26,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415255084}
-  m_LocalRotation: {x: -0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
+  m_LocalScale: {x: 2.3952196, y: 2.3952193, z: 2.3952196}
   m_Children:
   - {fileID: 1261597830}
-  m_Father: {fileID: 4813905236207517747}
-  m_RootOrder: 5
+  m_Father: {fileID: 6423770004464214873}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.51, y: 0.559}
+  m_AnchoredPosition: {x: -2.4431236, y: 6.6946387}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &415255088
@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 6423770004464214873}
   - component: {fileID: 3604181856700234585}
   - component: {fileID: 5897396795823706298}
+  - component: {fileID: 1548683020}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -733,7 +734,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.20874913, y: 0.083499655, z: 0.20874913}
-  m_Children: []
+  m_Children:
+  - {fileID: 415255085}
   m_Father: {fileID: 4813905236207517747}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -807,6 +809,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1548683020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7885506331770803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de315516ce5ba738ba5ad28e58e3d9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4813905236207517751
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +860,6 @@ Transform:
   - {fileID: 1710969172}
   - {fileID: 6423770004464214873}
   - {fileID: 1320174795}
-  - {fileID: 415255085}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -950,7 +963,7 @@ MonoBehaviour:
   chefSensing: {fileID: 1632642256}
   solutionSensor: {fileID: 1320174790}
   passiveMovementSpeed: 3.5
-  confusionDuration: 0.75
+  confusionDuration: 1.5
   navDistance: 1
   chefHitbox: {fileID: 1710969171}
   attackingRange: 3

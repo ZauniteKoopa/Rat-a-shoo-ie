@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 847688713126582267}
   m_Layer: 0
   m_Name: StockPot
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

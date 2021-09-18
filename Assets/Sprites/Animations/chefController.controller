@@ -110,7 +110,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Blend
+  m_BlendParameter: direction
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1

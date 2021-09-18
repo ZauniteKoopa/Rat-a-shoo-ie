@@ -20,6 +20,7 @@ public class StockPot : MonoBehaviour
 
             if (numPoisonIngredientsReq <= 0) {
                 poisonMealEvent.Invoke();
+                Object.Destroy(gameObject);
             }
         }
     }
