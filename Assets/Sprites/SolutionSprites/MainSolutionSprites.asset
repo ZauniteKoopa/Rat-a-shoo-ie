@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solutionTypeKeys: 000000000100000002000000
   solutionTypeSprites:
-  - {fileID: -7448187089240853168, guid: 789ba4f44d6da3c3faafece6cc58d330, type: 3}
-  - {fileID: -6182139567355005811, guid: da281a91b3b77c3feaaf3caefd11f350, type: 3}
+  - {fileID: -1818541625063229167, guid: 589c2ce92d92d996e9e2e7c62b937cb5, type: 3}
+  - {fileID: -7600872652282376241, guid: a1f5a9571db67a7b3ad7fd64749ae309, type: 3}
   - {fileID: 939837267777948332, guid: cc256524fdd9def11b50b8a069c5a7fb, type: 3}

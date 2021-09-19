@@ -107,4 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   issuePriority: 1
-  sequentialSolutionSteps: 02000000
+  sequentialSolutionSteps: 01000000
+  isBeingDealtWith: 0
