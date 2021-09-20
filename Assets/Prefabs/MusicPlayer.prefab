@@ -45,12 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea3efd520f2db04ea6afe2cfdbd6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracks:
+  mainTracks:
   - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
   - {fileID: 8300000, guid: 79bc1e0af048c504494af2ece2442c35, type: 3}
   - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
   - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
   - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
+  chaseTracks:
+  - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
+  - {fileID: 8300000, guid: 79bc1e0af048c504494af2ece2442c35, type: 3}
+  - {fileID: 8300000, guid: d43e6e90a56b7be4c8b7ba44a4277481, type: 3}
+  - {fileID: 8300000, guid: d43e6e90a56b7be4c8b7ba44a4277481, type: 3}
+  - {fileID: 8300000, guid: d43e6e90a56b7be4c8b7ba44a4277481, type: 3}
   baseMusic: {fileID: 1263184369974570298}
   chaseMusic: {fileID: 388062794271741776}
 --- !u!82 &1263184369974570298
