@@ -12,11 +12,15 @@ public class HazardInteractable : GeneralInteractable
     private bool falling = false;
     private Rigidbody rb;
 
+    public AudioClip impactSound;
+    AudioSource audioSource;
+
     public UnityEvent hazardCreatedEvent;
 
     // On awake, get rigidbody component
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void onPlayerInteractEnd() {
@@ -50,6 +54,10 @@ public class HazardInteractable : GeneralInteractable
                 hazardCreatedEvent.Invoke();
                 Object.Instantiate(hazardCaused, transform.position, Quaternion.identity);
                 Object.Destroy(gameObject);
+            }
+            else
+            {
+                audioSource.PlayOneShot(impactSound, 0.5f);
             }
         }
     }
