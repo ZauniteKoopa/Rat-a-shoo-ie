@@ -48,7 +48,6 @@ public class MusicManager : MonoBehaviour
     // Private IEnumerator to fade in chase music
     private IEnumerator fadeInChaseMusic() {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        Debug.Log("start chase music");
 
         while (chaseMusic.volume < maxVolume) {
             yield return waitFrame;
@@ -66,7 +65,6 @@ public class MusicManager : MonoBehaviour
     // Private IEnumerator to fade out chase music
     private IEnumerator fadeOutChaseMusic() {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        Debug.Log("stop chase music");
 
         while (chaseMusic.volume > 0.0f) {
             yield return waitFrame;
