@@ -15,7 +15,6 @@ public class MusicManager : MonoBehaviour
     public float fadeOutFactor = 0.5f;
     public float fadeInFactor = 0.5f;
     public float maxVolume = 1f;
-    private bool fadeInOut = false;
 
     private void Awake()
     {
@@ -32,37 +31,39 @@ public class MusicManager : MonoBehaviour
         chaseMusic.Play();
     }
 
-    private void Update()
-    {
-        Debug.Log(fadeInOut);
-        if (fadeInOut)
-        {
-            Debug.Log("update true");
-            if (chaseMusic.volume < maxVolume)
-            {
-                chaseMusic.volume += fadeInFactor * Time.deltaTime;
-            }
-        }
-
-        if (!fadeInOut)
-        {
-            //Debug.Log("update false");
-            if (chaseMusic.volume > 0.0f)
-            {
-                chaseMusic.volume -= fadeOutFactor * Time.deltaTime;
-            }
-        }
-    }
-
+    // Event handler method for when the rat is being chased
     public void ratIsSeen()
     {
-        fadeInOut = true;
-        Debug.Log("seen and chasing");
+        StopAllCoroutines();
+        StartCoroutine(fadeInChaseMusic());
     }
 
+    // Private IEnumerator to fade in chase music
+    private IEnumerator fadeInChaseMusic() {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        Debug.Log("start chase music");
+
+        while (chaseMusic.volume < maxVolume) {
+            yield return waitFrame;
+            chaseMusic.volume += fadeInFactor * Time.deltaTime;
+        }
+    }
+
+    // Event handler method for when the rat is safe after a chase sequence
     public void ratNotSeen()
     {
-        fadeInOut = false;
-        Debug.Log("safe");
+        StopAllCoroutines();
+        StartCoroutine(fadeOutChaseMusic());
+    }
+
+    // Private IEnumerator to fade out chase music
+    private IEnumerator fadeOutChaseMusic() {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        Debug.Log("stop chase music");
+
+        while (chaseMusic.volume > 0.0f) {
+            yield return waitFrame;
+            chaseMusic.volume -= fadeInFactor * Time.deltaTime;
+        }
     }
 }

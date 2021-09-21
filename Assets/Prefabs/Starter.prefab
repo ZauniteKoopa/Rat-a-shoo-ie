@@ -341,7 +341,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  initialThoughtMap: {fileID: 0}
+  initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
 --- !u!1 &4821386775520902749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,12 +1432,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
---- !u!224 &3685517816318501098 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8200095421523678782, guid: ce650d94a633399e89b9f9633bd86d83,
-    type: 3}
-  m_PrefabInstance: {fileID: 4821386775982274260}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3685517816318501099 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
@@ -1450,6 +1444,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb411e05eec7edd68275e5a81f9f551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3685517816318501098 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8200095421523678782, guid: ce650d94a633399e89b9f9633bd86d83,
+    type: 3}
+  m_PrefabInstance: {fileID: 4821386775982274260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4821386776018102991
 PrefabInstance:
   m_ObjectHideFlags: 0
