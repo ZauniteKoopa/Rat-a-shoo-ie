@@ -28,7 +28,9 @@ public class SolutionPosComparer : IComparer<Vector3> {
 public enum RecipeStage {
     GO_TO_INGREDIENT,
     GO_TO_ACTION,
-    PLACE_INGREDIENT_BACK
+    PLACE_INGREDIENT_BACK,
+    GET_FOOD,
+    BRING_FOOD_TO_CUSTOMER,
 }
 
 
@@ -85,7 +87,8 @@ public class Chef : MonoBehaviour
     private IssueObject highestPriorityIssue = null;
 
     // Recipe handling
-    private Recipe targetRecipe = null;
+    [Header("Recipe / Customer Hnadling")]
+    private Customer targetCustomer = null;
     private int currentRecipeStep = 0;
     private RecipeStage currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
     [SerializeField]
@@ -125,7 +128,7 @@ public class Chef : MonoBehaviour
         solutionPosComparer = new SolutionPosComparer(transform);
 
         thoughtBubble.mainLevel = levelInfo;
-        targetRecipe = levelInfo.pickRandomMenuItem();
+        targetCustomer = levelInfo.getNextOrder();
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
@@ -183,10 +186,11 @@ public class Chef : MonoBehaviour
     private IEnumerator finishRecipe() {
         // Force chef to move at passive speed
         navMeshAgent.speed = passiveMovementSpeed;
+        Recipe customerOrder = targetCustomer.orderedMeal;
 
         // Go through each step in the recipe, keeping track of the state of the recipe as you go
-        for (int i = currentRecipeStep; i < targetRecipe.getNumSteps(); i++) {
-            SolutionType currentIngredient = targetRecipe.getSolutionStep(i);
+        for (int i = currentRecipeStep; i < customerOrder.getNumSteps(); i++) {
+            SolutionType currentIngredient = customerOrder.getSolutionStep(i);
 
             // Go to ingredient if haven't done so already
             if (targetedSolution == null && currentIngredientStage != RecipeStage.PLACE_INGREDIENT_BACK) {
@@ -213,14 +217,28 @@ public class Chef : MonoBehaviour
                     targetedSolution = null;
                 }
 
-                currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
+                currentIngredientStage = (currentRecipeStep < customerOrder.getNumSteps() - 1) ? RecipeStage.GO_TO_INGREDIENT : RecipeStage.GET_FOOD;
             }
 
             currentRecipeStep++;
         }
 
+        // After recipe has been all made, deliver recipe to customer
+        if (currentIngredientStage == RecipeStage.GET_FOOD) {
+            yield return goToPosition(cookingStation.position);
+            currentIngredientStage = RecipeStage.BRING_FOOD_TO_CUSTOMER;
+        }
+
+        if (currentIngredientStage == RecipeStage.BRING_FOOD_TO_CUSTOMER) {
+            yield return goToPosition(targetCustomer.transform.position);
+            targetCustomer.finishFood();
+            currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
+        }
+
+
+
         // Get the newest recipe
-        targetRecipe = levelInfo.pickRandomMenuItem();
+        targetCustomer = levelInfo.getNextOrder();
         currentRecipeStep = 0;
     }
 

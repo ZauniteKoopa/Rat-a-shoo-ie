@@ -503,6 +503,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   currentRatTarget: {fileID: 0}
+  ratPlayerFoundEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4813905236207517741}
+        m_MethodName: onRatSpotted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   issueEnterEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -959,9 +973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a1784ac4ad2b441a65b7ef8ae4bb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
   chefSensing: {fileID: 1632642256}
   solutionSensor: {fileID: 1320174790}
   passiveMovementSpeed: 3.5
@@ -978,6 +989,7 @@ MonoBehaviour:
   chefSprite: {fileID: 6423770004464214873}
   solutionHook: {x: 3.2, y: -3.2, z: -0.1}
   thoughtBubble: {fileID: 1261597833}
+  cookingStation: {fileID: 0}
   animator: {fileID: 5897396795823706298}
   anticipationColor: {r: 1, g: 0, b: 1, a: 1}
   attackColor: {r: 1, g: 0, b: 0, a: 1}
