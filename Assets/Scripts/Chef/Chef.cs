@@ -23,6 +23,15 @@ public class SolutionPosComparer : IComparer<Vector3> {
     }
 }
 
+// Main enum to indicate recipe stages (The recipes are all in appropriate order from top to bottom)
+//  This is done for each ingredient
+public enum RecipeStage {
+    GO_TO_INGREDIENT,
+    GO_TO_ACTION,
+    PLACE_INGREDIENT_BACK
+}
+
+
 
 // Main AI behavior for the chef
 public class Chef : MonoBehaviour
@@ -30,12 +39,9 @@ public class Chef : MonoBehaviour
     // Variables for navigation
     private NavMeshAgent navMeshAgent;
     private MeshRenderer meshRenderer;
-    private int waypointIndex = 0;
 
     // Serialized variables for navigation and speed
     [Header("Navigation")]
-    [SerializeField]
-    private List<Transform> waypoints = null;
     [SerializeField]
     private ChefSight chefSensing = null;
     [SerializeField]
@@ -78,6 +84,13 @@ public class Chef : MonoBehaviour
     private ThoughtBubble thoughtBubble = null;
     private IssueObject highestPriorityIssue = null;
 
+    // Recipe handling
+    private Recipe targetRecipe = null;
+    private int currentRecipeStep = 0;
+    private RecipeStage currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
+    [SerializeField]
+    private Transform cookingStation = null;
+
     // Variables for getting solutions
     private bool sensingSolutions = false;
     private SolutionObject targetedSolution = null;
@@ -105,7 +118,6 @@ public class Chef : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Assert.IsTrue(waypoints != null && waypoints.Count > 0);
         meshRenderer = GetComponent<MeshRenderer>();
         normalColor = meshRenderer.material.color;
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -113,6 +125,7 @@ public class Chef : MonoBehaviour
         solutionPosComparer = new SolutionPosComparer(transform);
 
         thoughtBubble.mainLevel = levelInfo;
+        targetRecipe = levelInfo.pickRandomMenuItem();
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
@@ -124,18 +137,16 @@ public class Chef : MonoBehaviour
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
         animator.SetBool("aggro", aggressive);
 
-        // get the int from transform forward
         int lookDirection = WorldSprite.getSpriteLookDirectionTest(transform.forward);
         animator.SetFloat("direction", lookDirection);
-        // animator set int (preferably enum)
     }
 
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         bool interrupted = false;
 
-        // If you were interrupted by a higher priority issue and you were holding onto a solutionObject, put the solution object back
-        if (targetedSolution != null) {
+        // If you were interrupted by a higher priority issue and you were holding onto a solutionObject for a hazard, put the solution object back
+        if (targetedSolution != null && highestPriorityIssue != null) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
             audioManager.playChefAlert();
@@ -159,10 +170,7 @@ public class Chef : MonoBehaviour
             }
             else if (!aggressive)
             {
-                yield return moveToNextWaypoint();
-
-                if (!aggressive)
-                    yield return doPassiveAction();
+                yield return finishRecipe();
             }
             else
             {
@@ -171,46 +179,49 @@ public class Chef : MonoBehaviour
         }
     }
 
-    // Main IEnumerator to move to waypoint
-    private IEnumerator moveToNextWaypoint() {
-        // Set up and update variables
+    // Main sequence to do passive recipe gathering
+    private IEnumerator finishRecipe() {
+        // Force chef to move at passive speed
         navMeshAgent.speed = passiveMovementSpeed;
-        waypointIndex = (waypointIndex + 1) % waypoints.Count;
-        Vector3 targetPosition = waypoints[waypointIndex].position;
-        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
-        navMeshAgent.destination = targetPosition;
+        // Go through each step in the recipe, keeping track of the state of the recipe as you go
+        for (int i = currentRecipeStep; i < targetRecipe.getNumSteps(); i++) {
+            SolutionType currentIngredient = targetRecipe.getSolutionStep(i);
 
-        // Modify vector so that its flatten in the x, z plane
-        Vector3 flatTargetPosition = new Vector3(targetPosition.x, 0, targetPosition.z);
-        Vector3 flatCurrentPosition = new Vector3(transform.position.x, 0, transform.position.z);
+            // Go to ingredient if haven't done so already
+            if (targetedSolution == null && currentIngredientStage != RecipeStage.PLACE_INGREDIENT_BACK) {
+                yield return goToSolutionObject(currentIngredient);
+                currentIngredientStage = RecipeStage.GO_TO_ACTION;
+            }
 
-        // Main wait loop until agent gets to destination point
-        while (Vector3.Distance(flatTargetPosition, flatCurrentPosition) > navDistance && chefSensing.currentRatTarget == null) {
-            yield return waitFrame;
-            flatCurrentPosition = new Vector3(transform.position.x, 0, transform.position.z);
+            // Go to action area and do action if you haven't done it
+            if (currentIngredientStage == RecipeStage.GO_TO_ACTION) {
+                yield return goToPosition(cookingStation.position);
+
+                navMeshAgent.enabled = false;
+                yield return new WaitForSeconds(targetedSolution.getDuration());
+                navMeshAgent.enabled = true;
+
+                currentIngredientStage = RecipeStage.PLACE_INGREDIENT_BACK;
+            }
+
+            // Place ingredient back if chef still has ingredient
+            if (currentIngredientStage == RecipeStage.PLACE_INGREDIENT_BACK) {
+                if (targetedSolution != null) {
+                    yield return goToPosition(targetedSolution.getInitialLocation());
+                    dropSolutionObject(targetedSolution);
+                    targetedSolution = null;
+                }
+
+                currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
+            }
+
+            currentRecipeStep++;
         }
 
-        // Do alert if spotted rat
-        if (chefSensing.currentRatTarget != null) {
-            yield return spotRat();
-        }
-    }
-
-    // Main IEnumerator to do passive action (Probably stirring soup or something, but for now, just standing)
-    private IEnumerator doPassiveAction() {
-        float timer = 0f;
-        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        
-        while (timer < 1f && chefSensing.currentRatTarget == null) {
-            yield return waitFrame;
-            timer += Time.deltaTime;
-        }
-
-        // Do alert if spotted rat
-        if (chefSensing.currentRatTarget != null) {
-            yield return spotRat();
-        }
+        // Get the newest recipe
+        targetRecipe = levelInfo.pickRandomMenuItem();
+        currentRecipeStep = 0;
     }
 
     // Main IEnumerator to do aggressive action
@@ -303,12 +314,20 @@ public class Chef : MonoBehaviour
         Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
         transform.forward = (flattenTarget - flattenPosition).normalized;
+
+        // Clear up thought bubble
+        thoughtBubble.clearUpThoughts();
+
+        // Indicate event start
         levelInfo.onChefChaseStart();
 
         yield return new WaitForSeconds(0.3f);
         navMeshAgent.enabled = true;
         audioManager.playChefAlert();
+
+        yield return mainIntelligenceLoop();
     }
+
 
     // Main Sequence when chef is trying to solve an issue, as seen in highestPriorityIssue
     //  Pre: highestPriorityIssue != null
@@ -322,6 +341,8 @@ public class Chef : MonoBehaviour
             yield return new WaitForSeconds(surprisedAtIssueDuration);
             navMeshAgent.enabled = true;
         }
+
+        navMeshAgent.speed = chaseMovementSpeed;
 
         for (int i = 0; i < highestPriorityIssue.getTotalSequenceSteps(); i++) {
             SolutionType currentStep = highestPriorityIssue.getNthStep(i);
@@ -361,7 +382,6 @@ public class Chef : MonoBehaviour
         List<Vector3> initialSolutionPositions = getSortedSolutionPositions(levelInfo.getPositions(solutionType));
 
         int s = 0;
-        navMeshAgent.speed = chaseMovementSpeed;
 
         targetedSolution = solutionSensor.getSolutionInRange(solutionType);
         targetedSolutionType = solutionType;
@@ -459,6 +479,15 @@ public class Chef : MonoBehaviour
             chefHitbox.SetActive(false);
             thoughtBubble.clearUpThoughts();
             StartCoroutine(mainIntelligenceLoop());
+        }
+    }
+
+    // Main event handler when rat has been spotted
+    //  Only interrupt if there is no highestPriorityIssue in mind
+    public void onRatSpotted() {
+        if (highestPriorityIssue == null) {
+            StopAllCoroutines();
+            StartCoroutine(spotRat());
         }
     }
 

@@ -16,6 +16,8 @@ public class ChefSight : MonoBehaviour
     // Variables concerning the player
     private Transform inRangePlayer = null;
     public Transform currentRatTarget = null;
+    private Transform prevRatTarget = null;
+    public UnityEvent ratPlayerFoundEvent;
 
     // Variables concerning IssueObjects that are in range
     private HashSet<IssueObject> inRangeIssues = null;
@@ -36,7 +38,12 @@ public class ChefSight : MonoBehaviour
             Debug.DrawRay(chefEye.position, directionToTarget * distanceToTarget, Color.red);
 
             if (!Physics.Raycast(chefEye.position, directionToTarget, distanceToTarget, obstructionMask)) {
+                prevRatTarget = currentRatTarget;
                 currentRatTarget = inRangePlayer;
+
+                if (prevRatTarget == null) {
+                    ratPlayerFoundEvent.Invoke();
+                }
             } else {
                 currentRatTarget = null;
             }

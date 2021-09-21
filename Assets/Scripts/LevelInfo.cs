@@ -13,10 +13,12 @@ public class LevelInfo : MonoBehaviour
     public UnityEvent onPlayerSafe;
     [SerializeField]
     private SolutionTypeSpriteMap initialThoughtMap = null;
+    [SerializeField]
+    private Recipe[] foodMenu = null;
 
 
     // Run before the first frame
-    private void Start() {
+    private void Awake() {
         solutionLocations = new Dictionary<SolutionType, List<Vector3>>();
         SolutionObject[] allSolutions = Object.FindObjectsOfType<SolutionObject>();
 
@@ -65,6 +67,12 @@ public class LevelInfo : MonoBehaviour
     // Public method to access from thought bubble dictionary
     public Sprite getThoughtSprite(SolutionType solutionType) {
         return thoughtPool[solutionType];
+    }
+
+    // Public method to get random food from menu
+    public Recipe pickRandomMenuItem() {
+        int i = Random.Range(0, foodMenu.Length);
+        return foodMenu[i];
     }
 
 }
