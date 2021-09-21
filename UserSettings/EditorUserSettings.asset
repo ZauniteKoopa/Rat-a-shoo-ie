@@ -8,9 +8,12 @@ EditorUserSettings:
     RecentlyUsedScenePath-0:
       value: 22424703114646680e0b0227036c6b1505032b292926230f0c27093bedee2d10ede638eeb41e7129370bfb25
       flags: 0
+<<<<<<< HEAD
     RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c7315001214677d66757e38271427fb
       flags: 0
+=======
+>>>>>>> 978cbf7181045bb3bbe28cbe1760dd27c73e2814
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
