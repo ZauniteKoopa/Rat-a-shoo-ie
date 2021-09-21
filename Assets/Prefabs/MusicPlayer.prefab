@@ -59,9 +59,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d43e6e90a56b7be4c8b7ba44a4277481, type: 3}
   baseMusic: {fileID: 1263184369974570298}
   chaseMusic: {fileID: 388062794271741776}
-  fadeOutFactor: 0.08
-  fadeInFactor: 0.08
-  maxVolume: 0.2
+  fadeOutFactor: 0.5
+  fadeInFactor: 0.5
+  maxVolume: 1
 --- !u!82 &1263184369974570298
 AudioSource:
   m_ObjectHideFlags: 0
