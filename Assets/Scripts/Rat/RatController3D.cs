@@ -134,10 +134,7 @@ public class RatController3D : MonoBehaviour
             groundForward = moveVector;
             // set animator controller for sprite look direction
             int direction = WorldSprite.getSpriteLookDirectionTest(groundForward);
-
             animator.SetInteger("direction", direction);
-
-
         }
 
         moveVector.Normalize();
