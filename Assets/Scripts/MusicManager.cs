@@ -9,8 +9,11 @@ public class MusicManager : MonoBehaviour
     private AudioClip[] mainTracks = null;
     [SerializeField]
     private AudioClip[] chaseTracks = null;
+    [SerializeField]
+    private AudioClip[] ambientTracks = null;
     public AudioSource baseMusic;
     public AudioSource chaseMusic;
+    public AudioSource ambientMusic;
 
     public float fadeOutFactor = 0.5f;
     public float fadeInFactor = 0.5f;
@@ -22,6 +25,7 @@ public class MusicManager : MonoBehaviour
         print("level" + curLevel);
         AudioClip baseLevel = mainTracks[curLevel];
         AudioClip chaseLevel = chaseTracks[curLevel];
+        AudioClip ambientLevel = ambientTracks[curLevel];
 
         baseMusic.clip = baseLevel;
         baseMusic.Play();
@@ -29,6 +33,9 @@ public class MusicManager : MonoBehaviour
         chaseMusic.clip = chaseLevel;
         chaseMusic.volume = 0.0f;
         chaseMusic.Play();
+
+        ambientMusic.clip = ambientLevel;
+        ambientMusic.Play();
     }
 
     // Event handler method for when the rat is being chased
