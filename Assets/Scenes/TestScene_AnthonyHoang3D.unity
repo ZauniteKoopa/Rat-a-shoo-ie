@@ -2358,6 +2358,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chef
       objectReference: {fileID: 0}
+    - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
 --- !u!1001 &1877777419
@@ -3083,6 +3088,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab08708ddb11eaf42bfbf0885f000fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  semiTransparent: {fileID: 2100000, guid: 83de94cf57a33c54e8b2cfac791a4b3f, type: 2}
+  obsMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &5250336059976363944
 PrefabInstance:
   m_ObjectHideFlags: 0
