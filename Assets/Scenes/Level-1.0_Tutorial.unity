@@ -1431,7 +1431,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fab9d450d09c58881940a62a2e2d6e5a, type: 2}
+  - {fileID: 2100000, guid: 21e6064cf6b95a0449d6789e8ad4f585, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4023,6 +4023,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857026dbda7f43f788d677268f179822, type: 3}
+--- !u!1 &1400689878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4242813612814644881, guid: 857026dbda7f43f788d677268f179822,
+    type: 3}
+  m_PrefabInstance: {fileID: 1400689877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400689879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400689878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdb2ddc46281e073b688ac3f41a1409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  semiTransparent: {fileID: 2100000, guid: 826570339c0e88af48f2b759c050d64c, type: 2}
+  obsMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1495810047
 GameObject:
   m_ObjectHideFlags: 0
