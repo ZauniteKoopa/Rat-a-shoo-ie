@@ -67,6 +67,7 @@ public class LevelInfo : MonoBehaviour
         }
 
         numNPCsChasing++;
+        Debug.Log("chef added: " + numNPCsChasing);
     }
 
     // Public method to update someone losing the player
@@ -74,6 +75,7 @@ public class LevelInfo : MonoBehaviour
         numNPCsChasing--;
 
         if (numNPCsChasing == 0) {
+            Debug.Log("chef stopped: " + numNPCsChasing);
             onPlayerSafe.Invoke();
         }
     }

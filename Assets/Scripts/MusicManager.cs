@@ -59,6 +59,7 @@ public class MusicManager : MonoBehaviour
     public void ratNotSeen()
     {
         StopAllCoroutines();
+        Debug.Log("fade out");
         StartCoroutine(fadeOutChaseMusic());
     }
 

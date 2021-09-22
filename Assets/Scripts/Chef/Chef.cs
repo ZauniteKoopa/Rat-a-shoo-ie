@@ -506,6 +506,10 @@ public class Chef : MonoBehaviour
     //  Only interrupt if there is no highestPriorityIssue in mind
     public void onRatSpotted() {
         if (highestPriorityIssue == null) {
+            
+            if (aggressive) {
+                levelInfo.onChefChaseEnd();
+            }
             sensingSolutions = false;
             StopAllCoroutines();
             StartCoroutine(spotRat());
