@@ -5,15 +5,15 @@ using UnityEngine;
 public enum SolutionType {
     FIRE_EXTINGUISHER,
     TOWEL,
-    BROOM
+    BROOM,
+    PEACH,
+    APPLE
 };
 
 public class SolutionObject : MonoBehaviour
 {
 
     public SolutionType solutionType = SolutionType.FIRE_EXTINGUISHER;
-    [SerializeField]
-    private Sprite solutionSprite = null;
     private Vector3 initialLocation = Vector3.zero;
 
     // On start, get the initial location of this solution
@@ -31,6 +31,10 @@ public class SolutionObject : MonoBehaviour
                 return 1.0f;
             case SolutionType.BROOM:
                 return 1.0f;
+            case SolutionType.PEACH:
+                return 1.0f;
+            case SolutionType.APPLE:
+                return 1.0f;
             default:
                 throw new System.Exception("Invalid Solution Type");
         }
@@ -39,10 +43,5 @@ public class SolutionObject : MonoBehaviour
     // Method to access initial location
     public Vector3 getInitialLocation() {
         return initialLocation;
-    }
-
-    // Method to access solution sprite, most likely just the 2D sprite used in the game
-    public Sprite getThoughtSprite() {
-        return solutionSprite;
     }
 }
