@@ -38,12 +38,10 @@ public class ObstructionHandler : MonoBehaviour
             {
                 Material[] obsMaterials = obs.GetComponent<Renderer>().materials;
                 curObstructions.Add(obs, obsMaterials);
-                Debug.Log(obs.GetComponent<Renderer>().materials);
                 Material[] semiTransArray = new Material[obsMaterials.Length];
                 for (int i = 0; i < obsMaterials.Length; i++)
                 {
                     semiTransArray[i] = semiTransparent;
-                    //Debug.Log(obs.GetComponent<Renderer>().materials[i]);
                 }
                 obs.GetComponent<Renderer>().materials = semiTransArray;
             }

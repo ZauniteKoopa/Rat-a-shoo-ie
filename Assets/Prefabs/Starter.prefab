@@ -342,6 +342,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
+  foodMenu: []
 --- !u!1 &4821386775520902749
 GameObject:
   m_ObjectHideFlags: 0

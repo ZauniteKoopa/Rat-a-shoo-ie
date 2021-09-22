@@ -239,6 +239,7 @@ public class Chef : MonoBehaviour
 
 
         // Get the newest recipe
+        Debug.Log("Finish order");
         targetCustomer = levelInfo.getNextOrder();
         currentRecipeStep = 0;
     }
@@ -505,6 +506,7 @@ public class Chef : MonoBehaviour
     //  Only interrupt if there is no highestPriorityIssue in mind
     public void onRatSpotted() {
         if (highestPriorityIssue == null) {
+            sensingSolutions = false;
             StopAllCoroutines();
             StartCoroutine(spotRat());
         }

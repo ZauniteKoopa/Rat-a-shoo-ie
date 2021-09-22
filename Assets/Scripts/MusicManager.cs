@@ -22,7 +22,7 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         int curLevel = SceneManager.GetActiveScene().buildIndex;
-        print("level" + curLevel);
+        // print("level" + curLevel);
         AudioClip baseLevel = mainTracks[curLevel];
         AudioClip chaseLevel = chaseTracks[curLevel];
         AudioClip ambientLevel = ambientTracks[curLevel];
