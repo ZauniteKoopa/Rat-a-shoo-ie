@@ -137,6 +137,7 @@ public class Chef : MonoBehaviour
 
     private void Update()
     {
+
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
         animator.SetBool("aggro", aggressive);
 
