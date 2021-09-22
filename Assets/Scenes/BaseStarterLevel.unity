@@ -811,7 +811,7 @@ PrefabInstance:
     - target: {fileID: 5250336059709721638, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
@@ -1266,6 +1266,7 @@ GameObject:
   - component: {fileID: 7293247472877065274}
   - component: {fileID: 7293247472877065275}
   - component: {fileID: 7293247472877065220}
+  - component: {fileID: 7293247472877065273}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1273,6 +1274,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7293247472877065273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7293247472877065272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdb2ddc46281e073b688ac3f41a1409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  semiTransparent: {fileID: 2100000, guid: 826570339c0e88af48f2b759c050d64c, type: 2}
+  obsMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!20 &7293247472877065274
 Camera:
   m_ObjectHideFlags: 0
