@@ -9,6 +9,7 @@ public class LevelInfo : MonoBehaviour
     private Dictionary<SolutionType, List<Vector3>> solutionLocations;
     private int numNPCsChasing = 0;
     private Dictionary<SolutionType, Sprite> thoughtPool;
+    private Dictionary<SolutionType, Transform> closetDictionary;
 
     public UnityEvent onPlayerAttacked;
     public UnityEvent onPlayerSafe;
@@ -40,6 +41,7 @@ public class LevelInfo : MonoBehaviour
 
         // Set up thought pool
         thoughtPool = initialThoughtMap.getThoughtBubbleDictionary();
+        closetDictionary = initialThoughtMap.getSolutionPrefabDictionary();
     }
 
     // Method to get the positions of all possible solution of solutionType
@@ -74,6 +76,11 @@ public class LevelInfo : MonoBehaviour
     public Recipe pickRandomMenuItem() {
         int i = Random.Range(0, foodMenu.Length);
         return foodMenu[i];
+    }
+
+    // Public method to access the prefab with the associated solution type
+    public Transform getSolutionPrefab(SolutionType solutionType) {
+        return closetDictionary[solutionType];
     }
 
 }

@@ -18,3 +18,8 @@ MonoBehaviour:
   - {fileID: -7600872652282376241, guid: a1f5a9571db67a7b3ad7fd64749ae309, type: 3}
   - {fileID: 939837267777948332, guid: cc256524fdd9def11b50b8a069c5a7fb, type: 3}
   - {fileID: -6182139567355005811, guid: da281a91b3b77c3feaaf3caefd11f350, type: 3}
+  solutionTypePrefabs:
+  - {fileID: 5200052175799030984, guid: 85b2f7d8daf34f18d9f518f1abfd89e7, type: 3}
+  - {fileID: 7249977245753802391, guid: 2d7e542a5c31c49e08f38b382ced8f15, type: 3}
+  - {fileID: 1362613494378095001, guid: 563a7d4a9441e104da4d625c2117a983, type: 3}
+  - {fileID: 3925161966921369825, guid: 9371f16d6acdbc4c5ac38b5f06d276f7, type: 3}

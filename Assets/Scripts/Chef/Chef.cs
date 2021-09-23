@@ -83,6 +83,8 @@ public class Chef : MonoBehaviour
     private Vector3 solutionHook = Vector3.zero;
     [SerializeField]
     private ThoughtBubble thoughtBubble = null;
+    [SerializeField]
+    private ChefCloset closet = null;
     private IssueObject highestPriorityIssue = null;
 
     // Recipe handling
@@ -412,25 +414,37 @@ public class Chef : MonoBehaviour
 
         // Main loop for trying to get a solution
         while (targetedSolution == null) {
-            // get the current targeted solution
-            targetedSolutionPosition = initialSolutionPositions[s];
-            navMeshAgent.destination = targetedSolutionPosition;
+            // if S is still in range get the current targeted solution
+            if (s < initialSolutionPositions.Count) {
+                targetedSolutionPosition = initialSolutionPositions[s];
+                navMeshAgent.destination = targetedSolutionPosition;
 
-            // make sure path has been fully processed before running
-            while (navMeshAgent.pathPending) {
-                yield return waitFrame;
-            }
+                // make sure path has been fully processed before running
+                while (navMeshAgent.pathPending) {
+                    yield return waitFrame;
+                }
 
-            // Keep going on path until navMeshAgent.remainingDistance is less than a threshold
-            while (targetedSolution == null && navMeshAgent.remainingDistance > navDistance) {
-                yield return waitFrame;
-            }
+                // Keep going on path until navMeshAgent.remainingDistance is less than a threshold
+                while (targetedSolution == null && navMeshAgent.remainingDistance > navDistance) {
+                    yield return waitFrame;
+                }
 
-            // Act confused until either the confused timer went out or the targetSolution was found
-            float timer = 0f;
-            while (targetedSolution == null && timer < noSolutionFoundDuration) {
-                yield return waitFrame;
-                timer += Time.deltaTime;
+                // Act confused until either the confused timer went out or the targetSolution was found
+                float timer = 0f;
+                while (targetedSolution == null && timer < noSolutionFoundDuration) {
+                    yield return waitFrame;
+                    timer += Time.deltaTime;
+                }
+
+            // Else, go rummage through the closet, GUARANTEED TO GET A SOLUTION OBJECT
+            } else {
+                targetedSolutionPosition = closet.transform.position;
+                yield return goToPosition(targetedSolutionPosition);
+                yield return new WaitForSeconds(3.0f);
+                closet.spawnSolutionObject(solutionType);
+
+                while (targetedSolution == null)
+                    yield return waitFrame;
             }
 
             // set up for geting the next targeted solution
