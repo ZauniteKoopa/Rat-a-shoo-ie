@@ -128,10 +128,12 @@ public class RatController3D : MonoBehaviour
         }
         
         // Calculate the actual move vector
-        Vector3 moveVector = horizontalAxis * Vector3.right;
-        moveVector += verticalAxis * Vector3.forward;
-        if (moveVector != Vector3.zero) {
-            groundForward = moveVector;
+        Vector3 forwardVector = (Input.GetAxis("Horizontal") * Vector3.right) + (Input.GetAxis("Vertical") * Vector3.forward);
+        Vector3 moveVector = horizontalAxis * Vector3.right + verticalAxis * Vector3.forward;
+        
+        // Update forward
+        if (forwardVector != Vector3.zero) {
+            groundForward = forwardVector;
             // set animator controller for sprite look direction
             int direction = WorldSprite.getSpriteLookDirectionTest(groundForward);
             animator.SetInteger("direction", direction);
