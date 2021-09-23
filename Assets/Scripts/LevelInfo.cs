@@ -16,16 +16,12 @@ public class LevelInfo : MonoBehaviour
     private SolutionTypeSpriteMap initialThoughtMap = null;
     [SerializeField]
     private Recipe[] foodMenu = null;
-    private Customer[] customers = null;
-    private Queue<Customer> orderQueue = null;
 
 
     // Run before the first frame
     private void Awake() {
         solutionLocations = new Dictionary<SolutionType, List<Vector3>>();
         SolutionObject[] allSolutions = Object.FindObjectsOfType<SolutionObject>();
-        customers = Object.FindObjectsOfType<Customer>();
-        orderQueue = new Queue<Customer>();
 
         // For each solution
         foreach(SolutionObject solution in allSolutions) {
@@ -40,15 +36,6 @@ public class LevelInfo : MonoBehaviour
 
             // Add initial position to the list
             solutionLocations[curType].Add(initialLocation);
-        }
-
-        // For each customer in customers
-        int i = 0;
-        foreach(Customer customer in customers) {
-            customer.customerIndex = i;
-            customer.orderedMeal = pickRandomMenuItem();
-            orderQueue.Enqueue(customer);
-            i++;
         }
 
         // Set up thought pool
@@ -67,7 +54,6 @@ public class LevelInfo : MonoBehaviour
         }
 
         numNPCsChasing++;
-        Debug.Log("chef added: " + numNPCsChasing);
     }
 
     // Public method to update someone losing the player
@@ -75,7 +61,6 @@ public class LevelInfo : MonoBehaviour
         numNPCsChasing--;
 
         if (numNPCsChasing == 0) {
-            Debug.Log("chef stopped: " + numNPCsChasing);
             onPlayerSafe.Invoke();
         }
     }
@@ -89,27 +74,6 @@ public class LevelInfo : MonoBehaviour
     public Recipe pickRandomMenuItem() {
         int i = Random.Range(0, foodMenu.Length);
         return foodMenu[i];
-    }
-
-    // Public method to get the next order
-    public Customer getNextOrder() {
-        return orderQueue.Dequeue();
-    }
-
-    // Event handler when a customer's is leaving
-    public void onCustomerLeave(int customerIndex) {
-        StartCoroutine(customerLeaveSequence(customerIndex));
-    }
-
-    // IEnumerator for customer leave sequence
-    private IEnumerator customerLeaveSequence(int customerIndex) {
-        customers[customerIndex].gameObject.SetActive(false);
-        yield return new WaitForSeconds(1.0f);
-
-        customers[customerIndex].gameObject.SetActive(true);
-        customers[customerIndex].orderedMeal = pickRandomMenuItem();
-        orderQueue.Enqueue(customers[customerIndex]);
-
     }
 
 }

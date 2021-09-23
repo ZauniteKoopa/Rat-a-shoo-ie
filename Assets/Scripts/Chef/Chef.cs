@@ -72,7 +72,6 @@ public class Chef : MonoBehaviour
 
     // Variables for issue management
     [Header("IssueHandling")]
-    [SerializeField]
     private LevelInfo levelInfo = null;
     [SerializeField]
     private float surprisedAtIssueDuration = 2.0f;
@@ -88,11 +87,14 @@ public class Chef : MonoBehaviour
 
     // Recipe handling
     [Header("Recipe / Customer Hnadling")]
-    private Customer targetCustomer = null;
+    [SerializeField]
+    private OrderWindow orderWindow = null;
+    private Recipe targetRecipe = null;
     private int currentRecipeStep = 0;
     private RecipeStage currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
     [SerializeField]
-    private Transform cookingStation = null;
+    private StockPot cookingStation = null;
+    private FoodInstance servedFood = null;
 
     // Variables for getting solutions
     private bool sensingSolutions = false;
@@ -121,6 +123,8 @@ public class Chef : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelInfo = FindObjectOfType<LevelInfo>();
+
         meshRenderer = GetComponent<MeshRenderer>();
         normalColor = meshRenderer.material.color;
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -128,7 +132,7 @@ public class Chef : MonoBehaviour
         solutionPosComparer = new SolutionPosComparer(transform);
 
         thoughtBubble.mainLevel = levelInfo;
-        targetCustomer = levelInfo.getNextOrder();
+        targetRecipe = orderWindow.getCurrentRecipe();
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
@@ -187,11 +191,10 @@ public class Chef : MonoBehaviour
     private IEnumerator finishRecipe() {
         // Force chef to move at passive speed
         navMeshAgent.speed = passiveMovementSpeed;
-        Recipe customerOrder = targetCustomer.orderedMeal;
 
         // Go through each step in the recipe, keeping track of the state of the recipe as you go
-        for (int i = currentRecipeStep; i < customerOrder.getNumSteps(); i++) {
-            SolutionType currentIngredient = customerOrder.getSolutionStep(i);
+        for (int i = currentRecipeStep; i < targetRecipe.getNumSteps(); i++) {
+            SolutionType currentIngredient = targetRecipe.getSolutionStep(i);
 
             // Go to ingredient if haven't done so already
             if (targetedSolution == null && currentIngredientStage != RecipeStage.PLACE_INGREDIENT_BACK) {
@@ -201,7 +204,7 @@ public class Chef : MonoBehaviour
 
             // Go to action area and do action if you haven't done it
             if (currentIngredientStage == RecipeStage.GO_TO_ACTION) {
-                yield return goToPosition(cookingStation.position);
+                yield return goToPosition(cookingStation.transform.position);
 
                 navMeshAgent.enabled = false;
                 yield return new WaitForSeconds(targetedSolution.getDuration());
@@ -218,29 +221,28 @@ public class Chef : MonoBehaviour
                     targetedSolution = null;
                 }
 
-                currentIngredientStage = (currentRecipeStep < customerOrder.getNumSteps() - 1) ? RecipeStage.GO_TO_INGREDIENT : RecipeStage.GET_FOOD;
+                currentIngredientStage = (currentRecipeStep < targetRecipe.getNumSteps() - 1) ? RecipeStage.GO_TO_INGREDIENT : RecipeStage.GET_FOOD;
             }
 
             currentRecipeStep++;
         }
 
-        // After recipe has been all made, deliver recipe to customer
+        // After recipe has been all made, go to get the completed food
         if (currentIngredientStage == RecipeStage.GET_FOOD) {
-            yield return goToPosition(cookingStation.position);
+            yield return goToPosition(cookingStation.transform.position);
+            servedFood = cookingStation.takeCompletedMeal();
             currentIngredientStage = RecipeStage.BRING_FOOD_TO_CUSTOMER;
         }
 
+        // Take food to order window and get the newest recipe from the order window
         if (currentIngredientStage == RecipeStage.BRING_FOOD_TO_CUSTOMER) {
-            yield return goToPosition(targetCustomer.transform.position);
-            targetCustomer.finishFood();
+            yield return goToPosition(orderWindow.transform.position);
+            orderWindow.serveFood(servedFood);
+            targetRecipe = orderWindow.getCurrentRecipe();
             currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
         }
 
-
-
-        // Get the newest recipe
-        Debug.Log("Finish order");
-        targetCustomer = levelInfo.getNextOrder();
+        // Reset recipe steps
         currentRecipeStep = 0;
     }
 
@@ -506,7 +508,7 @@ public class Chef : MonoBehaviour
     //  Only interrupt if there is no highestPriorityIssue in mind
     public void onRatSpotted() {
         if (highestPriorityIssue == null) {
-            
+
             if (aggressive) {
                 levelInfo.onChefChaseEnd();
             }
@@ -532,6 +534,10 @@ public class Chef : MonoBehaviour
         solution.transform.parent = chefSprite;
         solution.transform.localPosition = solutionHook;
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        if (solution.GetComponent<Ingredient>() != null) {
+            solution.GetComponent<Ingredient>().isHeldByChef = true;
+        }
     }
 
     // Private helper method to drop a solution object to its initial position
@@ -539,6 +545,10 @@ public class Chef : MonoBehaviour
         solution.transform.parent = null;
         solution.transform.position = targetedSolution.getInitialLocation();
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+
+        if (solution.GetComponent<Ingredient>() != null) {
+            solution.GetComponent<Ingredient>().isHeldByChef = false;
+        }
     }
 
 }

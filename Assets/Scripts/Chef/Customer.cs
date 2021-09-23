@@ -15,7 +15,7 @@ public class Customer : MonoBehaviour
     void Awake() {
         customerFinishedEvent = new CustomerFinishedDelegate();
         LevelInfo levelInfo = FindObjectOfType<LevelInfo>();
-        customerFinishedEvent.AddListener(levelInfo.onCustomerLeave);
+        // customerFinishedEvent.AddListener(levelInfo.onCustomerLeave);
     }
 
     // Method to eat food
