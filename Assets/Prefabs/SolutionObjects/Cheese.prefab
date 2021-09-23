@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 8299455592705188471}
   - component: {fileID: 8299455592705188470}
   - component: {fileID: 7682760123373325965}
+  - component: {fileID: 1932776162}
   m_Layer: 14
   m_Name: Cheese
   m_TagString: BadFood
@@ -124,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 8299455592705188469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.08, y: 1.44, z: 2.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 1, z: 0.05}
   m_Children:
   - {fileID: 213620598}
   m_Father: {fileID: 0}
@@ -220,3 +221,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0
   heavyItemHooks: []
+--- !u!114 &1932776162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299455592705188469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b542ee19d9d82f1a92a9a54406e1dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpicy: 0
+  isRotten: 1
+  isHeldByChef: 0
