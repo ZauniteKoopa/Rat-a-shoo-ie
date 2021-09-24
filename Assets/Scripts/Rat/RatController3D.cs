@@ -187,10 +187,17 @@ public class RatController3D : MonoBehaviour
 
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
                 audioManager.emitPickupSound();
+
                 // Disable physics and place transform in hook
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 grabbedInteractable.transform.parent = transform;
                 grabbedInteractable.transform.localPosition = grabbableHook;
+
+                // If it's a solution object, make sure chef can't grab it
+                SolutionObject grabbedSolution = grabbedInteractable.GetComponent<SolutionObject>();
+                if (grabbedSolution != null) {
+                    grabbedSolution.canChefGrab = false;
+                }
             }
             else if (grabbedInteractable.weight == InteractableWeight.HEAVY) {
                 transform.position = grabbedInteractable.getNearestHeavyItemHook(transform);
@@ -260,6 +267,13 @@ public class RatController3D : MonoBehaviour
             }
 
             grabbedInteractable.onPlayerInteractEnd();
+
+            // If it's a solution object, make sure chef can't grab it
+            SolutionObject grabbedSolution = grabbedInteractable.GetComponent<SolutionObject>();
+            if (grabbedSolution != null) {
+                grabbedSolution.canChefGrab = false;
+            }
+            
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }

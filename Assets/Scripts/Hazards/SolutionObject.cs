@@ -15,6 +15,7 @@ public class SolutionObject : MonoBehaviour
 
     public SolutionType solutionType = SolutionType.FIRE_EXTINGUISHER;
     private Vector3 initialLocation = Vector3.zero;
+    public bool canChefGrab = true;
 
     // On start, get the initial location of this solution
     private void Start() {

@@ -26,7 +26,9 @@ public class ChefSolutionSensor : MonoBehaviour
 
         if (possibleSolution != null) {
             inRangeSolutions.Add(possibleSolution);
-            solutionSensedEvent.Invoke(possibleSolution);
+
+            if (possibleSolution.canChefGrab)
+                solutionSensedEvent.Invoke(possibleSolution);
         }
     }
 
