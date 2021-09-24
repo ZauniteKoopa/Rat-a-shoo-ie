@@ -713,7 +713,7 @@ MonoBehaviour:
     m_Bits: 512
   maxHealth: 3
   invincibilityDuration: 1.5
-  invinicibleColor: {r: 0.030784938, g: 0.5377358, b: 0, a: 0.58431375}
+  characterSprite: {fileID: 694440409932395574}
   playerHealthLossEvent:
     m_PersistentCalls:
       m_Calls:

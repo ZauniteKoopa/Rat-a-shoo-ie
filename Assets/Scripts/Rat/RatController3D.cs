@@ -41,8 +41,8 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float invincibilityDuration = 1.5f;
     [SerializeField]
-    private Color invinicibleColor = Color.black;
-    private Color normalColor;
+    private SpriteRenderer characterSprite = null;
+    private Color invinicibleColor;
     private int curHealth;
     private bool invincible = false;
     public UnityEvent playerHealthLossEvent;
@@ -69,20 +69,17 @@ public class RatController3D : MonoBehaviour
 
     // Reference variables
     private Rigidbody rigidBody;
-    private MeshRenderer meshRenderer;
     private RatAudioManager audioManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         userInterface.updateHealthUI(maxHealth);
         curHealth = maxHealth;
 
         rigidBody = GetComponent<Rigidbody>();
-        meshRenderer = GetComponent<MeshRenderer>();
         audioManager = GetComponent<RatAudioManager>();
-
-        normalColor = meshRenderer.material.color;
     }
 
     // Update is called once per frame
@@ -268,11 +265,21 @@ public class RatController3D : MonoBehaviour
     /* Main coroutine to do invincibility */
     private IEnumerator invincibilityRoutine() {
         invincible = true;
-        meshRenderer.material.color = invinicibleColor;
+
+        bool isTransparent = false;
+        float timer = 0.0f;
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        while (timer < invincibilityDuration) {
+            yield return waitFrame;
+            characterSprite.color = (isTransparent) ? Color.white : invinicibleColor;
+            isTransparent = !isTransparent;
+            timer += Time.deltaTime;
+        }
 
         yield return new WaitForSeconds(invincibilityDuration);
 
-        meshRenderer.material.color = normalColor;
+        characterSprite.color = Color.white;
         invincible = false;
     }
 
