@@ -60,6 +60,7 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private InteractableSensor interactableSensor = null;
     private GeneralInteractable grabbedInteractable = null;
+    private GeneralInteractable targetedInteractable = null;
     private float heavyInteractableDistance = 0.0f;
 
     [Header("User interface")]
@@ -87,6 +88,23 @@ public class RatController3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Handling target interactable, highlight the nearest interactable that's in front of the player.
+        if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
+            GeneralInteractable previousTarget = targetedInteractable;
+            targetedInteractable = interactableSensor.getNearestInteractable(groundForward);
+
+            // Remove highlight if player is looking at another interactable
+            if (previousTarget != null && previousTarget != targetedInteractable) {
+                previousTarget.removeHighlight();
+            }
+
+            targetedInteractable.highlight();
+
+        // If player moved away from target interactable, remove the highlight
+        } else if (targetedInteractable != null) {
+            targetedInteractable.removeHighlight();
+            targetedInteractable = null;
+        }
         
         handleGroundMovement();
 
@@ -178,9 +196,12 @@ public class RatController3D : MonoBehaviour
     /* Method to handle interactable */
     private void handleInteractable() {
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
-        if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
-            grabbedInteractable = interactableSensor.getNearestInteractable(groundForward);
+        if (targetedInteractable != false) {
+            grabbedInteractable = targetedInteractable;
+            grabbedInteractable.removeHighlight();
             grabbedInteractable.onPlayerInteractStart();
+
+            targetedInteractable = null;
 
             // for animation TODO
             //animator.SetBool("interacting", true);
@@ -273,7 +294,7 @@ public class RatController3D : MonoBehaviour
             if (grabbedSolution != null) {
                 grabbedSolution.canChefGrab = false;
             }
-            
+
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }

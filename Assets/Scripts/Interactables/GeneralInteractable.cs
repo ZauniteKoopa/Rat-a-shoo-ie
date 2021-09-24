@@ -16,6 +16,8 @@ public class GeneralInteractable : MonoBehaviour
    // heavy item hooks in local space of the interactable
    [SerializeField]
    private Vector3[] heavyItemHooks = null;
+   [SerializeField]
+   private GameObject highlightedIndicator = null;
 
    // Public method to get nearest heavyItemHook in world space
    public Vector3 getNearestHeavyItemHook(Transform playerTransform) {
@@ -43,5 +45,15 @@ public class GeneralInteractable : MonoBehaviour
 
    // Event method to indicate interaction end
    public virtual void onPlayerInteractEnd() {}
+
+   // Public method to highlight this interactable for selection
+   public void highlight() {
+       highlightedIndicator.SetActive(true);
+   }
+
+   // Public method to unhighlight interactable for selection
+   public void removeHighlight() {
+       highlightedIndicator.SetActive(false);
+   }
 
 }
