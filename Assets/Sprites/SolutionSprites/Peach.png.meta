@@ -129,10 +129,10 @@ TextureImporter:
       name: Peach_0
       rect:
         serializedVersion: 2
-        x: 218
-        y: 263
-        width: 525
-        height: 607
+        x: 210
+        y: 260
+        width: 543
+        height: 616
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

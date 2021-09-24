@@ -164,6 +164,8 @@ public class Chef : MonoBehaviour
             navMeshAgent.enabled = true;
 
             navMeshAgent.speed = chaseMovementSpeed;
+
+            thoughtBubble.thinkOfSolution(highestPriorityIssue.getNthStep(0));
             yield return goToPosition(targetedSolution.getInitialLocation());
             dropSolutionObject(targetedSolution);
             targetedSolution = null;

@@ -983,12 +983,13 @@ MonoBehaviour:
   chaseMovementSpeed: 6
   anticipationTime: 0.5
   attackingTime: 0.3
-  levelInfo: {fileID: 0}
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 6423770004464214873}
   solutionHook: {x: 3.2, y: -3.2, z: -0.1}
   thoughtBubble: {fileID: 1261597833}
+  closet: {fileID: 0}
+  orderWindow: {fileID: 0}
   cookingStation: {fileID: 0}
   animator: {fileID: 5897396795823706298}
   anticipationColor: {r: 1, g: 0, b: 1, a: 1}
