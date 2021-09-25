@@ -179,7 +179,7 @@ public class ToDoList : MonoBehaviour
     // Method when player tries to escape
     public void onPlayerEscape() {
         if (canEscape) {
-            GetComponent<SceneChanger>().ChangeScene("MainMenu");
+            GetComponent<SceneChanger>().ChangeScene("WinScreen");
         } else {
             if (!warningActive) {
                 StartCoroutine(warningSequence("You still haven't finished tasks yet"));
@@ -203,7 +203,7 @@ public class ToDoList : MonoBehaviour
         curHealth--;
 
         if (curHealth <= 0) {
-            GetComponent<SceneChanger>().ChangeScene("MainMenu");
+            GetComponent<SceneChanger>().ChangeScene("LoseScreen");
         }
     }
 
