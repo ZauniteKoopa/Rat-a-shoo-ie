@@ -74,7 +74,7 @@ public class RatController3D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
         userInterface.updateHealthUI(maxHealth);
         curHealth = maxHealth;
 
@@ -249,7 +249,7 @@ public class RatController3D : MonoBehaviour
 
     /* Method for taking damage */
     public void takeDamage() {
-        if (!invincible) {
+        if (!invincible && curHealth > 0) {
             curHealth--;
             audioManager.emitDamageSound();
             playerHealthLossEvent.Invoke();
@@ -266,14 +266,15 @@ public class RatController3D : MonoBehaviour
     private IEnumerator invincibilityRoutine() {
         invincible = true;
 
-        bool isTransparent = false;
+        // bool isTransparent = false;
         float timer = 0.0f;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        characterSprite.color = invinicibleColor;
 
         while (timer < invincibilityDuration) {
             yield return waitFrame;
-            characterSprite.color = (isTransparent) ? Color.white : invinicibleColor;
-            isTransparent = !isTransparent;
+            // characterSprite.color = (isTransparent) ? Color.white : invinicibleColor;
+            // isTransparent = !isTransparent;
             timer += Time.deltaTime;
         }
 

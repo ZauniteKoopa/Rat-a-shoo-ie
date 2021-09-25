@@ -20,7 +20,7 @@ public class HazardInteractable : GeneralInteractable
 
     // Spawn position management
     private Vector3 spawnPosition;
-    private float HAZARD_EXPIRATION_DURATION = 5.0f;
+    private float HAZARD_EXPIRATION_DURATION = 8.0f;
     private float SPAWN_OFFSET_DURATION = 1.5f;
     [SerializeField]
     private bool isTimedSpawn = false;
