@@ -88,7 +88,7 @@ public class Chef : MonoBehaviour
     private IssueObject highestPriorityIssue = null;
 
     // Recipe handling
-    [Header("Recipe / Customer Hnadling")]
+    [Header("Recipe / Customer Handling")]
     [SerializeField]
     private OrderWindow orderWindow = null;
     private Recipe targetRecipe = null;
@@ -380,7 +380,7 @@ public class Chef : MonoBehaviour
             navMeshAgent.enabled = true;
 
             if (i == highestPriorityIssue.getTotalSequenceSteps() - 1) {
-                Object.Destroy(highestPriorityIssue.gameObject);
+                highestPriorityIssue.removeIssue();
                 navMeshAgent.speed = passiveMovementSpeed;
             }
 
