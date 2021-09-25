@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class ToDoList : MonoBehaviour
@@ -51,6 +52,9 @@ public class ToDoList : MonoBehaviour
     //Reference variables
     private UIAudioManager audioManager = null;
 
+    // Unity events
+    public UnityEvent playerFinishAllTasksEvent;
+
 
     // On start, initialize the list
     private void Start() {
@@ -67,7 +71,7 @@ public class ToDoList : MonoBehaviour
 
             // Give the text associated with the task type
             if (initialTasks[i] == TaskType.POISON_SOUP) {
-                taskLabels[i].text = "Poison da soup!";
+                taskLabels[i].text = "Poison da customers!";
             } else if (initialTasks[i] == TaskType.MAKE_FIRE) {
                 taskLabels[i].text = "Make fire!";
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
@@ -228,6 +232,7 @@ public class ToDoList : MonoBehaviour
                 taskLabels[initialTasks.Count].text = "ESCAPE!!!";
                 taskLabels[initialTasks.Count].color = Color.red;
                 canEscape = true;
+                playerFinishAllTasksEvent.Invoke();
             }
         }
     }
