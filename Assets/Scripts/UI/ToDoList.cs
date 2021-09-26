@@ -12,7 +12,10 @@ public class ToDoList : MonoBehaviour
     public enum TaskType {
         POISON_SOUP,
         MAKE_FIRE,
-        MAKE_MESS
+        MAKE_MESS,
+        TUTORIAL_MOVE,
+        TUTORIAL_JUMP,
+        TUTORIAL_CLOSET
     }
 
     // Serialized fields
@@ -73,9 +76,15 @@ public class ToDoList : MonoBehaviour
             if (initialTasks[i] == TaskType.POISON_SOUP) {
                 taskLabels[i].text = "Poison da customers!";
             } else if (initialTasks[i] == TaskType.MAKE_FIRE) {
-                taskLabels[i].text = "Make fire!";
+                taskLabels[i].text = "Burn up property!";
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
                 taskLabels[i].text = "Make mess!";
+            } else if (initialTasks[i] == TaskType.TUTORIAL_MOVE) {
+                taskLabels[i].text = "Move with WASD!";
+            } else if (initialTasks[i] == TaskType.TUTORIAL_JUMP) {
+                taskLabels[i].text = "Jump with the SPACEBAR!";
+            } else if (initialTasks[i] == TaskType.TUTORIAL_CLOSET) {
+                taskLabels[i].text = "Hide the chef's ingredients!";
             }
         }
 
@@ -248,6 +257,11 @@ public class ToDoList : MonoBehaviour
 
     public void onMadeMess() {
         onTaskDone(TaskType.MAKE_MESS);
+    }
+
+    // The int is based off of the enum order, because unity can't serialize enums for events for some stupid reason
+    public void onTaskDoneWrapper(int enumInt) {
+        onTaskDone((TaskType)enumInt);
     }
 
 }
