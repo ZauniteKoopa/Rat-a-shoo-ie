@@ -6,17 +6,18 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
+// List of task types that can be used
+public enum TaskType {
+    POISON_SOUP,
+    MAKE_FIRE,
+    MAKE_MESS,
+    TUTORIAL_MOVE,
+    TUTORIAL_JUMP,
+    TUTORIAL_CLOSET
+}
+
 public class ToDoList : MonoBehaviour
 {
-    // List of task types that can be used
-    public enum TaskType {
-        POISON_SOUP,
-        MAKE_FIRE,
-        MAKE_MESS,
-        TUTORIAL_MOVE,
-        TUTORIAL_JUMP,
-        TUTORIAL_CLOSET
-    }
 
     // Serialized fields
     [SerializeField]
@@ -263,5 +264,4 @@ public class ToDoList : MonoBehaviour
     public void onTaskDoneWrapper(int enumInt) {
         onTaskDone((TaskType)enumInt);
     }
-
 }
