@@ -217,7 +217,7 @@ public class ToDoList : MonoBehaviour
     }
 
     // Event handler for when a task is done
-    private void onTaskDone(TaskType taskType) {
+    public void onTaskDone(TaskType taskType) {
         int i = -1;
         bool found = false;
 
