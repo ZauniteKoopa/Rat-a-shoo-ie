@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 // Main comparer method for getting positions
 public class SolutionPosComparer : IComparer<Vector3> {
@@ -72,7 +73,6 @@ public class Chef : MonoBehaviour
 
     // Variables for issue management
     [Header("IssueHandling")]
-    private LevelInfo levelInfo = null;
     [SerializeField]
     private float surprisedAtIssueDuration = 2.0f;
     [SerializeField]
@@ -86,6 +86,7 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private ChefCloset closet = null;
     private IssueObject highestPriorityIssue = null;
+    private LevelInfo levelInfo = null;
 
     // Recipe handling
     [Header("Recipe / Customer Handling")]
@@ -117,6 +118,10 @@ public class Chef : MonoBehaviour
     private Color anticipationColor = Color.magenta;
     [SerializeField]
     private Color attackColor = Color.red;
+
+    // Unity Events
+    [Header("ToDo List Events")]
+    public UnityEvent chefClosetEvent;
 
     // Audio variables
     private ChefAudioManager audioManager;
@@ -442,6 +447,8 @@ public class Chef : MonoBehaviour
             } else {
                 targetedSolutionPosition = closet.transform.position;
                 yield return goToPosition(targetedSolutionPosition);
+                
+                chefClosetEvent.Invoke();
                 yield return new WaitForSeconds(3.0f);
                 closet.spawnSolutionObject(solutionType);
 
