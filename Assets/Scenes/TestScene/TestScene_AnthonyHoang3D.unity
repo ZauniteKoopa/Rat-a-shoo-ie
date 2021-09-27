@@ -1805,6 +1805,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 918718694, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: UISounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 918718694, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: UISounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: cce38c1c0d70b989aac9ea579d224df4, type: 3}
     - target: {fileID: 8200095421523678778, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: m_Name

@@ -237,6 +237,7 @@ public class ToDoList : MonoBehaviour
             taskLabels[i].fontStyle = FontStyles.Strikethrough;
             taskLabels[i].color = Color.black;
             numTasksLeft--;
+            audioManager.playUISounds(5);
 
             indicator.gameObject.SetActive(true);
 
