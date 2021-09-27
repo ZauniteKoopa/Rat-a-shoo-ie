@@ -2346,6 +2346,7 @@ MonoBehaviour:
   - {fileID: 2060104543}
   pauseMenu: {fileID: 364024363}
   warningUI: {fileID: 1746541465}
+  notFinishedColor: {r: 0.46226418, g: 0.017443918, b: 0.017443918, a: 1}
   playerFinishAllTasksEvent:
     m_PersistentCalls:
       m_Calls:

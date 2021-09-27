@@ -1920,6 +1920,21 @@ PrefabInstance:
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 45671537}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: notFinishedColor.r
+      value: 0.46226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: notFinishedColor.g
+      value: 0.017443918
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: notFinishedColor.b
+      value: 0.017443918
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
 --- !u!1 &1120454237

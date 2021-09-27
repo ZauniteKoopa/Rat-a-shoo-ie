@@ -40,6 +40,8 @@ public class ToDoList : MonoBehaviour
     private GameObject pauseMenu = null;
     [SerializeField]
     private TMP_Text warningUI = null;
+    [SerializeField]
+    private Color notFinishedColor = Color.red;
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
@@ -71,7 +73,7 @@ public class ToDoList : MonoBehaviour
         Assert.IsTrue(initialTasks.Count <= taskLabels.Count - 1);
 
         for (int i = 0; i < initialTasks.Count; i++) {
-            taskLabels[i].color = Color.red;
+            taskLabels[i].color = notFinishedColor;
 
             // Give the text associated with the task type
             if (initialTasks[i] == TaskType.POISON_SOUP) {
@@ -232,7 +234,8 @@ public class ToDoList : MonoBehaviour
 
         // If found, modify the associated task in the to-do list
         if (found) {
-            taskLabels[i].color = Color.green;
+            taskLabels[i].fontStyle = FontStyles.Strikethrough;
+            taskLabels[i].color = Color.black;
             numTasksLeft--;
 
             indicator.gameObject.SetActive(true);
@@ -240,7 +243,7 @@ public class ToDoList : MonoBehaviour
             // If number of tasks is equal to zero, allow escape
             if (numTasksLeft <= 0) {
                 taskLabels[initialTasks.Count].text = "ESCAPE!!!";
-                taskLabels[initialTasks.Count].color = Color.red;
+                taskLabels[initialTasks.Count].color = notFinishedColor;
                 canEscape = true;
                 playerFinishAllTasksEvent.Invoke();
             }
