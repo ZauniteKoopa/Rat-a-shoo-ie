@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c323d08b7456662f99dd8dc95efeeea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5467947f60db4b21a928bfb8ee85fcfa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -200,21 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa580f84885e7817a403eba46000ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poisonMealEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: onPoisonedMeal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  numPoisonIngredientsReq: 1
+  spriteRender: {fileID: 1784101646}
+  emptyPot: {fileID: 21300000, guid: 5467947f60db4b21a928bfb8ee85fcfa, type: 3}
+  cookingPot: {fileID: 21300000, guid: d19fcf65765f3ba71a3edc6f09b5cc64, type: 3}
+  rottenPot: {fileID: 21300000, guid: c08e88316fb3364a2b099d3ff4ea4062, type: 3}
 --- !u!1 &847688713126582268
 GameObject:
   m_ObjectHideFlags: 0

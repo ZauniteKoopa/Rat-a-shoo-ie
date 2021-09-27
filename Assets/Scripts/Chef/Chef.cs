@@ -218,6 +218,7 @@ public class Chef : MonoBehaviour
                 navMeshAgent.enabled = false;
                 yield return new WaitForSeconds(targetedSolution.getDuration());
                 navMeshAgent.enabled = true;
+                cookingStation.addProperIngredient();
 
                 currentIngredientStage = RecipeStage.PLACE_INGREDIENT_BACK;
             }
@@ -447,7 +448,7 @@ public class Chef : MonoBehaviour
             } else {
                 targetedSolutionPosition = closet.transform.position;
                 yield return goToPosition(targetedSolutionPosition);
-                
+
                 chefClosetEvent.Invoke();
                 yield return new WaitForSeconds(3.0f);
                 closet.spawnSolutionObject(solutionType);

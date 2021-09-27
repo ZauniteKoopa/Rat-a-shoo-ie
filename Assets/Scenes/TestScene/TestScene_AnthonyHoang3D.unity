@@ -477,6 +477,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnable: 1
   breakable: 0
+  destroyObjectEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &207716396
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3084,7 +3087,7 @@ PrefabInstance:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: isTimedSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}

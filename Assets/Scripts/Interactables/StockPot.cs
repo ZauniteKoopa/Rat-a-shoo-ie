@@ -3,9 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum CookingStationState {
+    EMPTY,
+    NORMAL,
+    ROTTEN
+}
+
 public class StockPot : MonoBehaviour
 {
     private FoodInstance currentCookingMeal = null;
+    private CookingStationState currentState = CookingStationState.EMPTY;
+    
+    [Header("Sprite states")]
+    [SerializeField]
+    private SpriteRenderer spriteRender = null;
+    [SerializeField]
+    private Sprite emptyPot = null;
+    [SerializeField]
+    private Sprite cookingPot = null;
+    [SerializeField]
+    private Sprite rottenPot = null;
 
     // On awake, set up new food instance
     private void Awake() {
@@ -26,6 +43,8 @@ public class StockPot : MonoBehaviour
                 currentCookingMeal.poisoned = true;
             }
 
+            currentState = CookingStationState.ROTTEN;
+            spriteRender.sprite = rottenPot;
             Object.Destroy(collider.gameObject);
         }
     }
@@ -35,7 +54,17 @@ public class StockPot : MonoBehaviour
     public FoodInstance takeCompletedMeal() {
         FoodInstance completedMeal = currentCookingMeal;
         currentCookingMeal = new FoodInstance();
+        currentState = CookingStationState.EMPTY;
+        spriteRender.sprite = emptyPot;
+
         return completedMeal;
     }
 
+    // Public method for chef add an ingredient
+    public void addProperIngredient() {
+        if (currentState == CookingStationState.EMPTY) {
+            currentState = CookingStationState.NORMAL;
+            spriteRender.sprite = cookingPot;
+        }
+    }
 }
