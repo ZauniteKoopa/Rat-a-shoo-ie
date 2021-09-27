@@ -97,6 +97,8 @@ public class Chef : MonoBehaviour
     private RecipeStage currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
     [SerializeField]
     private StockPot cookingStation = null;
+    [SerializeField]
+    private GameObject mealBox = null;
     private FoodInstance servedFood = null;
 
     // Variables for getting solutions
@@ -241,6 +243,7 @@ public class Chef : MonoBehaviour
         if (currentIngredientStage == RecipeStage.GET_FOOD) {
             yield return goToPosition(cookingStation.transform.position);
             servedFood = cookingStation.takeCompletedMeal();
+            mealBox.SetActive(true);
             currentIngredientStage = RecipeStage.BRING_FOOD_TO_CUSTOMER;
         }
 
@@ -249,6 +252,7 @@ public class Chef : MonoBehaviour
             yield return goToPosition(orderWindow.transform.position);
             orderWindow.serveFood(servedFood);
             targetRecipe = orderWindow.getCurrentRecipe();
+            mealBox.SetActive(false);
             currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
         }
 
