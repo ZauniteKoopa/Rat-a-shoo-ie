@@ -9,20 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 314afffe79b094b3895ec2e1b7da44eb
   - enabled: 1
-    path: Assets/Scenes/Level-1.0_Tutorial.unity
-    guid: a8ab0558fd9985341a12dc374567d3ab
-  - enabled: 1
-    path: Assets/Scenes/Level-1.1_Diner.unity
-    guid: 34e35eefc4eb7ac4eaec904ba2c1213b
-  - enabled: 1
-    path: Assets/Scenes/Level-1.2.unity
-    guid: 4800d71565a717b4bb3935df2b93ce8a
-  - enabled: 1
-    path: Assets/Scenes/BaseStarterLevel.unity
-    guid: c1ea35ecf483bb63784e38c7ec5db585
-  - enabled: 1
-    path: Assets/Scenes/TestScene/TestScene_AnthonyHoang3D.unity
-    guid: 68a677f2f336b60ccb04a2830afd89e9
+    path: Assets/Scenes/TestTutorial.unity
+    guid: f1652a8252d8b0e4281936acbc99837e
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: 607c2925a3439f88a92515471dd0caf2
