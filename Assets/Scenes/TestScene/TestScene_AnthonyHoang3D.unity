@@ -415,6 +415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chef
       objectReference: {fileID: 0}
+    - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7323574232244143832, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -1805,14 +1810,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 918718694, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
-      propertyPath: UISounds.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 918718694, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
-      propertyPath: UISounds.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: cce38c1c0d70b989aac9ea579d224df4, type: 3}
     - target: {fileID: 8200095421523678778, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: m_Name
@@ -3284,16 +3281,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 847688713126582264, guid: b848c93aa844685f38a6bdb017a0fac4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 847688713126582264, guid: b848c93aa844685f38a6bdb017a0fac4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 847688713126582268, guid: b848c93aa844685f38a6bdb017a0fac4,
         type: 3}

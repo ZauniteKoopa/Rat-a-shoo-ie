@@ -23,10 +23,12 @@ public class StockPot : MonoBehaviour
     private Sprite cookingPot = null;
     [SerializeField]
     private Sprite rottenPot = null;
+    private CookingStationAudioManager audioManager = null;
 
     // On awake, set up new food instance
     private void Awake() {
         currentCookingMeal = new FoodInstance();
+        audioManager = GetComponent<CookingStationAudioManager>();
     }
 
     
@@ -41,6 +43,10 @@ public class StockPot : MonoBehaviour
 
             if (ingredient.isRotten) {
                 currentCookingMeal.poisoned = true;
+            }
+
+            if (currentState != CookingStationState.ROTTEN) {
+                audioManager.playRuinedDishSound();
             }
 
             currentState = CookingStationState.ROTTEN;
