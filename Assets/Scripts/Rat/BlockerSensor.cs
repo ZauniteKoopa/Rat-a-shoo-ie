@@ -11,6 +11,11 @@ public class BlockerSensor : MonoBehaviour
     private void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Platform") {
             numCollidingObjects++;
+            DestroyableObject destroyableObject = collider.GetComponent<DestroyableObject>();
+
+            if (destroyableObject != null) {
+                destroyableObject.destroyObjectEvent.AddListener(onColliderDestroyed);
+            }
         }
     }
 
@@ -18,7 +23,18 @@ public class BlockerSensor : MonoBehaviour
     private void OnTriggerExit(Collider collider) {
         if (collider.tag == "Platform") {
             numCollidingObjects--;
+
+            DestroyableObject destroyableObject = collider.GetComponent<DestroyableObject>();
+
+            if (destroyableObject != null) {
+                destroyableObject.destroyObjectEvent.RemoveListener(onColliderDestroyed);
+            }
         }
+    }
+
+    // Event handler for when object is destroyed
+    private void onColliderDestroyed() {
+        numCollidingObjects--;
     }
 
     // Public method to check if the sensor is blocked

@@ -3224,6 +3224,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PatrolChef
       objectReference: {fileID: 0}
+    - target: {fileID: 8111296629166780216, guid: a40caa1e4aa0af17abc7ee656785c622,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8111296629166780219, guid: a40caa1e4aa0af17abc7ee656785c622,
         type: 3}
       propertyPath: closet
@@ -3321,7 +3326,7 @@ PrefabInstance:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: isTimedSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
@@ -4513,17 +4518,17 @@ PrefabInstance:
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1759996
+      value: 7.82
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.482
+      value: 8.17
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
