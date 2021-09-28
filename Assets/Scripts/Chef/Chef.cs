@@ -189,13 +189,19 @@ public class Chef : MonoBehaviour
             }
             else if (!aggressive)
             {
-                yield return finishRecipe();
+                yield return passiveAction();
             }
             else
             {
                 yield return doAggressiveAction();
             }
         }
+    }
+
+    // Method to do passive action when there is no hazard in mind or rat to chase
+    //  can be overriden (TODO: make this general AI class an abstract class)
+    protected virtual IEnumerator passiveAction() {
+        yield return finishRecipe();
     }
 
     // Main sequence to do passive recipe gathering
@@ -490,7 +496,7 @@ public class Chef : MonoBehaviour
 
 
     // Main sequence to go to issue location (hazards will not change in location)
-    private IEnumerator goToPosition(Vector3 position) {
+    protected IEnumerator goToPosition(Vector3 position) {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
         yield return waitFrame;
         navMeshAgent.destination = position;
