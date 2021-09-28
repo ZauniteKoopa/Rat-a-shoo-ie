@@ -32,7 +32,7 @@ public class RatController3D : MonoBehaviour
     private BlockerSensor forwardBlockSensor = null;
     [SerializeField]
     private BlockerSensor backwardBlockSensor = null;
-    public LayerMask spotShadowIgnoreLayer;
+    public LayerMask spotShadowCollisionLayer;
 
     // Health management
     [Header("Health Management")]
@@ -185,7 +185,7 @@ public class RatController3D : MonoBehaviour
     private void manageSpotShadow() {
         RaycastHit hit; 
 
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, ~spotShadowIgnoreLayer)) {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, spotShadowCollisionLayer)) {
             spotShadow.position = hit.point;
         }
     }

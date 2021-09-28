@@ -708,9 +708,9 @@ MonoBehaviour:
   rightBlockSensor: {fileID: 661336413}
   forwardBlockSensor: {fileID: 1472727273}
   backwardBlockSensor: {fileID: 1102431403}
-  spotShadowIgnoreLayer:
+  spotShadowCollisionLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   maxHealth: 3
   invincibilityDuration: 1.5
   characterSprite: {fileID: 694440409932395574}

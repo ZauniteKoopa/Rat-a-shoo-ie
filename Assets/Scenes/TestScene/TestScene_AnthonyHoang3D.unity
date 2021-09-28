@@ -2874,7 +2874,7 @@ GameObject:
   - component: {fileID: 1909120461}
   - component: {fileID: 1909120460}
   - component: {fileID: 1909120459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Room2
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2984,7 +2984,7 @@ GameObject:
   - component: {fileID: 1936313044}
   - component: {fileID: 1936313048}
   - component: {fileID: 4242813611821856733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StarterPack
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -4422,11 +4422,6 @@ PrefabInstance:
       propertyPath: userInterface
       value: 
       objectReference: {fileID: 828858107}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: playerHealthLossEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: onPlayerHealthLoss
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
 --- !u!1001 &7249977246022403082
