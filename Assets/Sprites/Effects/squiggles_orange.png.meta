@@ -1,0 +1,920 @@
+fileFormatVersion: 2
+guid: e6db65149fc674d479cdf7927a45ac9b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2709681452892908327
+    second: squiggles_orange_0
+  - first:
+      213: -4333359619080716716
+    second: squiggles_orange_1
+  - first:
+      213: -5080225790046170320
+    second: squiggles_orange_2
+  - first:
+      213: -844648476744051678
+    second: squiggles_orange_3
+  - first:
+      213: 6196339938248766765
+    second: squiggles_orange_4
+  - first:
+      213: -1259827595000344866
+    second: squiggles_orange_5
+  - first:
+      213: -2473185262818903224
+    second: squiggles_orange_6
+  - first:
+      213: 4873442876470285440
+    second: squiggles_orange_7
+  - first:
+      213: -5769342429109378649
+    second: squiggles_orange_8
+  - first:
+      213: 3825230738464471846
+    second: squiggles_orange_9
+  - first:
+      213: -3826101676260677578
+    second: squiggles_orange_10
+  - first:
+      213: -3982815035644385408
+    second: squiggles_orange_11
+  - first:
+      213: 1855179371638240566
+    second: squiggles_orange_12
+  - first:
+      213: -7468427122926164970
+    second: squiggles_orange_13
+  - first:
+      213: 7642324754946116866
+    second: squiggles_orange_14
+  - first:
+      213: 737989723063386062
+    second: squiggles_orange_15
+  - first:
+      213: -2705244371891999686
+    second: squiggles_orange_16
+  - first:
+      213: -755340970119142696
+    second: squiggles_orange_17
+  - first:
+      213: -1835440242288215275
+    second: squiggles_orange_18
+  - first:
+      213: 2752831149166470901
+    second: squiggles_orange_19
+  - first:
+      213: -6157436108758649242
+    second: squiggles_orange_20
+  - first:
+      213: 7922730250876097510
+    second: squiggles_orange_21
+  - first:
+      213: -6810526940913656429
+    second: squiggles_orange_22
+  - first:
+      213: -4016602144669623163
+    second: squiggles_orange_23
+  - first:
+      213: -8978727373392448290
+    second: squiggles_orange_24
+  - first:
+      213: 6485887519649149928
+    second: squiggles_orange_25
+  - first:
+      213: 1519950694170019649
+    second: squiggles_orange_26
+  - first:
+      213: 7650808344510745103
+    second: squiggles_orange_27
+  - first:
+      213: -2399765902925590340
+    second: squiggles_orange_28
+  - first:
+      213: -3516445451197432548
+    second: squiggles_orange_29
+  - first:
+      213: 5102985129685342426
+    second: squiggles_orange_30
+  - first:
+      213: 7483388240526059207
+    second: squiggles_orange_31
+  - first:
+      213: 5357520547685081488
+    second: squiggles_orange_32
+  - first:
+      213: 7014555564180057632
+    second: squiggles_orange_33
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: squiggles_orange_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b6526cce8ba9520800000000000000
+      internalID: 2709681452892908327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_1
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45efba4b260dcd3c0800000000000000
+      internalID: -4333359619080716716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_2
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03315856f896f79b0800000000000000
+      internalID: -5080225790046170320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_3
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224989f7fa43744f0800000000000000
+      internalID: -844648476744051678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_4
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2532ee1852ddf550800000000000000
+      internalID: 6196339938248766765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_5
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede05c92a71348ee0800000000000000
+      internalID: -1259827595000344866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_6
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84bb2f16b1b7dadd0800000000000000
+      internalID: -2473185262818903224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_7
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0845b2db972f1a340800000000000000
+      internalID: 4873442876470285440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_8
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1a855c0ad2fefa0800000000000000
+      internalID: -5769342429109378649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_9
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b7416f613f51530800000000000000
+      internalID: 3825230738464471846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_10
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638a4f70cc4f6eac0800000000000000
+      internalID: -3826101676260677578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_11
+      rect:
+        serializedVersion: 2
+        x: 3036
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087e452b3d23ab8c0800000000000000
+      internalID: -3982815035644385408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_12
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63531213fcbeeb910800000000000000
+      internalID: 1855179371638240566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_13
+      rect:
+        serializedVersion: 2
+        x: 3588
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614e713e911da5890800000000000000
+      internalID: -7468427122926164970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_14
+      rect:
+        serializedVersion: 2
+        x: 3864
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20dccb4bfddfe0a60800000000000000
+      internalID: 7642324754946116866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_15
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecff41b3ebddd3a00800000000000000
+      internalID: 737989723063386062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_16
+      rect:
+        serializedVersion: 2
+        x: 4416
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ca0c6a39a057ad0800000000000000
+      internalID: -2705244371891999686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_17
+      rect:
+        serializedVersion: 2
+        x: 4692
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2efbfb36d7485f0800000000000000
+      internalID: -755340970119142696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_18
+      rect:
+        serializedVersion: 2
+        x: 4968
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b34fff2d43786e0800000000000000
+      internalID: -1835440242288215275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_19
+      rect:
+        serializedVersion: 2
+        x: 5244
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6a2b45855043620800000000000000
+      internalID: 2752831149166470901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_20
+      rect:
+        serializedVersion: 2
+        x: 5520
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666f64a8b746c8aa0800000000000000
+      internalID: -6157436108758649242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_21
+      rect:
+        serializedVersion: 2
+        x: 5796
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e316becf2133fd60800000000000000
+      internalID: 7922730250876097510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_22
+      rect:
+        serializedVersion: 2
+        x: 6072
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d1d99b4d52c71a0800000000000000
+      internalID: -6810526940913656429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_23
+      rect:
+        serializedVersion: 2
+        x: 6348
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c15ea51a92248c0800000000000000
+      internalID: -4016602144669623163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_24
+      rect:
+        serializedVersion: 2
+        x: 6624
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4fdd57607256380800000000000000
+      internalID: -8978727373392448290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_25
+      rect:
+        serializedVersion: 2
+        x: 6900
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3b3ddd550820a50800000000000000
+      internalID: 6485887519649149928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_26
+      rect:
+        serializedVersion: 2
+        x: 7176
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 147cc127a13f71510800000000000000
+      internalID: 1519950694170019649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_27
+      rect:
+        serializedVersion: 2
+        x: 7452
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a482357a12d2a60800000000000000
+      internalID: 7650808344510745103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_28
+      rect:
+        serializedVersion: 2
+        x: 7728
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0960430a152bed0800000000000000
+      internalID: -2399765902925590340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_29
+      rect:
+        serializedVersion: 2
+        x: 8004
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1db6593e73133fc0800000000000000
+      internalID: -3516445451197432548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_30
+      rect:
+        serializedVersion: 2
+        x: 8280
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8defc40f171d640800000000000000
+      internalID: 5102985129685342426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_31
+      rect:
+        serializedVersion: 2
+        x: 8556
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c624e0c4f55ad760800000000000000
+      internalID: 7483388240526059207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_32
+      rect:
+        serializedVersion: 2
+        x: 8832
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09120a18d8cb95a40800000000000000
+      internalID: 5357520547685081488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_orange_33
+      rect:
+        serializedVersion: 2
+        x: 9108
+        y: 0
+        width: 276
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e2134fe15b85160800000000000000
+      internalID: 7014555564180057632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
