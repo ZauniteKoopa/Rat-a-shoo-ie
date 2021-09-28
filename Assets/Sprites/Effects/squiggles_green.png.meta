@@ -1,0 +1,1124 @@
+fileFormatVersion: 2
+guid: 9853dd9ed354d4b909fe6205bb65096f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3821606063659485473
+    second: squiggles_green_0
+  - first:
+      213: 3280446737027150029
+    second: squiggles_green_1
+  - first:
+      213: -377660738683298819
+    second: squiggles_green_2
+  - first:
+      213: 4813492654707352624
+    second: squiggles_green_3
+  - first:
+      213: 1242384060017514308
+    second: squiggles_green_4
+  - first:
+      213: 7616086913102183669
+    second: squiggles_green_5
+  - first:
+      213: 6285014801619474803
+    second: squiggles_green_6
+  - first:
+      213: -4532252521190823905
+    second: squiggles_green_7
+  - first:
+      213: -1867999609037664221
+    second: squiggles_green_8
+  - first:
+      213: -7379169473889681596
+    second: squiggles_green_9
+  - first:
+      213: -6333424833139076238
+    second: squiggles_green_10
+  - first:
+      213: 2335539219828794297
+    second: squiggles_green_11
+  - first:
+      213: 7376753931840945593
+    second: squiggles_green_12
+  - first:
+      213: 6001478099912273372
+    second: squiggles_green_13
+  - first:
+      213: -5411617812735798916
+    second: squiggles_green_14
+  - first:
+      213: -2406339244075117043
+    second: squiggles_green_15
+  - first:
+      213: -3632190153861480246
+    second: squiggles_green_16
+  - first:
+      213: -4505845254364267226
+    second: squiggles_green_17
+  - first:
+      213: -2594123208354132337
+    second: squiggles_green_18
+  - first:
+      213: -8208222237639262764
+    second: squiggles_green_19
+  - first:
+      213: 2243419850770646057
+    second: squiggles_green_20
+  - first:
+      213: -7467623069678297641
+    second: squiggles_green_21
+  - first:
+      213: 592914885090697449
+    second: squiggles_green_22
+  - first:
+      213: -1081890044069092515
+    second: squiggles_green_23
+  - first:
+      213: -5569092221087965635
+    second: squiggles_green_24
+  - first:
+      213: -9030043695656957263
+    second: squiggles_green_25
+  - first:
+      213: 1076264816170119640
+    second: squiggles_green_26
+  - first:
+      213: 3866191932485469807
+    second: squiggles_green_27
+  - first:
+      213: 8529149022732512072
+    second: squiggles_green_28
+  - first:
+      213: -7590947881855950922
+    second: squiggles_green_29
+  - first:
+      213: 1380328326546491296
+    second: squiggles_green_30
+  - first:
+      213: 4541735188230256844
+    second: squiggles_green_31
+  - first:
+      213: 1387903083676237215
+    second: squiggles_green_32
+  - first:
+      213: 7154764640754190551
+    second: squiggles_green_33
+  - first:
+      213: -897074019086342062
+    second: squiggles_green_34
+  - first:
+      213: 972271288860717294
+    second: squiggles_green_35
+  - first:
+      213: -3903063889488572589
+    second: squiggles_green_36
+  - first:
+      213: -2425441585024047811
+    second: squiggles_green_37
+  - first:
+      213: 1965731157514705656
+    second: squiggles_green_38
+  - first:
+      213: -5896370696493202941
+    second: squiggles_green_39
+  - first:
+      213: -1410290067916030647
+    second: squiggles_green_40
+  - first:
+      213: -8959719030376303630
+    second: squiggles_green_41
+  - first:
+      213: -7515739319761557243
+    second: squiggles_green_42
+  - first:
+      213: 7432824763671530431
+    second: squiggles_green_43
+  - first:
+      213: -805271100987180297
+    second: squiggles_green_44
+  - first:
+      213: 2057084434067242011
+    second: squiggles_green_45
+  - first:
+      213: 7677489255793362502
+    second: squiggles_green_46
+  - first:
+      213: -2954943857536538285
+    second: squiggles_green_47
+  - first:
+      213: -4269311690253657023
+    second: squiggles_green_48
+  - first:
+      213: -1748542182478572205
+    second: squiggles_green_49
+  - first:
+      213: -528599040663038834
+    second: squiggles_green_50
+  - first:
+      213: -2222598370216690157
+    second: squiggles_green_51
+  - first:
+      213: 3099003338302331552
+    second: squiggles_green_52
+  - first:
+      213: -2091176696073972988
+    second: squiggles_green_53
+  - first:
+      213: 548316566461739736
+    second: squiggles_green_54
+  - first:
+      213: 5264510850657305849
+    second: squiggles_green_55
+  - first:
+      213: -6623621974261537781
+    second: squiggles_green_56
+  - first:
+      213: -2760281540753424686
+    second: squiggles_green_57
+  - first:
+      213: -2868029762352903232
+    second: squiggles_green_58
+  - first:
+      213: -6934331517560033967
+    second: squiggles_green_59
+  - first:
+      213: 4803627653587079144
+    second: squiggles_green_60
+  - first:
+      213: -7957227250928852994
+    second: squiggles_green_61
+  - first:
+      213: -7731859190598576609
+    second: squiggles_green_62
+  - first:
+      213: -8519837557078714319
+    second: squiggles_green_63
+  - first:
+      213: -4521431820478072098
+    second: squiggles_green_64
+  - first:
+      213: -7757750563385397288
+    second: squiggles_green_65
+  - first:
+      213: 5813542377074924967
+    second: squiggles_green_66
+  - first:
+      213: 4064274551327165828
+    second: squiggles_green_67
+  - first:
+      213: -3083208657333857637
+    second: squiggles_green_68
+  - first:
+      213: -3428431850192503145
+    second: squiggles_green_69
+  - first:
+      213: -3306017039477733883
+    second: squiggles_green_70
+  - first:
+      213: -1874761128599025982
+    second: squiggles_green_71
+  - first:
+      213: 6629119493768027158
+    second: squiggles_green_72
+  - first:
+      213: -3662969625732728130
+    second: squiggles_green_73
+  - first:
+      213: 8670709078902590059
+    second: squiggles_green_74
+  - first:
+      213: 4125187951740820676
+    second: squiggles_green_75
+  - first:
+      213: -796706076870173628
+    second: squiggles_green_76
+  - first:
+      213: 2088903433834812696
+    second: squiggles_green_77
+  - first:
+      213: 7604838154523721460
+    second: squiggles_green_78
+  - first:
+      213: 1574909679510018219
+    second: squiggles_green_79
+  - first:
+      213: 354995799241749683
+    second: squiggles_green_80
+  - first:
+      213: 4405246860821086129
+    second: squiggles_green_81
+  - first:
+      213: 6744320239439048056
+    second: squiggles_green_82
+  - first:
+      213: 2957358370431782679
+    second: squiggles_green_83
+  - first:
+      213: -2448918054314043184
+    second: squiggles_green_84
+  - first:
+      213: 773258362332551926
+    second: squiggles_green_85
+  - first:
+      213: 3566511344268761710
+    second: squiggles_green_86
+  - first:
+      213: 6799848972106464494
+    second: squiggles_green_87
+  - first:
+      213: -4739355156752351191
+    second: squiggles_green_88
+  - first:
+      213: -2556700644491366789
+    second: squiggles_green_89
+  - first:
+      213: 682630271994589303
+    second: squiggles_green_90
+  - first:
+      213: -550691092898231146
+    second: squiggles_green_91
+  - first:
+      213: 6996271343340660905
+    second: squiggles_green_92
+  - first:
+      213: -5391898121797126428
+    second: squiggles_green_93
+  - first:
+      213: 4054456609012915798
+    second: squiggles_green_94
+  - first:
+      213: -1519295261443744199
+    second: squiggles_green_95
+  - first:
+      213: 1212116209069403875
+    second: squiggles_green_96
+  - first:
+      213: 1141913218480432461
+    second: squiggles_green_97
+  - first:
+      213: -2199837578202513055
+    second: squiggles_green_98
+  - first:
+      213: -3289776489414789629
+    second: squiggles_green_99
+  - first:
+      213: -7531102176999237510
+    second: squiggles_green_100
+  - first:
+      213: -4033002750295654086
+    second: squiggles_green_101
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: squiggles_green_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12907e79772190530800000000000000
+      internalID: 3821606063659485473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0b7114dec768d20800000000000000
+      internalID: 3280446737027150029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_2
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb9b212f8742caf0800000000000000
+      internalID: -377660738683298819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_3
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034a8c40116fcc240800000000000000
+      internalID: 4813492654707352624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_4
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44793fb58b5dd3110800000000000000
+      internalID: 1242384060017514308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_5
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcf4f912b6c1b960800000000000000
+      internalID: 7616086913102183669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_6
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379d992a9abd83750800000000000000
+      internalID: 6285014801619474803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_7
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f186d0a48543a11c0800000000000000
+      internalID: -4532252521190823905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_8
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320ddbea0488316e0800000000000000
+      internalID: -1867999609037664221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_9
+      rect:
+        serializedVersion: 2
+        x: 2358
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f3663c57ce79990800000000000000
+      internalID: -7379169473889681596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_10
+      rect:
+        serializedVersion: 2
+        x: 2620
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2739b119ba72b18a0800000000000000
+      internalID: -6333424833139076238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_11
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b363e4db80896020800000000000000
+      internalID: 2335539219828794297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_12
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd78d60e9e7f5660800000000000000
+      internalID: 7376753931840945593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_13
+      rect:
+        serializedVersion: 2
+        x: 3406
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddae80e888894350800000000000000
+      internalID: 6001478099912273372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_14
+      rect:
+        serializedVersion: 2
+        x: 3668
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71d4b3754216e4b0800000000000000
+      internalID: -5411617812735798916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_15
+      rect:
+        serializedVersion: 2
+        x: 3930
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0612d3f437fa9ed0800000000000000
+      internalID: -2406339244075117043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_16
+      rect:
+        serializedVersion: 2
+        x: 4192
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac04a6a9c4ed79dc0800000000000000
+      internalID: -3632190153861480246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_17
+      rect:
+        serializedVersion: 2
+        x: 4454
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dfcb83d950871c0800000000000000
+      internalID: -4505845254364267226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_18
+      rect:
+        serializedVersion: 2
+        x: 4716
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e847eafa2dffbd0800000000000000
+      internalID: -2594123208354132337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_19
+      rect:
+        serializedVersion: 2
+        x: 4978
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ddbc082d59861e80800000000000000
+      internalID: -8208222237639262764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_20
+      rect:
+        serializedVersion: 2
+        x: 5240
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9248e37d77a322f10800000000000000
+      internalID: 2243419850770646057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_21
+      rect:
+        serializedVersion: 2
+        x: 5502
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd105f126cad5890800000000000000
+      internalID: -7467623069678297641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_22
+      rect:
+        serializedVersion: 2
+        x: 5764
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e06fd352f47a3800800000000000000
+      internalID: 592914885090697449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_23
+      rect:
+        serializedVersion: 2
+        x: 6026
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53ea3dacba5cf0f0800000000000000
+      internalID: -1081890044069092515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_24
+      rect:
+        serializedVersion: 2
+        x: 6288
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e19a8912c96b2b0800000000000000
+      internalID: -5569092221087965635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_25
+      rect:
+        serializedVersion: 2
+        x: 6550
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba8c1e1a17dea280800000000000000
+      internalID: -9030043695656957263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_26
+      rect:
+        serializedVersion: 2
+        x: 6812
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d13214e529afee00800000000000000
+      internalID: 1076264816170119640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_27
+      rect:
+        serializedVersion: 2
+        x: 7074
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f660741241977a530800000000000000
+      internalID: 3866191932485469807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_28
+      rect:
+        serializedVersion: 2
+        x: 7336
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b6758c8df9d5670800000000000000
+      internalID: 8529149022732512072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_29
+      rect:
+        serializedVersion: 2
+        x: 7598
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfd879be1987a690800000000000000
+      internalID: -7590947881855950922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_30
+      rect:
+        serializedVersion: 2
+        x: 7860
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a78639bc49e72310800000000000000
+      internalID: 1380328326546491296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_31
+      rect:
+        serializedVersion: 2
+        x: 8122
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc83b5e271c770f30800000000000000
+      internalID: 4541735188230256844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_32
+      rect:
+        serializedVersion: 2
+        x: 8384
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9df03d4082d24310800000000000000
+      internalID: 1387903083676237215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squiggles_green_33
+      rect:
+        serializedVersion: 2
+        x: 8646
+        y: 0
+        width: 262
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8cdaf7884da4360800000000000000
+      internalID: 7154764640754190551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
