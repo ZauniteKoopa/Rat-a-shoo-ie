@@ -185,7 +185,7 @@ public class RatController3D : MonoBehaviour
     private void manageSpotShadow() {
         RaycastHit hit; 
 
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, spotShadowCollisionLayer)) {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, ~spotShadowCollisionLayer)) {
             spotShadow.position = hit.point;
         }
     }

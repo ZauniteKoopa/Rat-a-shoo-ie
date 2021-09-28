@@ -46,7 +46,7 @@ public class LevelInfo : MonoBehaviour
 
     // Method to get the positions of all possible solution of solutionType
     public List<Vector3> getPositions(SolutionType solutionType) {
-        return solutionLocations[solutionType];
+        return (solutionLocations.ContainsKey(solutionType)) ? solutionLocations[solutionType] : new List<Vector3>();
     }
 
     // Public method to update that someone's chasing the player
