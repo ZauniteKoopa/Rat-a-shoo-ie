@@ -23,12 +23,16 @@ public class StockPot : MonoBehaviour
     private Sprite cookingPot = null;
     [SerializeField]
     private Sprite rottenPot = null;
+    [SerializeField]
+    private GameObject stenchLines = null;
+    private Animator stenchAnimator = null;
     private CookingStationAudioManager audioManager = null;
 
     // On awake, set up new food instance
     private void Awake() {
         currentCookingMeal = new FoodInstance();
         audioManager = GetComponent<CookingStationAudioManager>();
+        stenchAnimator = stenchLines.GetComponent<Animator>();
     }
 
     
@@ -50,6 +54,9 @@ public class StockPot : MonoBehaviour
             }
 
             currentState = CookingStationState.ROTTEN;
+            stenchLines.SetActive(true);
+            stenchAnimator.SetInteger("FoodState", (int)currentState);
+
             spriteRender.sprite = rottenPot;
             Object.Destroy(collider.gameObject);
         }
@@ -60,8 +67,11 @@ public class StockPot : MonoBehaviour
     public FoodInstance takeCompletedMeal() {
         FoodInstance completedMeal = currentCookingMeal;
         currentCookingMeal = new FoodInstance();
+
         currentState = CookingStationState.EMPTY;
         spriteRender.sprite = emptyPot;
+        stenchLines.SetActive(false);
+        stenchAnimator.SetInteger("FoodState", (int)currentState);
 
         return completedMeal;
     }
@@ -71,6 +81,8 @@ public class StockPot : MonoBehaviour
         if (currentState == CookingStationState.EMPTY) {
             currentState = CookingStationState.NORMAL;
             spriteRender.sprite = cookingPot;
+            stenchLines.SetActive(true);
+            stenchAnimator.SetInteger("FoodState", (int)currentState);
         }
     }
 }
