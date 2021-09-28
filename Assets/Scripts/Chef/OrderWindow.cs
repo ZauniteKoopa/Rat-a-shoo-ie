@@ -7,6 +7,7 @@ public class OrderWindow : MonoBehaviour
 {
     private Recipe currentRecipe = null;
     private LevelInfo levelInfo = null;
+    private OrderWindowAudioManager audioManager = null;
 
     public UnityEvent poisonMealEvent;
 
@@ -14,12 +15,13 @@ public class OrderWindow : MonoBehaviour
     private void Awake() {
         levelInfo = FindObjectOfType<LevelInfo>();
         currentRecipe = levelInfo.pickRandomMenuItem();
+        audioManager = GetComponent<OrderWindowAudioManager>();
     }
     
     // Public method to serve food to potential customers
     public void serveFood(FoodInstance servedFood) {
         if (currentRecipe.isRecipeRuined(servedFood)) {
-            Debug.Log("BARF NOISES");
+            audioManager.playBarfSound();
             poisonMealEvent.Invoke();
         } else {
             Debug.Log("customer is content");

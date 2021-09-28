@@ -17,8 +17,13 @@ public class SolutionObject : MonoBehaviour
     private Vector3 initialLocation = Vector3.zero;
     public bool canChefGrab = true;
 
+    [SerializeField]
+    private AudioClip[] usageSounds = null;
+    private AudioSource speaker = null;
+
     // On start, get the initial location of this solution
     private void Start() {
+        speaker = GetComponent<AudioSource>();
         initialLocation = transform.position;
     }
 
@@ -44,5 +49,15 @@ public class SolutionObject : MonoBehaviour
     // Method to access initial location
     public Vector3 getInitialLocation() {
         return initialLocation;
+    }
+
+    // Method to play random audio track from usageSound
+    public void playUsageSound() {
+        if (usageSounds.Length > 0) {
+            int randomIndex = Random.Range(0, usageSounds.Length);
+            AudioClip curClip = usageSounds[randomIndex];
+            speaker.clip = curClip;
+            speaker.Play();
+        }
     }
 }

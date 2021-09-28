@@ -340,21 +340,6 @@ PrefabInstance:
       propertyPath: chefClosetEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 828858107}
-    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: solutionHook.x
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: solutionHook.y
-      value: -0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: solutionHook.z
-      value: -0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -414,26 +399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chef
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7323574232244143832, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7323574232244143832, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7323574232244143832, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
@@ -1477,6 +1442,7 @@ GameObject:
   - component: {fileID: 934796839}
   - component: {fileID: 934796838}
   - component: {fileID: 934796837}
+  - component: {fileID: 934796844}
   m_Layer: 14
   m_Name: FireExtinguisherSolution (1)
   m_TagString: Untagged
@@ -1542,6 +1508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solutionType: 0
   canChefGrab: 1
+  usageSounds:
+  - {fileID: 8300000, guid: 4d35ced0775044141a545717e5ed7312, type: 3}
 --- !u!23 &934796841
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1604,6 +1572,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &934796844
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934796836}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1002733952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1922,9 +1986,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
+      propertyPath: initialTasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 45671537}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: initialTasks.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
 --- !u!1 &1120454237
@@ -3318,16 +3392,6 @@ PrefabInstance:
       propertyPath: hazardCreatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 828858107}
-    - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
-        type: 3}
-      propertyPath: hazardCreatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: onMadeMess
-      objectReference: {fileID: 0}
-    - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
-        type: 3}
-      propertyPath: isTimedSpawn
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: m_Name
@@ -4528,7 +4592,7 @@ PrefabInstance:
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.17
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}

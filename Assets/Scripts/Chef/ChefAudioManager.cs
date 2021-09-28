@@ -12,6 +12,7 @@ public class ChefAudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip[] lostSounds = null;
 
+
     // Reference variable
     private AudioSource speaker;
 
@@ -21,29 +22,28 @@ public class ChefAudioManager : MonoBehaviour
        speaker = GetComponent<AudioSource>(); 
     }
 
-    // Public variable to play an alert sound
-    public void playChefAlert() {
-        int randomIndex = Random.Range(0, alertSounds.Length);
-        AudioClip curClip = alertSounds[randomIndex];
-
-        speaker.clip = curClip;
-        speaker.Play();
+    // Public function to play an alert sound
+    public void playChefAlert()
+    {
+        playRandomTrack(alertSounds);
     }
 
+    // Public function to play an attack sound
     public void playChefAttack()
     {
-        int randomIndex = Random.Range(0, attackSounds.Length);
-        AudioClip curClip = attackSounds[randomIndex];
-
-        speaker.clip = curClip;
-        speaker.Play();
+        playRandomTrack(attackSounds);
     }
 
+    // Public function to play the chef getting lost
     public void playChefLost()
     {
-        int randomIndex = Random.Range(0, lostSounds.Length);
-        AudioClip curClip = lostSounds[randomIndex];
+        playRandomTrack(lostSounds);
+    }
 
+    // Private helper function to play a random track from an audio clip array
+    private void playRandomTrack(AudioClip[] playableClips) {
+        int randomIndex = Random.Range(0, playableClips.Length);
+        AudioClip curClip = playableClips[randomIndex];
         speaker.clip = curClip;
         speaker.Play();
     }

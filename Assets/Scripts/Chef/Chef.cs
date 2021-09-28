@@ -224,8 +224,10 @@ public class Chef : MonoBehaviour
                 yield return goToPosition(cookingStation.transform.position);
 
                 navMeshAgent.enabled = false;
+                targetedSolution.playUsageSound();
                 yield return new WaitForSeconds(targetedSolution.getDuration());
                 navMeshAgent.enabled = true;
+
                 cookingStation.addProperIngredient();
 
                 currentIngredientStage = RecipeStage.PLACE_INGREDIENT_BACK;
@@ -392,6 +394,7 @@ public class Chef : MonoBehaviour
             yield return goToPosition(highestPriorityIssue.transform.position);
 
             navMeshAgent.enabled = false;
+            targetedSolution.playUsageSound();
             yield return new WaitForSeconds(targetedSolution.getDuration());
             navMeshAgent.enabled = true;
 
