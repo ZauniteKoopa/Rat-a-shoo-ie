@@ -29,7 +29,7 @@ public class InteractableSensor : MonoBehaviour
             Vector3 interactableDir = (curInteractable.transform.position - transform.parent.position).normalized;
             float curAngle = Vector3.Angle(interactableDir, playerForward);
 
-            if (bestInteractable == null || curAngle < lowestAngle) {
+            if ((bestInteractable == null || curAngle < lowestAngle) && curInteractable.canBePickedUp) {
                 bestInteractable = curInteractable;
                 lowestAngle = curAngle;
             }
@@ -45,7 +45,7 @@ public class InteractableSensor : MonoBehaviour
             List<GeneralInteractable> destroyedInteractables = new List<GeneralInteractable>();
 
             foreach (GeneralInteractable interactable in inRangeInteractables) {
-                if (interactable == null) {
+                if (interactable == null || !interactable.canBePickedUp) {
                     destroyedInteractables.Add(interactable);
                 }
             }

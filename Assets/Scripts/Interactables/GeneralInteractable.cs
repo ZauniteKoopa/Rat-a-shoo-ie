@@ -12,6 +12,7 @@ public enum InteractableWeight {
 public class GeneralInteractable : MonoBehaviour
 {
    public InteractableWeight weight = InteractableWeight.LIGHT;
+   public bool canBePickedUp = true;
 
    // heavy item hooks in local space of the interactable
    [SerializeField]

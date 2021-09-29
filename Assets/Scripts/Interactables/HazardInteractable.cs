@@ -72,6 +72,7 @@ public class HazardInteractable : GeneralInteractable
                 transform.position = 1000f * Vector3.down;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 interactableCollider.enabled = false;
+                canBePickedUp = false;
 
                 if (isTimedSpawn) {
                     StartCoroutine(timedHazardExpiration());
@@ -111,6 +112,7 @@ public class HazardInteractable : GeneralInteractable
 
         // Move object back to spawn position
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+        canBePickedUp = true;
         interactableCollider.enabled = true;
         transform.position = spawnPosition;
         curHazard = null;
