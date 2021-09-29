@@ -236,6 +236,10 @@ public class Chef : MonoBehaviour
             // Place ingredient back if chef still has ingredient
             if (currentIngredientStage == RecipeStage.PLACE_INGREDIENT_BACK) {
                 if (targetedSolution != null) {
+                    if (i + 1 < targetRecipe.getNumSteps()) {
+                        thoughtBubble.thinkOfSolution(targetRecipe.getSolutionStep(i + 1));
+                    }
+
                     yield return goToPosition(targetedSolution.getInitialLocation());
                     dropSolutionObject(targetedSolution);
                     targetedSolution = null;
