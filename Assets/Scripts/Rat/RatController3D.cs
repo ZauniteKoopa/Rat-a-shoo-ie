@@ -201,7 +201,7 @@ public class RatController3D : MonoBehaviour
             targetedInteractable = null;
 
             // for animation TODO
-            //animator.SetBool("interacting", true);
+            animator.SetBool("interacting", true);
 
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
                 audioManager.emitPickupSound();
@@ -230,7 +230,7 @@ public class RatController3D : MonoBehaviour
         else if (grabbedInteractable != null) {
 
             //for animation TODO
-            //animator.SetBool("interacting", true);
+            animator.SetBool("interacting", false);
 
             dropGrabbedInteractable();
 
