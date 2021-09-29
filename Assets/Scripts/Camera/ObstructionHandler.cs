@@ -34,7 +34,7 @@ public class ObstructionHandler : MonoBehaviour
         {
             GameObject obs = hit.collider.gameObject;
             curHit.Add(obs);
-            if (!curObstructions.ContainsKey(obs))
+            if (!curObstructions.ContainsKey(obs) && obs.GetComponent<Renderer>() != null)
             {
                 Material[] obsMaterials = obs.GetComponent<Renderer>().materials;
                 curObstructions.Add(obs, obsMaterials);
