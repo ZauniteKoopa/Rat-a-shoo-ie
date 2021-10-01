@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 7356329509246196249
     second: rat_idle_back_2
+  - first:
+      213: 9053506094276307097
+    second: rat_idle_back_0
+  - first:
+      213: -5815199045446642483
+    second: rat_idle_back_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,54 +102,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_idle_back_0
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 7
-        width: 545
-        height: 555
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16b2fb1ccf5403080800000000000000
-      internalID: -9209784286088058015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_idle_back_1
-      rect:
-        serializedVersion: 2
-        x: 566
-        y: 13
-        width: 505
-        height: 529
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ed28dc8c9a0b1350800000000000000
-      internalID: 5988391797013360102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: rat_idle_back_2
       rect:
         serializedVersion: 2
-        x: 1086
+        x: 923
         y: 7
-        width: 545
+        width: 443
         height: 555
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,6 +118,48 @@ TextureImporter:
       bones: []
       spriteID: 91ad75196bee61660800000000000000
       internalID: 7356329509246196249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_idle_back_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 7
+        width: 443
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9986c2143d384ad70800000000000000
+      internalID: 9053506094276307097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_idle_back_1
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 13
+        width: 444
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc456f547434c4fa0800000000000000
+      internalID: -5815199045446642483
       vertices: []
       indices: 
       edges: []

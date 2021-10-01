@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: 40734760843127935
     second: rat_walk_back_3
+  - first:
+      213: -185763330523460231
+    second: rat_walk_back_0
+  - first:
+      213: 3056103410769915067
+    second: rat_walk_back_1
+  - first:
+      213: -925031268365366345
+    second: rat_walk_back_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,76 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_walk_back_0
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 11
-        width: 546
-        height: 557
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f09f5c15f343e8e30800000000000000
-      internalID: 4507597723603958031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_walk_back_1
-      rect:
-        serializedVersion: 2
-        x: 566
-        y: 60
-        width: 462
-        height: 480
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e117ee799e17da5c0800000000000000
-      internalID: -4202577629176499938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_walk_back_2
-      rect:
-        serializedVersion: 2
-        x: 1043
-        y: 14
-        width: 546
-        height: 557
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 606aa68c769fbc420800000000000000
-      internalID: 2651487029777049094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: rat_walk_back_3
       rect:
         serializedVersion: 2
-        x: 1603
-        y: 60
-        width: 463
-        height: 480
+        x: 1398
+        y: 61
+        width: 462
+        height: 479
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,6 +124,69 @@ TextureImporter:
       bones: []
       spriteID: f7ca0169c08b09000800000000000000
       internalID: 40734760843127935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_walk_back_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 12
+        width: 443
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d0bdf2c390c6df0800000000000000
+      internalID: -185763330523460231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_walk_back_1
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 61
+        width: 462
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcecc33cd5796a20800000000000000
+      internalID: 3056103410769915067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_walk_back_2
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 12
+        width: 443
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb04f266f0a923f0800000000000000
+      internalID: -925031268365366345
       vertices: []
       indices: 
       edges: []
