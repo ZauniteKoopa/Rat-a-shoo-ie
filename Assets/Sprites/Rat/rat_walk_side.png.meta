@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: a0894a246fa5c40b58f6ad55aa048b82
+guid: 5a1fdd2260a98463fa3a14fcde60fc7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9209784286088058015
-    second: rat_idle_back_0
+      213: -6468685348214618046
+    second: rat_walk_side_0
   - first:
-      213: 5988391797013360102
-    second: rat_idle_back_1
+      213: -8329918420769438926
+    second: rat_walk_side_1
   - first:
-      213: 7356329509246196249
-    second: rat_idle_back_2
+      213: 5227813550382950473
+    second: rat_walk_side_2
   - first:
-      213: 9053506094276307097
-    second: rat_idle_back_0
-  - first:
-      213: -5815199045446642483
-    second: rat_idle_back_1
+      213: -5342254999213510408
+    second: rat_walk_side_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,55 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_idle_back_2
+      name: rat_walk_side_0
       rect:
         serializedVersion: 2
-        x: 923
-        y: 7
-        width: 443
-        height: 555
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91ad75196bee61660800000000000000
-      internalID: 7356329509246196249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_idle_back_0
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 7
-        width: 443
-        height: 555
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9986c2143d384ad70800000000000000
-      internalID: 9053506094276307097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_idle_back_1
-      rect:
-        serializedVersion: 2
-        x: 464
+        x: 9
         y: 13
-        width: 444
-        height: 529
+        width: 904
+        height: 604
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +113,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc456f547434c4fa0800000000000000
-      internalID: -5815199045446642483
+      spriteID: 248c4e7c2fc9a36a0800000000000000
+      internalID: -6468685348214618046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_walk_side_1
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 13
+        width: 932
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2330e02845f266c80800000000000000
+      internalID: -8329918420769438926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_walk_side_2
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 9
+        width: 779
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948ac86d9bcec8840800000000000000
+      internalID: 5227813550382950473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_walk_side_3
+      rect:
+        serializedVersion: 2
+        x: 2682
+        y: 9
+        width: 761
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0f258f16f7cd5b0800000000000000
+      internalID: -5342254999213510408
       vertices: []
       indices: 
       edges: []

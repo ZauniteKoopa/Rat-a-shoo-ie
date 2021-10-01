@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: a0894a246fa5c40b58f6ad55aa048b82
+guid: 5727f7326eefa4f9c9597e848c84b8ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9209784286088058015
-    second: rat_idle_back_0
+      213: -6275348016101769364
+    second: rat_idle_side_0
   - first:
-      213: 5988391797013360102
-    second: rat_idle_back_1
+      213: -2243616365821041829
+    second: rat_idle_side_1
   - first:
-      213: 7356329509246196249
-    second: rat_idle_back_2
-  - first:
-      213: 9053506094276307097
-    second: rat_idle_back_0
-  - first:
-      213: -5815199045446642483
-    second: rat_idle_back_1
+      213: -4122445550482281336
+    second: rat_idle_side_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +96,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_idle_back_2
+      name: rat_idle_side_0
       rect:
         serializedVersion: 2
-        x: 923
-        y: 7
-        width: 443
-        height: 555
+        x: 9
+        y: 11
+        width: 823
+        height: 610
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,20 +110,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ad75196bee61660800000000000000
-      internalID: 7356329509246196249
+      spriteID: c6f3d424a3c79e8a0800000000000000
+      internalID: -6275348016101769364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_idle_back_0
+      name: rat_idle_side_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 443
-        height: 555
+        x: 851
+        y: 19
+        width: 833
+        height: 602
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9986c2143d384ad70800000000000000
-      internalID: 9053506094276307097
+      spriteID: b53ebfe6dc21dd0e0800000000000000
+      internalID: -2243616365821041829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_idle_back_1
+      name: rat_idle_side_2
       rect:
         serializedVersion: 2
-        x: 464
-        y: 13
-        width: 444
-        height: 529
+        x: 1703
+        y: 8
+        width: 822
+        height: 613
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc456f547434c4fa0800000000000000
-      internalID: -5815199045446642483
+      spriteID: 88c2d9d0d912ac6c0800000000000000
+      internalID: -4122445550482281336
       vertices: []
       indices: 
       edges: []
