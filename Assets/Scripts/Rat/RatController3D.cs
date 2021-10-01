@@ -15,13 +15,11 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float landSpeed = 7f;
     [SerializeField]
-    private float carryingLightSpeed = 3f;
-    [SerializeField]
-    private float carryingHeavySpeed = 1.5f;
-    [SerializeField]
     private float airControl = 0.75f;
     [SerializeField]
     private float landJumpVelocity = 18f;
+    [SerializeField]
+    private float gravityForce = 9.81f;
     [SerializeField]
     private Transform spotShadow = null;
     [SerializeField]
@@ -127,6 +125,12 @@ public class RatController3D : MonoBehaviour
         }
     }
 
+    void FixedUpdate() {
+        if (!onGround) {
+            rigidBody.AddForce(Vector3.down * rigidBody.mass * gravityForce);
+        }
+    }
+
     /* Main method to handle ground movement */
     private void handleGroundMovement() {
         // Calculate the exact axis values based on blockers
@@ -163,11 +167,6 @@ public class RatController3D : MonoBehaviour
         if (moveVector != Vector3.zero) {
             moveVector.Normalize();
             float currentSpeed = landSpeed;
-
-            // If currently grabbing something, change the speed accordingly
-            if (grabbedInteractable != null) {
-                currentSpeed = (grabbedInteractable.weight == InteractableWeight.LIGHT) ? carryingLightSpeed : carryingHeavySpeed;
-            }
 
             moveVector *= (currentSpeed * Time.deltaTime);
             if (!onGround) {
