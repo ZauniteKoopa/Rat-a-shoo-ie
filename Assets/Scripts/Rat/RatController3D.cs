@@ -31,6 +31,7 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private BlockerSensor backwardBlockSensor = null;
     public LayerMask spotShadowCollisionLayer;
+    private bool canMove = true;
 
     // Health management
     [Header("Health Management")]
@@ -65,8 +66,12 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private ToDoList userInterface = null;
 
+    // Spawn point management
+    private Vector3 spawnPosition;
+
     // Reference variables
     private Rigidbody rigidBody;
+    private Collider myCollider;
     private RatAudioManager audioManager = null;
 
     // Start is called before the first frame update
@@ -75,7 +80,9 @@ public class RatController3D : MonoBehaviour
         invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
         userInterface.updateHealthUI(maxHealth);
         curHealth = maxHealth;
+        spawnPosition = transform.position;
 
+        myCollider = GetComponent<Collider>();
         rigidBody = GetComponent<Rigidbody>();
         audioManager = GetComponent<RatAudioManager>();
     }
@@ -83,48 +90,52 @@ public class RatController3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Handling target interactable, highlight the nearest interactable that's in front of the player.
-        if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
-            GeneralInteractable previousTarget = targetedInteractable;
-            targetedInteractable = interactableSensor.getNearestInteractable(groundForward);
+        if (canMove) {
+            // Handling target interactable, highlight the nearest interactable that's in front of the player.
+            if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
+                GeneralInteractable previousTarget = targetedInteractable;
+                targetedInteractable = interactableSensor.getNearestInteractable(groundForward);
 
-            // Remove highlight if player is looking at another interactable
-            if (previousTarget != null && previousTarget != targetedInteractable) {
-                previousTarget.removeHighlight();
+                // Remove highlight if player is looking at another interactable
+                if (previousTarget != null && previousTarget != targetedInteractable) {
+                    previousTarget.removeHighlight();
+                }
+
+                targetedInteractable.highlight();
+
+            // If player moved away from target interactable, remove the highlight
+            } else if (targetedInteractable != null) {
+                targetedInteractable.removeHighlight();
+                targetedInteractable = null;
+            }
+            
+            handleGroundMovement();
+
+            // Handling interactable
+            if (Input.GetButtonDown("Fire2")) {
+                handleInteractable();
             }
 
-            targetedInteractable.highlight();
+            // If handling heavy, check for cases where you drop the interactable automatically. Otherwise, handle jump
+            if (grabbedInteractable != null && grabbedInteractable.weight == InteractableWeight.HEAVY) {
+                if (!onGround || Vector3.Distance(grabbedInteractable.transform.position, transform.position) > 0.1 + heavyInteractableDistance) {
+                    dropGrabbedInteractable();
+                }
+            } else {
+                // Handle jump
+                float heightVelocity = rigidBody.velocity.y;
 
-        // If player moved away from target interactable, remove the highlight
-        } else if (targetedInteractable != null) {
-            targetedInteractable.removeHighlight();
-            targetedInteractable = null;
+                if (onGround && Input.GetButtonDown("Jump")) {
+                    heightVelocity = landJumpVelocity;
+                }
+
+                rigidBody.velocity = (Vector3.up * heightVelocity);
+            }
         }
         
-        handleGroundMovement();
-
-        // Handling interactable
-        if (Input.GetButtonDown("Fire2")) {
-            handleInteractable();
-        }
-
-        // If handling heavy, check for cases where you drop the interactable automatically. Otherwise, handle jump
-        if (grabbedInteractable != null && grabbedInteractable.weight == InteractableWeight.HEAVY) {
-            if (!onGround || Vector3.Distance(grabbedInteractable.transform.position, transform.position) > 0.1 + heavyInteractableDistance) {
-                dropGrabbedInteractable();
-            }
-        } else {
-            // Handle jump
-            float heightVelocity = rigidBody.velocity.y;
-
-            if (onGround && Input.GetButtonDown("Jump")) {
-                heightVelocity = landJumpVelocity;
-            }
-
-            rigidBody.velocity = (Vector3.up * heightVelocity);
-        }
     }
 
+    // Fixed update to apply gravity to the player
     void FixedUpdate() {
         if (!onGround) {
             rigidBody.AddForce(Vector3.down * rigidBody.mass * gravityForce);
@@ -249,9 +260,13 @@ public class RatController3D : MonoBehaviour
     /* Method for taking damage */
     public void takeDamage() {
         if (!invincible && curHealth > 0) {
-            curHealth--;
+            //curHealth--;
+            dropGrabbedInteractable();
+            //transform.position = spawnPosition;
+            StartCoroutine(respawnRoutine());
+
             audioManager.emitDamageSound();
-            playerHealthLossEvent.Invoke();
+            //playerHealthLossEvent.Invoke();
 
             if (curHealth <= 0) {
                 Debug.Log("You died!");
@@ -259,6 +274,38 @@ public class RatController3D : MonoBehaviour
                 StartCoroutine(invincibilityRoutine());
             }
         }
+    }
+
+    /* Main coroutine to respawn player at the current spawn position */
+    private IEnumerator respawnRoutine() {
+        // Disable certain components to make this easier
+        rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        myCollider.enabled = false;
+        canMove = false;
+
+        if (targetedInteractable != null) {
+            targetedInteractable.removeHighlight();
+        }
+
+        // Set up timer loop
+        float timer = 0.0f;
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        Vector3 startPos = transform.position;
+
+        // Timer loop
+        while (timer <= 1.5f) {
+            yield return waitFrame;
+            timer += Time.deltaTime;
+
+            float progress = timer / 1.5f;
+            transform.position = Vector3.Lerp(startPos, spawnPosition, progress);
+        }
+
+        // finally reset variables to be playable
+        canMove = true;
+        transform.position = spawnPosition;
+        rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+        myCollider.enabled = true;
     }
 
     /* Main coroutine to do invincibility */
@@ -305,5 +352,10 @@ public class RatController3D : MonoBehaviour
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }
+    }
+
+    // Main method to set the spawn point 
+    public void changeSpawnPoint(Transform spawnPoint) {
+        spawnPosition = spawnPoint.position;
     }
 }

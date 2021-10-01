@@ -17,7 +17,7 @@ public class RoomSensor : MonoBehaviour
         RatController3D ratPlayer = collider.GetComponent<RatController3D>();
 
         if (ratPlayer != null) {
-            roomView.onPlayerEnter();
+            roomView.onPlayerEnter(ratPlayer);
         }
     }
 }

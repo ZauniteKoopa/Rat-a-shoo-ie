@@ -8,6 +8,9 @@ public class RoomView : MonoBehaviour
     // Public variables: decides the camera's local rotation and position to the room
     public Vector3 localCameraPosition;
     public Vector3 localCameraRotation;
+    [SerializeField]
+    private Transform spawnPoint = null;
+    private bool wasVisited = false;
 
     // Method to get camera controller
     private CameraController cameraController;
@@ -18,7 +21,12 @@ public class RoomView : MonoBehaviour
     }
 
     // Public event method when player enters this room view 
-    public void onPlayerEnter() {
+    public void onPlayerEnter(RatController3D player) {
+        if (spawnPoint != null && !wasVisited) {
+            wasVisited = true;
+            player.changeSpawnPoint(spawnPoint);
+        }
+
         cameraController.moveCamera(this);
     }
 }
