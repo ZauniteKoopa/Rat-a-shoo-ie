@@ -40,6 +40,7 @@ public class RatController3D : MonoBehaviour
     private float invincibilityDuration = 1.5f;
     [SerializeField]
     private SpriteRenderer characterSprite = null;
+    private bool facingRight = false;
     private Color invinicibleColor;
     private int curHealth;
     private bool invincible = false;
@@ -129,6 +130,7 @@ public class RatController3D : MonoBehaviour
         if (!onGround) {
             rigidBody.AddForce(Vector3.down * rigidBody.mass * gravityForce);
         }
+        
     }
 
     /* Main method to handle ground movement */
@@ -149,12 +151,18 @@ public class RatController3D : MonoBehaviour
         // Calculate the actual move vector
         Vector3 forwardVector = (Input.GetAxis("Horizontal") * Vector3.right) + (Input.GetAxis("Vertical") * Vector3.forward);
         Vector3 moveVector = horizontalAxis * Vector3.right + verticalAxis * Vector3.forward;
-        
+
+        // TODO make this neater, flips sprite
+        if (horizontalAxis > 0 && !facingRight)
+            Flip();
+        else if (horizontalAxis < 0 && facingRight)
+            Flip();
+
         // Update forward
         if (forwardVector != Vector3.zero) {
             groundForward = forwardVector;
             // set animator controller for sprite look direction
-            int direction = WorldSprite.getSpriteLookDirectionTest(groundForward);
+            float direction = WorldSprite.getSpriteLookDirection(groundForward);
             animator.SetFloat("direction", direction);
         }
 
@@ -305,5 +313,14 @@ public class RatController3D : MonoBehaviour
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }
+    }
+
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
