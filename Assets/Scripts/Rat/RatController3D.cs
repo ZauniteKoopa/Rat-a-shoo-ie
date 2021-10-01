@@ -319,8 +319,6 @@ public class RatController3D : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        characterSprite.flipX = !characterSprite.flipX;
     }
 }
