@@ -315,7 +315,7 @@ public class RatController3D : MonoBehaviour
         }
     }
 
-
+    // Main method to flip the sprite
     void Flip()
     {
         facingRight = !facingRight;

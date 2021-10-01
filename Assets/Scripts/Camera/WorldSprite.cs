@@ -39,12 +39,12 @@ public class WorldSprite : MonoBehaviour
         }
         // facing right
         else if (dotProduct1 > 0.0f && dotProduct2 <= 0.0f) {
-            return 0.34f;
+            return 0.5f;
             
         } 
         // facing left
         else if (dotProduct1 <= 0.0f && dotProduct2 > 0.0f) {
-            return 0.67f;
+            return 0.5f;
             // If dotProduct1 > 0.0f && dotProduct2 <= 0.0f, you are facing right
             // If dotProduct1 <= 0.0f && dotProduct2 > 0.0f, you are facing left
 
