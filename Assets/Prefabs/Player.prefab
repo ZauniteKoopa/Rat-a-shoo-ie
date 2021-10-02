@@ -709,7 +709,7 @@ MonoBehaviour:
   backwardBlockSensor: {fileID: 1102431403}
   spotShadowCollisionLayer:
     serializedVersion: 2
-    m_Bits: 516
+    m_Bits: 30212
   maxHealth: 3
   invincibilityDuration: 1.5
   characterSprite: {fileID: 694440409932395574}
