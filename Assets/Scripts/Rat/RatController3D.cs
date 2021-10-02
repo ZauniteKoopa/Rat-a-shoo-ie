@@ -347,7 +347,17 @@ public class RatController3D : MonoBehaviour
 
             // If the rat is grabbing a light object, drop light object in front of you and freeze its rotation
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
-                grabbedInteractable.transform.position = (groundForward * throwDistance) + transform.TransformPoint(grabbableHook);
+                Vector3 grabbedPosition = transform.TransformPoint(grabbableHook);
+                Vector3 maxThrowPosition = (groundForward * throwDistance) + transform.TransformPoint(grabbableHook);
+
+                // Do a raycast check to avoid throwing interactables through walls
+                RaycastHit hit; 
+                if (Physics.Raycast(transform.position, groundForward, out hit, throwDistance, ~spotShadowCollisionLayer)) {
+                    grabbedInteractable.transform.position = hit.point;
+                } else {
+                    grabbedInteractable.transform.position = maxThrowPosition;
+                }
+
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
 
