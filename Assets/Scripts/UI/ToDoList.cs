@@ -42,6 +42,8 @@ public class ToDoList : MonoBehaviour
     private TMP_Text warningUI = null;
     [SerializeField]
     private Color notFinishedColor = Color.red;
+    [SerializeField]
+    private Image blackOutImage = null;
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
@@ -217,6 +219,27 @@ public class ToDoList : MonoBehaviour
         if (curHealth <= 0) {
             GetComponent<SceneChanger>().ChangeScene("LoseScreen");
         }
+    }
+
+    // Private IEnumerator to do black out sequence when player gets hit
+    public IEnumerator blackOutSequence(float fadeTime) {
+        float timer = 0.0f;
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        // Slow fade to black
+        while (timer <= fadeTime) {
+            yield return waitFrame;
+            timer += Time.deltaTime;
+
+            float progress = timer / fadeTime;
+            blackOutImage.color = Color.Lerp(Color.clear, Color.black, progress);
+        }
+
+        blackOutImage.color = Color.black;
+
+        yield return new WaitForSeconds(0.2f);
+
+        blackOutImage.color = Color.clear;
     }
 
     // Event handler for when a task is done

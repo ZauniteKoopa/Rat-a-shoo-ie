@@ -38,9 +38,8 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private int maxHealth = 3;
     [SerializeField]
-    private float invincibilityDuration = 1.5f;
-    [SerializeField]
     private SpriteRenderer characterSprite = null;
+    private Component spawnHalo = null;
     private bool facingRight = false;
     private Color invinicibleColor;
     private int curHealth;
@@ -85,6 +84,7 @@ public class RatController3D : MonoBehaviour
         curHealth = maxHealth;
         spawnPosition = transform.position;
 
+        spawnHalo = GetComponent("Halo");
         myCollider = GetComponent<Collider>();
         rigidBody = GetComponent<Rigidbody>();
         audioManager = GetComponent<RatAudioManager>();
@@ -250,8 +250,6 @@ public class RatController3D : MonoBehaviour
 
             if (curHealth <= 0) {
                 Debug.Log("You died!");
-            } else {
-                StartCoroutine(invincibilityRoutine());
             }
         }
     }
@@ -262,52 +260,34 @@ public class RatController3D : MonoBehaviour
         rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         myCollider.enabled = false;
         canMove = false;
+        invincible = true;
+        characterSprite.color = invinicibleColor;
 
         if (targetedInteractable != null) {
             targetedInteractable.removeHighlight();
         }
 
-        // Set up timer loop
-        float timer = 0.0f;
-        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        Vector3 startPos = transform.position;
+        // Do death sequence before fading to black
+        yield return new WaitForSeconds(0.5f);
 
-        // Timer loop
-        while (timer <= 1.5f) {
-            yield return waitFrame;
-            timer += Time.deltaTime;
+        // Fade to black
+        yield return userInterface.blackOutSequence(1.0f);
 
-            float progress = timer / 1.5f;
-            transform.position = Vector3.Lerp(startPos, spawnPosition, progress);
-        }
-
-        // finally reset variables to be playable
-        canMove = true;
+        // Reset to spawn point but don't allow movement immediately (Possibly an animation)
         transform.position = spawnPosition;
+        spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, true, null);
+        yield return new WaitForSeconds(0.3f);
+
+        // Actually allow movement, but still have the spawn halo around the player
+        canMove = true;
         rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         myCollider.enabled = true;
-    }
+        yield return new WaitForSeconds(1.0f);
 
-    /* Main coroutine to do invincibility */
-    private IEnumerator invincibilityRoutine() {
-        invincible = true;
-
-        // bool isTransparent = false;
-        float timer = 0.0f;
-        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        characterSprite.color = invinicibleColor;
-
-        while (timer < invincibilityDuration) {
-            yield return waitFrame;
-            // characterSprite.color = (isTransparent) ? Color.white : invinicibleColor;
-            // isTransparent = !isTransparent;
-            timer += Time.deltaTime;
-        }
-
-        yield return new WaitForSeconds(invincibilityDuration);
-
-        characterSprite.color = Color.white;
+        // Disable halo and invincibility
+        spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, false, null);
         invincible = false;
+        characterSprite.color = Color.white;
     }
 
     private IEnumerator grabInteractable() {
