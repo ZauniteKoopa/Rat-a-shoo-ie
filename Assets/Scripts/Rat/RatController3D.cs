@@ -214,30 +214,7 @@ public class RatController3D : MonoBehaviour
     private void handleInteractable() {
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
         if (targetedInteractable != false) {
-            grabbedInteractable = targetedInteractable;
-            grabbedInteractable.removeHighlight();
-            grabbedInteractable.onPlayerInteractStart();
-
-            targetedInteractable = null;
-
-            // for animation TODO
-            animator.SetBool("interacting", true);
-
-            if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
-                audioManager.emitPickupSound();
-
-                // Disable physics and place transform in hook
-                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                grabbedInteractable.transform.parent = transform;
-                grabbedInteractable.transform.localPosition = grabbableHook;
-
-                // If it's a solution object, make sure chef can't grab it
-                SolutionObject grabbedSolution = grabbedInteractable.GetComponent<SolutionObject>();
-                if (grabbedSolution != null) {
-                    grabbedSolution.canChefGrab = false;
-                }
-            }
-
+            StartCoroutine(grabInteractable());
         }
 
         // If the rat is grabbing an interactable, set the interactable's parent to null
@@ -245,9 +222,7 @@ public class RatController3D : MonoBehaviour
 
             //for animation TODO
             animator.SetBool("interacting", false);
-
             dropGrabbedInteractable();
-
         }
     }
 
@@ -333,6 +308,36 @@ public class RatController3D : MonoBehaviour
 
         characterSprite.color = Color.white;
         invincible = false;
+    }
+
+    private IEnumerator grabInteractable() {
+        grabbedInteractable = targetedInteractable;
+        grabbedInteractable.removeHighlight();
+        grabbedInteractable.onPlayerInteractStart();
+
+        targetedInteractable = null;
+
+        // for animation TODO
+        animator.SetBool("interacting", true);
+
+        if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
+            audioManager.emitPickupSound();
+
+            // Disable physics and place transform in hook
+            grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            grabbedInteractable.transform.parent = transform;
+            grabbedInteractable.transform.localPosition = grabbableHook;
+
+            // If it's a solution object, make sure chef can't grab it
+            SolutionObject grabbedSolution = grabbedInteractable.GetComponent<SolutionObject>();
+            if (grabbedSolution != null) {
+                grabbedSolution.canChefGrab = false;
+            }
+        }
+
+        canMove = false;
+        yield return new WaitForSeconds(0.25f);
+        canMove = true;
     }
 
     // Private helper method to drop thrown
