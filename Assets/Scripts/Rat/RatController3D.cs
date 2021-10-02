@@ -58,6 +58,8 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private Vector3 grabbableHook = Vector3.up;
     [SerializeField]
+    private float throwDistance = 1.5f;
+    [SerializeField]
     private InteractableSensor interactableSensor = null;
     private GeneralInteractable grabbedInteractable = null;
     private GeneralInteractable targetedInteractable = null;
@@ -171,7 +173,7 @@ public class RatController3D : MonoBehaviour
 
         // Update forward
         if (forwardVector != Vector3.zero) {
-            groundForward = forwardVector;
+            groundForward = forwardVector.normalized;
             // set animator controller for sprite look direction
             float direction = WorldSprite.getSpriteLookDirection(groundForward);
             animator.SetFloat("direction", direction);
@@ -235,12 +237,6 @@ public class RatController3D : MonoBehaviour
                     grabbedSolution.canChefGrab = false;
                 }
             }
-            else if (grabbedInteractable.weight == InteractableWeight.HEAVY) {
-                transform.position = grabbedInteractable.getNearestHeavyItemHook(transform);
-                grabbedInteractable.transform.parent = transform;
-                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                heavyInteractableDistance = Vector3.Distance(transform.position, grabbedInteractable.transform.position);
-            }
 
         }
 
@@ -269,12 +265,13 @@ public class RatController3D : MonoBehaviour
     public void takeDamage() {
         if (!invincible && curHealth > 0) {
             //curHealth--;
+            StopAllCoroutines();
             dropGrabbedInteractable();
             //transform.position = spawnPosition;
             StartCoroutine(respawnRoutine());
 
             audioManager.emitDamageSound();
-            //playerHealthLossEvent.Invoke();
+            // playerHealthLossEvent.Invoke();
 
             if (curHealth <= 0) {
                 Debug.Log("You died!");
@@ -345,7 +342,7 @@ public class RatController3D : MonoBehaviour
 
             // If the rat is grabbing a light object, drop light object in front of you and freeze its rotation
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
-                grabbedInteractable.transform.localPosition = groundForward + grabbableHook;
+                grabbedInteractable.transform.position = (groundForward * throwDistance) + transform.TransformPoint(grabbableHook);
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
 

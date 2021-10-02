@@ -728,6 +728,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   grabbableHook: {x: 0, y: 1.25, z: 0}
+  throwDistance: 1.75
   interactableSensor: {fileID: 336077375}
   userInterface: {fileID: 0}
 --- !u!114 &3149129238780747774
