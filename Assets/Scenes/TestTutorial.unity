@@ -3200,6 +3200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: 10.44, z: -0.6}
   localCameraRotation: {x: 40, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!65 &370109954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11453,6 +11454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: 4.5, z: -0.75}
   localCameraRotation: {x: 40, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1001 &1302774075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13758,6 +13760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: -5.42, z: -16}
   localCameraRotation: {x: 297.979, y: 0.026, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!65 &1529725421
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16285,6 +16288,51 @@ Transform:
   m_Father: {fileID: 667150224}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1865944130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865944132}
+  - component: {fileID: 1865944131}
+  m_Layer: 0
+  m_Name: PersistentData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1865944131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865944130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4741ce8683c6d8804b688ad8a6e4b723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCleared: 
+  numLevels: 3
+--- !u!4 &1865944132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865944130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1141.5825, y: 756.3155, z: -521.9013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 83
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1866418543
 GameObject:
   m_ObjectHideFlags: 0
@@ -17336,6 +17384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: 3, z: -2}
   localCameraRotation: {x: 27.979, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &1974302655
 GameObject:
   m_ObjectHideFlags: 0
@@ -17523,6 +17572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: 11.3, z: -0.65}
   localCameraRotation: {x: 40, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!65 &1984775880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18817,6 +18867,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  levelIndex: 1
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: f53e1f7402d9ca160b549bf4cec18a4e, type: 2}
@@ -19028,6 +19079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localCameraPosition: {x: 0, y: 10.44, z: -0.7}
   localCameraRotation: {x: 40, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!114 &7293247472877065220
 MonoBehaviour:
   m_ObjectHideFlags: 0

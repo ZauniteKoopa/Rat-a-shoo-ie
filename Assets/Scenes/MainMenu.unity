@@ -197,6 +197,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73905594}
   m_CullTransparentMesh: 0
+--- !u!1 &432601404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432601406}
+  - component: {fileID: 432601405}
+  m_Layer: 0
+  m_Name: PersistentData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &432601405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432601404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4741ce8683c6d8804b688ad8a6e4b723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCleared: 
+  numLevels: 3
+--- !u!4 &432601406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432601404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1141.5825, y: 756.3155, z: -521.9013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &439414087
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +367,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 439414089}
-    characterCount: 3
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -405,8 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2074295387}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -415,7 +460,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -540,8 +585,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Movement -   WASD           Jump - Space\n\nInteract - C\n\nOpen up To-Do
-    List - Left Shift     \nPause - Escape"
+  m_text: "Movement -   WASD           Jump - Space\n\nInteract - U\nSprint - I\n\nOpen
+    up To-Do List - Left Shift     \nPause - Escape"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 575d6916f041b341e92c750f2d183b66, type: 2}
   m_sharedMaterial: {fileID: 555092266835552508, guid: 575d6916f041b341e92c750f2d183b66,
@@ -611,12 +656,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 547937452}
-    characterCount: 107
+    characterCount: 118
     spriteCount: 0
-    spaceCount: 37
-    wordCount: 19
+    spaceCount: 40
+    wordCount: 22
     linkCount: 0
-    lineCount: 6
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -654,6 +699,7 @@ GameObject:
   - component: {fileID: 609663379}
   - component: {fileID: 609663378}
   - component: {fileID: 609663377}
+  - component: {fileID: 609663380}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -772,6 +818,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609663375}
   m_CullTransparentMesh: 0
+--- !u!114 &609663380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609663375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1295636af32f9d63876f8ac3779a030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 0
 --- !u!1 &636040752
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +881,7 @@ GameObject:
   - component: {fileID: 639105375}
   - component: {fileID: 639105374}
   - component: {fileID: 639105373}
+  - component: {fileID: 639105376}
   m_Layer: 5
   m_Name: Level3
   m_TagString: Untagged
@@ -940,6 +1000,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639105371}
   m_CullTransparentMesh: 0
+--- !u!114 &639105376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639105371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1295636af32f9d63876f8ac3779a030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 2
 --- !u!1 &679694788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2007965530}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1177533818
@@ -2300,10 +2373,10 @@ RectTransform:
   m_Father: {fileID: 679694792}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: -200, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541480868
 MonoBehaviour:
@@ -2511,6 +2584,7 @@ GameObject:
   - component: {fileID: 1727319505}
   - component: {fileID: 1727319504}
   - component: {fileID: 1727319503}
+  - component: {fileID: 1727319506}
   m_Layer: 5
   m_Name: Level2
   m_TagString: Untagged
@@ -2589,7 +2663,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level-1.1_Diner
+          m_StringArgument: TestTutorial
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1727319504
@@ -2629,6 +2703,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727319501}
   m_CullTransparentMesh: 0
+--- !u!114 &1727319506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727319501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1295636af32f9d63876f8ac3779a030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 1
 --- !u!1 &1810488230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,9 +2898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 2074295387}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2821,7 +2908,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2841,15 +2928,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 679694793}
-        m_MethodName: ChangeScene
-        m_Mode: 5
+      - m_Target: {fileID: 1541480866}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TestTutorial
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2007965533
@@ -2942,17 +3029,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2007965532}
+    m_SelectOnDown: {fileID: 488854676}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3146,7 +3233,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2141798092}
-    characterCount: 3
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1

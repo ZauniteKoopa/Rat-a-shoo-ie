@@ -54,6 +54,7 @@ public class ToDoList : MonoBehaviour
 
     //Reference variables
     private UIAudioManager audioManager = null;
+    private LevelInfo levelInfo = null;
 
     // Unity events
     public UnityEvent playerFinishAllTasksEvent;
@@ -62,6 +63,7 @@ public class ToDoList : MonoBehaviour
     // On start, initialize the list
     private void Start() {
         initializeList();
+        levelInfo = FindObjectOfType<LevelInfo>();
         audioManager = GetComponent<UIAudioManager>();
     }
 
@@ -188,6 +190,7 @@ public class ToDoList : MonoBehaviour
     // Method when player tries to escape
     public void onPlayerEscape() {
         if (canEscape) {
+            levelInfo.saveLevelSuccess();
             GetComponent<SceneChanger>().ChangeScene("WinScreen");
         } else {
             if (!warningActive) {

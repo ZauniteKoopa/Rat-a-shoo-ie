@@ -512,7 +512,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &207716400
 Rigidbody:
@@ -1940,7 +1940,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1100792839
 PrefabInstance:
@@ -2179,6 +2179,51 @@ MonoBehaviour:
   obsMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!1 &1132321846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132321848}
+  - component: {fileID: 1132321847}
+  m_Layer: 8
+  m_Name: PersistentData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1132321847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132321846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4741ce8683c6d8804b688ad8a6e4b723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCleared: 
+  numLevels: 3
+--- !u!4 &1132321848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132321846}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1266226521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7801452236015366833, guid: 737e23cccf88c6c90a13bce1e2a1de33,
@@ -3433,7 +3478,7 @@ PrefabInstance:
     - target: {fileID: 8111296629166780220, guid: a40caa1e4aa0af17abc7ee656785c622,
         type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 8111296629166780220, guid: a40caa1e4aa0af17abc7ee656785c622,
         type: 3}
@@ -4206,6 +4251,7 @@ MonoBehaviour:
   onPlayerSafe:
     m_PersistentCalls:
       m_Calls: []
+  levelIndex: 0
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: f53e1f7402d9ca160b549bf4cec18a4e, type: 2}

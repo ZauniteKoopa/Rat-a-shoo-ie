@@ -15,6 +15,8 @@ public class LevelInfo : MonoBehaviour
     private int numNPCsChasing = 0;
     public UnityEvent onPlayerAttacked;
     public UnityEvent onPlayerSafe;
+    [SerializeField]
+    private int levelIndex = 0;
 
     // Initialized variables for every levels
     [SerializeField]
@@ -94,6 +96,11 @@ public class LevelInfo : MonoBehaviour
     // Public method to access the prefab with the associated solution type
     public Transform getSolutionPrefab(SolutionType solutionType) {
         return closetDictionary[solutionType];
+    }
+
+    // Public method to save the level when player wins
+    public void saveLevelSuccess() {
+        PersistentData.instance.saveVictory(levelIndex);
     }
 
 }
