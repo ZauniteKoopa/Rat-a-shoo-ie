@@ -93,7 +93,7 @@ public class ToDoList : MonoBehaviour
     
     // Main method to checks if someone wants to look at the list
     void Update() {
-        if (Input.GetButtonDown("Fire3")) {
+        if (Input.GetButtonDown("TaskList")) {
             audioManager.playUISounds(0);
             StartCoroutine(lookAtList());
         } else if (Input.GetButtonDown("Cancel")) {
@@ -121,7 +121,7 @@ public class ToDoList : MonoBehaviour
         listImage.rectTransform.anchoredPosition3D = targetPosition;
 
         // Only remove the list if player takes hands off shift key
-        while(Input.GetButton("Fire3")) {
+        while(Input.GetButton("TaskList")) {
             yield return wait;
         }
 

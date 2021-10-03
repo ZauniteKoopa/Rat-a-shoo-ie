@@ -15,6 +15,8 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float landSpeed = 7f;
     [SerializeField]
+    private float sprintSpeed = 10f;
+    [SerializeField]
     private float airControl = 0.75f;
     [SerializeField]
     private float landJumpVelocity = 18f;
@@ -122,7 +124,7 @@ public class RatController3D : MonoBehaviour
             handleGroundMovement();
 
             // Handling interactable
-            if (Input.GetButtonDown("Fire2")) {
+            if (Input.GetButtonDown("Interact")) {
                 handleInteractable();
             }
 
@@ -194,7 +196,7 @@ public class RatController3D : MonoBehaviour
         // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
             moveVector.Normalize();
-            float currentSpeed = landSpeed;
+            float currentSpeed = (Input.GetButton("Sprint")) ? sprintSpeed : landSpeed;
 
             moveVector *= (currentSpeed * Time.deltaTime);
             if (!onGround) {
@@ -261,7 +263,6 @@ public class RatController3D : MonoBehaviour
         rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         canMove = false;
         invincible = true;
-        characterSprite.color = invinicibleColor;
 
         if (targetedInteractable != null) {
             targetedInteractable.removeHighlight();
@@ -275,6 +276,7 @@ public class RatController3D : MonoBehaviour
 
         // when screen is completely black, teleport character to spawn so player doesn't see camera movement. and then blink bAack
         transform.position = spawnPosition;
+        characterSprite.color = invinicibleColor;
         yield return new WaitForSeconds(blackedOutDuration);
         userInterface.blinkBack();
 

@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: C
+  m_text: U
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0
+  canBePickedUp: 1
   heavyItemHooks: []
   highlightedIndicator: {fileID: 854829484}
   hazardCaused: {fileID: 2542394599253882352, guid: 25e5c390d80173066a3b86a802aa7d28,
@@ -519,6 +520,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  HAZARD_EXPIRATION_DURATION: 8
   isTimedSpawn: 0
 --- !u!1 &3086160340610950269
 GameObject:
