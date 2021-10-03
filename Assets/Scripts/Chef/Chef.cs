@@ -70,6 +70,8 @@ public class Chef : MonoBehaviour
     private float attackingTime = 0.3f;
     private bool aggressive = false;
     private Vector3 lastSeenTarget = Vector3.zero;
+    private bool canSpotRat = true;                 //Boolean variable for when rat gets hit and the chef resets to passive points
+    private bool didHitRat = false;                 //Boolean on whether or not the rat was hit by a chef. Needed for when resetting
 
     // Variables for issue management
     [Header("IssueHandling")]
@@ -303,11 +305,18 @@ public class Chef : MonoBehaviour
         }
 
         // If AI can't see user anymore, act confused
-        if (chefSensing.currentRatTarget == null) {
+        if (didHitRat) {
+            aggressive = false;
+            didHitRat = false;
+            levelInfo.onChefChaseEnd();
+        }
+        else if (chefSensing.currentRatTarget == null)
+        {
             audioManager.playChefLost();
             aggressive = false;
             levelInfo.onChefChaseEnd();
             yield return actConfused();
+
         }
     }
 
@@ -548,7 +557,7 @@ public class Chef : MonoBehaviour
     // Main event handler when rat has been spotted
     //  Only interrupt if there is no highestPriorityIssue in mind
     public void onRatSpotted() {
-        if (highestPriorityIssue == null) {
+        if (highestPriorityIssue == null && canSpotRat) {
 
             if (aggressive) {
                 levelInfo.onChefChaseEnd();
@@ -557,6 +566,25 @@ public class Chef : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(spotRat());
         }
+    }
+
+    // Main event handler when targeted rat gets damaged
+    //  When rat gets damaged, ignore the rat sequence and set a boolean flag to break the aggression sequence
+    public void onRatDamaged() {
+        canSpotRat = false;
+
+        if (aggressive) {
+            didHitRat = true;
+        }
+
+        StartCoroutine(ignoreRatSequence());
+    }
+
+    // Main sequence handler for dealing with not sensing the rat when the rat is in the process of dying
+    private IEnumerator ignoreRatSequence() {
+        canSpotRat = false;
+        yield return new WaitForSeconds(1.6f);
+        canSpotRat = true;
     }
 
     // Main event handler method when a solution object is in range:

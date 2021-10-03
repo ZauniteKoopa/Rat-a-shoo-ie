@@ -33,16 +33,25 @@ public class RatController3D : MonoBehaviour
     public LayerMask spotShadowCollisionLayer;
     private bool canMove = true;
 
-    // Health management
-    [Header("Health Management")]
-    [SerializeField]
-    private int maxHealth = 3;
+    // Respawn management
+    [Header("Respawn Management")]
     [SerializeField]
     private SpriteRenderer characterSprite = null;
+    [SerializeField]
+    private float deathAnimationDuration = 0.75f;
+    [SerializeField]
+    private float blackFadeDuration = 1.0f;
+    [SerializeField]
+    private float blackedOutDuration = 0.5f;
+    [SerializeField]
+    private float spawnInSequenceDuration = 0.3f;
+    [SerializeField]
+    private float invincibilityDuration = 1.0f;
+    [SerializeField]
+    private float haloDuration = 3.0f;
     private Component spawnHalo = null;
     private bool facingRight = false;
     private Color invinicibleColor;
-    private int curHealth;
     private bool invincible = false;
     public UnityEvent playerHealthLossEvent;
 
@@ -80,8 +89,6 @@ public class RatController3D : MonoBehaviour
     void Start()
     {
         invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
-        userInterface.updateHealthUI(maxHealth);
-        curHealth = maxHealth;
         spawnPosition = transform.position;
 
         spawnHalo = GetComponent("Halo");
@@ -238,19 +245,13 @@ public class RatController3D : MonoBehaviour
 
     /* Method for taking damage */
     public void takeDamage() {
-        if (!invincible && curHealth > 0) {
-            //curHealth--;
+        if (!invincible) {
             StopAllCoroutines();
             dropGrabbedInteractable();
-            //transform.position = spawnPosition;
             StartCoroutine(respawnRoutine());
 
             audioManager.emitDamageSound();
-            // playerHealthLossEvent.Invoke();
-
-            if (curHealth <= 0) {
-                Debug.Log("You died!");
-            }
+            playerHealthLossEvent.Invoke();
         }
     }
 
@@ -258,7 +259,6 @@ public class RatController3D : MonoBehaviour
     private IEnumerator respawnRoutine() {
         // Disable certain components to make this easier
         rigidBody.constraints = RigidbodyConstraints.FreezeAll;
-        myCollider.enabled = false;
         canMove = false;
         invincible = true;
         characterSprite.color = invinicibleColor;
@@ -267,28 +267,35 @@ public class RatController3D : MonoBehaviour
             targetedInteractable.removeHighlight();
         }
 
-        // Do death sequence before fading to black
-        yield return new WaitForSeconds(0.5f);
+        // Do death sequence / animation before fading to black
+        yield return new WaitForSeconds(deathAnimationDuration);
 
         // Fade to black
-        yield return userInterface.blackOutSequence(1.0f);
+        yield return userInterface.blackOutSequence(blackFadeDuration);
 
-        // Reset to spawn point but don't allow movement immediately (Possibly an animation)
+        // when screen is completely black, teleport character to spawn so player doesn't see camera movement. and then blink bAack
         transform.position = spawnPosition;
-        spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, true, null);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(blackedOutDuration);
+        userInterface.blinkBack();
 
-        // Actually allow movement, but still have the spawn halo around the player
+        // Make rat glow so that player notices where their character is. In this section, so some spawning animation or particle effects
+        spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, true, null);
+        yield return new WaitForSeconds(spawnInSequenceDuration);
+
+        // Actually allow movement, but still have the spawn halo / inviciblity around the player
         canMove = true;
         rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
-        myCollider.enabled = true;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(invincibilityDuration);
+
+        invincible = false;
+        characterSprite.color = Color.white;
+
+        yield return new WaitForSeconds(haloDuration - invincibilityDuration);
 
         // Disable halo and invincibility
         spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, false, null);
-        invincible = false;
-        characterSprite.color = Color.white;
     }
+
 
     private IEnumerator grabInteractable() {
         grabbedInteractable = targetedInteractable;

@@ -35,8 +35,6 @@ public class ToDoList : MonoBehaviour
     [SerializeField]
     private Image indicator = null;
     [SerializeField]
-    private Image[] healthIcons = null;
-    [SerializeField]
     private GameObject pauseMenu = null;
     [SerializeField]
     private TMP_Text warningUI = null;
@@ -50,9 +48,6 @@ public class ToDoList : MonoBehaviour
     // Task management
     private int numTasksLeft = 0;
     private bool canEscape = false;
-
-    // Health management
-    private int curHealth = 0;
 
     // Pause management
     private bool paused = false;
@@ -201,26 +196,6 @@ public class ToDoList : MonoBehaviour
         }
     }
 
-    // Method to update health to a fixed amount
-    public void updateHealthUI(int currentHealth) {
-        Debug.Assert(healthIcons.Length >= currentHealth);
-        for (int i = 0; i < healthIcons.Length; i++) {
-            healthIcons[i].gameObject.SetActive(i < currentHealth);
-        }
-
-        curHealth = currentHealth;
-    }
-
-    // Event handler method when player lose health
-    public void onPlayerHealthLoss() {
-        healthIcons[curHealth - 1].gameObject.SetActive(false);
-        curHealth--;
-
-        if (curHealth <= 0) {
-            GetComponent<SceneChanger>().ChangeScene("LoseScreen");
-        }
-    }
-
     // Private IEnumerator to do black out sequence when player gets hit
     public IEnumerator blackOutSequence(float fadeTime) {
         float timer = 0.0f;
@@ -236,9 +211,10 @@ public class ToDoList : MonoBehaviour
         }
 
         blackOutImage.color = Color.black;
+    }
 
-        yield return new WaitForSeconds(0.2f);
-
+    // Public method to blink back to consciousness
+    public void blinkBack() {
         blackOutImage.color = Color.clear;
     }
 

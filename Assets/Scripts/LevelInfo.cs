@@ -6,13 +6,17 @@ using UnityEngine.Assertions;
 
 public class LevelInfo : MonoBehaviour
 {
+    // Main dictionaries to keep track of items
     private Dictionary<SolutionType, List<Vector3>> solutionLocations;
-    private int numNPCsChasing = 0;
     private Dictionary<SolutionType, Sprite> thoughtPool;
     private Dictionary<SolutionType, Transform> closetDictionary;
 
+    // Event handling for when player is attacking versus when player is safe
+    private int numNPCsChasing = 0;
     public UnityEvent onPlayerAttacked;
     public UnityEvent onPlayerSafe;
+
+    // Initialized variables for every levels
     [SerializeField]
     private SolutionTypeSpriteMap initialThoughtMap = null;
     [SerializeField]
@@ -42,6 +46,15 @@ public class LevelInfo : MonoBehaviour
         // Set up thought pool
         thoughtPool = initialThoughtMap.getThoughtBubbleDictionary();
         closetDictionary = initialThoughtMap.getSolutionPrefabDictionary();
+
+        // Connect all chefs AI to the player when player takes damage
+        RatController3D ratPlayer = Object.FindObjectOfType<RatController3D>();
+        Chef[] enemyChefs = Object.FindObjectsOfType<Chef>();
+
+        foreach (Chef chef in enemyChefs) {
+            ratPlayer.playerHealthLossEvent.AddListener(chef.onRatDamaged);
+        }
+
     }
 
     // Method to get the positions of all possible solution of solutionType
