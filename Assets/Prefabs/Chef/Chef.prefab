@@ -1065,7 +1065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4813905236207517747
 Transform:
   m_ObjectHideFlags: 0
@@ -1182,12 +1182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chefSensing: {fileID: 1632642256}
   solutionSensor: {fileID: 1320174790}
-  passiveMovementSpeed: 3.5
+  passiveMovementSpeed: 4.5
   confusionDuration: 1.5
   navDistance: 1
   chefHitbox: {fileID: 1710969171}
   attackingRange: 3
-  chaseMovementSpeed: 6.25
+  chaseMovementSpeed: 11
   anticipationTime: 0.5
   attackingTime: 0.3
   surprisedAtIssueDuration: 2
