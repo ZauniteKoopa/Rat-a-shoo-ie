@@ -20,6 +20,7 @@ public class ToDoList : MonoBehaviour
 {
 
     // Serialized fields
+    [Header("Serialized UI Elements")]
     [SerializeField]
     private Image listImage = null;
     [SerializeField]
@@ -28,8 +29,6 @@ public class ToDoList : MonoBehaviour
     private float outOfViewX = -600f;
     [SerializeField]
     private float inViewX = -260f;
-    [SerializeField]
-    private List<TaskType> initialTasks = null;
     [SerializeField]
     private List<TMP_Text> taskLabels = null;
     [SerializeField]
@@ -46,6 +45,12 @@ public class ToDoList : MonoBehaviour
     private const float DELTA_TIME = 0.04f;
 
     // Task management
+    [Header("Task Management")]
+    [SerializeField]
+    private List<TaskType> initialTasks = null;
+    [SerializeField]
+    private List<int> taskRevealSequence = null;
+    private Queue<int> taskRevealQueue;
     private int numTasksLeft = 0;
     private bool canEscape = false;
 
@@ -60,16 +65,25 @@ public class ToDoList : MonoBehaviour
     public UnityEvent playerFinishAllTasksEvent;
 
 
-    // On start, initialize the list
+    // On start, initialize the list and the queue
     private void Start() {
-        initializeList();
         levelInfo = FindObjectOfType<LevelInfo>();
         audioManager = GetComponent<UIAudioManager>();
+        taskRevealQueue = new Queue<int>();
+
+        if (taskRevealSequence != null) {
+            foreach(int breakPoint in taskRevealSequence) {
+                taskRevealQueue.Enqueue(breakPoint);
+            }
+        }
+
+        initializeList();
     }
 
     // Main method to initialize list: set all tasks to unfinished (colored red) and give their associated text
     private void initializeList() {
         Assert.IsTrue(initialTasks.Count <= taskLabels.Count - 1);
+        int initialRevealedTasks = (taskRevealQueue.Count <= 0) ? initialTasks.Count : Mathf.Min(taskRevealQueue.Peek(), initialTasks.Count);
 
         for (int i = 0; i < initialTasks.Count; i++) {
             taskLabels[i].color = notFinishedColor;
@@ -87,6 +101,11 @@ public class ToDoList : MonoBehaviour
                 taskLabels[i].text = "Jump with the SPACEBAR!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_CLOSET) {
                 taskLabels[i].text = "Hide the chef's ingredients!";
+            }
+
+            // If the task is NOT revealed, then hide it
+            if (i >= initialRevealedTasks) {
+                taskLabels[i].gameObject.SetActive(false);
             }
         }
 
@@ -224,10 +243,11 @@ public class ToDoList : MonoBehaviour
     // Event handler for when a task is done
     public void onTaskDone(TaskType taskType) {
         int i = -1;
+        int tasksToCheck = (taskRevealQueue.Count <= 0) ? initialTasks.Count : Mathf.Min(taskRevealQueue.Peek(), initialTasks.Count);
         bool found = false;
 
         // Go through list to get the exact position of the task type
-        while (i < initialTasks.Count - 1 && !found) {
+        while (i < tasksToCheck - 1 && !found) {
             i++;
 
             TaskType curType = initialTasks[i];
@@ -242,6 +262,17 @@ public class ToDoList : MonoBehaviour
             audioManager.playUISounds(5);
 
             indicator.gameObject.SetActive(true);
+
+            // If the player did the number of tasks indicated by the task reveal queue, update the task reveal queue
+            if (taskRevealQueue.Count > 0 && (initialTasks.Count - numTasksLeft) >= taskRevealQueue.Peek()) {
+                // Reveal the remaining tasks
+                int firstRevealedTask = taskRevealQueue.Dequeue();
+                int lastRevealedTask = (taskRevealQueue.Count > 0) ? Mathf.Min(taskRevealQueue.Peek(), initialTasks.Count) : initialTasks.Count;
+
+                for (int t = firstRevealedTask; t < lastRevealedTask; t++) {
+                    taskLabels[t].gameObject.SetActive(true);
+                }
+            }
 
             // If number of tasks is equal to zero, allow escape
             if (numTasksLeft <= 0) {
