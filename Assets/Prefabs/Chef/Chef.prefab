@@ -1200,6 +1200,7 @@ MonoBehaviour:
   cookingStation: {fileID: 0}
   mealBox: {fileID: 2134804484}
   animator: {fileID: 5897396795823706298}
+  characterSprite: {fileID: 3604181856700234585}
   anticipationColor: {r: 1, g: 0, b: 1, a: 1}
   attackColor: {r: 1, g: 0, b: 0, a: 1}
   chefClosetEvent:

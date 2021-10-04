@@ -114,6 +114,9 @@ public class Chef : MonoBehaviour
     [Header("Animation")]
     [SerializeField]
     private Animator animator = null;
+    bool facingRight = false;
+    [SerializeField]
+    private SpriteRenderer characterSprite = null;
 
     // Testing variables
     private Color normalColor;
@@ -156,8 +159,16 @@ public class Chef : MonoBehaviour
         animator.SetFloat("movementspeed", navMeshAgent.velocity.magnitude/navMeshAgent.speed);
         animator.SetBool("aggro", aggressive);
 
-        int lookDirection = WorldSprite.getSpriteLookDirectionTest(transform.forward);
+        float lookDirection = WorldSprite.getSpriteLookDirection(transform.forward);
         animator.SetFloat("direction", lookDirection);
+
+        if (lookDirection == 0.5f)
+        {
+            if (transform.forward.x > 0 && !facingRight)
+                Flip();
+            else if (transform.forward.x < 0 && facingRight)
+                Flip();
+        }
     }
 
     // Main intelligence loop
@@ -331,12 +342,15 @@ public class Chef : MonoBehaviour
         transform.forward = (flattenTarget - flattenPosition).normalized;
 
         meshRenderer.material.color = anticipationColor;
+        animator.SetBool("anticipating", true);
         yield return new WaitForSeconds(anticipationTime);
 
         // Activate hit box and attack
         audioManager.playChefAttack();
         chefHitbox.SetActive(true);
         meshRenderer.material.color = attackColor;
+        animator.SetBool("anticipating", false);
+        animator.SetBool("attacking", true);
 
         yield return new WaitForSeconds(attackingTime);
 
@@ -344,6 +358,7 @@ public class Chef : MonoBehaviour
         chefHitbox.SetActive(false);
         meshRenderer.material.color = normalColor;
         navMeshAgent.enabled = true;
+        animator.SetBool("attacking", false);
     }
 
     // Main IEnumerator sequence to act confused until either the confusion timer runs out or chef sees the player again
@@ -618,6 +633,13 @@ public class Chef : MonoBehaviour
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = false;
         }
+    }
+
+    // Main method to flip the sprite
+    void Flip()
+    {
+        facingRight = !facingRight;
+        characterSprite.flipX = !characterSprite.flipX;
     }
 
 }
