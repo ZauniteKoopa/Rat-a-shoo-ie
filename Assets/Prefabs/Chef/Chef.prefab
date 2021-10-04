@@ -1187,7 +1187,7 @@ MonoBehaviour:
   navDistance: 1
   chefHitbox: {fileID: 1710969171}
   attackingRange: 3
-  chaseMovementSpeed: 11
+  chaseMovementSpeed: 8
   anticipationTime: 0.5
   attackingTime: 0.3
   surprisedAtIssueDuration: 2
