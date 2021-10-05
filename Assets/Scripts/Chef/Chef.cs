@@ -565,11 +565,16 @@ public class Chef : MonoBehaviour
             }
 
             highestPriorityIssue = newIssue;
-
             Debug.Log("New high priority issue in mind: " +  newIssue);
+
             StopAllCoroutines();
+
+            // Reset animations and state
             chefHitbox.SetActive(false);
             thoughtBubble.clearUpThoughts();
+            animator.SetBool("anticipating", false);
+            animator.SetBool("attacking", false);
+
             StartCoroutine(mainIntelligenceLoop());
         }
     }
@@ -577,13 +582,18 @@ public class Chef : MonoBehaviour
     // Main event handler when rat has been spotted
     //  Only interrupt if there is no highestPriorityIssue in mind
     public void onRatSpotted() {
-        if (highestPriorityIssue == null && canSpotRat) {
+        if (highestPriorityIssue == null && canSpotRat && !aggressive) {
 
             if (aggressive) {
+                chefHitbox.SetActive(false);
                 levelInfo.onChefChaseEnd();
             }
             sensingSolutions = false;
             StopAllCoroutines();
+
+            animator.SetBool("anticipating", false);
+            animator.SetBool("attacking", false);
+            
             StartCoroutine(spotRat());
         }
     }
@@ -597,7 +607,7 @@ public class Chef : MonoBehaviour
             didHitRat = true;
         }
 
-        StartCoroutine(ignoreRatSequence());
+        hitboxRotator.StartCoroutine(ignoreRatSequence());
     }
 
     // Main sequence handler for dealing with not sensing the rat when the rat is in the process of dying
