@@ -153,6 +153,7 @@ public class Chef : MonoBehaviour
         StartCoroutine(mainIntelligenceLoop());
     }
 
+    // On update, update animator
     private void Update()
     {
 

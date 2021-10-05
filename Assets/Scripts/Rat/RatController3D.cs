@@ -144,7 +144,9 @@ public class RatController3D : MonoBehaviour
                 rigidBody.velocity = (Vector3.up * heightVelocity);
             }
         }
-        
+
+        // Manage usability things
+        manageSpotShadow();
     }
 
     // Fixed update to apply gravity to the player
@@ -182,10 +184,18 @@ public class RatController3D : MonoBehaviour
 
         // Update forward
         if (forwardVector != Vector3.zero) {
-            groundForward = forwardVector.normalized;
-            // set animator controller for sprite look direction
-            float direction = WorldSprite.getSpriteLookDirection(groundForward);
+            float direction = WorldSprite.getSpriteLookDirection(forwardVector.normalized);
             animator.SetFloat("direction", direction);
+
+            if (direction <= 0.0) {
+                groundForward = Vector3.forward;
+            } else if (direction >= 1.0) {
+                groundForward = Vector3.back;
+            } else if (facingRight) {
+                groundForward = Vector3.right;
+            } else {
+                groundForward = Vector3.left;
+            }
         }
 
         moveVector.Normalize();
@@ -206,7 +216,6 @@ public class RatController3D : MonoBehaviour
 
         // Do translation and manage spot shadow
         transform.Translate(moveVector);
-        manageSpotShadow();
     }
 
 
@@ -260,7 +269,7 @@ public class RatController3D : MonoBehaviour
     /* Main coroutine to respawn player at the current spawn position */
     private IEnumerator respawnRoutine() {
         // Disable certain components to make this easier
-        rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        //rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         canMove = false;
         invincible = true;
 
@@ -286,7 +295,7 @@ public class RatController3D : MonoBehaviour
 
         // Actually allow movement, but still have the spawn halo / inviciblity around the player
         canMove = true;
-        rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+        //rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         yield return new WaitForSeconds(invincibilityDuration);
 
         invincible = false;
