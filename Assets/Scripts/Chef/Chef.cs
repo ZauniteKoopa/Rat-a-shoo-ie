@@ -117,6 +117,8 @@ public class Chef : MonoBehaviour
     bool facingRight = false;
     [SerializeField]
     private SpriteRenderer characterSprite = null;
+    [SerializeField]
+    private ChefHitboxRotator hitboxRotator = null;
 
     // Testing variables
     private Color normalColor;
@@ -170,6 +172,8 @@ public class Chef : MonoBehaviour
             else if (transform.forward.x < 0 && facingRight)
                 Flip();
         }
+
+        hitboxRotator.rotateHitbox(lookDirection, facingRight);
     }
 
     // Main intelligence loop
