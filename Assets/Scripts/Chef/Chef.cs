@@ -101,6 +101,8 @@ public class Chef : MonoBehaviour
     private StockPot cookingStation = null;
     [SerializeField]
     private GameObject mealBox = null;
+    [SerializeField]
+    private SpriteRenderer mealSprite = null;
     private FoodInstance servedFood = null;
 
     // Variables for getting solutions
@@ -149,6 +151,7 @@ public class Chef : MonoBehaviour
 
         thoughtBubble.mainLevel = levelInfo;
         targetRecipe = orderWindow.getCurrentRecipe();
+        mealSprite.sprite = targetRecipe.foodSprite;
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
@@ -282,6 +285,7 @@ public class Chef : MonoBehaviour
             yield return goToPosition(orderWindow.transform.position);
             orderWindow.serveFood(servedFood);
             targetRecipe = orderWindow.getCurrentRecipe();
+            mealSprite.sprite = targetRecipe.foodSprite;
             mealBox.SetActive(false);
             currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
         }

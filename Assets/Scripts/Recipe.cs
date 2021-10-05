@@ -13,6 +13,7 @@ public class Recipe : ScriptableObject
     private bool resistSpicy = false;
     [SerializeField]
     private bool resistPoison = false;
+    public Sprite foodSprite = null;
 
 
     // Public method to get the total number of steps

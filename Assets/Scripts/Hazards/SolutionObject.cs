@@ -7,7 +7,8 @@ public enum SolutionType {
     TOWEL,
     BROOM,
     PEACH,
-    APPLE
+    APPLE,
+    CARROT
 };
 
 public class SolutionObject : MonoBehaviour
@@ -40,6 +41,8 @@ public class SolutionObject : MonoBehaviour
             case SolutionType.PEACH:
                 return 1.0f;
             case SolutionType.APPLE:
+                return 1.0f;
+            case SolutionType.CARROT:
                 return 1.0f;
             default:
                 throw new System.Exception("Invalid Solution Type");
