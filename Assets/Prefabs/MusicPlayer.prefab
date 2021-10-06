@@ -47,17 +47,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTracks:
-  - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
-  - {fileID: 8300000, guid: 79bc1e0af048c504494af2ece2442c35, type: 3}
   - {fileID: 8300000, guid: d8bfcd3e9892001409fd1b76f0375301, type: 3}
-  - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
-  - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
+  - {fileID: 8300000, guid: 79bc1e0af048c504494af2ece2442c35, type: 3}
+  - {fileID: 8300000, guid: f6ee7453d078d1b499eba66486f3ca91, type: 3}
+  - {fileID: 8300000, guid: 09f6a88dbbc99b94eaa10ad98a74a9fb, type: 3}
+  - {fileID: 8300000, guid: 503de03eee6d1af4397bc1aa1664aed2, type: 3}
   chaseTracks:
-  - {fileID: 8300000, guid: 53390fadb86aceb41807402ad367a724, type: 3}
-  - {fileID: 8300000, guid: 9325bde1afecf0e459f2a161ad17c101, type: 3}
   - {fileID: 8300000, guid: 35b027245ee23134aa661cbc03794272, type: 3}
-  - {fileID: 8300000, guid: d43e6e90a56b7be4c8b7ba44a4277481, type: 3}
-  - {fileID: 8300000, guid: d43e6e90a56b7be4c8b7ba44a4277481, type: 3}
+  - {fileID: 8300000, guid: 9325bde1afecf0e459f2a161ad17c101, type: 3}
+  - {fileID: 8300000, guid: ec4d4797272a8c64cb0f287e4d0992d8, type: 3}
+  - {fileID: 8300000, guid: 6c24d25931ce1964d9bf56a0ea23a159, type: 3}
+  - {fileID: 8300000, guid: a0d34b985253ae34a92f42c5ecf90499, type: 3}
   ambientTracks:
   - {fileID: 8300000, guid: 8ba05d64ded26db4c8635e6a31f577e3, type: 3}
   - {fileID: 8300000, guid: 8ba05d64ded26db4c8635e6a31f577e3, type: 3}
