@@ -33,7 +33,7 @@ RectTransform:
   - {fileID: 385207147}
   - {fileID: 2003220231}
   m_Father: {fileID: 8200095421523678782}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -395,7 +395,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8200095421523678782}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2025,8 +2025,8 @@ RectTransform:
   - {fileID: 8200095421967471662}
   - {fileID: 8200095423333824988}
   - {fileID: 2466686460950117937}
-  - {fileID: 364024367}
   - {fileID: 1350102435}
+  - {fileID: 364024367}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2111,7 +2111,6 @@ MonoBehaviour:
   transitionTime: 0.2
   outOfViewX: -600
   inViewX: -200
-  initialTasks: 00000000
   taskLabels:
   - {fileID: 8200095421505727688}
   - {fileID: 35358620243521803}
@@ -2124,6 +2123,8 @@ MonoBehaviour:
   warningUI: {fileID: 1746541465}
   notFinishedColor: {r: 0.46226418, g: 0.017443918, b: 0.017443918, a: 1}
   blackOutImage: {fileID: 1350102433}
+  initialTasks: 00000000
+  taskRevealSequence: 
   playerFinishAllTasksEvent:
     m_PersistentCalls:
       m_Calls:
