@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7918280956766933308}
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 15, z: -0.8}
-  m_LocalScale: {x: 0.025, y: 1, z: 0.025}
+  m_LocalScale: {x: 0.09811456, y: 1.4377335, z: 0.036618933}
   m_Children:
   - {fileID: 7918280957075148124}
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7918280957075148127}
   m_Layer: 0
   m_Name: UICamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
