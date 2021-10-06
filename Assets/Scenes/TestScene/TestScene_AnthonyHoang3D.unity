@@ -320,10 +320,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2134804484, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: closet
@@ -344,16 +340,6 @@ PrefabInstance:
       propertyPath: chefClosetEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 828858107}
-    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: mealSprite
-      value: 
-      objectReference: {fileID: 1767298792}
-    - target: {fileID: 4813905236207517742, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -413,11 +399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chef
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
@@ -2800,12 +2781,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!212 &1767298792 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1758853235, guid: 4d00e75600ccba920ad8d16a52ad5e23,
-    type: 3}
-  m_PrefabInstance: {fileID: 174971194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1768155570
 PrefabInstance:
   m_ObjectHideFlags: 0
