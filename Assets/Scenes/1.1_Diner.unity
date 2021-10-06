@@ -3892,7 +3892,7 @@ PrefabInstance:
     - target: {fileID: 3649817916582978191, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3843729780823533799, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
@@ -13230,7 +13230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  levelIndex: 0
+  levelIndex: 1
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: f53e1f7402d9ca160b549bf4cec18a4e, type: 2}

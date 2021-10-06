@@ -9,15 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 314afffe79b094b3895ec2e1b7da44eb
   - enabled: 1
-    path: Assets/Scenes/TestScene/TestScene_AnthonyHoang3D.unity
-    guid: 68a677f2f336b60ccb04a2830afd89e9
-  - enabled: 1
     path: Assets/Scenes/1.0_Tutorial.unity
     guid: f1652a8252d8b0e4281936acbc99837e
   - enabled: 1
-    path: Assets/Scenes/LoseScreen.unity
-    guid: 607c2925a3439f88a92515471dd0caf2
+    path: Assets/Scenes/1.1_Diner.unity
+    guid: e2173ff964bed5d4abca3a7080a944b0
+  - enabled: 1
+    path: Assets/Scenes/1.2_Sushi.unity
+    guid: ae40b196d8c7eaa4dabfdd3c2b90cd3d
+  - enabled: 1
+    path: Assets/Scenes/1.3_Hibachi.unity
+    guid: 6839160abb7fa75488d5745f4e6470d6
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: db552b27eaf60af5893d6f1168611fef
+  - enabled: 1
+    path: Assets/Scenes/TestScene/TestScene_AnthonyHoang3D.unity
+    guid: 68a677f2f336b60ccb04a2830afd89e9
   m_configObjects: {}
