@@ -56,6 +56,7 @@ public class RatController3D : MonoBehaviour
     private Color invinicibleColor;
     private bool invincible = false;
     public UnityEvent playerHealthLossEvent;
+    private bool respawning = false;
 
     // Variables for jumping
     private bool onGround = false;
@@ -73,7 +74,6 @@ public class RatController3D : MonoBehaviour
     private InteractableSensor interactableSensor = null;
     private GeneralInteractable grabbedInteractable = null;
     private GeneralInteractable targetedInteractable = null;
-    private float heavyInteractableDistance = 0.0f;
 
     [Header("User interface")]
     [SerializeField]
@@ -128,21 +128,14 @@ public class RatController3D : MonoBehaviour
                 handleInteractable();
             }
 
-            // If handling heavy, check for cases where you drop the interactable automatically. Otherwise, handle jump
-            if (grabbedInteractable != null && grabbedInteractable.weight == InteractableWeight.HEAVY) {
-                if (!onGround || Vector3.Distance(grabbedInteractable.transform.position, transform.position) > 0.1 + heavyInteractableDistance) {
-                    dropGrabbedInteractable();
-                }
-            } else {
-                // Handle jump
-                float heightVelocity = rigidBody.velocity.y;
+             // Handle jump
+            float heightVelocity = rigidBody.velocity.y;
 
-                if (onGround && Input.GetButtonDown("Jump")) {
-                    heightVelocity = landJumpVelocity;
-                }
-
-                rigidBody.velocity = (Vector3.up * heightVelocity);
+            if (onGround && Input.GetButtonDown("Jump")) {
+                heightVelocity = landJumpVelocity;
             }
+
+            rigidBody.velocity = (Vector3.up * heightVelocity);
         }
 
         // Manage usability things
@@ -163,14 +156,12 @@ public class RatController3D : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         float verticalAxis = Input.GetAxis("Vertical");
 
-        // Only constrain movement if not dragging heavy object
-        if (grabbedInteractable == null || grabbedInteractable.weight != InteractableWeight.HEAVY) {
-            horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
-            horizontalAxis = (rightBlockSensor.isBlocked() && horizontalAxis > 0f) ? 0f : horizontalAxis;
+        // constrain movement depending on blockers
+        horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
+        horizontalAxis = (rightBlockSensor.isBlocked() && horizontalAxis > 0f) ? 0f : horizontalAxis;
 
-            verticalAxis = (backwardBlockSensor.isBlocked() && verticalAxis < 0f) ? 0f : verticalAxis;
-            verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
-        }
+        verticalAxis = (backwardBlockSensor.isBlocked() && verticalAxis < 0f) ? 0f : verticalAxis;
+        verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
         
         // Calculate the actual move vector
         Vector3 forwardVector = (Input.GetAxis("Horizontal") * Vector3.right) + (Input.GetAxis("Vertical") * Vector3.forward);
@@ -232,7 +223,11 @@ public class RatController3D : MonoBehaviour
     private void handleInteractable() {
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
         if (targetedInteractable != false) {
-            StartCoroutine(grabInteractable());
+            if (targetedInteractable.weight == InteractableWeight.IMMOVABLE) {
+                StartCoroutine(staticInteractableSequence());
+            } else {
+                StartCoroutine(grabInteractable());
+            }
         }
 
         // If the rat is grabbing an interactable, set the interactable's parent to null
@@ -257,7 +252,6 @@ public class RatController3D : MonoBehaviour
     /* Method for taking damage */
     public void takeDamage() {
         if (!invincible) {
-            StopAllCoroutines();
             dropGrabbedInteractable();
             StartCoroutine(respawnRoutine());
 
@@ -269,9 +263,9 @@ public class RatController3D : MonoBehaviour
     /* Main coroutine to respawn player at the current spawn position */
     private IEnumerator respawnRoutine() {
         // Disable certain components to make this easier
-        //rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         canMove = false;
         invincible = true;
+        respawning = true;
 
         if (targetedInteractable != null) {
             targetedInteractable.removeHighlight();
@@ -295,6 +289,7 @@ public class RatController3D : MonoBehaviour
 
         // Actually allow movement, but still have the spawn halo / inviciblity around the player
         canMove = true;
+        respawning = false;
         //rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         yield return new WaitForSeconds(invincibilityDuration);
 
@@ -308,6 +303,7 @@ public class RatController3D : MonoBehaviour
     }
 
 
+    /* Main sequence to grab interactable */
     private IEnumerator grabInteractable() {
         grabbedInteractable = targetedInteractable;
         grabbedInteractable.removeHighlight();
@@ -318,27 +314,39 @@ public class RatController3D : MonoBehaviour
         // for animation TODO
         animator.SetBool("interacting", true);
 
-        if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
-            audioManager.emitPickupSound();
+        canMove = false;
 
-            // Disable physics and place transform in hook
-            grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            grabbedInteractable.transform.parent = transform;
-            grabbedInteractable.transform.localPosition = grabbableHook;
+        float timer = 0.0f;
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
-            // If it's a solution object, make sure chef can't grab it
-            SolutionObject grabbedSolution = grabbedInteractable.GetComponent<SolutionObject>();
-            if (grabbedSolution != null) {
-                grabbedSolution.canChefGrab = false;
-            }
+        while (!respawning && timer < 0.25f) {
+            yield return waitFrame;
+            timer += Time.deltaTime;
         }
 
-        canMove = false;
-        yield return new WaitForSeconds(0.25f);
-        canMove = true;
+        // If you were damaged during pickup, don't grab anything. Else, grab the thing
+        if (!respawning) {
+            if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
+                audioManager.emitPickupSound();
+
+                // Disable physics and place transform in hook
+                grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                grabbedInteractable.transform.parent = transform;
+                grabbedInteractable.transform.localPosition = grabbableHook;
+
+                // If it's a solution object, make sure chef can't grab it
+                SolutionObject grabbedSolution = grabbedInteractable.GetComponent<SolutionObject>();
+                if (grabbedSolution != null) {
+                    grabbedSolution.canChefGrab = false;
+                }
+            }
+
+            canMove = true;
+        }
+        
     }
 
-    // Private helper method to drop thrown
+    // Private helper method to drop interactable down
     private void dropGrabbedInteractable() {
         if (grabbedInteractable != null) {
             audioManager.emitDropSound();
@@ -370,6 +378,29 @@ public class RatController3D : MonoBehaviour
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }
+    }
+
+    /* Main IEnumerator for handling targeted interactables that are static */
+    public IEnumerator staticInteractableSequence() {
+        Debug.Assert(targetedInteractable.weight == InteractableWeight.IMMOVABLE);
+
+        // Set interactable variables
+        grabbedInteractable = targetedInteractable;
+        grabbedInteractable.removeHighlight();
+        grabbedInteractable.onPlayerInteractStart();
+
+        targetedInteractable = null;
+
+        // Disable movement for the sequence
+        canMove = false;
+        animator.SetFloat("movementspeed", 0.0f);
+
+        yield return grabbedInteractable.interactionSequence();
+
+        // Enable movement for the sequence
+        if (!respawning)
+            canMove = true;
+        grabbedInteractable = null;
     }
 
     // Main method to set the spawn point 

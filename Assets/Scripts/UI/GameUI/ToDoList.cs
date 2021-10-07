@@ -235,6 +235,23 @@ public class ToDoList : MonoBehaviour
         blackOutImage.color = Color.black;
     }
 
+    // Private IEnumerator to do a fade to clear sequence
+    public IEnumerator fadeClearSequence(float fadeTime) {
+        float timer = 0.0f;
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        // Slow fade to black
+        while (timer <= fadeTime) {
+            yield return waitFrame;
+            timer += Time.deltaTime;
+
+            float progress = timer / fadeTime;
+            blackOutImage.color = Color.Lerp(Color.black, Color.clear, progress);
+        }
+
+        blackOutImage.color = Color.clear;
+    }
+
     // Public method to blink back to consciousness
     public void blinkBack() {
         blackOutImage.color = Color.clear;
