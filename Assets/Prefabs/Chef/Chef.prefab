@@ -1156,7 +1156,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 9.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 500
@@ -1182,12 +1182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chefSensing: {fileID: 1632642256}
   solutionSensor: {fileID: 1320174790}
-  passiveMovementSpeed: 4.5
+  passiveMovementSpeed: 5
   confusionDuration: 1.5
   navDistance: 1
   chefHitbox: {fileID: 1710969171}
   attackingRange: 3
-  chaseMovementSpeed: 7
+  chaseMovementSpeed: 9
   anticipationTime: 0.5
   attackingTime: 0.3
   surprisedAtIssueDuration: 2

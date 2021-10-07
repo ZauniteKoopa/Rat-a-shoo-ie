@@ -17,7 +17,6 @@ public class RoomView : MonoBehaviour
 
     // On awake, get camera.main
     void Start() {
-        Debug.Log(Camera.main);
         cameraController = Camera.main.transform.GetComponent<CameraController>();
     }
 

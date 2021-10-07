@@ -700,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2242664134585493020}
   landSpeed: 7
-  sprintSpeed: 9
+  sprintSpeed: 9.5
   airControl: 0.75
   landJumpVelocity: 11.5
   gravityForce: 30
