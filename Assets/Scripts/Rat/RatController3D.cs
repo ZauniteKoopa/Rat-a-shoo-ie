@@ -23,6 +23,11 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float gravityForce = 9.81f;
     [SerializeField]
+    private float slowFactor = 0.2f;
+    [SerializeField]
+    private float slowedJumpFactor = 0.3f;
+    private int slowSources = 0;
+    [SerializeField]
     private Transform spotShadow = null;
     [SerializeField]
     private BlockerSensor leftBlockSensor = null;
@@ -132,7 +137,7 @@ public class RatController3D : MonoBehaviour
             float heightVelocity = rigidBody.velocity.y;
 
             if (onGround && Input.GetButtonDown("Jump")) {
-                heightVelocity = landJumpVelocity;
+                heightVelocity = (slowSources <= 0) ? landJumpVelocity : landJumpVelocity * slowedJumpFactor;
             }
 
             rigidBody.velocity = (Vector3.up * heightVelocity);
@@ -198,6 +203,7 @@ public class RatController3D : MonoBehaviour
         if (moveVector != Vector3.zero) {
             moveVector.Normalize();
             float currentSpeed = (Input.GetButton("Sprint")) ? sprintSpeed : landSpeed;
+            currentSpeed *= (slowSources > 0) ? slowFactor : 1.0f;
 
             moveVector *= (currentSpeed * Time.deltaTime);
             if (!onGround) {
@@ -406,6 +412,11 @@ public class RatController3D : MonoBehaviour
     // Main method to set the spawn point 
     public void changeSpawnPoint(Transform spawnPoint) {
         spawnPosition = spawnPoint.position;
+    }
+
+    // Main method to slow unit
+    public void setSlowStatus(bool slowed) {
+        slowSources += (slowed) ? 1 : -1;
     }
 
     // Main method to flip the sprite
