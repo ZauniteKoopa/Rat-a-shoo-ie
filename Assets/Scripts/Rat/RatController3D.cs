@@ -164,8 +164,10 @@ public class RatController3D : MonoBehaviour
     public void onSprint(InputAction.CallbackContext value) {
         if (value.started) {
             isSprinting = true;
+            Debug.Log("Sprinting on");
         } else if (value.canceled) {
             isSprinting = false;
+            Debug.Log("Sprinting off");
         }
     }
 
