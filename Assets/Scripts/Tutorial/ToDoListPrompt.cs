@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ToDoListPrompt : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("TaskList")) {
-            Object.Destroy(gameObject);
-        } 
+
+    // Event handler method when task list is shown
+    public void onTaskListPress(InputAction.CallbackContext value) {
+        Object.Destroy(gameObject);
     }
 }

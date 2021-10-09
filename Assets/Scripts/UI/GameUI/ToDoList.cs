@@ -5,6 +5,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.InputSystem;
 
 // List of task types that can be used
 public enum TaskType {
@@ -44,6 +45,10 @@ public class ToDoList : MonoBehaviour
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
+    // Input management variables for TaskList
+    private bool taskListShown = false;
+    private bool taskListPressed = false;
+
     // Task management
     [Header("Task Management")]
     [SerializeField]
@@ -56,6 +61,7 @@ public class ToDoList : MonoBehaviour
 
     // Pause management
     private bool paused = false;
+    private bool pauseButtonPressed = false;
 
     //Reference variables
     private UIAudioManager audioManager = null;
@@ -111,19 +117,35 @@ public class ToDoList : MonoBehaviour
 
         numTasksLeft = initialTasks.Count;
     }
-    
-    // Main method to checks if someone wants to look at the list
-    void Update() {
-        if (Input.GetButtonDown("TaskList")) {
+
+    // Main event handler for handling the task list
+    public void onTaskList(InputAction.CallbackContext value) {
+        if (value.started && !taskListShown) {
+            taskListPressed = true;
             audioManager.playUISounds(0);
             StartCoroutine(lookAtList());
-        } else if (Input.GetButtonDown("Cancel")) {
+        } else if (value.canceled) {
+            taskListPressed = false;
+        }
+    }
+
+    // Main event handler for the pause button
+    public void onPause(InputAction.CallbackContext value) {
+        if (!paused && value.started) {
             StartCoroutine(pauseMenuSequence());
+        }
+
+        if (value.started) {
+            pauseButtonPressed = true;
+        } else if(value.canceled) {
+            pauseButtonPressed = false;
         }
     }
 
     // Main IEnumerator process to look at list
     private IEnumerator lookAtList() {
+        taskListShown = true;
+
         Time.timeScale = 0.0f;
         Vector3 targetPosition = new Vector3(inViewX, 0, 0);
         Vector3 sourcePosition = new Vector3(outOfViewX, 0, 0);
@@ -142,13 +164,14 @@ public class ToDoList : MonoBehaviour
         listImage.rectTransform.anchoredPosition3D = targetPosition;
 
         // Only remove the list if player takes hands off shift key
-        while(Input.GetButton("TaskList")) {
+        while(taskListPressed) {
             yield return wait;
         }
 
         // Take list away
         timer = 0.0f;
         Time.timeScale = 1.0f;
+        taskListShown = false;
 
         while (timer < transitionTime) {
             yield return wait;
@@ -169,7 +192,7 @@ public class ToDoList : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
 
         // Don't cancel on the same escape button press that paused the menu on the same frame
-        while (paused && Input.GetButton("Cancel")) {
+        while (paused && pauseButtonPressed) {
             yield return wait;
         }
 
@@ -177,12 +200,13 @@ public class ToDoList : MonoBehaviour
         while (paused) {
             yield return wait;
 
-            if (Input.GetButton("Cancel")) {
+            if (pauseButtonPressed) {
                 paused = false;
             }
         }
 
         Time.timeScale = 1.0f;
+        pauseButtonPressed = false;
         audioManager.playUISounds(4);
         pauseMenu.SetActive(false);
     }

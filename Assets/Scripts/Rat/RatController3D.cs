@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class RatController3D : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class RatController3D : MonoBehaviour
     private BlockerSensor backwardBlockSensor = null;
     public LayerMask spotShadowCollisionLayer;
     private bool canMove = true;
+    private bool isSprinting = false;
+    private Vector2 moveInputVector = Vector2.zero;
 
     // Respawn management
     [Header("Respawn Management")]
@@ -125,22 +128,9 @@ public class RatController3D : MonoBehaviour
                 targetedInteractable.removeHighlight();
                 targetedInteractable = null;
             }
-            
-            handleGroundMovement();
 
-            // Handling interactable
-            if (Input.GetButtonDown("Interact")) {
-                handleInteractable();
-            }
-
-             // Handle jump
-            float heightVelocity = rigidBody.velocity.y;
-
-            if (onGround && Input.GetButtonDown("Jump")) {
-                heightVelocity = (slowSources <= 0) ? landJumpVelocity : landJumpVelocity * slowedJumpFactor;
-            }
-
-            rigidBody.velocity = (Vector3.up * heightVelocity);
+            // Handle ground movement
+            handleGroundMovement(moveInputVector.x, moveInputVector.y);
         }
 
         // Manage usability things
@@ -155,11 +145,40 @@ public class RatController3D : MonoBehaviour
         
     }
 
+    /* Event handler when the interact button was pressed */
+    public void onInteract(InputAction.CallbackContext value) {
+        if (canMove && value.started) {
+            handleInteractable();
+        }
+    }
+
+    /* Event handler method for when the jump button was pressed */
+    public void onJump(InputAction.CallbackContext value) {
+        if (canMove && onGround && value.started) {
+            float heightVelocity = (slowSources <= 0) ? landJumpVelocity : landJumpVelocity * slowedJumpFactor;
+            rigidBody.velocity = (Vector3.up * heightVelocity);
+        }
+    }
+
+    /* Event handler for when the sprint button is being held */
+    public void onSprint(InputAction.CallbackContext value) {
+        if (value.started) {
+            isSprinting = true;
+        } else if (value.canceled) {
+            isSprinting = false;
+        }
+    }
+
+    /* Event handler method when doing movement */
+    public void onMovement(InputAction.CallbackContext value) {
+        if (canMove) {
+            Vector2 inputMovement = value.ReadValue<Vector2>();
+            moveInputVector = inputMovement;
+        }
+    }
+
     /* Main method to handle ground movement */
-    private void handleGroundMovement() {
-        // Calculate the exact axis values based on blockers
-        float horizontalAxis = Input.GetAxis("Horizontal");
-        float verticalAxis = Input.GetAxis("Vertical");
+    private void handleGroundMovement(float horizontalAxis, float verticalAxis) {
 
         // constrain movement depending on blockers
         horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
@@ -169,7 +188,7 @@ public class RatController3D : MonoBehaviour
         verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
         
         // Calculate the actual move vector
-        Vector3 forwardVector = (Input.GetAxis("Horizontal") * Vector3.right) + (Input.GetAxis("Vertical") * Vector3.forward);
+        Vector3 forwardVector = (horizontalAxis * Vector3.right) + (verticalAxis * Vector3.forward);
         Vector3 moveVector = horizontalAxis * Vector3.right + verticalAxis * Vector3.forward;
 
         // TODO make this neater, flips sprite
@@ -202,7 +221,7 @@ public class RatController3D : MonoBehaviour
         // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
             moveVector.Normalize();
-            float currentSpeed = (Input.GetButton("Sprint")) ? sprintSpeed : landSpeed;
+            float currentSpeed = isSprinting ? sprintSpeed : landSpeed;
             currentSpeed *= (slowSources > 0) ? slowFactor : 1.0f;
 
             moveVector *= (currentSpeed * Time.deltaTime);
