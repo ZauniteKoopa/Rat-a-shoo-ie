@@ -571,7 +571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &848536849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3065,7 +3065,8 @@ MonoBehaviour:
   warningUI: {fileID: 1746541465}
   notFinishedColor: {r: 0.46226418, g: 0.017443918, b: 0.017443918, a: 1}
   blackOutImage: {fileID: 1350102433}
-  initialTasks: 000000000200000001000000
+  androidControls: {fileID: 848536848}
+  initialTasks: 040000000200000001000000
   taskRevealSequence: 0100000002000000
   playerFinishAllTasksEvent:
     m_PersistentCalls:

@@ -42,6 +42,8 @@ public class ToDoList : MonoBehaviour
     private Color notFinishedColor = Color.red;
     [SerializeField]
     private Image blackOutImage = null;
+    [SerializeField]
+    private GameObject androidControls = null;
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
@@ -83,6 +85,11 @@ public class ToDoList : MonoBehaviour
             }
         }
 
+        // If on android, enable android on screen controls
+        if (Application.platform == RuntimePlatform.Android) {
+            androidControls.SetActive(true);
+        }
+
         initializeList();
     }
 
@@ -102,9 +109,11 @@ public class ToDoList : MonoBehaviour
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
                 taskLabels[i].text = "Make mess!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_MOVE) {
-                taskLabels[i].text = "Move with WASD!";
+                string movementControls = (Application.platform == RuntimePlatform.Android) ? "left stick" : "WASD";
+                taskLabels[i].text = "Move with " + movementControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_JUMP) {
-                taskLabels[i].text = "Jump with the SPACEBAR!";
+                string jumpControls = (Application.platform == RuntimePlatform.Android) ? "JUMP button" : "SPACEBAR";
+                taskLabels[i].text = "Jump with the " + jumpControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_CLOSET) {
                 taskLabels[i].text = "Hide the chef's ingredients!";
             }

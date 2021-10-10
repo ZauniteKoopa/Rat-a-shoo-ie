@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LookingGlassInteractable : GeneralInteractable
 {
@@ -13,6 +14,7 @@ public class LookingGlassInteractable : GeneralInteractable
     // Reference Variables
     private ToDoList userInterface = null;
     private bool interrupted = false;
+    private bool interactButtonPressed = false;
 
     // On awake, get access to the user interface
     private void Awake() {
@@ -40,12 +42,12 @@ public class LookingGlassInteractable : GeneralInteractable
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
         // One loop for the initial press just in case player holds E
-        while (!interrupted && Input.GetButton("Interact")) {
+        while (!interrupted && interactButtonPressed) {
             yield return waitFrame;
         }
 
         // General loop for Interaction
-        while (!interrupted && !Input.GetButton("Interact")) {
+        while (!interrupted && !interactButtonPressed) {
             yield return waitFrame;
         }
 
@@ -60,6 +62,15 @@ public class LookingGlassInteractable : GeneralInteractable
         if (!interrupted) {
             yield return new WaitForSeconds(0.1f);
             yield return userInterface.fadeClearSequence(fadeTime);
+        }
+    }
+
+    // When player presses interact button
+    public void onInteractButton(InputAction.CallbackContext value) {
+        if (value.started) {
+            interactButtonPressed = true;
+        } else if (value.canceled) {
+            interactButtonPressed = false;
         }
     }
 
