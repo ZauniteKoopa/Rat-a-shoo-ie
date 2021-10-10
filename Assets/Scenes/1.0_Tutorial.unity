@@ -1307,6 +1307,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 429927207, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 429927207, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429927207, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 429927207, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 484804285}
+    - target: {fileID: 429927207, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: onTaskListSwipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 429927207, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 442181546, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
       propertyPath: m_Layer
       value: 5

@@ -44,6 +44,8 @@ public class ToDoList : MonoBehaviour
     private Image blackOutImage = null;
     [SerializeField]
     private GameObject androidControls = null;
+    [SerializeField]
+    private GameObject taskListSwipeButton = null;
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
@@ -88,6 +90,7 @@ public class ToDoList : MonoBehaviour
         // If on android, enable android on screen controls
         if (Application.platform == RuntimePlatform.Android) {
             androidControls.SetActive(true);
+            taskListSwipeButton.SetActive(true);
         }
 
         initializeList();

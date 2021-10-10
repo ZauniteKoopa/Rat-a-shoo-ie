@@ -19,4 +19,9 @@ public class ToDoListPrompt : MonoBehaviour
     public void onTaskListPress(InputAction.CallbackContext value) {
         Object.Destroy(gameObject);
     }
+
+    // Public void method for when task list has been swiped
+    public void onTaskListSwipe() {
+        Object.Destroy(gameObject);
+    }
 }
