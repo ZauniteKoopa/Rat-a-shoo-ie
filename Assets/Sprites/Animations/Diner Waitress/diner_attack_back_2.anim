@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: diner_attack_2
+  m_Name: diner_attack_back_2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1536770412115597515, guid: 221f5bcf80ff845e59bfc4ee47e689bf,
+      value: {fileID: -2814583857849850136, guid: 8ae16e9b725ee4faa86c73ed32a572c2,
         type: 3}
     - time: 0.25
-      value: {fileID: -510271636083359049, guid: 221f5bcf80ff845e59bfc4ee47e689bf,
+      value: {fileID: 2393724396332890600, guid: 8ae16e9b725ee4faa86c73ed32a572c2,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,8 +44,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1536770412115597515, guid: 221f5bcf80ff845e59bfc4ee47e689bf, type: 3}
-    - {fileID: -510271636083359049, guid: 221f5bcf80ff845e59bfc4ee47e689bf, type: 3}
+    - {fileID: -2814583857849850136, guid: 8ae16e9b725ee4faa86c73ed32a572c2, type: 3}
+    - {fileID: 2393724396332890600, guid: 8ae16e9b725ee4faa86c73ed32a572c2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

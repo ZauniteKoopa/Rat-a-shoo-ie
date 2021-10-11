@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: 73ec5c78738064e62b88e843ddc8c66a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1056458829799588955
+    second: diner_confused_0
+  - first:
+      213: 8644770574713639295
+    second: diner_confused_1
+  - first:
+      213: 2153440990472880811
+    second: diner_confused_2
+  - first:
+      213: -8798449406557915725
+    second: diner_confused_3
+  - first:
+      213: 6870222501030912134
+    second: diner_confused_4
+  - first:
+      213: 1239756318291904170
+    second: diner_confused_5
+  - first:
+      213: -1922533001251749780
+    second: diner_confused_6
+  - first:
+      213: 742431958592047711
+    second: diner_confused_7
+  - first:
+      213: 1171582596938058156
+    second: diner_confused_0
+  - first:
+      213: 1998697220295528559
+    second: diner_confused_1
+  - first:
+      213: -154698655862077413
+    second: diner_confused_2
+  - first:
+      213: -6976392517993415194
+    second: diner_confused_3
+  - first:
+      213: -1041191745156286042
+    second: diner_confused_4
+  - first:
+      213: 3029659894999513717
+    second: diner_confused_5
+  - first:
+      213: 8357010470906763285
+    second: diner_confused_6
+  - first:
+      213: 8736569920204923035
+    second: diner_confused_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +119,105 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: diner_confused_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 9
+        width: 650
+        height: 1281
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54870655bb49ae00800000000000000
+      internalID: 1056458829799588955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_confused_2
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 18
+        width: 678
+        height: 1272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2c6e1eb2f82ed10800000000000000
+      internalID: 2153440990472880811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_confused_4
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 18
+        width: 663
+        height: 1272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 680e7d5f6fee75f50800000000000000
+      internalID: 6870222501030912134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_confused_6
+      rect:
+        serializedVersion: 2
+        x: 1997
+        y: 9
+        width: 643
+        height: 1281
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c608c6fdb6ac155e0800000000000000
+      internalID: -1922533001251749780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

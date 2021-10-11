@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Animation
+  m_Name: diner_attack_1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,17 +22,17 @@ AnimationClip:
     - time: 0
       value: {fileID: -1209387420174440177, guid: de17541b5d56045b2b9db0dcd700d750,
         type: 3}
-    - time: 0.083333336
+    - time: 0.25
       value: {fileID: 237790849194660191, guid: de17541b5d56045b2b9db0dcd700d750,
         type: 3}
-    - time: 0.16666667
+    - time: 0.5
       value: {fileID: -3568346031273983491, guid: de17541b5d56045b2b9db0dcd700d750,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 4
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -55,7 +55,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
