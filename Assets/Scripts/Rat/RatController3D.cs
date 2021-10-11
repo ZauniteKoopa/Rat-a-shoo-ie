@@ -41,6 +41,7 @@ public class RatController3D : MonoBehaviour
     public LayerMask spotShadowCollisionLayer;
     private bool canMove = true;
     private bool isSprinting = false;
+    private bool trapped = false;
     private Vector2 moveInputVector = Vector2.zero;
 
     // Respawn management
@@ -364,7 +365,9 @@ public class RatController3D : MonoBehaviour
                 }
             }
 
-            canMove = true;
+            if (!trapped) {
+                canMove = true;
+            }
         }
         
     }
@@ -434,6 +437,17 @@ public class RatController3D : MonoBehaviour
     // Main method to slow unit
     public void setSlowStatus(bool slowed) {
         slowSources += (slowed) ? 1 : -1;
+    }
+
+    // Main method to disable player movement and trap the player
+    //  If player dies during setMovementStatus is false, it will automatically be set to true
+    public void setTrappedStatus(bool newMove) {
+        canMove = newMove;
+        trapped = !newMove;
+
+        if (trapped) {
+            rigidBody.velocity = Vector3.zero;
+        }
     }
 
     // Main method to flip the sprite
