@@ -42,6 +42,10 @@ public class ToDoList : MonoBehaviour
     private Color notFinishedColor = Color.red;
     [SerializeField]
     private Image blackOutImage = null;
+    [SerializeField]
+    private GameObject androidControls = null;
+    [SerializeField]
+    private GameObject taskListSwipeButton = null;
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
@@ -83,6 +87,12 @@ public class ToDoList : MonoBehaviour
             }
         }
 
+        // If on android, enable android on screen controls
+        if (Application.platform == RuntimePlatform.Android) {
+            androidControls.SetActive(true);
+            taskListSwipeButton.SetActive(true);
+        }
+
         initializeList();
     }
 
@@ -102,9 +112,11 @@ public class ToDoList : MonoBehaviour
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
                 taskLabels[i].text = "Make mess!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_MOVE) {
-                taskLabels[i].text = "Move with WASD!";
+                string movementControls = (Application.platform == RuntimePlatform.Android) ? "left stick" : "WASD";
+                taskLabels[i].text = "Move with " + movementControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_JUMP) {
-                taskLabels[i].text = "Jump with the SPACEBAR!";
+                string jumpControls = (Application.platform == RuntimePlatform.Android) ? "JUMP button" : "SPACEBAR";
+                taskLabels[i].text = "Jump with the " + jumpControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_CLOSET) {
                 taskLabels[i].text = "Hide the chef's ingredients!";
             }
@@ -142,10 +154,41 @@ public class ToDoList : MonoBehaviour
         }
     }
 
-    // Main IEnumerator process to look at list
-    private IEnumerator lookAtList() {
-        taskListShown = true;
+    // Main event handler for the pause mobile button
+    public void onPauseMobileButtonPress() {
+        if (!paused) {
+            StartCoroutine(pauseMenuSequence());
+        }
+    }
 
+    // Main event handler for pressing the TaskList button
+    public void onTaskListButtonPressed() {
+        if (!paused) {
+            if (taskListShown) {
+                StartCoroutine(putListAway());
+            } else {
+                StartCoroutine(bringListUp());
+            }
+        }
+    }
+
+    // Main IEnumerator process to look at list (ONLY ON PC)
+    private IEnumerator lookAtList() {
+        yield return bringListUp();
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(DELTA_TIME);
+
+        // Only remove the list if player takes hands off shift key
+        while(taskListPressed) {
+            yield return wait;
+        }
+
+        // Take list away
+        yield return putListAway();
+    }
+
+    // Main private helper method to simply bring the list up
+    private IEnumerator bringListUp() {
+        taskListShown = true;
         Time.timeScale = 0.0f;
         Vector3 targetPosition = new Vector3(inViewX, 0, 0);
         Vector3 sourcePosition = new Vector3(outOfViewX, 0, 0);
@@ -162,16 +205,17 @@ public class ToDoList : MonoBehaviour
         }
 
         listImage.rectTransform.anchoredPosition3D = targetPosition;
+    }
 
-        // Only remove the list if player takes hands off shift key
-        while(taskListPressed) {
-            yield return wait;
-        }
-
-        // Take list away
-        timer = 0.0f;
-        Time.timeScale = 1.0f;
+    // Main private helper method to put the list away
+    private IEnumerator putListAway() {
         taskListShown = false;
+        Time.timeScale = 1.0f;
+        Vector3 targetPosition = new Vector3(inViewX, 0, 0);
+        Vector3 sourcePosition = new Vector3(outOfViewX, 0, 0);
+        indicator.gameObject.SetActive(false);
+        float timer = 0f;
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(DELTA_TIME);
 
         while (timer < transitionTime) {
             yield return wait;

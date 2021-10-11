@@ -171,25 +171,25 @@ public class RatController3D : MonoBehaviour
 
     /* Event handler method when doing movement */
     public void onMovement(InputAction.CallbackContext value) {
-        if (canMove) {
-            Vector2 inputMovement = value.ReadValue<Vector2>();
-            moveInputVector = inputMovement;
-        }
+        Vector2 inputMovement = value.ReadValue<Vector2>();
+        moveInputVector = inputMovement;
     }
 
     /* Main method to handle ground movement */
     private void handleGroundMovement(float horizontalAxis, float verticalAxis) {
 
-        // constrain movement depending on blockers
-        horizontalAxis = (leftBlockSensor.isBlocked() && horizontalAxis < 0f) ? 0f : horizontalAxis;
-        horizontalAxis = (rightBlockSensor.isBlocked() && horizontalAxis > 0f) ? 0f : horizontalAxis;
-
-        verticalAxis = (backwardBlockSensor.isBlocked() && verticalAxis < 0f) ? 0f : verticalAxis;
-        verticalAxis = (forwardBlockSensor.isBlocked() && verticalAxis > 0f) ? 0f : verticalAxis;
-        
         // Calculate the actual move vector
         Vector3 forwardVector = (horizontalAxis * Vector3.right) + (verticalAxis * Vector3.forward);
-        Vector3 moveVector = horizontalAxis * Vector3.right + verticalAxis * Vector3.forward;
+        Vector3 moveVector = forwardVector.normalized;
+
+        // constrain movement depending on blockers
+        float moveVectorX = (leftBlockSensor.isBlocked() && moveVector.x < 0f) ? 0f : moveVector.x;
+        moveVectorX = (rightBlockSensor.isBlocked() && moveVector.x > 0f) ? 0f : moveVectorX;
+
+        float moveVectorZ = (backwardBlockSensor.isBlocked() && moveVector.z < 0f) ? 0f : moveVector.z;
+        moveVectorZ = (forwardBlockSensor.isBlocked() && moveVector.z > 0f) ? 0f : moveVectorZ;
+
+        moveVector = new Vector3(moveVectorX, 0, moveVectorZ);
 
         // TODO make this neater, flips sprite
         if (horizontalAxis > 0 && !facingRight)
@@ -213,14 +213,11 @@ public class RatController3D : MonoBehaviour
             }
         }
 
-        moveVector.Normalize();
-
         // for animation
         animator.SetFloat("movementspeed", moveVector.magnitude);
 
         // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
-            moveVector.Normalize();
             float currentSpeed = isSprinting ? sprintSpeed : landSpeed;
             currentSpeed *= (slowSources > 0) ? slowFactor : 1.0f;
 
