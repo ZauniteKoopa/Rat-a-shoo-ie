@@ -1,0 +1,440 @@
+fileFormatVersion: 2
+guid: 24790866bf15b4c74bd73f0eab5d0a79
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2331433394204470003
+    second: diner_anger_0
+  - first:
+      213: 3054426409112757555
+    second: diner_anger_1
+  - first:
+      213: -377691675532084175
+    second: diner_anger_2
+  - first:
+      213: 1753260548687043538
+    second: diner_anger_3
+  - first:
+      213: -5828260286405952838
+    second: diner_anger_4
+  - first:
+      213: 2274217654623713536
+    second: diner_anger_5
+  - first:
+      213: 6513436145892224510
+    second: diner_anger_6
+  - first:
+      213: -4478471083076384140
+    second: diner_anger_7
+  - first:
+      213: -5416399566975849041
+    second: diner_anger_8
+  - first:
+      213: -3228693623195778553
+    second: diner_anger_9
+  - first:
+      213: 6401215432523343386
+    second: diner_anger_10
+  - first:
+      213: -7705655819139834440
+    second: diner_anger_11
+  - first:
+      213: -4587212196942599754
+    second: diner_anger_12
+  - first:
+      213: -5806864371760419999
+    second: diner_anger_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: diner_anger_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 12
+        width: 627
+        height: 1286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0595f03ea515afd0800000000000000
+      internalID: -2331433394204470003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_1
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 26
+        width: 654
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335ecb3d2a0836a20800000000000000
+      internalID: 3054426409112757555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_2
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 35
+        width: 636
+        height: 1263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cb9451c6b22caf0800000000000000
+      internalID: -377691675532084175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_3
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 35
+        width: 636
+        height: 1263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db923b0e25d45810800000000000000
+      internalID: 1753260548687043538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_4
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 35
+        width: 636
+        height: 1263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abab142262cdd1fa0800000000000000
+      internalID: -5828260286405952838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_5
+      rect:
+        serializedVersion: 2
+        x: 3266
+        y: 7
+        width: 696
+        height: 1291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009b4c558e4af8f10800000000000000
+      internalID: 2274217654623713536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_6
+      rect:
+        serializedVersion: 2
+        x: 3972
+        y: 7
+        width: 659
+        height: 1291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd681f3aaf546a50800000000000000
+      internalID: 6513436145892224510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_7
+      rect:
+        serializedVersion: 2
+        x: 4645
+        y: 26
+        width: 673
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a8f54274649d1c0800000000000000
+      internalID: -4478471083076384140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_8
+      rect:
+        serializedVersion: 2
+        x: 5327
+        y: 26
+        width: 659
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad23d88a4515d4b0800000000000000
+      internalID: -5416399566975849041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_9
+      rect:
+        serializedVersion: 2
+        x: 5996
+        y: 26
+        width: 724
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702c8dc81406133d0800000000000000
+      internalID: -3228693623195778553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_10
+      rect:
+        serializedVersion: 2
+        x: 6734
+        y: 26
+        width: 747
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a166d42558fa5d850800000000000000
+      internalID: 6401215432523343386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_11
+      rect:
+        serializedVersion: 2
+        x: 7496
+        y: 26
+        width: 659
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd9fbadbd2001590800000000000000
+      internalID: -7705655819139834440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_12
+      rect:
+        serializedVersion: 2
+        x: 8164
+        y: 26
+        width: 659
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9a5eb9fc2f650c0800000000000000
+      internalID: -4587212196942599754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diner_anger_13
+      rect:
+        serializedVersion: 2
+        x: 8833
+        y: 26
+        width: 666
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b2956be9fd96fa0800000000000000
+      internalID: -5806864371760419999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
