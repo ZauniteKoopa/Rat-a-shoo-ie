@@ -59,19 +59,12 @@ public class Chef : MonoBehaviour
     // Serialized variables for attacking and chasing the rat
     [Header("Aggression")]
     [SerializeField]
-    private GameObject chefHitbox = null;
-    [SerializeField]
-    private float attackingRange = 5f;
-    [SerializeField]
     private float chaseMovementSpeed = 6f;
-    [SerializeField]
-    private float anticipationTime = 0.65f;
-    [SerializeField]
-    private float attackingTime = 0.3f;
     private bool aggressive = false;
     private Vector3 lastSeenTarget = Vector3.zero;
     private bool canSpotRat = true;                 //Boolean variable for when rat gets hit and the chef resets to passive points
     private bool didHitRat = false;                 //Boolean on whether or not the rat was hit by a chef. Needed for when resetting
+    private AbstractAggressiveChefAction aggressiveAction = null;
 
     // Variables for issue management
     [Header("IssueHandling")]
@@ -122,14 +115,6 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private ChefHitboxRotator hitboxRotator = null;
 
-    // Testing variables
-    private Color normalColor;
-    [Header("Testing colors")]
-    [SerializeField]
-    private Color anticipationColor = Color.magenta;
-    [SerializeField]
-    private Color attackColor = Color.red;
-
     // Unity Events
     [Header("ToDo List Events")]
     public UnityEvent chefClosetEvent;
@@ -144,9 +129,9 @@ public class Chef : MonoBehaviour
         levelInfo = FindObjectOfType<LevelInfo>();
 
         meshRenderer = GetComponent<MeshRenderer>();
-        normalColor = meshRenderer.material.color;
         navMeshAgent = GetComponent<NavMeshAgent>();
         audioManager = GetComponent<ChefAudioManager>();
+        aggressiveAction = GetComponent<AbstractAggressiveChefAction>();
         solutionPosComparer = new SolutionPosComparer(transform);
 
         thoughtBubble.mainLevel = levelInfo;
@@ -295,34 +280,8 @@ public class Chef : MonoBehaviour
     }
 
     // Main IEnumerator to do aggressive action
-    private IEnumerator doAggressiveAction() {
-        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
-        navMeshAgent.destination = (chefSensing.currentRatTarget != null) ? chefSensing.currentRatTarget.position : lastSeenTarget;
-        navMeshAgent.speed = chaseMovementSpeed;
-
-        // Make sure the path has been fully processed before running
-        while (navMeshAgent.pathPending) {
-            yield return waitFrame;
-        }
-
-        // Chase the player: if player out of sight, go to the last position chef saw the player
-        while (navMeshAgent.remainingDistance > attackingRange) {
-            if (chefSensing.currentRatTarget != null) {
-                navMeshAgent.destination = chefSensing.currentRatTarget.position;
-            }
-
-            // process path
-            while (navMeshAgent.pathPending) {
-                yield return waitFrame;
-            }
-
-            yield return waitFrame;
-        }
-
-        // Attack the player if in range, once in this mode, locked in this mode
-        if (chefSensing.currentRatTarget != null && navMeshAgent.remainingDistance <= attackingRange) {
-            yield return attackRat();
-        }
+    protected virtual IEnumerator doAggressiveAction() {
+        yield return aggressiveAction.doAggressiveAction(chefSensing, lastSeenTarget, chaseMovementSpeed);
 
         // If AI can't see user anymore, act confused
         if (didHitRat) {
@@ -336,38 +295,7 @@ public class Chef : MonoBehaviour
             aggressive = false;
             levelInfo.onChefChaseEnd();
             yield return actConfused();
-
         }
-    }
-
-    // Main IEnumerator to attackRat
-    private IEnumerator attackRat() {
-        navMeshAgent.enabled = false;
-        Transform lockedTarget = chefSensing.currentRatTarget;
-
-        // Face target
-        Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
-        Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
-        transform.forward = (flattenTarget - flattenPosition).normalized;
-
-        meshRenderer.material.color = anticipationColor;
-        animator.SetBool("anticipating", true);
-        yield return new WaitForSeconds(anticipationTime);
-
-        // Activate hit box and attack
-        audioManager.playChefAttack();
-        chefHitbox.SetActive(true);
-        meshRenderer.material.color = attackColor;
-        animator.SetBool("anticipating", false);
-        animator.SetBool("attacking", true);
-
-        yield return new WaitForSeconds(attackingTime);
-
-        // Disable attack and go back to normal
-        chefHitbox.SetActive(false);
-        meshRenderer.material.color = normalColor;
-        navMeshAgent.enabled = true;
-        animator.SetBool("attacking", false);
     }
 
     // Main IEnumerator sequence to act confused until either the confusion timer runs out or chef sees the player again
@@ -574,7 +502,7 @@ public class Chef : MonoBehaviour
             StopAllCoroutines();
 
             // Reset animations and state
-            chefHitbox.SetActive(false);
+            aggressiveAction.cancelAggressiveAction();
             thoughtBubble.clearUpThoughts();
             animator.SetBool("anticipating", false);
             animator.SetBool("attacking", false);
@@ -589,7 +517,7 @@ public class Chef : MonoBehaviour
         if (highestPriorityIssue == null && canSpotRat && !aggressive) {
 
             if (aggressive) {
-                chefHitbox.SetActive(false);
+                aggressiveAction.cancelAggressiveAction();
                 levelInfo.onChefChaseEnd();
             }
             sensingSolutions = false;

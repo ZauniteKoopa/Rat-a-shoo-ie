@@ -1059,6 +1059,7 @@ GameObject:
   - component: {fileID: 4813905236207517741}
   - component: {fileID: 2046898192}
   - component: {fileID: 2046898191}
+  - component: {fileID: 1842858010}
   m_Layer: 10
   m_Name: Chef
   m_TagString: Untagged
@@ -1185,11 +1186,7 @@ MonoBehaviour:
   passiveMovementSpeed: 5
   confusionDuration: 1.5
   navDistance: 1
-  chefHitbox: {fileID: 1710969171}
-  attackingRange: 3
   chaseMovementSpeed: 9
-  anticipationTime: 0.5
-  attackingTime: 0.3
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 7323574232244143832}
@@ -1203,8 +1200,6 @@ MonoBehaviour:
   animator: {fileID: 5897396795823706298}
   characterSprite: {fileID: 3604181856700234585}
   hitboxRotator: {fileID: 1198375407}
-  anticipationColor: {r: 1, g: 0, b: 1, a: 1}
-  attackColor: {r: 1, g: 0, b: 0, a: 1}
   chefClosetEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1336,6 +1331,23 @@ MonoBehaviour:
   lostSounds:
   - {fileID: 8300000, guid: 83acedf23605b4f4ea4abcf3fb5c9bd6, type: 3}
   - {fileID: 8300000, guid: 8f9fad4fb5d15b6469d5da83efcfa079, type: 3}
+--- !u!114 &1842858010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813905236207517751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d69531bba60022c5b2e39494fc8629e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5897396795823706298}
+  chefHitbox: {fileID: 1710969171}
+  attackingRange: 3
+  anticipationTime: 0.5
+  attackingTime: 0.3
 --- !u!1 &4920010632701396409
 GameObject:
   m_ObjectHideFlags: 0
