@@ -37,7 +37,7 @@ public class RatCage : MonoBehaviour
         meshRender = GetComponent<MeshRenderer>();
         meshRender.material.color = Color.black;
         trapSensor.trapSensedEvent.AddListener(onTrapSensed);
-        
+
         GameObject platformPrompt = (Application.platform == RuntimePlatform.Android) ? androidPrompt : pcPrompt;
         platformPrompt.SetActive(true);
     }
@@ -88,7 +88,7 @@ public class RatCage : MonoBehaviour
     }
 
     // Event handler method for when player mashes interact button
-    public void onInteractPress(InputAction.CallbackContext value) {
+    public void onMashPress(InputAction.CallbackContext value) {
         if (trapped && value.started) {
             currentMashTimes++;
             mashBar.fillAmount = (float)currentMashTimes / (float)mashRequirement;

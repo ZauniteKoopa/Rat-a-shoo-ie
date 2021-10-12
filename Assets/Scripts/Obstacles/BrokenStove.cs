@@ -12,6 +12,8 @@ public class BrokenStove : MonoBehaviour
     private float anticipationTime = 0.5f;
     [SerializeField]
     private float attackTime = 0.5f;
+    [SerializeField]
+    private float initialStartTime = 1.5f;
 
     private MeshRenderer meshRender = null;
 
@@ -23,17 +25,20 @@ public class BrokenStove : MonoBehaviour
 
     // Core Obstacle loop
     private IEnumerator stoveCycle() {
-        while (true) {
-            hitbox.SetActive(false);
-            meshRender.material.color = Color.black;
-            yield return new WaitForSeconds(normalTime);
+        hitbox.SetActive(false);
+        yield return new WaitForSeconds(initialStartTime);
 
+        while (true) {
             meshRender.material.color = Color.magenta;
             yield return new WaitForSeconds(anticipationTime);
 
             meshRender.material.color = Color.red;
             hitbox.SetActive(true);
             yield return new WaitForSeconds(attackTime);
+
+            hitbox.SetActive(false);
+            meshRender.material.color = Color.black;
+            yield return new WaitForSeconds(normalTime);
         }
     }
 }
