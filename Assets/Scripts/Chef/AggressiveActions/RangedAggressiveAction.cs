@@ -13,6 +13,12 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     private float anticipationTime = 0.5f;
     [SerializeField]
     private float attackTime = 0.2f;
+    [SerializeField]
+    private Transform chefEye = null;
+    [SerializeField]
+    private Transform projectilePrefab = null;
+    [SerializeField]
+    private float attackCooldown = 2.0f;
 
     // Main sequence to do aggressive actions
     public override IEnumerator doAggressiveAction(ChefSight chefSensing, Vector3 lastSeenTarget, float chaseMovementSpeed) {
@@ -41,12 +47,12 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
             attackTimer += Time.deltaTime;
 
 
-            if (attackTimer >= 2.0f && chefSensing.currentRatTarget != null) {
+            if (attackTimer >= attackCooldown && chefSensing.currentRatTarget != null) {
 
                 RaycastHit hit;
                 Vector3 rayCastDir = chefSensing.currentRatTarget.transform.position - transform.position;
 
-                if (!Physics.Raycast(transform.position, rayCastDir.normalized, out hit, rayCastDir.magnitude, aimCollisionLayerMask)) {
+                if (!Physics.Raycast(chefEye.position, rayCastDir.normalized, out hit, rayCastDir.magnitude, aimCollisionLayerMask)) {
                     yield return throwProjectile(chefSensing.currentRatTarget.transform.position);
                     attackTimer = 0.0f;
                 }
@@ -56,9 +62,20 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
 
     // Main method to throw a projectile
     public IEnumerator throwProjectile(Vector3 ratTarget) {
+        navMeshAgent.enabled = false;
+
+        animator.SetBool("anticipating", true);
         yield return new WaitForSeconds(anticipationTime);
-        Debug.Log("throw projectile");
+
+        Transform curProjectile = Object.Instantiate(projectilePrefab, chefEye.position, Quaternion.identity);
+        curProjectile.GetComponent<RangedProjectile>().setDirection(ratTarget - chefEye.position);
+
+        animator.SetBool("anticipating", false);
+        animator.SetBool("attacking", true);
         yield return new WaitForSeconds(attackTime);
+
+        animator.SetBool("attacking", false);
+        navMeshAgent.enabled = true;
     }
 
     // Main method to get rid of any lingering side effects

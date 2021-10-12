@@ -565,9 +565,14 @@ public class Chef : MonoBehaviour
         solution.transform.parent = chefSprite;
         solution.transform.localPosition = solutionHook;
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
 
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = true;
+        }
+
+        if (solutionInteractable != null) {
+            solutionInteractable.canBePickedUp = false;
         }
     }
 
@@ -576,9 +581,14 @@ public class Chef : MonoBehaviour
         solution.transform.parent = null;
         solution.transform.position = targetedSolution.getInitialLocation();
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
 
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = false;
+        }
+
+        if (solutionInteractable != null) {
+            solutionInteractable.canBePickedUp = true;
         }
     }
 
