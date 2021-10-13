@@ -4530,6 +4530,11 @@ PrefabInstance:
       propertyPath: chefClosetEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 828858107}
+    - target: {fileID: 3045481229807681233, guid: c2e2e627ce4582d1ab0ae3ceb9437fc0,
+        type: 3}
+      propertyPath: chaseMovementSpeed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e2e627ce4582d1ab0ae3ceb9437fc0, type: 3}
 --- !u!1001 &3842852895751323168

@@ -565,6 +565,7 @@ public class Chef : MonoBehaviour
         solution.transform.parent = chefSprite;
         solution.transform.localPosition = solutionHook;
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        solution.canChefGrab = false;
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
 
         if (solution.GetComponent<Ingredient>() != null) {
@@ -579,6 +580,7 @@ public class Chef : MonoBehaviour
     // Private helper method to drop a solution object to its initial position
     private void dropSolutionObject(SolutionObject solution) {
         solution.transform.parent = null;
+        solution.canChefGrab = true;
         solution.transform.position = targetedSolution.getInitialLocation();
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();

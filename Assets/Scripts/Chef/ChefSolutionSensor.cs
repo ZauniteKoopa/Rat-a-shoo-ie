@@ -45,7 +45,7 @@ public class ChefSolutionSensor : MonoBehaviour
     //  If no solution object of solutionType exists, return null
     public SolutionObject getSolutionInRange(SolutionType solutionType) {
         foreach(SolutionObject solution in inRangeSolutions) {
-            if (solution.solutionType == solutionType) {
+            if (solution.solutionType == solutionType && solution.canChefGrab) {
                 return solution;
             }
         }

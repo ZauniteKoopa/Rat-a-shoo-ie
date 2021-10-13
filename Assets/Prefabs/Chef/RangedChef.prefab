@@ -115,7 +115,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 9.5
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 500
   m_StoppingDistance: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   passiveMovementSpeed: 5
   confusionDuration: 1.5
   navDistance: 1
-  chaseMovementSpeed: 6
+  chaseMovementSpeed: 10
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 950078866684737572}
@@ -310,7 +310,7 @@ MonoBehaviour:
   chefEye: {fileID: 7533911140763472640}
   projectilePrefab: {fileID: 5859607738892503419, guid: 3e7d43d3d8ff94fbb8a408af0378c8a2,
     type: 3}
-  attackCooldown: 0.6
+  attackCooldown: 0.75
 --- !u!1 &3227594248132721477
 GameObject:
   m_ObjectHideFlags: 0

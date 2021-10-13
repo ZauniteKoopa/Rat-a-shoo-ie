@@ -19,6 +19,8 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     private Transform projectilePrefab = null;
     [SerializeField]
     private float attackCooldown = 2.0f;
+    private float MAX_LOCAL_HEIGHT = 0.45f;
+    private float MIN_LOCAL_HEIGHT = -0.32f;
 
     // Main sequence to do aggressive actions
     public override IEnumerator doAggressiveAction(ChefSight chefSensing, Vector3 lastSeenTarget, float chaseMovementSpeed) {
@@ -67,8 +69,19 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
         animator.SetBool("anticipating", true);
         yield return new WaitForSeconds(anticipationTime);
 
-        Transform curProjectile = Object.Instantiate(projectilePrefab, chefEye.position, Quaternion.identity);
-        curProjectile.GetComponent<RangedProjectile>().setDirection(ratTarget - chefEye.position);
+        // Get rat specific height to throw shoe at
+        Vector3 localRatPos = transform.InverseTransformPoint(ratTarget);
+        float clampedHeight = Mathf.Clamp(localRatPos.y, MIN_LOCAL_HEIGHT, MAX_LOCAL_HEIGHT);
+        localRatPos = new Vector3(localRatPos.x, clampedHeight, localRatPos.z);
+        localRatPos = transform.TransformPoint(localRatPos);
+
+        // Decide the spawn position
+        Vector3 projectileSpawnPos = new Vector3(chefEye.position.x, localRatPos.y, chefEye.position.z);
+        Transform curProjectile = Object.Instantiate(projectilePrefab, projectileSpawnPos, Quaternion.identity);
+
+        // Decide the projectile direction by flatterning the y axis
+        Vector3 projDir = new Vector3(ratTarget.x - chefEye.position.x, 0f, ratTarget.z - chefEye.position.z);
+        curProjectile.GetComponent<RangedProjectile>().setDirection(projDir);
 
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
