@@ -58,6 +58,7 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private Transform[] angryPatrolPoints = null;
     private int angerPatrolIndex = 0;
+    private Transform sensedTrap = null;
 
     // Serialized variables for attacking and chasing the rat
     [Header("Aggression")]
@@ -113,6 +114,14 @@ public class Chef : MonoBehaviour
     private Vector3 targetedSolutionPosition = Vector3.zero;
     private SolutionPosComparer solutionPosComparer;
 
+    // Variables for cage management
+    [Header("RatCage management")]
+    [SerializeField]
+    private Transform ratCagePrefab = null;
+    [SerializeField]
+    private int maxNumCagesSpawned = 6;
+    private Queue<Transform> cageManagementQueue;
+
     // Variables for animation
     [Header("Animation")]
     [SerializeField]
@@ -140,6 +149,7 @@ public class Chef : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         audioManager = GetComponent<ChefAudioManager>();
         aggressiveAction = GetComponent<AbstractAggressiveChefAction>();
+        cageManagementQueue = new Queue<Transform>();
         solutionPosComparer = new SolutionPosComparer(transform);
 
         thoughtBubble.mainLevel = levelInfo;
@@ -217,6 +227,26 @@ public class Chef : MonoBehaviour
         while (true) {
             if (aggressive) {
                 yield return doAggressiveAction(angryMovementSpeed);
+            } else if (sensedTrap != null) {
+                // Face the direction of the trap
+                Transform lockedTarget = sensedTrap;
+                Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
+                Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
+                transform.forward = (flattenTarget - flattenPosition).normalized;
+
+                audioManager.playChefAlert();
+                navMeshAgent.enabled = false;
+                yield return new WaitForSeconds(0.5f);
+                navMeshAgent.enabled = true;
+
+                // Go to position and wait
+                yield return goToPosition(sensedTrap.position);
+
+                navMeshAgent.enabled = false;
+                yield return new WaitForSeconds(0.5f);
+                navMeshAgent.enabled = true;
+
+                sensedTrap = null;
             } else {
                 navMeshAgent.speed = angryMovementSpeed;
                 Vector3 currentPatrolPoint = angryPatrolPoints[angerPatrolIndex].position;
@@ -224,6 +254,26 @@ public class Chef : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 angerPatrolIndex = (angerPatrolIndex + 1) % angryPatrolPoints.Length;
             }
+        }
+    }
+
+    // Main ienumerator introducing to anger
+    private IEnumerator startAngerSequence() {
+        Debug.Log("IM ANGRY");
+        canSpotRat = false;
+        navMeshAgent.enabled = false;
+
+        yield return new WaitForSeconds(1.5f);
+
+        navMeshAgent.enabled = true;
+        canSpotRat = true;
+        aggressiveAction.makeAngry();
+
+        if (chefSensing.currentRatTarget != null) {
+            aggressive = true;
+            yield return spotRat();
+        } else {
+            yield return mainAngerLoop();
         }
     }
 
@@ -333,6 +383,20 @@ public class Chef : MonoBehaviour
         }
 
         navMeshAgent.enabled = true;
+
+        // Instantiate cage if angered
+        if (angered) {
+            Transform cageInstance = Object.Instantiate(ratCagePrefab, transform.position, Quaternion.identity);
+            cageManagementQueue.Enqueue(cageInstance);
+            cageInstance.GetComponent<RatCage>().trapTriggerEvent.AddListener(onRatCageSetOff);
+
+            // If there are too many cages, despawn the earliest cage
+            if (cageManagementQueue.Count > maxNumCagesSpawned) {
+                Transform destroyedCage = cageManagementQueue.Dequeue();
+                cageInstance.GetComponent<RatCage>().trapTriggerEvent.RemoveListener(onRatCageSetOff);
+                Object.Destroy(destroyedCage.gameObject);
+            }
+        }
     }
 
     // Main sequence when chef has spot rat
@@ -356,6 +420,7 @@ public class Chef : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         navMeshAgent.enabled = true;
         audioManager.playChefAlert();
+        sensedTrap = null;
 
         if (angered) {
             yield return mainAngerLoop();
@@ -668,23 +733,12 @@ public class Chef : MonoBehaviour
         }
     }
 
-    // Main ienumerator introducing to anger
-    private IEnumerator startAngerSequence() {
-        Debug.Log("IM ANGRY");
-        canSpotRat = false;
-        navMeshAgent.enabled = false;
-
-        yield return new WaitForSeconds(1.5f);
-
-        navMeshAgent.enabled = true;
-        canSpotRat = true;
-        aggressiveAction.makeAngry();
-
-        if (chefSensing.currentRatTarget != null) {
-            aggressive = true;
-            yield return spotRat();
-        } else {
-            yield return mainAngerLoop();
+    // Public event handler method for when a rat trap has been set off
+    public void onRatCageSetOff(Transform ratTrap) {
+        if (angered && !aggressive) {
+            sensedTrap = ratTrap;
+            StopAllCoroutines();
+            StartCoroutine(mainAngerLoop());
         }
     }
 

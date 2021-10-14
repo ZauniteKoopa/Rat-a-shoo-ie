@@ -23,8 +23,6 @@ public class HazardInteractable : GeneralInteractable
     [SerializeField]
     private float HAZARD_EXPIRATION_DURATION = 8.0f;
     private float SPAWN_OFFSET_DURATION = 1.5f;
-    [SerializeField]
-    private bool isTimedSpawn = false;
     private IssueObject curHazard = null;
 
 

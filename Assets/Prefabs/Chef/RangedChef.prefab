@@ -143,7 +143,9 @@ MonoBehaviour:
   passiveMovementSpeed: 5
   confusionDuration: 1.5
   navDistance: 1
+  angryPatrolPoints: []
   chaseMovementSpeed: 10
+  angryMovementSpeed: 12
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 950078866684737572}
@@ -154,6 +156,9 @@ MonoBehaviour:
   cookingStation: {fileID: 0}
   mealBox: {fileID: 7533911140812338936}
   mealSprite: {fileID: 7533911141031954063}
+  ratCagePrefab: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
+    type: 3}
+  maxNumCagesSpawned: 6
   animator: {fileID: 4132641341376949830}
   characterSprite: {fileID: 6523873120728827301}
   hitboxRotator: {fileID: 7533911140672831251}
@@ -311,6 +316,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5859607738892503419, guid: 3e7d43d3d8ff94fbb8a408af0378c8a2,
     type: 3}
   attackCooldown: 0.75
+  angerAcceleration: 10
 --- !u!1 &3227594248132721477
 GameObject:
   m_ObjectHideFlags: 0

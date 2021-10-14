@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class TrapTriggerDelegate : UnityEvent<Transform> {}
 
 public class RatCage : MonoBehaviour
 {
@@ -27,6 +31,7 @@ public class RatCage : MonoBehaviour
     private GameObject pcPrompt = null;
     [SerializeField]
     private GameObject androidPrompt = null;
+    public TrapTriggerDelegate trapTriggerEvent;
 
     // Current mash variables
     private bool trapped = false;
@@ -51,6 +56,7 @@ public class RatCage : MonoBehaviour
         yield return new WaitForSeconds(anticipationTime);
 
         // Turn on cage sensor and see if there was something there
+        trapTriggerEvent.Invoke(transform);
         meshRender.material.color = Color.red;
         cageSensor.GetComponent<MeshRenderer>().enabled = true;
 
@@ -59,6 +65,7 @@ public class RatCage : MonoBehaviour
         if (caughtPlayer != null) {
             mashUI.SetActive(true);
             mashBar.fillAmount = 0f;
+            caughtPlayer.transform.position = transform.position;
             caughtPlayer.setTrappedStatus(false);
             trapped = true;
             currentMashTimes = 0;

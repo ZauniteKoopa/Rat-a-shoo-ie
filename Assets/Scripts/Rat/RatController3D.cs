@@ -442,7 +442,12 @@ public class RatController3D : MonoBehaviour
     // Main method to disable player movement and trap the player
     //  If player dies during setMovementStatus is false, it will automatically be set to true
     public void setTrappedStatus(bool newMove) {
-        canMove = newMove;
+        if (newMove && !respawning) {
+            canMove = true;
+        } else {
+            canMove = false;
+        }
+        
         trapped = !newMove;
 
         if (trapped) {

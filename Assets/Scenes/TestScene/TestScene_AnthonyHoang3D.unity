@@ -363,6 +363,17 @@ PrefabInstance:
       propertyPath: angryPatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1338635230}
+    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: ratCagePrefab
+      value: 
+      objectReference: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: maxNumCagesSpawned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517742, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_Acceleration
@@ -2085,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: initialTasks.Array.data[0]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
@@ -3885,15 +3896,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: RatCage
       objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181383, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: trapTriggerEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: trapTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: trapTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: trapTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1094374228}
+    - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: trapTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onRatCageSetOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: trapTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.34
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.777
+      value: 3.68
       objectReference: {fileID: 0}
     - target: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
         type: 3}
@@ -5671,6 +5717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918280956766933310, guid: 6f01df2e4064513408dfa812d69ce67a,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 130839
       objectReference: {fileID: 0}
     - target: {fileID: 7918280957075148125, guid: 6f01df2e4064513408dfa812d69ce67a,
         type: 3}

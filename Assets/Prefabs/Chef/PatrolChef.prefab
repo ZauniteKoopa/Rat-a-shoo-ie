@@ -1009,11 +1009,9 @@ MonoBehaviour:
   passiveMovementSpeed: 3.5
   confusionDuration: 1.5
   navDistance: 1
-  chefHitbox: {fileID: 3629742977741405788}
-  attackingRange: 5
+  angryPatrolPoints: []
   chaseMovementSpeed: 6
-  anticipationTime: 0.5
-  attackingTime: 0.3
+  angryMovementSpeed: 12
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 6340505290971556311}
@@ -1023,9 +1021,13 @@ MonoBehaviour:
   orderWindow: {fileID: 0}
   cookingStation: {fileID: 0}
   mealBox: {fileID: 0}
+  mealSprite: {fileID: 0}
+  ratCagePrefab: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
+    type: 3}
+  maxNumCagesSpawned: 6
   animator: {fileID: 7172179367099678645}
-  anticipationColor: {r: 1, g: 0, b: 1, a: 1}
-  attackColor: {r: 1, g: 0, b: 0, a: 1}
+  characterSprite: {fileID: 0}
+  hitboxRotator: {fileID: 0}
   chefClosetEvent:
     m_PersistentCalls:
       m_Calls: []
