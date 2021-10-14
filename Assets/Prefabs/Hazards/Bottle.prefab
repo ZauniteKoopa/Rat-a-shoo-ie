@@ -241,7 +241,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  HAZARD_EXPIRATION_DURATION: 8
+  HAZARD_EXPIRATION_DURATION: 11
   isTimedSpawn: 0
 --- !u!1001 &3442243845934885768
 PrefabInstance:

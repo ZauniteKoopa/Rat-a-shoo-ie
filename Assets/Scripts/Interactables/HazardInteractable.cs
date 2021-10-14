@@ -74,11 +74,8 @@ public class HazardInteractable : GeneralInteractable
                 interactableCollider.enabled = false;
                 canBePickedUp = false;
 
-                if (isTimedSpawn) {
-                    StartCoroutine(timedHazardExpiration());
-                } else {
-                    curHazard.issueRemovedEvent.AddListener(onHazardRemove);
-                }
+                StartCoroutine(timedHazardExpiration());
+                curHazard.issueRemovedEvent.AddListener(onHazardRemove);
 
             }
             else
@@ -100,8 +97,11 @@ public class HazardInteractable : GeneralInteractable
     // Private IEnumerator to do a timed expiration for hazard
     private IEnumerator timedHazardExpiration() {
         yield return new WaitForSeconds(HAZARD_EXPIRATION_DURATION);
-        Object.Destroy(curHazard.gameObject);
-        yield return timedRespawn();
+
+        if (curHazard != null && !curHazard.isBeingDealtWith) {
+            Object.Destroy(curHazard.gameObject);
+            yield return timedRespawn();
+        }
     }
 
 

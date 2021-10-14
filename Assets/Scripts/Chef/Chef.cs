@@ -55,11 +55,16 @@ public class Chef : MonoBehaviour
     private float confusionDuration = 0.75f;
     [SerializeField]
     private float navDistance = 1f;
+    [SerializeField]
+    private Transform[] angryPatrolPoints = null;
+    private int angerPatrolIndex = 0;
 
     // Serialized variables for attacking and chasing the rat
     [Header("Aggression")]
     [SerializeField]
     private float chaseMovementSpeed = 6f;
+    [SerializeField]
+    private float angryMovementSpeed = 12f;
     private bool aggressive = false;
     private Vector3 lastSeenTarget = Vector3.zero;
     private bool canSpotRat = true;                 //Boolean variable for when rat gets hit and the chef resets to passive points
@@ -97,6 +102,9 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private SpriteRenderer mealSprite = null;
     private FoodInstance servedFood = null;
+
+    // Anger handling
+    private bool angered = false;
 
     // Variables for getting solutions
     private bool sensingSolutions = false;
@@ -199,7 +207,22 @@ public class Chef : MonoBehaviour
             }
             else
             {
-                yield return doAggressiveAction();
+                yield return doAggressiveAction(chaseMovementSpeed);
+            }
+        }
+    }
+
+    // Main anger loop when chef is finally angered
+    private IEnumerator mainAngerLoop() {
+        while (true) {
+            if (aggressive) {
+                yield return doAggressiveAction(angryMovementSpeed);
+            } else {
+                navMeshAgent.speed = angryMovementSpeed;
+                Vector3 currentPatrolPoint = angryPatrolPoints[angerPatrolIndex].position;
+                yield return goToPosition(currentPatrolPoint);
+                yield return new WaitForSeconds(1.5f);
+                angerPatrolIndex = (angerPatrolIndex + 1) % angryPatrolPoints.Length;
             }
         }
     }
@@ -280,8 +303,8 @@ public class Chef : MonoBehaviour
     }
 
     // Main IEnumerator to do aggressive action
-    protected virtual IEnumerator doAggressiveAction() {
-        yield return aggressiveAction.doAggressiveAction(chefSensing, lastSeenTarget, chaseMovementSpeed);
+    protected virtual IEnumerator doAggressiveAction(float aggressiveMoveSpeed) {
+        yield return aggressiveAction.doAggressiveAction(chefSensing, lastSeenTarget, aggressiveMoveSpeed);
 
         // If AI can't see user anymore, act confused
         if (didHitRat) {
@@ -334,7 +357,11 @@ public class Chef : MonoBehaviour
         navMeshAgent.enabled = true;
         audioManager.playChefAlert();
 
-        yield return mainIntelligenceLoop();
+        if (angered) {
+            yield return mainAngerLoop();
+        } else {
+            yield return mainIntelligenceLoop();
+        }
     }
 
 
@@ -484,7 +511,7 @@ public class Chef : MonoBehaviour
     
     // Main event handler method when an issue object has been spotted by the sensor
     public void onIssueSpotted(IssueObject newIssue) {
-        if (highestPriorityIssue == null || newIssue.getPriority() > highestPriorityIssue.getPriority()) {
+        if ((highestPriorityIssue == null || newIssue.getPriority() > highestPriorityIssue.getPriority()) && !angered) {
             newIssue.isBeingDealtWith = true;
 
             if (highestPriorityIssue != null) {
@@ -497,7 +524,6 @@ public class Chef : MonoBehaviour
             }
 
             highestPriorityIssue = newIssue;
-            Debug.Log("New high priority issue in mind: " +  newIssue);
 
             StopAllCoroutines();
 
@@ -591,6 +617,74 @@ public class Chef : MonoBehaviour
 
         if (solutionInteractable != null) {
             solutionInteractable.canBePickedUp = true;
+        }
+    }
+
+    // Private helper method to drop the solution object in place
+    private void dropSolutionObjectInPlace(SolutionObject solution) {
+        solution.transform.parent = null;
+        solution.canChefGrab = true;
+        solution.transform.position = transform.position;
+        solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
+
+        if (solution.GetComponent<Ingredient>() != null) {
+            solution.GetComponent<Ingredient>().isHeldByChef = false;
+        }
+
+        if (solutionInteractable != null) {
+            solutionInteractable.canBePickedUp = true;
+        }
+    }
+
+    // Main event handler method for when to-do list is done
+    //  when to-do list is done, make the chef super angry
+    public void onToDoListDone() {
+        if (!angered) {
+            // Set angered flag to true, will now ignore hazards
+            angered = true;
+
+            // If aggressive, disable that
+            if (aggressive) {
+                aggressiveAction.cancelAggressiveAction();
+                levelInfo.onChefChaseEnd();
+                animator.SetBool("anticipating", false);
+                animator.SetBool("attacking", false);
+            }
+
+            // Stop all coroutine and their side effects
+            aggressive = false;
+            sensingSolutions = false;
+            thoughtBubble.clearUpThoughts();
+            highestPriorityIssue = null;
+
+            if (targetedSolution != null) {
+                dropSolutionObjectInPlace(targetedSolution);
+            }
+
+            mealBox.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine(startAngerSequence());
+        }
+    }
+
+    // Main ienumerator introducing to anger
+    private IEnumerator startAngerSequence() {
+        Debug.Log("IM ANGRY");
+        canSpotRat = false;
+        navMeshAgent.enabled = false;
+
+        yield return new WaitForSeconds(1.5f);
+
+        navMeshAgent.enabled = true;
+        canSpotRat = true;
+        aggressiveAction.makeAngry();
+
+        if (chefSensing.currentRatTarget != null) {
+            aggressive = true;
+            yield return spotRat();
+        } else {
+            yield return mainAngerLoop();
         }
     }
 

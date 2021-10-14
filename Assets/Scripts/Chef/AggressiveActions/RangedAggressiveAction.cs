@@ -19,6 +19,8 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     private Transform projectilePrefab = null;
     [SerializeField]
     private float attackCooldown = 2.0f;
+    [SerializeField]
+    private float angerAcceleration = 10f;
     private float MAX_LOCAL_HEIGHT = 0.45f;
     private float MIN_LOCAL_HEIGHT = -0.32f;
 
@@ -93,4 +95,9 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
 
     // Main method to get rid of any lingering side effects
     public override void cancelAggressiveAction() {}
+
+    // Main method to make the action more angry
+    public override void makeAngry() {
+        navMeshAgent.acceleration = angerAcceleration;
+    }
 }

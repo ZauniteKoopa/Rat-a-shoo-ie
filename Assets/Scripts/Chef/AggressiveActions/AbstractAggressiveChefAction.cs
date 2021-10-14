@@ -28,4 +28,7 @@ public abstract class AbstractAggressiveChefAction : MonoBehaviour
     // Main method to get rid of any lingering side effects for when chef's aggression sequence gets cancelled
     public abstract void cancelAggressiveAction();
 
+    // Main method to make the attack action more angry
+    public abstract void makeAngry();
+
 }

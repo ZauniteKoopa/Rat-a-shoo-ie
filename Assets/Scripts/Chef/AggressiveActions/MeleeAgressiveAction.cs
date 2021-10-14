@@ -12,7 +12,12 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
     [SerializeField]
     private float anticipationTime = 0.65f;
     [SerializeField]
+    private float angryAnticipationTime = 0.4f;
+    [SerializeField]
     private float attackingTime = 0.3f;
+    [SerializeField]
+    private float angerAcceleration = 10f;
+    private bool angered = false;
 
     // Main override method to do aggressive action
     public override IEnumerator doAggressiveAction(ChefSight chefSensing, Vector3 lastSeenTarget, float chaseMovementSpeed) {
@@ -56,7 +61,8 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
         transform.forward = (flattenTarget - flattenPosition).normalized;
 
         animator.SetBool("anticipating", true);
-        yield return new WaitForSeconds(anticipationTime);
+        float currentAnticipationTime = (angered) ? angryAnticipationTime : anticipationTime;
+        yield return new WaitForSeconds(currentAnticipationTime);
 
         // Activate hit box and attack
         audioManager.playChefAttack();
@@ -75,6 +81,12 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
     // Main method to cancel aggressive action based off of the behavior tree
     public override void cancelAggressiveAction() {
         chefHitbox.SetActive(false);
+    }
+
+    // Main method to make action more scarier
+    public override void makeAngry() {
+        navMeshAgent.acceleration = angerAcceleration;
+        angered = true;
     }
 
 }
