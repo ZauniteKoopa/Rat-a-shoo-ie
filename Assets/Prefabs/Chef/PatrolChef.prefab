@@ -884,6 +884,7 @@ GameObject:
   - component: {fileID: 8111296629166780219}
   - component: {fileID: 3629742977800527647}
   - component: {fileID: 3629742977800527616}
+  - component: {fileID: 6424275033676902048}
   m_Layer: 10
   m_Name: PatrolChef
   m_TagString: Untagged
@@ -1022,9 +1023,6 @@ MonoBehaviour:
   cookingStation: {fileID: 0}
   mealBox: {fileID: 0}
   mealSprite: {fileID: 0}
-  ratCagePrefab: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
-    type: 3}
-  maxNumCagesSpawned: 6
   animator: {fileID: 7172179367099678645}
   characterSprite: {fileID: 0}
   hitboxRotator: {fileID: 0}
@@ -1151,3 +1149,21 @@ MonoBehaviour:
   lostSounds:
   - {fileID: 8300000, guid: 83acedf23605b4f4ea4abcf3fb5c9bd6, type: 3}
   - {fileID: 8300000, guid: 8f9fad4fb5d15b6469d5da83efcfa079, type: 3}
+--- !u!114 &6424275033676902048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111296629166780216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c42cfe6789ff2b3a79d917af8da9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapPrefab: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
+    type: 3}
+  maxNumTraps: 5
+  trapCollisionMask:
+    serializedVersion: 2
+    m_Bits: 98304

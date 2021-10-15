@@ -1060,6 +1060,7 @@ GameObject:
   - component: {fileID: 2046898192}
   - component: {fileID: 2046898191}
   - component: {fileID: 1842858010}
+  - component: {fileID: 3781264584203556428}
   m_Layer: 10
   m_Name: Chef
   m_TagString: Untagged
@@ -1199,9 +1200,6 @@ MonoBehaviour:
   cookingStation: {fileID: 0}
   mealBox: {fileID: 2134804484}
   mealSprite: {fileID: 1758853235}
-  ratCagePrefab: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
-    type: 3}
-  maxNumCagesSpawned: 6
   animator: {fileID: 5897396795823706298}
   characterSprite: {fileID: 3604181856700234585}
   hitboxRotator: {fileID: 1198375407}
@@ -1355,6 +1353,24 @@ MonoBehaviour:
   angryAnticipationTime: 0.4
   attackingTime: 0.3
   angerAcceleration: 10
+--- !u!114 &3781264584203556428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813905236207517751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c42cfe6789ff2b3a79d917af8da9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapPrefab: {fileID: 489603629815181387, guid: ecc890dd4114ad34baea12b9c56370c6,
+    type: 3}
+  maxNumTraps: 5
+  trapCollisionMask:
+    serializedVersion: 2
+    m_Bits: 98304
 --- !u!1 &4920010632701396409
 GameObject:
   m_ObjectHideFlags: 0

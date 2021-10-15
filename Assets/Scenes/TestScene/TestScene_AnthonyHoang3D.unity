@@ -328,6 +328,11 @@ PrefabInstance:
       propertyPath: anticipationTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3781264584203556428, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: maxNumTraps
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: angryPatrolPoints.Array.size

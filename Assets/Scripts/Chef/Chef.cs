@@ -115,12 +115,7 @@ public class Chef : MonoBehaviour
     private SolutionPosComparer solutionPosComparer;
 
     // Variables for cage management
-    [Header("RatCage management")]
-    [SerializeField]
-    private Transform ratCagePrefab = null;
-    [SerializeField]
-    private int maxNumCagesSpawned = 6;
-    private Queue<Transform> cageManagementQueue;
+    private ChefTrapManager trapManager = null;
 
     // Variables for animation
     [Header("Animation")]
@@ -149,7 +144,7 @@ public class Chef : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         audioManager = GetComponent<ChefAudioManager>();
         aggressiveAction = GetComponent<AbstractAggressiveChefAction>();
-        cageManagementQueue = new Queue<Transform>();
+        trapManager = GetComponent<ChefTrapManager>();
         solutionPosComparer = new SolutionPosComparer(transform);
 
         thoughtBubble.mainLevel = levelInfo;
@@ -386,16 +381,7 @@ public class Chef : MonoBehaviour
 
         // Instantiate cage if angered
         if (angered) {
-            Transform cageInstance = Object.Instantiate(ratCagePrefab, transform.position, Quaternion.identity);
-            cageManagementQueue.Enqueue(cageInstance);
-            cageInstance.GetComponent<RatCage>().trapTriggerEvent.AddListener(onRatCageSetOff);
-
-            // If there are too many cages, despawn the earliest cage
-            if (cageManagementQueue.Count > maxNumCagesSpawned) {
-                Transform destroyedCage = cageManagementQueue.Dequeue();
-                cageInstance.GetComponent<RatCage>().trapTriggerEvent.RemoveListener(onRatCageSetOff);
-                Object.Destroy(destroyedCage.gameObject);
-            }
+            trapManager.spawnTrap(onRatCageSetOff);
         }
     }
 
