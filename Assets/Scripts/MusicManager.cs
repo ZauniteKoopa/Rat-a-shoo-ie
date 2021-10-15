@@ -41,8 +41,10 @@ public class MusicManager : MonoBehaviour
     // Event handler method for when the rat is being chased
     public void ratIsSeen()
     {
-        StopAllCoroutines();
-        StartCoroutine(fadeInChaseMusic());
+        if (gameObject.activeInHierarchy) {
+            StopAllCoroutines();
+            StartCoroutine(fadeInChaseMusic());
+        }
     }
 
     // Private IEnumerator to fade in chase music
@@ -58,9 +60,10 @@ public class MusicManager : MonoBehaviour
     // Event handler method for when the rat is safe after a chase sequence
     public void ratNotSeen()
     {
-        StopAllCoroutines();
-        Debug.Log("fade out");
-        StartCoroutine(fadeOutChaseMusic());
+        if (gameObject.activeInHierarchy) {
+            StopAllCoroutines();
+            StartCoroutine(fadeOutChaseMusic());
+        }
     }
 
     // Private IEnumerator to fade out chase music
