@@ -65,7 +65,7 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     }
 
     // Main method to throw a projectile
-    public IEnumerator throwProjectile(Vector3 ratTarget) {
+    private IEnumerator throwProjectile(Vector3 ratTarget) {
         navMeshAgent.enabled = false;
 
         animator.SetBool("anticipating", true);

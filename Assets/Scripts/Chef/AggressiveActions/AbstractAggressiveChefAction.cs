@@ -15,6 +15,7 @@ public abstract class AbstractAggressiveChefAction : MonoBehaviour
     private void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         audioManager = GetComponent<ChefAudioManager>();
+        initialSetup();
     }
 
     // Public method to override
@@ -30,5 +31,8 @@ public abstract class AbstractAggressiveChefAction : MonoBehaviour
 
     // Main method to make the attack action more angry
     public abstract void makeAngry();
+
+    // Virtual method just in case the attack needs any additional setup on awake
+    protected virtual void initialSetup() {}
 
 }
