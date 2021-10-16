@@ -6,26 +6,35 @@ using UnityEngine.AI;
 public class DashAttackAggressiveAction : AbstractAggressiveChefAction
 {
     [SerializeField]
+    private float dashAnticipation = 2f;
+    [SerializeField]
+    private float angryDashAnticipation = 0.4f;
+    [SerializeField]
+    private float recoilTime = 1.0f;
+    [SerializeField]
+    private float dashSpeed = 30f;
+    [SerializeField]
+    private float angryDashSpeed = 35f;
+    [SerializeField]
     private float chaseDistance = 1.5f;
     [SerializeField]
     private float dashRange = 15f;
     [SerializeField]
-    private float dashAnticipation = 2f;
-    [SerializeField]
-    private float dashSpeed = 30f;
-    [SerializeField]
-    private float recoilTime = 1.0f;
-    [SerializeField]
     private float dashThroughDistance = 5f;
+
     private Vector3 lockedTarget = Vector3.zero;
     private bool locked = false;
+    private bool angered = false;
 
-    // Reference variables
+    // Reference variables: DashLineRender - goes from position 1 to position 0
     private Collider chefCollider;
+    private LineRenderer dashLineRender;
 
     // Main method to do initial setup
     protected override void initialSetup() {
         chefCollider = GetComponent<Collider>();
+        dashLineRender = GetComponent<LineRenderer>();
+        dashLineRender.enabled = false;
     }
 
     // Main method to do aggressive action
@@ -69,12 +78,15 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         navMeshAgent.enabled = false;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
-        lockedTarget = new Vector3(chefSensing.currentRatTarget.position.x, transform.position.y, chefSensing.currentRatTarget.position.z);
+        Transform ratTarget = chefSensing.currentRatTarget;
+        lockedTarget = new Vector3(ratTarget.position.x, transform.position.y, ratTarget.position.z);
         lockedTarget = lockedTarget + (dashThroughDistance * (lockedTarget - transform.position).normalized);
         lockedTarget = getNearestValidNavMeshPosition(lockedTarget);
 
         // Face target
         transform.forward = (lockedTarget - transform.position).normalized;
+        float currentAnticipation = (angered) ? angryDashAnticipation : dashAnticipation;
+        animator.SetBool("anticipating", true);
 
         yield return new WaitForSeconds(dashAnticipation);
 
@@ -85,20 +97,59 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         Vector3 originalPos = transform.position;
         chefCollider.enabled = false;
 
+        // Set up animations / audio / dash lines
+        dashLineRender.SetPosition(1, transform.position);
+        dashLineRender.SetPosition(0, transform.position);
+        dashLineRender.enabled = true;
+
+        audioManager.playChefAttack();
+        animator.SetBool("anticipating", false);
+        animator.SetBool("attacking", true);
+
         // Dash sequence
         while (timer <= maxDashTime) {
             yield return waitFrame;
             timer += Time.deltaTime;
             float progress = timer / maxDashTime;
+
             transform.position = Vector3.Lerp(originalPos, lockedTarget, progress);
+            dashLineRender.SetPosition(0, transform.position);
         }
 
         transform.position = lockedTarget;
         locked = false;
+        dashLineRender.enabled = false;
+        chefCollider.enabled = true;
+        animator.SetBool("attacking", false);
 
         // Do small recoil time before enabling movement
         yield return new WaitForSeconds(recoilTime);
+        faceRat(ratTarget);
         navMeshAgent.enabled = true;
+    }
+
+    // Private IEnumerator to finish dash if the chef was locked into a dash initially
+    private IEnumerator finishDash() {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        float maxDashTime = calculateDashTime();
+        float timer = 0.0f;
+        Vector3 originalPos = transform.position;
+
+        // Dash sequence
+        while (timer <= maxDashTime) {
+            yield return waitFrame;
+            timer += Time.deltaTime;
+            float progress = timer / maxDashTime;
+
+            transform.position = Vector3.Lerp(originalPos, lockedTarget, progress);
+            dashLineRender.SetPosition(0, transform.position);
+        }
+
+        transform.position = lockedTarget;
+        locked = false;
+        dashLineRender.enabled = false;
+        chefCollider.enabled = true;
     }
 
     // Private helper method to check if the chef can dash at the player now
@@ -113,13 +164,20 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         return Vector3.Distance(flatRatPosition, flatChefPosition) <= dashRange;
     }
 
+    // Private helper method to face transform
+    private void faceRat(Transform ratTarget) {
+        Vector3 flatRatTarget = new Vector3(ratTarget.position.x, transform.position.y, ratTarget.position.z);
+        transform.forward = (flatRatTarget - transform.position).normalized;
+    }
+
     // Private helper method to calculate the time it takes to dash from chef position to lockedTarget
     private float calculateDashTime() {
         Vector3 flatRatPosition = new Vector3(lockedTarget.x, 0f, lockedTarget.z);
         Vector3 flatChefPosition = new Vector3(transform.position.x, 0f, transform.position.z);
         float distance = Vector3.Distance(flatRatPosition, flatChefPosition);
+        float currentDashSpeed = (angered) ? angryDashSpeed : dashSpeed;
 
-        return distance / dashSpeed;
+        return distance / currentDashSpeed;
     }
 
     // Private helper method to get the nearest valid position in the navmesh
@@ -141,10 +199,17 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     // Main method to cancel the aggressive action and remove any side effects
     public override void cancelAggressiveAction() {
 
+        // If cancelled when locked in a dash, make sure the dash finishes before going further
+        if (locked) {
+            StartCoroutine(finishDash());
+        } else {
+            // Else, make sure chefCollider is enabled
+            chefCollider.enabled = true;
+        }
     }
 
     // Main method to make the action more aggressive
     public override void makeAngry() {
-
+        angered = true;
     }
 }
