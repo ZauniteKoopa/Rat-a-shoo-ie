@@ -49,13 +49,13 @@ MonoBehaviour:
   mainTracks:
   - {fileID: 8300000, guid: d8bfcd3e9892001409fd1b76f0375301, type: 3}
   - {fileID: 8300000, guid: 79bc1e0af048c504494af2ece2442c35, type: 3}
-  - {fileID: 8300000, guid: 9a19c00d7c7ed024581af8bd63b866e1, type: 3}
+  - {fileID: 8300000, guid: fc7cfc6ed2839ec2ead1d45b790448d3, type: 3}
   - {fileID: 8300000, guid: c59f866e7fa0e3d41bd9dcc11197a133, type: 3}
   - {fileID: 8300000, guid: c45ac372e2601a3459fc6e593e952538, type: 3}
   chaseTracks:
   - {fileID: 8300000, guid: 35b027245ee23134aa661cbc03794272, type: 3}
   - {fileID: 8300000, guid: 9325bde1afecf0e459f2a161ad17c101, type: 3}
-  - {fileID: 8300000, guid: 9b93135c02a2994468406f4f7d9bf10c, type: 3}
+  - {fileID: 8300000, guid: 41b4be56ea1e1b866be5d8b24d128b44, type: 3}
   - {fileID: 8300000, guid: 31e7d5f563cf6ea4bae22796ad07c178, type: 3}
   - {fileID: 8300000, guid: a15345c7ee5f0c14eafb298511485ac4, type: 3}
   ambientTracks:
