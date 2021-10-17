@@ -148,8 +148,8 @@ MonoBehaviour:
   angryPatrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  chaseMovementSpeed: 8
-  angryMovementSpeed: 12
+  chaseMovementSpeed: 9
+  angryMovementSpeed: 11
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 1452760979539782580}
@@ -326,13 +326,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2331864860939320790}
   dashAnticipation: 0.75
-  angryDashAnticipation: 0.5
-  recoilTime: 0.75
+  angryDashAnticipation: 0.6
+  recoilTime: 0.3
   dashSpeed: 40
   angryDashSpeed: 45
   chaseDistance: 1.5
-  dashRange: 15
+  dashRange: 8
   dashThroughDistance: 3
+  angerAcceleration: 10
 --- !u!120 &3694601859610406233
 LineRenderer:
   m_ObjectHideFlags: 0

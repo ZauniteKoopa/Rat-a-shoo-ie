@@ -21,6 +21,8 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     private float dashRange = 15f;
     [SerializeField]
     private float dashThroughDistance = 5f;
+    [SerializeField]
+    private float angerAcceleration = 10f;
 
     private Vector3 lockedTarget = Vector3.zero;
     private bool locked = false;
@@ -88,7 +90,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         float currentAnticipation = (angered) ? angryDashAnticipation : dashAnticipation;
         animator.SetBool("anticipating", true);
 
-        yield return new WaitForSeconds(dashAnticipation);
+        yield return new WaitForSeconds(currentAnticipation);
 
         // Once anticipation is done calculate the time
         locked = true;
@@ -211,5 +213,6 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     // Main method to make the action more aggressive
     public override void makeAngry() {
         angered = true;
+        navMeshAgent.acceleration = angerAcceleration;
     }
 }

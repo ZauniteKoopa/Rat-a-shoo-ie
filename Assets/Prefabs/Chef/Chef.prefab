@@ -1189,7 +1189,7 @@ MonoBehaviour:
   navDistance: 1
   angryPatrolPoints: []
   chaseMovementSpeed: 9
-  angryMovementSpeed: 12
+  angryMovementSpeed: 11
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 7323574232244143832}
