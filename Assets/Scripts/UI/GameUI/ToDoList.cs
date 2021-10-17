@@ -336,7 +336,7 @@ public class ToDoList : MonoBehaviour
             i++;
 
             TaskType curType = initialTasks[i];
-            found = curType == taskType;
+            found = curType == taskType && taskLabels[i].fontStyle != FontStyles.Strikethrough;
         }
 
         // If found, modify the associated task in the to-do list
