@@ -80,6 +80,7 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
         // Decide the spawn position
         Vector3 projectileSpawnPos = new Vector3(chefEye.position.x, localRatPos.y, chefEye.position.z);
         Transform curProjectile = Object.Instantiate(projectilePrefab, projectileSpawnPos, Quaternion.identity);
+        audioManager.playChefAttack();
 
         // Decide the projectile direction by flatterning the y axis
         Vector3 projDir = new Vector3(ratTarget.x - chefEye.position.x, 0f, ratTarget.z - chefEye.position.z);
