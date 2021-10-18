@@ -8,6 +8,7 @@ public class RatTrap : MonoBehaviour
     // Boolean flag for when rat trap is in a triggering state
     private bool triggering = false;
     private MeshRenderer meshRender = null;
+    private RatTrapAudioManager audioManager = null;
     [SerializeField]
     private float anticipationTime = 0.3f;
     [SerializeField]
@@ -22,6 +23,7 @@ public class RatTrap : MonoBehaviour
     // On awake, set color to black
     private void Awake() {
         meshRender = GetComponent<MeshRenderer>();
+        audioManager = GetComponent<RatTrapAudioManager>();
         meshRender.material.color = Color.black;
         hitbox.SetActive(false);
         trapSensor.trapSensedEvent.AddListener(onTrapSensed);
@@ -38,14 +40,19 @@ public class RatTrap : MonoBehaviour
         // Attack
         meshRender.material.color = Color.red;
         hitbox.SetActive(true);
+        audioManager.playSnapSound();
         yield return new WaitForSeconds(attackingTime);
 
         // Cooldown
-        meshRender.material.color = Color.black;
+        meshRender.material.color = Color.blue;
         hitbox.SetActive(false);
         yield return new WaitForSeconds(trapCooldown);
 
         // If trap is still sensing an object. Trigger it again.
+        meshRender.material.color = Color.black;
+        audioManager.playResetSound();
+        yield return new WaitForSeconds(audioManager.getCurrentClipLength());
+
         triggering = trapSensor.isSensingObject();
         if (triggering) {
             StartCoroutine(triggeringSequence());
