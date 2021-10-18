@@ -7646,6 +7646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnable: 1
   breakable: 0
+  destroyClip: {fileID: 0}
   destroyObjectEvent:
     m_PersistentCalls:
       m_Calls:
@@ -16015,7 +16016,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55654c6be8d358f47a0d4b78f8bcc4d5, type: 2}
+  - {fileID: 2100000, guid: 16cbba77f47482745ac87bd0ee99c039, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19114,7 +19115,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55654c6be8d358f47a0d4b78f8bcc4d5, type: 2}
+  - {fileID: 2100000, guid: 16cbba77f47482745ac87bd0ee99c039, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
