@@ -20,9 +20,12 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     [SerializeField]
     private float attackCooldown = 2.0f;
     [SerializeField]
+    private float angryAttackCooldown = 1.5f;
+    [SerializeField]
     private float angerAcceleration = 10f;
     private float MAX_LOCAL_HEIGHT = 0.45f;
     private float MIN_LOCAL_HEIGHT = -0.32f;
+    private bool angered = false;
 
     // Main sequence to do aggressive actions
     public override IEnumerator doAggressiveAction(ChefSight chefSensing, Vector3 lastSeenTarget, float chaseMovementSpeed) {
@@ -49,9 +52,10 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
 
             yield return waitFrame;
             attackTimer += Time.deltaTime;
+            float currentCooldown = (angered) ? angryAttackCooldown : attackCooldown;
 
 
-            if (attackTimer >= attackCooldown && chefSensing.currentRatTarget != null) {
+            if (attackTimer >= currentCooldown && chefSensing.currentRatTarget != null) {
 
                 RaycastHit hit;
                 Vector3 rayCastDir = chefSensing.currentRatTarget.transform.position - transform.position;
@@ -100,5 +104,6 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     // Main method to make the action more angry
     public override void makeAngry() {
         navMeshAgent.acceleration = angerAcceleration;
+        angered = true;
     }
 }
