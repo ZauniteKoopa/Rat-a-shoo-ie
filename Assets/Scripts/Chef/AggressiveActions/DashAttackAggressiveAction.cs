@@ -23,6 +23,8 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     private float dashThroughDistance = 5f;
     [SerializeField]
     private float angerAcceleration = 10f;
+    [SerializeField]
+    private GameObject hitbox = null;
 
     private Vector3 lockedTarget = Vector3.zero;
     private bool locked = false;
@@ -107,6 +109,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         audioManager.playChefAttack();
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
+        hitbox.SetActive(true);
 
         // Dash sequence
         while (timer <= maxDashTime) {
@@ -118,6 +121,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
             dashLineRender.SetPosition(0, transform.position);
         }
 
+        hitbox.SetActive(false);
         transform.position = lockedTarget;
         locked = false;
         dashLineRender.enabled = false;

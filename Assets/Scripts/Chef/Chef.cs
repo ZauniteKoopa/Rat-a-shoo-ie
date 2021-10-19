@@ -254,11 +254,14 @@ public class Chef : MonoBehaviour
 
     // Main ienumerator introducing to anger
     private IEnumerator startAngerSequence() {
-        Debug.Log("IM ANGRY");
+        
         canSpotRat = false;
         navMeshAgent.enabled = false;
+        //animator.SetBool("angry", true);
 
         yield return new WaitForSeconds(1.5f);
+
+        //animator.SetBool("angry", false);
 
         navMeshAgent.enabled = true;
         canSpotRat = true;
