@@ -13635,7 +13635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4989ec6be12f58ba91fd77b3d60cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localCameraPosition: {x: 0.011, y: 13.45, z: -0.723}
+  localCameraPosition: {x: 0.011, y: 13.45, z: -0.85}
   localCameraRotation: {x: 36.111, y: 0, z: 0}
   spawnPoint: {fileID: 1241983436}
 --- !u!65 &1204393970

@@ -27,7 +27,7 @@ public class BrokenStove : MonoBehaviour
     private void Start() {
         meshRender = GetComponent<MeshRenderer>();
         meshRender.material.color = normalColor;
-        StartCoroutine(stoveCycle());
+        activate();
     }
 
     // Core Obstacle loop
@@ -47,5 +47,15 @@ public class BrokenStove : MonoBehaviour
             meshRender.material.color = normalColor;
             yield return new WaitForSeconds(normalTime);
         }
+    }
+
+    // Main method to activate it
+    public void activate() {
+        StartCoroutine(stoveCycle());
+    }
+
+    // Main method to deactivate
+    public void deactivate() {
+        StopAllCoroutines();
     }
 }

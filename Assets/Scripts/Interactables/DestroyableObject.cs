@@ -40,10 +40,10 @@ public class DestroyableObject : MonoBehaviour
 
     // Main sequence variables to play sound when object is disabled and then actually destroy object
     private IEnumerator destroySequence() {
-        myCollider.enabled = false;
-        meshRenderer.enabled = false;
 
         if (speaker != null) {
+            myCollider.enabled = false;
+            meshRenderer.enabled = false;
             speaker.Play();
 
             // Disable all children
@@ -53,8 +53,6 @@ public class DestroyableObject : MonoBehaviour
 
             yield return new WaitForSeconds(destroyClip.length);
         }
-
-        
 
         Object.Destroy(gameObject);
     }
