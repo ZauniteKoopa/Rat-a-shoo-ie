@@ -25,7 +25,10 @@ public class DestroyableObject : MonoBehaviour
         myCollider = GetComponent<Collider>();
         speaker = GetComponent<AudioSource>();
         meshRenderer = GetComponent<MeshRenderer>();
-        speaker.clip = destroyClip;
+
+        if (speaker != null) {
+            speaker.clip = destroyClip;
+        }
     }
 
 
@@ -39,14 +42,19 @@ public class DestroyableObject : MonoBehaviour
     private IEnumerator destroySequence() {
         myCollider.enabled = false;
         meshRenderer.enabled = false;
-        speaker.Play();
 
-        // Disable all children
-        for (int i = 0; i < transform.childCount; i++) {
-            transform.GetChild(i).gameObject.SetActive(false);
+        if (speaker != null) {
+            speaker.Play();
+
+            // Disable all children
+            for (int i = 0; i < transform.childCount; i++) {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            yield return new WaitForSeconds(destroyClip.length);
         }
 
-        yield return new WaitForSeconds(destroyClip.length);
+        
 
         Object.Destroy(gameObject);
     }
