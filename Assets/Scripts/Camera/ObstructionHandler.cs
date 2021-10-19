@@ -10,6 +10,8 @@ public class ObstructionHandler : MonoBehaviour
     
     private Ray camAngle;
     private GameObject player;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,20 +32,55 @@ public class ObstructionHandler : MonoBehaviour
 
         HashSet<GameObject> curHit = new HashSet<GameObject>();
         //Store a reference to each obstruction and its material, then change its material to be semitransparent.
-        foreach(RaycastHit hit in rayHits) 
+        foreach (RaycastHit hit in rayHits)
         {
-            GameObject obs = hit.collider.gameObject;
-            curHit.Add(obs);
-            if (!curObstructions.ContainsKey(obs) && obs.GetComponent<Renderer>() != null)
+            //get all sibling objects
+            if (hit.transform.parent != null)
             {
-                Material[] obsMaterials = obs.GetComponent<Renderer>().materials;
-                curObstructions.Add(obs, obsMaterials);
-                Material[] semiTransArray = new Material[obsMaterials.Length];
-                for (int i = 0; i < obsMaterials.Length; i++)
+                Debug.Log(hit.transform.parent);
+                GameObject parent = hit.transform.parent.gameObject;
+
+
+                //additional foreach loop for each child
+
+                for (int c = 0; c < parent.transform.childCount; c++)
                 {
-                    semiTransArray[i] = semiTransparent;
+                    GameObject obs = parent.transform.GetChild(c).gameObject;
+                    //Debug.Log(parent);
+                    //Debug.Log(obs);
+                    curHit.Add(obs);
+                    if (!curObstructions.ContainsKey(obs) && obs.GetComponent<Renderer>() != null)
+                    {
+                        Material[] obsMaterials = obs.GetComponent<Renderer>().materials;
+                        curObstructions.Add(obs, obsMaterials);
+                        Material[] semiTransArray = new Material[obsMaterials.Length];
+                        for (int i = 0; i < obsMaterials.Length; i++)
+                        {
+                            semiTransArray[i] = semiTransparent;
+                        }
+                        obs.GetComponent<Renderer>().materials = semiTransArray;
+                    }
+
                 }
-                obs.GetComponent<Renderer>().materials = semiTransArray;
+            }
+            else
+            {
+                //Debug.Log("In first else");
+                GameObject obs = hit.transform.gameObject;
+
+                curHit.Add(obs);
+                if (!curObstructions.ContainsKey(obs) && obs.GetComponent<Renderer>() != null)
+                {
+                    //Debug.Log("In second if statement");
+                    Material[] obsMaterials = obs.GetComponent<Renderer>().materials;
+                    curObstructions.Add(obs, obsMaterials);
+                    Material[] semiTransArray = new Material[obsMaterials.Length];
+                    for (int i = 0; i < obsMaterials.Length; i++)
+                    {
+                        semiTransArray[i] = semiTransparent;
+                    }
+                    obs.GetComponent<Renderer>().materials = semiTransArray;
+                }
             }
 
         }
