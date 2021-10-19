@@ -22,11 +22,16 @@ public class ObjectiveArrow : MonoBehaviour
             Vector3 objectiveLocation = objectiveIndicator.transform.position;
             Vector3 direction = (objectiveLocation - playerLocation).normalized;
             Vector3 arrowPosition = playerLocation + (direction * arrowDistance);
+
+            this.transform.up = direction;
+
             this.transform.position = arrowPosition;
-            float xDegrees = (Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg);
-            float yDegrees = (Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg);
-            float zDegrees = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-            this.transform.eulerAngles = new Vector3(xDegrees, yDegrees, zDegrees);
+
+
+            //float xDegrees = (Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg);
+            //float yDegrees = (Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg);
+            //float zDegrees = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+            //this.transform.eulerAngles = new Vector3(xDegrees, yDegrees, zDegrees);
         }
 
     }
