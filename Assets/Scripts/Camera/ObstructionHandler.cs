@@ -37,7 +37,6 @@ public class ObstructionHandler : MonoBehaviour
             //get all sibling objects
             if (hit.transform.parent != null)
             {
-                Debug.Log(hit.transform.parent);
                 GameObject parent = hit.transform.parent.gameObject;
 
 
@@ -46,8 +45,6 @@ public class ObstructionHandler : MonoBehaviour
                 for (int c = 0; c < parent.transform.childCount; c++)
                 {
                     GameObject obs = parent.transform.GetChild(c).gameObject;
-                    //Debug.Log(parent);
-                    //Debug.Log(obs);
                     curHit.Add(obs);
                     if (!curObstructions.ContainsKey(obs) && obs.GetComponent<Renderer>() != null)
                     {
@@ -65,13 +62,11 @@ public class ObstructionHandler : MonoBehaviour
             }
             else
             {
-                //Debug.Log("In first else");
                 GameObject obs = hit.transform.gameObject;
 
                 curHit.Add(obs);
                 if (!curObstructions.ContainsKey(obs) && obs.GetComponent<Renderer>() != null)
                 {
-                    //Debug.Log("In second if statement");
                     Material[] obsMaterials = obs.GetComponent<Renderer>().materials;
                     curObstructions.Add(obs, obsMaterials);
                     Material[] semiTransArray = new Material[obsMaterials.Length];
