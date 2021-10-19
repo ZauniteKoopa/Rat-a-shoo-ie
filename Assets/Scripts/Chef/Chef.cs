@@ -257,11 +257,11 @@ public class Chef : MonoBehaviour
         
         canSpotRat = false;
         navMeshAgent.enabled = false;
-        //animator.SetBool("angry", true);
+        animator.SetBool("angry", true);
 
         yield return new WaitForSeconds(1.5f);
 
-        //animator.SetBool("angry", false);
+        animator.GetComponent<SpriteRenderer>().color = Color.red;
 
         navMeshAgent.enabled = true;
         canSpotRat = true;
