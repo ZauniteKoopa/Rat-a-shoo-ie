@@ -314,6 +314,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5859607738892503419, guid: 3e7d43d3d8ff94fbb8a408af0378c8a2,
     type: 3}
   attackCooldown: 0.75
+  angryAttackCooldown: 0.7
   angerAcceleration: 10
 --- !u!114 &3366640707540589764
 MonoBehaviour:
