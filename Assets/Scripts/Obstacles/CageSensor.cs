@@ -7,6 +7,7 @@ public class CageSensor : MonoBehaviour
 {
     // Main Unity event when trap has sensed something
     private RatController3D caughtPlayer = null;
+    public UnityEvent cagePlatformResetEvent;
 
     // If player enters trigger box, send out event
     private void OnTriggerEnter(Collider collider) {
@@ -37,5 +38,18 @@ public class CageSensor : MonoBehaviour
     private void onPlayerDies() {
         caughtPlayer.playerHealthLossEvent.RemoveListener(onPlayerDies);
         caughtPlayer = null;
+    }
+
+    // Public method to activate the platform
+    public void activatePlatform() {
+        GetComponent<Collider>().isTrigger = false;
+        tag = "Platform";
+    }
+
+    // Public method to reset the platform
+    public void resetPlatform() {
+        GetComponent<Collider>().isTrigger = true;
+        tag = "Untagged";
+        cagePlatformResetEvent.Invoke();
     }
 }

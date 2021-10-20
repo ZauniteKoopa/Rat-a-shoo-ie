@@ -31,6 +31,13 @@ public class RatCage : MonoBehaviour
     private GameObject pcPrompt = null;
     [SerializeField]
     private GameObject androidPrompt = null;
+    [SerializeField]
+    private GameObject cageModel = null;
+    [SerializeField]
+    private AudioClip cageLockSound = null;
+    [SerializeField]
+    private AudioClip cageResetSound = null;
+    private AudioSource speaker = null;
     public TrapTriggerDelegate trapTriggerEvent;
 
     // Current mash variables
@@ -42,6 +49,7 @@ public class RatCage : MonoBehaviour
         meshRender = GetComponent<MeshRenderer>();
         meshRender.material.color = Color.black;
         trapSensor.trapSensedEvent.AddListener(onTrapSensed);
+        speaker = GetComponent<AudioSource>();
 
         GameObject platformPrompt = (Application.platform == RuntimePlatform.Android) ? androidPrompt : pcPrompt;
         platformPrompt.SetActive(true);
@@ -58,10 +66,14 @@ public class RatCage : MonoBehaviour
         // Turn on cage sensor and see if there was something there
         trapTriggerEvent.Invoke(transform);
         meshRender.material.color = Color.red;
-        cageSensor.GetComponent<MeshRenderer>().enabled = true;
+        cageModel.SetActive(true);
+        speaker.clip = cageLockSound;
+        speaker.Play();
 
         // If cage caught a player, enforce mashing sequence
         RatController3D caughtPlayer = cageSensor.getCaughtPlayer();
+        bool platformMade = false;
+
         if (caughtPlayer != null) {
             mashUI.SetActive(true);
             mashBar.fillAmount = 0f;
@@ -75,17 +87,28 @@ public class RatCage : MonoBehaviour
                 yield return waitFrame;
             }
 
-            cageSensor.GetComponent<MeshRenderer>().enabled = false;
+            cageModel.SetActive(false);
             mashUI.SetActive(false);
             caughtPlayer.setTrappedStatus(true);
             trapped = false;
+        } else  {
+            cageSensor.activatePlatform();
+            platformMade = true;
         }
 
         // Cooldown
-        meshRender.material.color = Color.black;
+        meshRender.material.color = Color.blue;
         yield return new WaitForSeconds(trapCooldown);
-        cageSensor.GetComponent<MeshRenderer>().enabled = false;
+        meshRender.material.color = Color.black;
 
+        // If platform made, reset platform
+        if (platformMade) {
+            cageSensor.resetPlatform();
+        }
+
+        cageModel.SetActive(false);
+        speaker.clip = cageResetSound;
+        speaker.Play();
 
         // If trap is still sensing an object. Trigger it again.
         triggering = trapSensor.isSensingObject();
