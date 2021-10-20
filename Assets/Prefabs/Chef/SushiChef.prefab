@@ -325,14 +325,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2331864860939320790}
-  dashAnticipation: 0.75
-  angryDashAnticipation: 0.6
+  dashAnticipation: 0.85
+  angryDashAnticipation: 0.7
   recoilTime: 0.3
-  dashSpeed: 40
-  angryDashSpeed: 45
-  chaseDistance: 1.5
-  dashRange: 8
-  dashThroughDistance: 3
+  dashSpeed: 35
+  angryDashSpeed: 40
+  chaseDistance: 3
+  dashRange: 7
+  dashThroughDistance: 2
   angerAcceleration: 10
   hitbox: {fileID: 8181828447792987199}
 --- !u!120 &3694601859610406233
@@ -657,8 +657,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8181828447792987199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.44}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 5228617570123983266}
   m_RootOrder: 0
