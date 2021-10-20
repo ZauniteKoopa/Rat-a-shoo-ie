@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BrokenStove : MonoBehaviour
 {
+    private BrokenStoveAudioManager audioManager = null;
+
     [SerializeField]
     private GameObject hitbox = null;
     [SerializeField]
@@ -28,6 +30,8 @@ public class BrokenStove : MonoBehaviour
         meshRender = GetComponent<MeshRenderer>();
         meshRender.material.color = normalColor;
         activate();
+
+        audioManager = GetComponent<BrokenStoveAudioManager>();
     }
 
     // Core Obstacle loop
@@ -37,6 +41,7 @@ public class BrokenStove : MonoBehaviour
 
         while (true) {
             meshRender.material.color = anticipationColor;
+            audioManager.playArmSound();
             yield return new WaitForSeconds(anticipationTime);
 
             meshRender.material.color = attackColor;

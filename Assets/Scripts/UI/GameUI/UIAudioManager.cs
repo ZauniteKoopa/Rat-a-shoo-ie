@@ -24,7 +24,7 @@ public class UIAudioManager : MonoBehaviour
         }
         else
         {
-            speaker.volume = 1f;
+            speaker.volume = 0.6f;
         }
 
         speaker.clip = curClip;
