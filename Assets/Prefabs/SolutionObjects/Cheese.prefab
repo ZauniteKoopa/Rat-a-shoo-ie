@@ -109,8 +109,8 @@ GameObject:
   - component: {fileID: 8299455592705188472}
   - component: {fileID: 8299455592705188471}
   - component: {fileID: 8299455592705188470}
-  - component: {fileID: 7682760123373325965}
   - component: {fileID: 1932776162}
+  - component: {fileID: 1653699999}
   m_Layer: 14
   m_Name: Cheese
   m_TagString: BadFood
@@ -209,21 +209,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7682760123373325965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8299455592705188469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8046ddf83a62ca74b7149fed26835cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 0
-  canBePickedUp: 1
-  highlightedIndicator: {fileID: 3007047538109110493}
 --- !u!114 &1932776162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +224,21 @@ MonoBehaviour:
   isSpicy: 0
   isRotten: 1
   isHeldByChef: 0
+--- !u!114 &1653699999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299455592705188469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811effc2ba55a90298c531d1ecb3e451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 0
+  canBePickedUp: 1
+  highlightedIndicator: {fileID: 3007047538109110493}
 --- !u!1001 &467920570481836108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,22 +254,22 @@ PrefabInstance:
     - target: {fileID: 3442243846008318356, guid: fd7e6af7c17ef656c9fcf4b0a180baaa,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3442243846008318356, guid: fd7e6af7c17ef656c9fcf4b0a180baaa,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3442243846008318356, guid: fd7e6af7c17ef656c9fcf4b0a180baaa,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3442243846008318356, guid: fd7e6af7c17ef656c9fcf4b0a180baaa,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3442243846168107153, guid: fd7e6af7c17ef656c9fcf4b0a180baaa,
         type: 3}

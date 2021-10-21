@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HazardInteractable : GeneralInteractable
+public class HazardInteractable : ResetInteractable
 {
     [SerializeField]
     private Transform hazardCaused = null;

@@ -10,6 +10,7 @@ public class LevelInfo : MonoBehaviour
     private Dictionary<SolutionType, List<Vector3>> solutionLocations;
     private Dictionary<SolutionType, Sprite> thoughtPool;
     private Dictionary<SolutionType, Transform> closetDictionary;
+    private ResetInteractable[] resetInteractables = null;
 
     // Event handling for when player is attacking versus when player is safe
     private int numNPCsChasing = 0;
@@ -29,6 +30,7 @@ public class LevelInfo : MonoBehaviour
     private void Awake() {
         solutionLocations = new Dictionary<SolutionType, List<Vector3>>();
         SolutionObject[] allSolutions = Object.FindObjectsOfType<SolutionObject>();
+        resetInteractables = Object.FindObjectsOfType<ResetInteractable>();
 
         // For each solution
         foreach(SolutionObject solution in allSolutions) {
@@ -103,4 +105,10 @@ public class LevelInfo : MonoBehaviour
         PersistentData.instance.saveVictory(levelIndex);
     }
 
+    // Public method to reset all reset interactables
+    public void resetLevel() {
+        foreach(ResetInteractable interactable in resetInteractables) {
+            interactable.reset();
+        }
+    }
 }

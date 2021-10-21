@@ -53,6 +53,8 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float blackFadeDuration = 1.0f;
     [SerializeField]
+    private float unconsciousTimeScale = 10f;
+    [SerializeField]
     private float blackedOutDuration = 0.5f;
     [SerializeField]
     private float spawnInSequenceDuration = 0.3f;
@@ -60,6 +62,7 @@ public class RatController3D : MonoBehaviour
     private float invincibilityDuration = 1.0f;
     [SerializeField]
     private float haloDuration = 3.0f;
+    public UnityEvent playerBlackOutEvent;
     private Component spawnHalo = null;
     private bool facingRight = false;
     private Color invinicibleColor;
@@ -304,7 +307,12 @@ public class RatController3D : MonoBehaviour
         // when screen is completely black, teleport character to spawn so player doesn't see camera movement. and then blink bAack
         transform.position = spawnPosition;
         characterSprite.color = invinicibleColor;
-        yield return new WaitForSeconds(blackedOutDuration);
+        playerBlackOutEvent.Invoke();
+        Time.timeScale = unconsciousTimeScale;
+
+        yield return new WaitForSecondsRealtime(blackedOutDuration);
+
+        Time.timeScale = 1.0f;
         userInterface.blinkBack();
 
         // Make rat glow so that player notices where their character is. In this section, so some spawning animation or particle effects
@@ -447,7 +455,7 @@ public class RatController3D : MonoBehaviour
         } else {
             canMove = false;
         }
-        
+
         trapped = !newMove;
 
         if (trapped) {
