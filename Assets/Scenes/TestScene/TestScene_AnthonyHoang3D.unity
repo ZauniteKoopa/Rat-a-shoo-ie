@@ -447,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
@@ -5256,27 +5256,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 336077379, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 336077379, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 336077379, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721638, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5250336059709721639, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
@@ -5335,49 +5318,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
-      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: playerHealthLossEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: playerHealthLossEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 828858107}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: userInterface
-      value: 
-      objectReference: {fileID: 828858107}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
       propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4242813611821856733}
     - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
-      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: resetLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
-        type: 3}
-      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      propertyPath: userInterface
+      value: 
+      objectReference: {fileID: 828858107}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
 --- !u!1001 &5706430388348795298

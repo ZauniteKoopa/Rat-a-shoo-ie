@@ -42,13 +42,13 @@ public class HazardInteractable : ResetInteractable
     private IEnumerator checkFallingObject() {
         WaitForFixedUpdate waitFrame = new WaitForFixedUpdate();
 
+        falling = true;
+
         // Wait for 2 frames
         yield return waitFrame;
         yield return waitFrame;
 
         // Set the falling flag to true and keep it true until the rigidbody stops moving
-        falling = true;
-
         while (rb.velocity.magnitude > 0.001f) {
             yield return waitFrame;
         }
@@ -65,6 +65,8 @@ public class HazardInteractable : ResetInteractable
                 hazardCreatedEvent.Invoke();
                 Transform hazardTransform = Object.Instantiate(hazardCaused, transform.position, Quaternion.identity);
                 curHazard = hazardTransform.GetComponent<IssueObject>();
+                hazardTransform.up = collision.GetContact(0).normal;
+                falling = false;
 
                 // "destroy" object by sending object to purgatory, locked position
                 transform.position = 1000f * Vector3.down;
