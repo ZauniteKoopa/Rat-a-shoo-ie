@@ -456,18 +456,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 429927208}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8200095421523678783}
-        m_MethodName: onTaskListButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &536447997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +3538,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 12f8c4b9-4819-469d-b9c0-d7930c4098bd
     m_ActionName: UI/TaskList[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc41e066-c487-452e-92ba-dcca0c37218e
+    m_ActionName: Touch/PrimaryPosition[/Simulated Touchscreen/primaryTouch/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 91bc1fb5-793f-456a-91fd-8924ecea468a
+    m_ActionName: Touch/TouchContact[/Simulated Touchscreen/primaryTouch/press]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

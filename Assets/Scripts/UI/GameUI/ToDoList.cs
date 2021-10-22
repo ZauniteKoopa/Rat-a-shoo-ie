@@ -161,17 +161,6 @@ public class ToDoList : MonoBehaviour
         }
     }
 
-    // Main event handler for pressing the TaskList button
-    public void onTaskListButtonPressed() {
-        if (!paused) {
-            if (taskListShown) {
-                StartCoroutine(putListAway());
-            } else {
-                StartCoroutine(bringListUp());
-            }
-        }
-    }
-
     // Main IEnumerator process to look at list (ONLY ON PC)
     private IEnumerator lookAtList() {
         yield return bringListUp();
@@ -272,6 +261,18 @@ public class ToDoList : MonoBehaviour
         if (paused) {
             paused = false;
         }
+    }
+
+    // Main event handler method for when player swipes mobile device left
+    public void onPlayerSwipeLeft() {
+        if (taskListShown) {
+            StartCoroutine(putListAway());
+        }
+    }
+
+    // Main event handler method for when player swipes mobile device right
+    public void onPlayerSwipeRight() {
+        StartCoroutine(bringListUp());
     }
 
     // Method when player tries to escape

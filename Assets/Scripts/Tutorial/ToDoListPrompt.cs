@@ -11,7 +11,7 @@ public class ToDoListPrompt : MonoBehaviour
 
     // On awake, change the text of the todo list prompt
     private void Awake() {
-        string toDoListAction = (Application.platform == RuntimePlatform.Android) ? "Swipe left" : "Press C";
+        string toDoListAction = (Application.platform == RuntimePlatform.Android) ? "Swipe right from the left" : "Press C";
         prompt.text = toDoListAction + " to Look at Tasks!";
     }
 
