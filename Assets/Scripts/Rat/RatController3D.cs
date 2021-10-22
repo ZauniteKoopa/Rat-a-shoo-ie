@@ -164,12 +164,24 @@ public class RatController3D : MonoBehaviour
         }
     }
 
-    /* Event handler for when the sprint button is being held */
+    /* Event handler for when the sprint button is being held 
+        If PC version, you have to hold it to sprint
+        If mobile version, you just have to press it once to turn sprinting on or off
+    */
     public void onSprint(InputAction.CallbackContext value) {
-        if (value.started) {
-            isSprinting = true;
-        } else if (value.canceled) {
-            isSprinting = false;
+        // Android version of sprinting
+        if (Application.platform == RuntimePlatform.Android) {
+            if (value.started) {
+                isSprinting = !isSprinting;
+            }
+
+        // PC version of sprinting
+        } else {
+            if (value.started) {
+                isSprinting = true;
+            } else if (value.canceled) {
+                isSprinting = false;
+            }
         }
     }
 

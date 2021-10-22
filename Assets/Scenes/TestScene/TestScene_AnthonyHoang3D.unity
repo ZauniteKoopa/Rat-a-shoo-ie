@@ -1927,34 +1927,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: initialTasks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 45671537}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -1962,79 +1937,14 @@ PrefabInstance:
       objectReference: {fileID: 2042984200}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: onToDoListDone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: initialTasks.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1094374228}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: onToDoListDone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 5946934280357664422}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: onToDoListDone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
 --- !u!1 &1132321846
