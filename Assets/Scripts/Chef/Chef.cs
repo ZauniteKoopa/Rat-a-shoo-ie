@@ -103,6 +103,7 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private SpriteRenderer mealSprite = null;
     private FoodInstance servedFood = null;
+    private bool mealPoisoned = false;
 
     // Anger handling
     private bool angered = false;
@@ -156,7 +157,7 @@ public class Chef : MonoBehaviour
 
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
-        StartCoroutine(mainIntelligenceLoop());
+        cookingStation.taintedMealEvent.AddListener(onPoisonedMeal);
     }
 
     // On update, update animator
@@ -183,16 +184,14 @@ public class Chef : MonoBehaviour
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         bool interrupted = false;
-        bool divertFocusOnIssue = targetedSolution != null && highestPriorityIssue != null;
 
         // If you were interrupted by a higher priority issue and you were holding onto a solutionObject for a hazard, put the solution object back
-        if (divertFocusOnIssue) {
+        if (targetedSolution != null && highestPriorityIssue != null) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
             audioManager.playChefAlert();
             yield return new WaitForSeconds(surprisedAtIssueDuration);
             navMeshAgent.enabled = true;
-
             navMeshAgent.speed = chaseMovementSpeed;
 
             thoughtBubble.thinkOfSolution(highestPriorityIssue.getNthStep(0));
@@ -206,25 +205,48 @@ public class Chef : MonoBehaviour
         // Main loop
         while (true) {
 
-            if (highestPriorityIssue != null) {
+            if (highestPriorityIssue != null) {                         // Branch for when chef is dealing with issue
                 yield return solveIssue(interrupted);
                 interrupted = false;
 
-                if (willDeactivate && highestPriorityIssue == null) {
+                if (willDeactivate && highestPriorityIssue == null && !aggressive && !mealPoisoned) {
                     yield return deactivateChefFromActiveBranch();
                 }
             }
-            else if (!aggressive)
-            {
-                yield return passiveAction();
-            }
-            else
+            else if (aggressive)                                        // Branch for when chef is chasing rat
             {
                 yield return doAggressiveAction(chaseMovementSpeed);
                 
-                if (willDeactivate && !aggressive) {
+                if (willDeactivate && !aggressive && !mealPoisoned) {
                     yield return deactivateChefFromActiveBranch();
                 }
+                
+            }
+            else if (mealPoisoned) {                                    // Branch for when meal is poisoned, serve immediately
+                // Drop targeted solution
+                thoughtBubble.clearUpThoughts();
+                if (targetedSolution != null) {
+                    yield return goToPosition(targetedSolution.getInitialLocation());
+                    dropSolutionObject(targetedSolution);
+                    targetedSolution = null;
+                }
+
+                // Set up finish recipe variables
+                currentRecipeStep = targetRecipe.getNumSteps();
+                if (currentIngredientStage != RecipeStage.GET_FOOD || currentIngredientStage != RecipeStage.BRING_FOOD_TO_CUSTOMER) {
+                    currentIngredientStage = RecipeStage.GET_FOOD;
+                }
+
+                //Bring recipe to customer
+                yield return finishRecipe();
+
+                if (willDeactivate) {
+                    yield return deactivateChefFromActiveBranch();
+                }
+            }
+            else                                                        // Passive, default branch
+            {
+                yield return passiveAction();
             }
         }
     }
@@ -234,6 +256,11 @@ public class Chef : MonoBehaviour
         while (true) {
             if (aggressive) {
                 yield return doAggressiveAction(angryMovementSpeed);
+
+                if (willDeactivate && !aggressive && sensedTrap == null) {
+                    yield return deactivateChefFromActiveBranch();
+                }
+
             } else if (sensedTrap != null) {
                 // Face the direction of the trap
                 Transform lockedTarget = sensedTrap;
@@ -254,6 +281,10 @@ public class Chef : MonoBehaviour
                 navMeshAgent.enabled = true;
 
                 sensedTrap = null;
+
+                if (willDeactivate) {
+                    yield return deactivateChefFromActiveBranch();
+                }
             } else {
                 navMeshAgent.speed = angryMovementSpeed;
                 Vector3 currentPatrolPoint = angryPatrolPoints[angerPatrolIndex].position;
@@ -638,7 +669,6 @@ public class Chef : MonoBehaviour
             animator.SetBool("anticipating", false);
             animator.SetBool("attacking", false);
             aggressive = false;
-            didHitRat = false;
             levelInfo.onChefChaseEnd();
 
             StopAllCoroutines();
@@ -757,6 +787,19 @@ public class Chef : MonoBehaviour
         }
     }
 
+    // Main event handler method for poisoned meals
+    public void onPoisonedMeal() {
+        if (!angered) {
+            mealPoisoned = true;
+
+            if (!aggressive && highestPriorityIssue == null) {
+                StopAllCoroutines();
+                StartCoroutine(mainIntelligenceLoop());
+            }
+        }
+
+    }
+
     // Main method to flip the sprite
     void Flip()
     {
@@ -770,8 +813,8 @@ public class Chef : MonoBehaviour
         willDeactivate = false;
 
         // Check if chef is literally in any state that's not passive first
-        bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !didHitRat;
-        bool isAngrilyPassive = sensedTrap != null && !aggressive && !didHitRat;
+        bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
+        bool isAngrilyPassive = sensedTrap == null && !aggressive && !didHitRat;
 
         if (angered && isAngrilyPassive) {
             StartCoroutine(mainAngerLoop());
@@ -784,8 +827,8 @@ public class Chef : MonoBehaviour
     public void deactivateChef() {
         
         // Check if chef can just easily deactivate (In the most passive state)
-        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive && !didHitRat;
-        bool isAngrilyPassive = angered && sensedTrap != null && !aggressive && !didHitRat;
+        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
+        bool isAngrilyPassive = angered && sensedTrap == null && !aggressive && !didHitRat;
 
         if (isNormallyPassive || isAngrilyPassive) {
             StopAllCoroutines();
@@ -820,6 +863,8 @@ public class Chef : MonoBehaviour
             gameObject.SetActive(false);
             willDeactivate = false;
         }
+
+        didHitRat = false;
     }
 
 }

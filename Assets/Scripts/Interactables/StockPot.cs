@@ -28,6 +28,8 @@ public class StockPot : MonoBehaviour
     private Animator stenchAnimator = null;
     private CookingStationAudioManager audioManager = null;
 
+    public UnityEvent taintedMealEvent;
+
     // On awake, set up new food instance
     private void Awake() {
         currentCookingMeal = new FoodInstance();
@@ -41,23 +43,25 @@ public class StockPot : MonoBehaviour
         Ingredient ingredient = collider.GetComponent<Ingredient>();
 
         if (ingredient != null && !ingredient.isHeldByChef) {
-            if (ingredient.isSpicy) {
+            if (ingredient.isSpicy && !currentCookingMeal.spicy) {
                 currentCookingMeal.spicy = true;
+                taintedMealEvent.Invoke();
             }
 
-            if (ingredient.isRotten) {
+            if (ingredient.isRotten && !currentCookingMeal.poisoned) {
                 currentCookingMeal.poisoned = true;
+                taintedMealEvent.Invoke();
             }
 
-            if (currentState != CookingStationState.ROTTEN) {
+            if (currentState != CookingStationState.ROTTEN && currentCookingMeal.poisoned) {
                 audioManager.playRuinedDishSound();
+                currentState = CookingStationState.ROTTEN;
+                stenchLines.SetActive(true);
+                stenchAnimator.SetInteger("FoodState", (int)currentState);
+
+                spriteRender.sprite = rottenPot;
             }
 
-            currentState = CookingStationState.ROTTEN;
-            stenchLines.SetActive(true);
-            stenchAnimator.SetInteger("FoodState", (int)currentState);
-
-            spriteRender.sprite = rottenPot;
             Object.Destroy(collider.gameObject);
         }
     }
