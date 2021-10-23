@@ -108,7 +108,9 @@ public class LevelInfo : MonoBehaviour
     // Public method to reset all reset interactables
     public void resetLevel() {
         foreach(ResetInteractable interactable in resetInteractables) {
-            interactable.reset();
+            if (interactable != null) {
+                interactable.reset();
+            }
         }
     }
 }

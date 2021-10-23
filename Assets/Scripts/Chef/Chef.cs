@@ -558,6 +558,7 @@ public class Chef : MonoBehaviour
 
     // Main sequence to go to issue location (hazards will not change in location)
     protected IEnumerator goToPosition(Vector3 position) {
+        navMeshAgent.enabled = true;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
         yield return waitFrame;
         navMeshAgent.destination = position;
@@ -631,7 +632,20 @@ public class Chef : MonoBehaviour
             didHitRat = true;
         }
 
-        hitboxRotator.StartCoroutine(ignoreRatSequence());
+        if (willDeactivate) {
+            // Disable aggressive behaviors manually
+            aggressiveAction.cancelAggressiveAction();
+            animator.SetBool("anticipating", false);
+            animator.SetBool("attacking", false);
+            aggressive = false;
+            didHitRat = false;
+            levelInfo.onChefChaseEnd();
+
+            StopAllCoroutines();
+            StartCoroutine(deactivateChefFromActiveBranch());
+        } else {
+            hitboxRotator.StartCoroutine(ignoreRatSequence());
+        }
     }
 
     // Main sequence handler for dealing with not sensing the rat when the rat is in the process of dying
@@ -755,9 +769,13 @@ public class Chef : MonoBehaviour
         gameObject.SetActive(true);
         willDeactivate = false;
 
-        if (angered) {
+        // Check if chef is literally in any state that's not passive first
+        bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !didHitRat;
+        bool isAngrilyPassive = sensedTrap != null && !aggressive && !didHitRat;
+
+        if (angered && isAngrilyPassive) {
             StartCoroutine(mainAngerLoop());
-        } else {
+        } else if (!angered && isNormallyPassive) {
             StartCoroutine(mainIntelligenceLoop());
         }
     }
@@ -766,8 +784,8 @@ public class Chef : MonoBehaviour
     public void deactivateChef() {
         
         // Check if chef can just easily deactivate (In the most passive state)
-        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive;
-        bool isAngrilyPassive = angered && sensedTrap != null && !aggressive;
+        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive && !didHitRat;
+        bool isAngrilyPassive = angered && sensedTrap != null && !aggressive && !didHitRat;
 
         if (isNormallyPassive || isAngrilyPassive) {
             StopAllCoroutines();
@@ -780,11 +798,28 @@ public class Chef : MonoBehaviour
 
     // Private IEnumerator sequence to deactivate the chef from a nonpassive branch
     private IEnumerator deactivateChefFromActiveBranch() {
-        yield return goToPosition(cookingStation.transform.position);
+        navMeshAgent.enabled = true;
+
+        // Go to specified position 
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+        yield return waitFrame;
+        navMeshAgent.destination = cookingStation.transform.position;
+
+        // Make sure the path has been fully processed before running OR deactivation sequence was cancelled
+        while (willDeactivate && navMeshAgent.pathPending) {
+            yield return waitFrame;
+        }
+
+        // Go towards the highest priority issue or deactivation sequence was cancelled
+        while(willDeactivate && navMeshAgent.remainingDistance > navDistance) {
+            yield return waitFrame;
+        }
         
-        StopAllCoroutines();
-        gameObject.SetActive(false);
-        willDeactivate = false;
+        if (willDeactivate) {
+            StopAllCoroutines();
+            gameObject.SetActive(false);
+            willDeactivate = false;
+        }
     }
 
 }
