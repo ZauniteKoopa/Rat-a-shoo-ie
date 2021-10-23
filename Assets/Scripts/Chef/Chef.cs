@@ -680,7 +680,7 @@ public class Chef : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(deactivateChefFromActiveBranch());
         } else {
-            hitboxRotator.StartCoroutine(ignoreRatSequence());
+            levelInfo.StartCoroutine(ignoreRatSequence());
         }
     }
 
@@ -780,7 +780,11 @@ public class Chef : MonoBehaviour
 
             mealBox.SetActive(false);
             StopAllCoroutines();
-            StartCoroutine(startAngerSequence());
+            inStartAngerSequence = true;
+
+            if (gameObject.activeInHierarchy) {
+                StartCoroutine(startAngerSequence());
+            }
         }
     }
 
@@ -822,7 +826,10 @@ public class Chef : MonoBehaviour
         bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
         bool isAngrilyPassive = sensedTrap == null && !aggressive && !inStartAngerSequence && !didHitRat;
 
-        if (angered && isAngrilyPassive) {
+        if (inStartAngerSequence) {
+            StopAllCoroutines();
+            StartCoroutine(startAngerSequence());
+        } else if (angered && isAngrilyPassive) {
             StopAllCoroutines();
             StartCoroutine(mainAngerLoop());
         } else if (!angered && isNormallyPassive) {
