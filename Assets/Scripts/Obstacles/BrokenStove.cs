@@ -29,8 +29,6 @@ public class BrokenStove : MonoBehaviour
     private void Start() {
         meshRender = GetComponent<MeshRenderer>();
         meshRender.material.color = normalColor;
-        activate();
-
         audioManager = GetComponent<BrokenStoveAudioManager>();
     }
 

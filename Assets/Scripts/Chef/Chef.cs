@@ -134,6 +134,9 @@ public class Chef : MonoBehaviour
     // Audio variables
     private ChefAudioManager audioManager;
 
+    // Activation flag handling
+    private bool willDeactivate = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -180,9 +183,10 @@ public class Chef : MonoBehaviour
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         bool interrupted = false;
+        bool divertFocusOnIssue = targetedSolution != null && highestPriorityIssue != null;
 
         // If you were interrupted by a higher priority issue and you were holding onto a solutionObject for a hazard, put the solution object back
-        if (targetedSolution != null && highestPriorityIssue != null) {
+        if (divertFocusOnIssue) {
             navMeshAgent.enabled = false;
             faceHighPriorityIssue();
             audioManager.playChefAlert();
@@ -205,6 +209,10 @@ public class Chef : MonoBehaviour
             if (highestPriorityIssue != null) {
                 yield return solveIssue(interrupted);
                 interrupted = false;
+
+                if (willDeactivate && highestPriorityIssue == null) {
+                    yield return deactivateChefFromActiveBranch();
+                }
             }
             else if (!aggressive)
             {
@@ -213,6 +221,10 @@ public class Chef : MonoBehaviour
             else
             {
                 yield return doAggressiveAction(chaseMovementSpeed);
+                
+                if (willDeactivate && !aggressive) {
+                    yield return deactivateChefFromActiveBranch();
+                }
             }
         }
     }
@@ -736,6 +748,43 @@ public class Chef : MonoBehaviour
     {
         facingRight = !facingRight;
         characterSprite.flipX = !characterSprite.flipX;
+    }
+
+    // Main method to activate the chef
+    public void activateChef() {
+        gameObject.SetActive(true);
+        willDeactivate = false;
+
+        if (angered) {
+            StartCoroutine(mainAngerLoop());
+        } else {
+            StartCoroutine(mainIntelligenceLoop());
+        }
+    }
+
+    // Main method to deactivat ethe chef
+    public void deactivateChef() {
+        
+        // Check if chef can just easily deactivate (In the most passive state)
+        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive;
+        bool isAngrilyPassive = angered && sensedTrap != null && !aggressive;
+
+        if (isNormallyPassive || isAngrilyPassive) {
+            StopAllCoroutines();
+            gameObject.SetActive(false);
+        } else {
+            // If not, chef must easily deactivate near stock pot
+            willDeactivate = true;
+        }
+    }
+
+    // Private IEnumerator sequence to deactivate the chef from a nonpassive branch
+    private IEnumerator deactivateChefFromActiveBranch() {
+        yield return goToPosition(cookingStation.transform.position);
+        
+        StopAllCoroutines();
+        gameObject.SetActive(false);
+        willDeactivate = false;
     }
 
 }
