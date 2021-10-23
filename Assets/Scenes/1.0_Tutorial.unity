@@ -2589,6 +2589,8 @@ GameObject:
   - component: {fileID: 150930864}
   - component: {fileID: 150930863}
   - component: {fileID: 150930862}
+  - component: {fileID: 150930861}
+  - component: {fileID: 150930866}
   m_Layer: 2
   m_Name: RoomSensor (3)
   m_TagString: Untagged
@@ -2610,6 +2612,18 @@ Transform:
   m_Father: {fileID: 1204393968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150930861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150930859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a321a38b6d532a58536c6f5c7c3496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &150930862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,6 +2696,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150930859}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &150930866
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150930859}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!122 &152756678 stripped
 Halo:
   m_CorrespondingSourceObject: {fileID: 1584449588854265831, guid: d20ba2a8134437e3d80f1253d92197b6,
@@ -13860,7 +13890,7 @@ GameObject:
   - component: {fileID: 1204393970}
   - component: {fileID: 1204393969}
   m_Layer: 0
-  m_Name: Room4Sensor
+  m_Name: Room4Floor
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19265,6 +19295,8 @@ GameObject:
   - component: {fileID: 1677817819}
   - component: {fileID: 1677817818}
   - component: {fileID: 1677817817}
+  - component: {fileID: 1677817821}
+  - component: {fileID: 1677817822}
   m_Layer: 2
   m_Name: RoomSensor (3)
   m_TagString: Untagged
@@ -19358,6 +19390,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677817815}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1677817821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677817815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a321a38b6d532a58536c6f5c7c3496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1677817822
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677817815}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &1683148265
 PrefabInstance:
   m_ObjectHideFlags: 0
