@@ -14,11 +14,11 @@ public class FireHazard : MonoBehaviour
     }
 
     // Method for OnTriggerStay for the player, if player stays in fire, damage the player
-    void OnTriggerStay(Collider collider) {
-        RatController3D ratPlayer = collider.GetComponent<RatController3D>();
+    // void OnTriggerStay(Collider collider) {
+    //     RatController3D ratPlayer = collider.GetComponent<RatController3D>();
 
-        if (ratPlayer != null) {
-            ratPlayer.takeDamage();
-        }
-    }
+    //     if (ratPlayer != null) {
+    //         ratPlayer.takeDamage();
+    //     }
+    // }
 }

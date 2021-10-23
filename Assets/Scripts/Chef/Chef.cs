@@ -107,6 +107,7 @@ public class Chef : MonoBehaviour
 
     // Anger handling
     private bool angered = false;
+    private bool inStartAngerSequence = false;
 
     // Variables for getting solutions
     private bool sensingSolutions = false;
@@ -297,7 +298,7 @@ public class Chef : MonoBehaviour
 
     // Main ienumerator introducing to anger
     private IEnumerator startAngerSequence() {
-        
+        inStartAngerSequence = true;
         canSpotRat = false;
         navMeshAgent.enabled = false;
         animator.SetBool("angry", true);
@@ -309,6 +310,11 @@ public class Chef : MonoBehaviour
         navMeshAgent.enabled = true;
         canSpotRat = true;
         aggressiveAction.makeAngry();
+        inStartAngerSequence = false;
+
+        if (willDeactivate) {
+            yield return deactivateChefFromActiveBranch();
+        }
 
         if (chefSensing.currentRatTarget != null) {
             aggressive = true;
@@ -814,11 +820,13 @@ public class Chef : MonoBehaviour
 
         // Check if chef is literally in any state that's not passive first
         bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
-        bool isAngrilyPassive = sensedTrap == null && !aggressive && !didHitRat;
+        bool isAngrilyPassive = sensedTrap == null && !aggressive && !inStartAngerSequence && !didHitRat;
 
         if (angered && isAngrilyPassive) {
+            StopAllCoroutines();
             StartCoroutine(mainAngerLoop());
         } else if (!angered && isNormallyPassive) {
+            StopAllCoroutines();
             StartCoroutine(mainIntelligenceLoop());
         }
     }
@@ -828,7 +836,7 @@ public class Chef : MonoBehaviour
         
         // Check if chef can just easily deactivate (In the most passive state)
         bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
-        bool isAngrilyPassive = angered && sensedTrap == null && !aggressive && !didHitRat;
+        bool isAngrilyPassive = angered && sensedTrap == null && !aggressive && !inStartAngerSequence && !didHitRat;
 
         if (isNormallyPassive || isAngrilyPassive) {
             StopAllCoroutines();
