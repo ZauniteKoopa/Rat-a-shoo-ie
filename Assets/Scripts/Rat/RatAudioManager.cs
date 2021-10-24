@@ -24,7 +24,7 @@ public class RatAudioManager : MonoBehaviour
         AudioClip curClip = ratDamageSoundClips[randomIndex];
 
         speaker.clip = curClip;
-        speaker.Play();
+        speaker.PlayOneShot(curClip);
     }
 
     public void emitPickupSound()
@@ -33,7 +33,7 @@ public class RatAudioManager : MonoBehaviour
         AudioClip curClip = ratPickupSoundClips[randomIndex];
 
         speaker.clip = curClip;
-        speaker.Play();
+        speaker.PlayOneShot(curClip, 0.6f);
     }
 
     public void emitDropSound()
@@ -42,6 +42,6 @@ public class RatAudioManager : MonoBehaviour
         AudioClip curClip = ratDropSoundClips[randomIndex];
 
         speaker.clip = curClip;
-        speaker.Play();
+        speaker.PlayOneShot(curClip, 0.6f);
     }
 }

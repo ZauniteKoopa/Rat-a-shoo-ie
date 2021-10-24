@@ -24,10 +24,10 @@ public class UIAudioManager : MonoBehaviour
         }
         else
         {
-            speaker.volume = 0.6f;
+            speaker.volume = 0.4f;
         }
 
         speaker.clip = curClip;
-        speaker.Play();
+        speaker.PlayOneShot(curClip);
     }
 }
