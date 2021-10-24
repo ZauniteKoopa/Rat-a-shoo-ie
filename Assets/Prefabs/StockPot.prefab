@@ -310,6 +310,9 @@ MonoBehaviour:
   cookingPot: {fileID: 21300000, guid: d19fcf65765f3ba71a3edc6f09b5cc64, type: 3}
   rottenPot: {fileID: 21300000, guid: c08e88316fb3364a2b099d3ff4ea4062, type: 3}
   stenchLines: {fileID: 207885425}
+  taintedMealEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &1373972675
 AudioSource:
   m_ObjectHideFlags: 0
@@ -322,7 +325,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

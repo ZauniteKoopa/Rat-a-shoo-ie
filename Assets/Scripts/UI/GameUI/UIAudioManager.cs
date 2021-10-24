@@ -28,6 +28,6 @@ public class UIAudioManager : MonoBehaviour
         }
 
         speaker.clip = curClip;
-        speaker.Play();
+        speaker.PlayOneShot(curClip);
     }
 }
