@@ -1828,6 +1828,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5609412058208743045, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609412058208743045, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609412058208743045, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609412058208743045, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609412058208743045, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678778, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: m_Name
@@ -1958,6 +1983,11 @@ PrefabInstance:
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 5946934280357664422}
+    - target: {fileID: 8200095423333824991, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce650d94a633399e89b9f9633bd86d83, type: 3}
 --- !u!1 &1132321846
