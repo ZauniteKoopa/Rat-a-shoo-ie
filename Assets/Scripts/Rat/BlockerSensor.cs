@@ -13,8 +13,17 @@ public class BlockerSensor : MonoBehaviour
             numCollidingObjects++;
             DestroyableObject destroyableObject = collider.GetComponent<DestroyableObject>();
 
+            // Get destroyable parent
+            DestroyableObject destroyableParent = null;
+            if (collider.transform.parent != null) {
+                destroyableParent = collider.transform.parent.GetComponent<DestroyableObject>();
+            }
+
+            // Listen to event if object has been destroyed
             if (destroyableObject != null) {
                 destroyableObject.destroyObjectEvent.AddListener(onColliderDestroyed);
+            } else if(destroyableParent != null) {
+                destroyableParent.destroyObjectEvent.AddListener(onColliderDestroyed);
             }
         }
     }
@@ -23,11 +32,19 @@ public class BlockerSensor : MonoBehaviour
     private void OnTriggerExit(Collider collider) {
         if (collider.tag == "Platform") {
             numCollidingObjects--;
-
             DestroyableObject destroyableObject = collider.GetComponent<DestroyableObject>();
 
+            // Get destroyable parent
+            DestroyableObject destroyableParent = null;
+            if (collider.transform.parent != null) {
+                destroyableParent = collider.transform.parent.GetComponent<DestroyableObject>();
+            }
+
+            // Connect variables
             if (destroyableObject != null) {
                 destroyableObject.destroyObjectEvent.RemoveListener(onColliderDestroyed);
+            } else if (destroyableParent != null) {
+                destroyableParent.destroyObjectEvent.RemoveListener(onColliderDestroyed);
             }
         }
     }

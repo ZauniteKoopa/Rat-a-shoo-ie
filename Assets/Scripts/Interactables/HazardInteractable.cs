@@ -65,7 +65,7 @@ public class HazardInteractable : ResetInteractable
                 hazardCreatedEvent.Invoke();
                 Transform hazardTransform = Object.Instantiate(hazardCaused, transform.position, Quaternion.identity);
                 curHazard = hazardTransform.GetComponent<IssueObject>();
-                hazardTransform.up = collision.GetContact(0).normal;
+                //hazardTransform.up = collision.GetContact(0).normal;
                 falling = false;
 
                 // "destroy" object by sending object to purgatory, locked position

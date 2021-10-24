@@ -19,10 +19,18 @@ public class FeetSensor3D : MonoBehaviour
 
             numTouchingObjects++;
 
-            // Check if platform is destroyable
+            // Check if platform or its parent is destroyable
             DestroyableObject destroyable = collider.GetComponent<DestroyableObject>();
+
+            DestroyableObject destroyableParent = null;
+            if (collider.transform.parent != null) {
+                destroyableParent = collider.transform.parent.GetComponent<DestroyableObject>();
+            }
+
             if (destroyable != null) {
                 destroyable.destroyObjectEvent.AddListener(onPlatformDestroyed);
+            } else if (destroyableParent != null) {
+                destroyableParent.destroyObjectEvent.AddListener(onPlatformDestroyed);
             }
 
             CageSensor cageSensor = collider.GetComponent<CageSensor>();
@@ -41,10 +49,18 @@ public class FeetSensor3D : MonoBehaviour
                 leavingEvent.Invoke();
             }
 
-            // Check if platform is destroyable
+            // Check if platform or its parent is destroyable
             DestroyableObject destroyable = collider.GetComponent<DestroyableObject>();
+
+            DestroyableObject destroyableParent = null;
+            if (collider.transform.parent != null) {
+                destroyableParent = collider.transform.parent.GetComponent<DestroyableObject>();
+            }
+
             if (destroyable != null) {
                 destroyable.destroyObjectEvent.RemoveListener(onPlatformDestroyed);
+            } else if (destroyableParent != null) {
+                destroyableParent.destroyObjectEvent.RemoveListener(onPlatformDestroyed);
             }
 
             CageSensor cageSensor = collider.GetComponent<CageSensor>();
