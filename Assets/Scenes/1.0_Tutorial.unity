@@ -9579,6 +9579,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: mainTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 79bc1e0af048c504494af2ece2442c35, type: 3}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: chaseTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 9325bde1afecf0e459f2a161ad17c101, type: 3}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: ambientTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ba05d64ded26db4c8635e6a31f577e3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
 --- !u!1 &777498559

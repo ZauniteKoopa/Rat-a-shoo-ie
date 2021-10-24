@@ -272,7 +272,9 @@ public class ToDoList : MonoBehaviour
 
     // Main event handler method for when player swipes mobile device right
     public void onPlayerSwipeRight() {
-        StartCoroutine(bringListUp());
+        if (!taskListShown) {
+            StartCoroutine(bringListUp());
+        }
     }
 
     // Method when player tries to escape

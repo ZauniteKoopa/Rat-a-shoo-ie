@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip[] mainTracks = null;
+    private AudioClip mainTrack = null;
     [SerializeField]
-    private AudioClip[] chaseTracks = null;
+    private AudioClip chaseTrack = null;
     [SerializeField]
-    private AudioClip[] ambientTracks = null;
+    private AudioClip ambientTrack = null;
     public AudioSource baseMusic;
     public AudioSource chaseMusic;
     public AudioSource ambientMusic;
@@ -23,9 +23,9 @@ public class MusicManager : MonoBehaviour
     {
         int curLevel = SceneManager.GetActiveScene().buildIndex;
         // print("level" + curLevel);
-        AudioClip baseLevel = mainTracks[curLevel];
-        AudioClip chaseLevel = chaseTracks[curLevel];
-        AudioClip ambientLevel = ambientTracks[curLevel];
+        AudioClip baseLevel = mainTrack;
+        AudioClip chaseLevel = chaseTrack;
+        AudioClip ambientLevel = ambientTrack;
 
         baseMusic.clip = baseLevel;
         baseMusic.Play();
