@@ -2880,12 +2880,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderBoard (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2463006486549422637, guid: ab0edc520b1e7c1f8a7c69b147bc7a8a,
-        type: 3}
-      propertyPath: shownRecipe
-      value: 
-      objectReference: {fileID: 11400000, guid: b877e9996a6af7b6d9e62ca73d209270,
-        type: 2}
     - target: {fileID: 2463006486549422673, guid: ab0edc520b1e7c1f8a7c69b147bc7a8a,
         type: 3}
       propertyPath: m_LocalPosition.x
