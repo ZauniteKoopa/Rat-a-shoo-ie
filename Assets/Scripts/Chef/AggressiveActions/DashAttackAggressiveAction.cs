@@ -24,7 +24,11 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     [SerializeField]
     private float angerAcceleration = 10f;
     [SerializeField]
-    private GameObject hitbox = null;
+    private GameObject dashHitbox = null;
+    [SerializeField]
+    private GameObject slashHitbox = null;
+    [SerializeField]
+    private float slashTime = 0.25f;
 
     private Vector3 lockedTarget = Vector3.zero;
     private bool locked = false;
@@ -109,7 +113,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         audioManager.playChefAttack();
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
-        hitbox.SetActive(true);
+        dashHitbox.SetActive(true);
 
         // Dash sequence
         while (timer <= maxDashTime) {
@@ -121,10 +125,16 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
             dashLineRender.SetPosition(0, transform.position);
         }
 
-        hitbox.SetActive(false);
+        dashHitbox.SetActive(false);
         transform.position = lockedTarget;
-        locked = false;
         dashLineRender.enabled = false;
+
+        // Slash sequence
+        slashHitbox.SetActive(true);
+        yield return new WaitForSeconds(slashTime);
+        slashHitbox.SetActive(false);
+
+        locked = false;
         chefCollider.enabled = true;
         animator.SetBool("attacking", false);
 
@@ -141,6 +151,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         float maxDashTime = calculateDashTime();
         float timer = 0.0f;
         Vector3 originalPos = transform.position;
+        dashHitbox.SetActive(true);
 
         // Dash sequence
         while (timer <= maxDashTime) {
@@ -152,9 +163,16 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
             dashLineRender.SetPosition(0, transform.position);
         }
 
+        dashHitbox.SetActive(false);
         transform.position = lockedTarget;
-        locked = false;
         dashLineRender.enabled = false;
+
+        // Slash sequence
+        slashHitbox.SetActive(true);
+        yield return new WaitForSeconds(slashTime);
+        slashHitbox.SetActive(false);
+
+        locked = false;
         chefCollider.enabled = true;
     }
 

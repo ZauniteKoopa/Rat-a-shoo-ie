@@ -15520,6 +15520,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
+      propertyPath: hazardCreatedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
+        type: 3}
       propertyPath: hazardCreatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 925328308}

@@ -110,7 +110,7 @@ public class ToDoList : MonoBehaviour
             } else if (initialTasks[i] == TaskType.MAKE_FIRE) {
                 taskLabels[i].text = "Burn up property!";
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
-                taskLabels[i].text = "Make mess!";
+                taskLabels[i].text = "Break big fragile property!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_MOVE) {
                 string movementControls = (Application.platform == RuntimePlatform.Android) ? "left stick" : "WASD";
                 taskLabels[i].text = "Move with " + movementControls + "!";
