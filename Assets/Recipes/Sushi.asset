@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42aa7bd65a0f6ab2f8f0ceccc3a82472, type: 3}
+  m_Name: Sushi
+  m_EditorClassIdentifier: 
+  ingredientSteps: 0600000007000000
+  resistSpicy: 0
+  resistPoison: 0
+  foodSprite: {fileID: 106703475901614934, guid: 2c76d50b690f185a693f6528301d815f,
+    type: 3}
