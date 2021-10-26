@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 2ab3b3309b8824c9bafe9e70bd293457
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6998236452814962893
+    second: sushi_anger_2_0
+  - first:
+      213: -1367929759108269044
+    second: sushi_anger_2_1
+  - first:
+      213: -6149998049910950230
+    second: sushi_anger_2_2
+  - first:
+      213: -7395553477969093608
+    second: sushi_anger_2_3
+  - first:
+      213: -5331729968008359171
+    second: sushi_anger_2_4
+  - first:
+      213: -1356441309352551190
+    second: sushi_anger_2_5
+  - first:
+      213: 955406354849653197
+    second: sushi_anger_2_6
+  - first:
+      213: 1259957067875023809
+    second: sushi_anger_2_7
+  - first:
+      213: -18840185072897000
+    second: sushi_anger_2_8
+  - first:
+      213: -7714306675066148564
+    second: sushi_anger_2_9
+  - first:
+      213: -813233241338828002
+    second: sushi_anger_2_10
+  - first:
+      213: 2483266593339951306
+    second: sushi_anger_2_11
+  - first:
+      213: 7325024262763179087
+    second: sushi_anger_2_12
+  - first:
+      213: 7033363855137247470
+    second: sushi_anger_2_13
+  - first:
+      213: 1777573385324211040
+    second: sushi_anger_2_14
+  - first:
+      213: 5502237473216338630
+    second: sushi_anger_2_15
+  - first:
+      213: -6423912436233283841
+    second: sushi_anger_2_16
+  - first:
+      213: 7316313949256142598
+    second: sushi_anger_2_17
+  - first:
+      213: 8832915422999721166
+    second: sushi_anger_2_18
+  - first:
+      213: 8514120298932142623
+    second: sushi_anger_2_19
+  - first:
+      213: -6127784951273292173
+    second: sushi_anger_2_20
+  - first:
+      213: -3153475256119872184
+    second: sushi_anger_2_21
+  - first:
+      213: -3817566489918597590
+    second: sushi_anger_2_22
+  - first:
+      213: -6411131364006174216
+    second: sushi_anger_2_23
+  - first:
+      213: -3398072235857399186
+    second: sushi_anger_2_24
+  - first:
+      213: -2557890507159397880
+    second: sushi_anger_2_25
+  - first:
+      213: 7910442697468763542
+    second: sushi_anger_2_26
+  - first:
+      213: -5449311432654230284
+    second: sushi_anger_2_27
+  - first:
+      213: 4114809070632148167
+    second: sushi_anger_2_28
+  - first:
+      213: 3841330922715875305
+    second: sushi_anger_2_29
+  - first:
+      213: 2391329457711409182
+    second: sushi_anger_2_30
+  - first:
+      213: -345841099878090763
+    second: sushi_anger_2_31
+  - first:
+      213: -7814442563977350496
+    second: sushi_anger_2_32
+  - first:
+      213: -9160199777556279082
+    second: sushi_anger_2_33
+  - first:
+      213: 72533633781496263
+    second: sushi_anger_2_34
+  - first:
+      213: -7222479186770044919
+    second: sushi_anger_2_35
+  - first:
+      213: 6261333546518613697
+    second: sushi_anger_2_36
+  - first:
+      213: -4457861711000837251
+    second: sushi_anger_2_37
+  - first:
+      213: -5629401734150024076
+    second: sushi_anger_2_38
+  - first:
+      213: -1879596395391676051
+    second: sushi_anger_2_39
+  - first:
+      213: -6829302751747930707
+    second: sushi_anger_2_40
+  - first:
+      213: 4729626423513589407
+    second: sushi_anger_2_41
+  - first:
+      213: 5091304338707303643
+    second: sushi_anger_2_42
+  - first:
+      213: 2707961261130990195
+    second: sushi_anger_2_43
+  - first:
+      213: 4082564701186229278
+    second: sushi_anger_2_44
+  - first:
+      213: 1125626983624853067
+    second: sushi_anger_2_45
+  - first:
+      213: 2151458352751081317
+    second: sushi_anger_2_46
+  - first:
+      213: -6352415428416533879
+    second: sushi_anger_2_47
+  - first:
+      213: -3387542840111168565
+    second: sushi_anger_2_48
+  - first:
+      213: -5500709347584855300
+    second: sushi_anger_2_49
+  - first:
+      213: -4364165680444317849
+    second: sushi_anger_2_50
+  - first:
+      213: 6086260016860913178
+    second: sushi_anger_2_51
+  - first:
+      213: -8392045641780562128
+    second: sushi_anger_2_52
+  - first:
+      213: -1492250081122473708
+    second: sushi_anger_2_53
+  - first:
+      213: 6717006265797524885
+    second: sushi_anger_2_54
+  - first:
+      213: -4607968625241989213
+    second: sushi_anger_2_55
+  - first:
+      213: 2587895888212733626
+    second: sushi_anger_2_56
+  - first:
+      213: -7227683987733207819
+    second: sushi_anger_2_57
+  - first:
+      213: -1610524401603736775
+    second: sushi_anger_2_58
+  - first:
+      213: 1984485702994634060
+    second: sushi_anger_2_59
+  - first:
+      213: 5235452043438374266
+    second: sushi_anger_2_60
+  - first:
+      213: -5395970828453027257
+    second: sushi_anger_2_61
+  - first:
+      213: 4441389437992833111
+    second: sushi_anger_2_62
+  - first:
+      213: 8623246154874789306
+    second: sushi_anger_2_63
+  - first:
+      213: -2055589755777485813
+    second: sushi_anger_2_64
+  - first:
+      213: -5154007622021785598
+    second: sushi_anger_2_65
+  - first:
+      213: -3975664424156633089
+    second: sushi_anger_2_66
+  - first:
+      213: -1404933559572238397
+    second: sushi_anger_2_67
+  - first:
+      213: -1027506929519816369
+    second: sushi_anger_2_68
+  - first:
+      213: -8071047392524655927
+    second: sushi_anger_2_69
+  - first:
+      213: -9180187861913671402
+    second: sushi_anger_2_70
+  - first:
+      213: 3597579328016790063
+    second: sushi_anger_2_71
+  - first:
+      213: -171740756363907636
+    second: sushi_anger_2_72
+  - first:
+      213: 3964704557364953522
+    second: sushi_anger_2_73
+  - first:
+      213: -6921423922671660170
+    second: sushi_anger_2_74
+  - first:
+      213: 5171811128198398164
+    second: sushi_anger_2_75
+  - first:
+      213: -7956431172913920202
+    second: sushi_anger_2_76
+  - first:
+      213: 5294505111247178485
+    second: sushi_anger_2_77
+  - first:
+      213: -2932738973016932530
+    second: sushi_anger_2_78
+  - first:
+      213: -9066134223590265518
+    second: sushi_anger_2_79
+  - first:
+      213: -7631135161855766689
+    second: sushi_anger_2_80
+  - first:
+      213: 7283965574132763327
+    second: sushi_anger_2_81
+  - first:
+      213: 4407446709453153239
+    second: sushi_anger_2_82
+  - first:
+      213: 992209212509626777
+    second: sushi_anger_2_83
+  - first:
+      213: 1011093930738902499
+    second: sushi_anger_2_84
+  - first:
+      213: 4412634399232674258
+    second: sushi_anger_2_85
+  - first:
+      213: -520752619095201979
+    second: sushi_anger_2_86
+  - first:
+      213: 6778364584627504326
+    second: sushi_anger_2_87
+  - first:
+      213: -5579675903067079053
+    second: sushi_anger_2_88
+  - first:
+      213: 718483956043197235
+    second: sushi_anger_2_89
+  - first:
+      213: -5470263370327014914
+    second: sushi_anger_2_90
+  - first:
+      213: 3525370038766759342
+    second: sushi_anger_2_91
+  - first:
+      213: 3663981710719142169
+    second: sushi_anger_2_92
+  - first:
+      213: 5068355796033035517
+    second: sushi_anger_2_93
+  - first:
+      213: -7747056901063669319
+    second: sushi_anger_2_94
+  - first:
+      213: -6655973481940274080
+    second: sushi_anger_2_95
+  - first:
+      213: 3438774841134678651
+    second: sushi_anger_2_96
+  - first:
+      213: -2229831213529614525
+    second: sushi_anger_2_97
+  - first:
+      213: -4957275724954819872
+    second: sushi_anger_2_98
+  - first:
+      213: 5779290640926513492
+    second: sushi_anger_2_99
+  - first:
+      213: 7392046348505754746
+    second: sushi_anger_2_100
+  - first:
+      213: 8840984093405719396
+    second: sushi_anger_2_101
+  - first:
+      213: 6427116481457625112
+    second: sushi_anger_2_102
+  - first:
+      213: -7369610968641494205
+    second: sushi_anger_2_103
+  - first:
+      213: 1682316006529048613
+    second: sushi_anger_2_104
+  - first:
+      213: 1515752466831936879
+    second: sushi_anger_2_105
+  - first:
+      213: 7781777055939061181
+    second: sushi_anger_2_106
+  - first:
+      213: 3520628420241979840
+    second: sushi_anger_2_107
+  - first:
+      213: -1813602969521251304
+    second: sushi_anger_2_108
+  - first:
+      213: -6980050290354363346
+    second: sushi_anger_2_109
+  - first:
+      213: 539701977070620326
+    second: sushi_anger_2_110
+  - first:
+      213: 5398112487778495881
+    second: sushi_anger_2_111
+  - first:
+      213: 1233623364966041552
+    second: sushi_anger_2_112
+  - first:
+      213: 8624167534774578889
+    second: sushi_anger_2_113
+  - first:
+      213: -1838616021568399295
+    second: sushi_anger_2_114
+  - first:
+      213: 7399118554775822203
+    second: sushi_anger_2_115
+  - first:
+      213: -6981785648757515369
+    second: sushi_anger_2_116
+  - first:
+      213: 3635138502105116954
+    second: sushi_anger_2_117
+  - first:
+      213: -3232481303349395668
+    second: sushi_anger_2_3
+  - first:
+      213: -4078573932116801222
+    second: sushi_anger_2_4
+  - first:
+      213: -552171720777815380
+    second: sushi_anger_2_5
+  - first:
+      213: 6922341805743911384
+    second: sushi_anger_2_6
+  - first:
+      213: 5134543517653445079
+    second: sushi_anger_2_7
+  - first:
+      213: 6555898934103732001
+    second: sushi_anger_2_8
+  - first:
+      213: 8891523757245395061
+    second: sushi_anger_2_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sushi_anger_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.4322625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0c930c9fabe1160800000000000000
+      internalID: 6998236452814962893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_1
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.46727228, y: 0.4407297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c7aa6b123240de0800000000000000
+      internalID: -1367929759108269044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_2
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.4322625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa676b19b51d6aaa0800000000000000
+      internalID: -6149998049910950230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_3
+      rect:
+        serializedVersion: 2
+        x: 2946
+        y: 0
+        width: 983
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.48363647, y: 0.42379534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f74ca816be323d0800000000000000
+      internalID: -3232481303349395668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_4
+      rect:
+        serializedVersion: 2
+        x: 3928
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.4322625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3982023e9ef567c0800000000000000
+      internalID: -4078573932116801222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_5
+      rect:
+        serializedVersion: 2
+        x: 4910
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.46727166, y: 0.4322625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaa508deba4658f0800000000000000
+      internalID: -552171720777815380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_6
+      rect:
+        serializedVersion: 2
+        x: 5892
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.4407297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1b3393239111060800000000000000
+      internalID: 6922341805743911384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_7
+      rect:
+        serializedVersion: 2
+        x: 6874
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.4322625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9a4851020914740800000000000000
+      internalID: 5134543517653445079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_8
+      rect:
+        serializedVersion: 2
+        x: 7856
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.42379534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f6d9e885b3bfa50800000000000000
+      internalID: 6555898934103732001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_2_9
+      rect:
+        serializedVersion: 2
+        x: 8838
+        y: 0
+        width: 982.6
+        height: 1899
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.4407297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570fe867fb9056b70800000000000000
+      internalID: 8891523757245395061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

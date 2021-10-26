@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: 8e7666208e74a4ab1beea01482a30171
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6528831127464327935
+    second: sushi_anger_1_0
+  - first:
+      213: -5544546159558695376
+    second: sushi_anger_1_1
+  - first:
+      213: 1683610311900726259
+    second: sushi_anger_1_2
+  - first:
+      213: 677037607760772696
+    second: sushi_anger_1_3
+  - first:
+      213: -281311423150017495
+    second: sushi_anger_1_4
+  - first:
+      213: -8717633472823265645
+    second: sushi_anger_1_5
+  - first:
+      213: 3747206003366401546
+    second: sushi_anger_1_6
+  - first:
+      213: -3386934054377754350
+    second: sushi_anger_1_7
+  - first:
+      213: 5317084119884188542
+    second: sushi_anger_1_8
+  - first:
+      213: 5954937442989561444
+    second: sushi_anger_1_9
+  - first:
+      213: -8016869539015697967
+    second: sushi_anger_1_10
+  - first:
+      213: 2087361941354645940
+    second: sushi_anger_1_11
+  - first:
+      213: -4227732052342807547
+    second: sushi_anger_1_12
+  - first:
+      213: -7906130594026070552
+    second: sushi_anger_1_13
+  - first:
+      213: -7482346809825630159
+    second: sushi_anger_1_0
+  - first:
+      213: 598188119802103490
+    second: sushi_anger_1_1
+  - first:
+      213: 4756405964283567505
+    second: sushi_anger_1_2
+  - first:
+      213: -391662183256823290
+    second: sushi_anger_1_3
+  - first:
+      213: -8936205166789692890
+    second: sushi_anger_1_4
+  - first:
+      213: -6967421298327853431
+    second: sushi_anger_1_5
+  - first:
+      213: 5863542388992601511
+    second: sushi_anger_1_6
+  - first:
+      213: 588264870891864905
+    second: sushi_anger_1_7
+  - first:
+      213: 715212125277342542
+    second: sushi_anger_1_8
+  - first:
+      213: 5415117683559117085
+    second: sushi_anger_1_9
+  - first:
+      213: 1797643438980314162
+    second: sushi_anger_1_10
+  - first:
+      213: -4449542088691361104
+    second: sushi_anger_1_11
+  - first:
+      213: -7876281806483786183
+    second: sushi_anger_1_12
+  - first:
+      213: 426188073101537672
+    second: sushi_anger_1_13
+  - first:
+      213: -8615199086171848966
+    second: sushi_anger_1_14
+  - first:
+      213: 5213553919711767206
+    second: sushi_anger_1_15
+  - first:
+      213: 2249382052984104373
+    second: sushi_anger_1_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sushi_anger_1_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 279
+        width: 943
+        height: 1614
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138e01a383d592890800000000000000
+      internalID: 6528831127464327935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_1
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 291
+        width: 943
+        height: 1602
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c6c9a5fce03d4800800000000000000
+      internalID: -5544546159558695376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_2
+      rect:
+        serializedVersion: 2
+        x: 1915
+        y: 295
+        width: 616
+        height: 1597
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ddba42606220240800000000000000
+      internalID: 1683610311900726259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_3
+      rect:
+        serializedVersion: 2
+        x: 2543
+        y: 301
+        width: 612
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ae507c159809af0800000000000000
+      internalID: 677037607760772696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_4
+      rect:
+        serializedVersion: 2
+        x: 3167
+        y: 306
+        width: 611
+        height: 1587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6227d713fb83cf380800000000000000
+      internalID: -281311423150017495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_5
+      rect:
+        serializedVersion: 2
+        x: 3790
+        y: 300
+        width: 609
+        height: 1593
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9866da08e3fbe4f90800000000000000
+      internalID: -8717633472823265645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_6
+      rect:
+        serializedVersion: 2
+        x: 4411
+        y: 337
+        width: 665
+        height: 1556
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad69558cbc7f5150800000000000000
+      internalID: 3747206003366401546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_7
+      rect:
+        serializedVersion: 2
+        x: 5088
+        y: 350
+        width: 681
+        height: 1543
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 943c95788cfe92800800000000000000
+      internalID: -3386934054377754350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_8
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 169
+        width: 995
+        height: 1724
+      alignment: 9
+      pivot: {x: 0.5000015, y: 0.40270376}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b453a73a1fce900800000000000000
+      internalID: 5317084119884188542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_anger_1_9
+      rect:
+        serializedVersion: 2
+        x: 6778
+        y: 6
+        width: 1101
+        height: 1852
+      alignment: 9
+      pivot: {x: 0.5000013, y: 0.40246144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d113a79b7dc562b40800000000000000
+      internalID: 5954937442989561444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
