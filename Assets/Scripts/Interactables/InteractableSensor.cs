@@ -42,17 +42,7 @@ public class InteractableSensor : MonoBehaviour
     public bool isNearInteractable() {
         // Cull out any objects that have been destroyed if there are any objects to process
         if (inRangeInteractables.Count > 0) {
-            List<GeneralInteractable> destroyedInteractables = new List<GeneralInteractable>();
-
-            foreach (GeneralInteractable interactable in inRangeInteractables) {
-                if (interactable == null || !interactable.canBePickedUp) {
-                    destroyedInteractables.Add(interactable);
-                }
-            }
-
-            foreach (GeneralInteractable interactable in destroyedInteractables) {
-                inRangeInteractables.Remove(interactable);
-            }
+            cullBadInteractables();
         }
 
 
@@ -60,12 +50,33 @@ public class InteractableSensor : MonoBehaviour
         return inRangeInteractables.Count > 0;
     }
 
+    // Helper method to cull interactables
+    private void cullBadInteractables() {
+        List<GeneralInteractable> destroyedInteractables = new List<GeneralInteractable>();
+
+        foreach (GeneralInteractable interactable in inRangeInteractables) {
+            if (interactable == null || !interactable.canBePickedUp) {
+                destroyedInteractables.Add(interactable);
+
+                if (interactable != null && !interactable.canBePickedUp) {
+                    interactable.interactablePickUpEnabledEvent.AddListener(onInteractableEnabled);
+                }
+            }
+        }
+
+        foreach (GeneralInteractable interactable in destroyedInteractables) {
+            inRangeInteractables.Remove(interactable);
+        }
+    }
+
     // If on trigger enter, put interactable in the set
     void OnTriggerEnter(Collider collider) {
         GeneralInteractable hitInteractable = collider.transform.GetComponent<GeneralInteractable>();
 
-        if (hitInteractable != null) {
+        if (hitInteractable != null && hitInteractable.canBePickedUp) {
             inRangeInteractables.Add(hitInteractable);
+        } else if (hitInteractable != null && !hitInteractable.canBePickedUp) {
+            hitInteractable.interactablePickUpEnabledEvent.AddListener(onInteractableEnabled);
         }
     }
 
@@ -73,8 +84,15 @@ public class InteractableSensor : MonoBehaviour
     void OnTriggerExit(Collider collider) {
         GeneralInteractable hitInteractable = collider.transform.GetComponent<GeneralInteractable>();
 
-        if (hitInteractable != null) {
+        if (hitInteractable != null && hitInteractable.canBePickedUp) {
             inRangeInteractables.Remove(hitInteractable);
+        } else if (hitInteractable != null && !hitInteractable.canBePickedUp) {
+            hitInteractable.interactablePickUpEnabledEvent.RemoveListener(onInteractableEnabled);
         }
+    }
+
+    // Event handler method for when an interactable 
+    public void onInteractableEnabled(GeneralInteractable generalInteractable) {
+        inRangeInteractables.Add(generalInteractable);
     }
 }

@@ -3730,7 +3730,7 @@ PrefabInstance:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
@@ -5763,6 +5763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SushiChef
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694601859610406235, guid: 4722e41532bca87cbb7d3599c61f953c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3694601859610406239, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}

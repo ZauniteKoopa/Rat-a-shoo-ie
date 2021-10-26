@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 public enum InteractableWeight {
     LIGHT,
     IMMOVABLE
 }
+
+// Main event class
+public class InteractableDelegate : UnityEvent<GeneralInteractable> {}
 
 public class GeneralInteractable : MonoBehaviour
 {
@@ -16,6 +20,7 @@ public class GeneralInteractable : MonoBehaviour
    // heavy item hooks in local space of the interactable
    [SerializeField]
    private GameObject highlightedIndicator = null;
+   public UnityEvent<GeneralInteractable> interactablePickUpEnabledEvent;
 
    // Event method to indicate interaction start, can be overrided
    public virtual void onPlayerInteractStart() {}

@@ -32,6 +32,7 @@ public class HazardInteractable : ResetInteractable
         audioSource = GetComponent<AudioSource>();
         spawnPosition = transform.position;
         interactableCollider = GetComponent<Collider>();
+        interactablePickUpEnabledEvent = new InteractableDelegate();
     }
 
     public override void onPlayerInteractEnd() {
@@ -43,6 +44,7 @@ public class HazardInteractable : ResetInteractable
         WaitForFixedUpdate waitFrame = new WaitForFixedUpdate();
 
         falling = true;
+        canBePickedUp = false;
 
         // Wait for 2 frames
         yield return waitFrame;
@@ -80,6 +82,8 @@ public class HazardInteractable : ResetInteractable
             }
             else
             {
+                canBePickedUp = true;
+                interactablePickUpEnabledEvent.Invoke(this);
                 audioSource.PlayOneShot(impactSound, 0.5f);
             }
         }
