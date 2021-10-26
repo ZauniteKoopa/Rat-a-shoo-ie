@@ -11123,8 +11123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953865174}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 29.670565, y: 16.97814, z: -43.39}
-  m_LocalScale: {x: 1.5685462, y: 12.426154, z: 0.20967571}
+  m_LocalPosition: {x: 29.670565, y: 16.97814, z: -44.25}
+  m_LocalScale: {x: 3, y: 12.426154, z: 0.20967571}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 104
@@ -14065,8 +14065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4989ec6be12f58ba91fd77b3d60cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localCameraPosition: {x: 0.0327, y: 13.2, z: -0.575}
-  localCameraRotation: {x: 41.979, y: 0, z: 0}
+  localCameraPosition: {x: 0.0323, y: 12.9, z: -0.7}
+  localCameraRotation: {x: 40, y: 0, z: 0}
   spawnPoint: {fileID: 1241983436}
 --- !u!65 &1204393970
 BoxCollider:
