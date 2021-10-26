@@ -19,6 +19,8 @@ public class RatTrap : MonoBehaviour
     private GameObject hitbox = null;
     [SerializeField]
     private TrapSensor trapSensor = null;
+    [SerializeField]
+    private Animator trapAnimator = null;
 
     // On awake, set color to black
     private void Awake() {
@@ -38,6 +40,10 @@ public class RatTrap : MonoBehaviour
         yield return new WaitForSeconds(anticipationTime);
 
         // Attack
+        if (trapAnimator != null) {
+            trapAnimator.SetBool("Activated", true);
+        }
+
         meshRender.material.color = Color.red;
         hitbox.SetActive(true);
         audioManager.playSnapSound();
@@ -50,6 +56,11 @@ public class RatTrap : MonoBehaviour
 
         // If trap is still sensing an object. Trigger it again.
         meshRender.material.color = Color.black;
+
+        if (trapAnimator != null) {
+            trapAnimator.SetBool("Activated", false);
+        }
+
         audioManager.playResetSound();
         yield return new WaitForSeconds(audioManager.getCurrentClipLength());
 
