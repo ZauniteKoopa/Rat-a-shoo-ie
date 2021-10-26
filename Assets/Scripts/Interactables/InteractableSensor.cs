@@ -58,7 +58,7 @@ public class InteractableSensor : MonoBehaviour
             if (interactable == null || !interactable.canBePickedUp) {
                 destroyedInteractables.Add(interactable);
 
-                if (interactable != null && !interactable.canBePickedUp) {
+                if (interactable != null && !interactable.canBePickedUp && interactable.interactablePickUpEnabledEvent != null) {
                     interactable.interactablePickUpEnabledEvent.AddListener(onInteractableEnabled);
                 }
             }
@@ -75,7 +75,7 @@ public class InteractableSensor : MonoBehaviour
 
         if (hitInteractable != null && hitInteractable.canBePickedUp) {
             inRangeInteractables.Add(hitInteractable);
-        } else if (hitInteractable != null && !hitInteractable.canBePickedUp) {
+        } else if (hitInteractable != null && !hitInteractable.canBePickedUp && hitInteractable.interactablePickUpEnabledEvent != null) {
             hitInteractable.interactablePickUpEnabledEvent.AddListener(onInteractableEnabled);
         }
     }
@@ -86,7 +86,7 @@ public class InteractableSensor : MonoBehaviour
 
         if (hitInteractable != null && hitInteractable.canBePickedUp) {
             inRangeInteractables.Remove(hitInteractable);
-        } else if (hitInteractable != null && !hitInteractable.canBePickedUp) {
+        } else if (hitInteractable != null && !hitInteractable.canBePickedUp && hitInteractable.interactablePickUpEnabledEvent != null) {
             hitInteractable.interactablePickUpEnabledEvent.RemoveListener(onInteractableEnabled);
         }
     }
