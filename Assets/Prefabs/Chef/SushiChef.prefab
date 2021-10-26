@@ -325,14 +325,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2331864860939320790}
-  dashAnticipation: 0.8
-  angryDashAnticipation: 0.65
+  dashAnticipation: 0.7
+  angryDashAnticipation: 0.6
   recoilTime: 0.3
   dashSpeed: 35
   angryDashSpeed: 40
   chaseDistance: 3
-  dashRange: 7
-  dashThroughDistance: 2
+  dashRange: 8
+  dashThroughDistance: 2.5
   angerAcceleration: 10
   dashHitbox: {fileID: 8181828447792987199}
   slashHitbox: {fileID: 8629230891892717532}

@@ -58,8 +58,10 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
 
         // Chase rat until chef can't see rat
         bool canDash = isWithinDashRange(chefSensing);
+        bool stillChasingSeenRat = navMeshAgent.remainingDistance > chaseDistance && chefSensing.currentRatTarget != null;
+        bool stillChasingGuessedRat = navMeshAgent.remainingDistance > 1.0f && chefSensing.currentRatTarget == null;
 
-        while (navMeshAgent.remainingDistance < chaseDistance && !canDash) {
+        while ((stillChasingSeenRat || stillChasingGuessedRat) && !canDash) {
             // Update destination if not null
             if (chefSensing.currentRatTarget != null) {
                 navMeshAgent.destination = chefSensing.currentRatTarget.position;
@@ -71,7 +73,10 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
             }
 
             yield return waitFrame;
+
             canDash = isWithinDashRange(chefSensing);
+            stillChasingSeenRat = navMeshAgent.remainingDistance > chaseDistance && chefSensing.currentRatTarget != null;
+            stillChasingGuessedRat = navMeshAgent.remainingDistance > 1.0f && chefSensing.currentRatTarget == null;
         }
 
         // If dash is within range, dash
