@@ -22,9 +22,13 @@ public class UIAudioManager : MonoBehaviour
         {
             speaker.volume = 0.5f;
         }
+        else if (sound == 1)
+        {
+            speaker.volume = 0.6f;
+        } 
         else
         {
-            speaker.volume = 0.4f;
+            speaker.volume = 0.2f;
         }
 
         speaker.clip = curClip;
