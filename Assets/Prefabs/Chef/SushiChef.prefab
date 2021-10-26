@@ -150,6 +150,7 @@ MonoBehaviour:
   - {fileID: 0}
   chaseMovementSpeed: 9
   angryMovementSpeed: 11
+  angryColor: {r: 1, g: 0.5568628, b: 0.5568628, a: 1}
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 1452760979539782580}

@@ -1207,6 +1207,7 @@ MonoBehaviour:
   angryPatrolPoints: []
   chaseMovementSpeed: 9
   angryMovementSpeed: 11
+  angryColor: {r: 1, g: 0.73333335, b: 0.73333335, a: 1}
   surprisedAtIssueDuration: 2
   noSolutionFoundDuration: 2
   chefSprite: {fileID: 7323574232244143832}

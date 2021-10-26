@@ -66,6 +66,8 @@ public class Chef : MonoBehaviour
     private float chaseMovementSpeed = 6f;
     [SerializeField]
     private float angryMovementSpeed = 12f;
+    [SerializeField]
+    private Color angryColor = Color.red;
     private bool aggressive = false;
     private Vector3 lastSeenTarget = Vector3.zero;
     private bool canSpotRat = true;                 //Boolean variable for when rat gets hit and the chef resets to passive points
@@ -301,11 +303,20 @@ public class Chef : MonoBehaviour
         inStartAngerSequence = true;
         canSpotRat = false;
         navMeshAgent.enabled = false;
+
+        // Face order window for a few seconds before getting angry
+        Transform lockedTarget = orderWindow.transform;
+        Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
+        Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.forward = (flattenTarget - flattenPosition).normalized;
+
+        yield return new WaitForSeconds(0.5f);
+
         animator.SetBool("angry", true);
 
         yield return new WaitForSeconds(1.5f);
 
-        animator.GetComponent<SpriteRenderer>().color = Color.red;
+        animator.GetComponent<SpriteRenderer>().color = angryColor;
 
         navMeshAgent.enabled = true;
         canSpotRat = true;
