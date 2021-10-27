@@ -3702,7 +3702,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545532461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13318,7 +13318,7 @@ GameObject:
   - component: {fileID: 1496886795}
   - component: {fileID: 1496886794}
   m_Layer: 8
-  m_Name: Cube (109)
+  m_Name: Invis Wall 4
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17590,7 +17590,7 @@ GameObject:
   - component: {fileID: 1862417813}
   - component: {fileID: 1862417812}
   m_Layer: 8
-  m_Name: Cube (107)
+  m_Name: Invis Wall 2
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17664,8 +17664,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862417811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.405, y: 29.465, z: -20.44}
-  m_LocalScale: {x: 8.719377, y: 1.9961989, z: 0.12732732}
+  m_LocalPosition: {x: -13.923, y: 29.516, z: -20.44}
+  m_LocalScale: {x: 9.808678, y: 2.0987704, z: 0.12732732}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 92
@@ -20357,7 +20357,7 @@ GameObject:
   - component: {fileID: 2127448438}
   - component: {fileID: 2127448437}
   m_Layer: 8
-  m_Name: Cube (105)
+  m_Name: Invis Vent Wall
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20431,8 +20431,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127448436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.637, y: 27.591, z: -20.44}
-  m_LocalScale: {x: 7.4718604, y: 2.090978, z: 0.12732732}
+  m_LocalPosition: {x: -16.83, y: 27.34, z: -20.44}
+  m_LocalScale: {x: 7.4718604, y: 2.5935912, z: 0.12732732}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 89
