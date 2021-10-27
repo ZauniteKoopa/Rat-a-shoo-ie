@@ -270,6 +270,7 @@ public class ToDoList : MonoBehaviour
     // Main event handler method for when player swipes mobile device right
     public void onPlayerSwipeRight() {
         if (!taskListShown) {
+            audioManager.playUISounds(0);
             StartCoroutine(bringListUp());
         }
     }
