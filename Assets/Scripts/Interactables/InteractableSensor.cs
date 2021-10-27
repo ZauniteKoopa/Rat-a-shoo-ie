@@ -87,6 +87,7 @@ public class InteractableSensor : MonoBehaviour
         if (hitInteractable != null && hitInteractable.canBePickedUp) {
             inRangeInteractables.Remove(hitInteractable);
         } else if (hitInteractable != null && !hitInteractable.canBePickedUp && hitInteractable.interactablePickUpEnabledEvent != null) {
+            inRangeInteractables.Remove(hitInteractable);
             hitInteractable.interactablePickUpEnabledEvent.RemoveListener(onInteractableEnabled);
         }
     }

@@ -3130,6 +3130,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2444745176740619210, guid: 62d2c03925892f28e805d3a284e93165,
+        type: 3}
+      propertyPath: HAZARD_EXPIRATION_DURATION
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2444745176740619213, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
       propertyPath: m_Name
@@ -15547,6 +15552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: hazardCreatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: onMadeMess
+      objectReference: {fileID: 0}
+    - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
+        type: 3}
+      propertyPath: HAZARD_EXPIRATION_DURATION
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
