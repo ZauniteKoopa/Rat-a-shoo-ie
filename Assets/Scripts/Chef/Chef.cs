@@ -315,9 +315,15 @@ public class Chef : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         animator.SetBool("angry", true);
+        float angerTimer = 0.0f;
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
-        yield return new WaitForSeconds(1.5f);
-
+        while (angerTimer < 1.5f) {
+            yield return waitFrame;
+            angerTimer += Time.deltaTime;
+            animator.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, angryColor, angerTimer / 1.5f);
+        }
+        
         animator.GetComponent<SpriteRenderer>().color = angryColor;
 
         navMeshAgent.enabled = true;
