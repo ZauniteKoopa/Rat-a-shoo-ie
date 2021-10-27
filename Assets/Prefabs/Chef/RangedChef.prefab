@@ -292,6 +292,8 @@ MonoBehaviour:
   lostSounds:
   - {fileID: 8300000, guid: 2f3a2d74e4c4c928da429f800cb8514e, type: 3}
   - {fileID: 8300000, guid: 3896a06303da49653813f879973ec8fd, type: 3}
+  enrageSound:
+  - {fileID: 8300000, guid: 3953edfe0a1b1c9409379cb159c7cdf9, type: 3}
 --- !u!114 &3045481229807681224
 MonoBehaviour:
   m_ObjectHideFlags: 0

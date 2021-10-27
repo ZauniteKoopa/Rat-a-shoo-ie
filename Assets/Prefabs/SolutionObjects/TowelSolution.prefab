@@ -98,7 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solutionType: 1
   canChefGrab: 1
-  usageSounds: []
+  usageSounds:
+  - {fileID: 8300000, guid: 1030ea366fe95fb44a2beb62c583428c, type: 3}
 --- !u!65 &7249977245753802388
 BoxCollider:
   m_ObjectHideFlags: 0

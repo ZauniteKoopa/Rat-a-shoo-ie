@@ -11,6 +11,8 @@ public class ChefAudioManager : MonoBehaviour
     private AudioClip[] attackSounds = null;
     [SerializeField]
     private AudioClip[] lostSounds = null;
+    [SerializeField]
+    private AudioClip[] enrageSound = null;
 
 
     // Reference variable
@@ -38,6 +40,11 @@ public class ChefAudioManager : MonoBehaviour
     public void playChefLost()
     {
         playRandomTrack(lostSounds);
+    }
+
+    public void playChefEnrage()
+    {
+        playRandomTrack(enrageSound);
     }
 
     // Private helper function to play a random track from an audio clip array

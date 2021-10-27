@@ -7,6 +7,8 @@ public class OrderWindowAudioManager : MonoBehaviour
     private AudioSource speaker;
     [SerializeField]
     private AudioClip[] barfSounds = null;
+    [SerializeField]
+    private AudioClip[] yummySounds = null;
 
     //On first frame, get the current audio source
     private void Awake() {
@@ -16,6 +18,11 @@ public class OrderWindowAudioManager : MonoBehaviour
     // Public method to play barf sound when a customer has been poisoned by the food the rat makes
     public void playBarfSound() {
         playRandomTrack(barfSounds);
+    }
+
+    public void playYummySound()
+    {
+        playRandomTrack(yummySounds);
     }
 
     // Private helper function to play a random track from an audio clip array

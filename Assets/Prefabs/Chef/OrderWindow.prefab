@@ -315,3 +315,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barfSounds:
   - {fileID: 8300000, guid: ffd37177d451a3c748957d4816a27843, type: 3}
+  yummySounds:
+  - {fileID: 8300000, guid: 8a4ffb6b33668e546b0dfa9eeee33212, type: 3}

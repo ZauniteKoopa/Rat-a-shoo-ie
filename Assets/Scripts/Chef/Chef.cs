@@ -310,6 +310,8 @@ public class Chef : MonoBehaviour
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
         transform.forward = (flattenTarget - flattenPosition).normalized;
 
+        audioManager.playChefEnrage();
+
         yield return new WaitForSeconds(0.5f);
 
         animator.SetBool("angry", true);

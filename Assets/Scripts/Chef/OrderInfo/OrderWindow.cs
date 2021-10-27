@@ -25,6 +25,7 @@ public class OrderWindow : MonoBehaviour
             poisonMealEvent.Invoke();
         } else {
             Debug.Log("customer is content");
+            audioManager.playYummySound();
         }
 
         currentRecipe = levelInfo.pickRandomMenuItem();

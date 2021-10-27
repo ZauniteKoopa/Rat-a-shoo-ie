@@ -745,8 +745,10 @@ MonoBehaviour:
   pcPrompt: {fileID: 489603629960567637}
   androidPrompt: {fileID: 489603628905808760}
   cageModel: {fileID: 723393136909140675}
-  cageLockSound: {fileID: 8300000, guid: 82d9b8ee6b05455499edf1fb018f6de0, type: 3}
-  cageResetSound: {fileID: 8300000, guid: 11cefcaabecf39432b7ac8f932151fb3, type: 3}
+  cageAnticipationSound: {fileID: 8300000, guid: da375f7474e15284a8f2b99a0957743c,
+    type: 3}
+  cageLockSound: {fileID: 8300000, guid: 19b6cfecd374b5646a9bf3aff140268e, type: 3}
+  cageResetSound: {fileID: 8300000, guid: 72bc667473e85bb48bf69eb1493e6467, type: 3}
   trapTriggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -855,7 +857,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -34,6 +34,8 @@ public class RatCage : MonoBehaviour
     [SerializeField]
     private GameObject cageModel = null;
     [SerializeField]
+    private AudioClip cageAnticipationSound = null;
+    [SerializeField]
     private AudioClip cageLockSound = null;
     [SerializeField]
     private AudioClip cageResetSound = null;
@@ -61,6 +63,8 @@ public class RatCage : MonoBehaviour
 
         // Anticipation
         meshRender.material.color = Color.magenta;
+        speaker.clip = cageAnticipationSound;
+        speaker.Play();
         yield return new WaitForSeconds(anticipationTime);
 
         // Turn on cage sensor and see if there was something there
