@@ -54,9 +54,12 @@ public class SolutionObject : MonoBehaviour
     public void playUsageSound() {
         if (usageSounds.Length > 0) {
             int randomIndex = Random.Range(0, usageSounds.Length);
-            AudioClip curClip = usageSounds[randomIndex];
-            speaker.clip = curClip;
-            speaker.Play();
+
+            if (speaker != null) {
+                AudioClip curClip = usageSounds[randomIndex];
+                speaker.clip = curClip;
+                speaker.Play();
+            }
         }
     }
 }
