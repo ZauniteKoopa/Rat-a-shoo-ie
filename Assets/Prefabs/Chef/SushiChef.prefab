@@ -336,7 +336,7 @@ MonoBehaviour:
   chaseDistance: 3
   dashRange: 8
   dashThroughDistance: 2.5
-  angerAcceleration: 10
+  angerAcceleration: 9
   dashHitbox: {fileID: 8181828447792987199}
   slashHitbox: {fileID: 8629230891892717532}
   slashTime: 0.25

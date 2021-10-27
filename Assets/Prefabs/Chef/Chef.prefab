@@ -1372,7 +1372,7 @@ MonoBehaviour:
   anticipationTime: 0.5
   angryAnticipationTime: 0.4
   attackingTime: 0.3
-  angerAcceleration: 10
+  angerAcceleration: 8
 --- !u!114 &3781264584203556428
 MonoBehaviour:
   m_ObjectHideFlags: 0
