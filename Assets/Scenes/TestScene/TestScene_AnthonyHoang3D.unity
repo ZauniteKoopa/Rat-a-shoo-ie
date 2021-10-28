@@ -5185,8 +5185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2447075923991646995}
   meleeHitbox: {fileID: 8080022561788580602}
-  meleeAttackingRange: 3
-  meleeAnticipationTime: 0.65
+  meleeAttackingRange: 2.5
+  meleeAnticipationTime: 0.75
   angryMeleeAnticipationTime: 0.4
   meleeAttackingTime: 0.3
   aimCollisionLayerMask:
@@ -7023,8 +7023,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8080022561788580602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1.75, y: 1, z: 1.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 5271032150378219367}
   m_RootOrder: 0
