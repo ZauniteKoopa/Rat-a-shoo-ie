@@ -1814,6 +1814,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dd92812bc47eaa13d828dbcda48e7407,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd92812bc47eaa13d828dbcda48e7407, type: 3}
 --- !u!1 &1026147465
@@ -5196,7 +5201,7 @@ MonoBehaviour:
   rangedAnticipationTime: 0.5
   rangedAttackTime: 0.2
   chefEye: {fileID: 8080022561873964629}
-  projectilePrefab: {fileID: 5859607738892503419, guid: 3e7d43d3d8ff94fbb8a408af0378c8a2,
+  projectilePrefab: {fileID: 7207342376745104114, guid: 36b8d0161e68204099e1c9c035f09c9b,
     type: 3}
   rangedAttackCooldown: 1.25
   rangedAngryAttackCooldown: 1.5
@@ -5483,6 +5488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KitchenCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113608234663119741, guid: 10a072495297b59cf9f60e4364f4b386,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a072495297b59cf9f60e4364f4b386, type: 3}

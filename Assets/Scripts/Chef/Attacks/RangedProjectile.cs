@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class RangedProjectile : MonoBehaviour
 {
-    private Vector3 projectileDirection = Vector3.zero;
+    protected Vector3 projectileDirection = Vector3.zero;
     [SerializeField]
-    private float projectileSpeed = 6.0f;
+    protected float projectileSpeed = 6.0f;
     [SerializeField]
-    private float rotationSpeed = 50.0f;
+    protected float rotationSpeed = 50.0f;
     [SerializeField]
-    private Transform spriteTransform = null;
+    protected Transform spriteTransform = null;
 
     // Main method to move the object
     private void FixedUpdate() {
+        moveProjectile();
+    }
 
+    // Method to move the projectile in the air
+    protected virtual void moveProjectile() {
         Vector3 translateVector = Time.fixedDeltaTime * projectileSpeed * projectileDirection;
         transform.Translate(translateVector);
 
@@ -25,17 +29,16 @@ public class RangedProjectile : MonoBehaviour
     // Method for player collision
     private void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Platform") {
-            DestroyableObject destroyObject = collider.GetComponent<DestroyableObject>();
-
-            if (destroyObject != null) {
-                destroyObject.destroyObject();
-            }
-
-            Object.Destroy(gameObject);
+            executeAfterEffects(false);
         } else if (collider.GetComponent<RatController3D>() != null) {
             collider.GetComponent<RatController3D>().takeDamage();
-            Object.Destroy(gameObject);
+            executeAfterEffects(true);
         }
+    }
+
+    // Method to execute after effects when object finally lands on the ground
+    protected virtual void executeAfterEffects(bool hitPlayer) {
+        Object.Destroy(gameObject);
     }
     
     // Method to set projectile direction
