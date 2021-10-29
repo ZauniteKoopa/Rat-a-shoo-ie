@@ -44,9 +44,11 @@ public class BrokenStove : MonoBehaviour
 
             meshRender.material.color = attackColor;
             hitbox.SetActive(true);
+            audioManager.playFireSound();
             yield return new WaitForSeconds(attackTime);
 
             hitbox.SetActive(false);
+            audioManager.stopSounds();
             meshRender.material.color = normalColor;
             yield return new WaitForSeconds(normalTime);
         }
