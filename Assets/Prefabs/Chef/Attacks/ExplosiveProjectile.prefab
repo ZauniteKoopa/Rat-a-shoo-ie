@@ -320,7 +320,7 @@ MonoBehaviour:
   spriteTransform: {fileID: 2290754496230677703}
   anticipationZone: {fileID: 639059814760996827}
   explosionZone: {fileID: 7548233462859089000}
-  explosiveAnticipationTime: 0.9
+  explosiveAnticipationTime: 0.85
   explosiveAttackTime: 0.3
   startAnticipationColor: {r: 1, g: 0.9864793, b: 0, a: 0.5019608}
   endAnticipationColor: {r: 1, g: 0.40739924, b: 0, a: 0.5019608}
