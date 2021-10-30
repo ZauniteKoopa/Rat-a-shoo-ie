@@ -18,6 +18,8 @@ public class RestaurantStructure : MonoBehaviour
     private void Start() {
 
         pillars = FindObjectsOfType<RestaurantPillar>();
+        HibachiToDoList list = FindObjectOfType<HibachiToDoList>();
+        list.playerFinishAllTasksEvent.AddListener(onDestroyTaskActivation);
 
         foreach(RestaurantPillar pillar in pillars) {
             pillar.pillarDestroyedEvent.AddListener(onPillarDestroyed);

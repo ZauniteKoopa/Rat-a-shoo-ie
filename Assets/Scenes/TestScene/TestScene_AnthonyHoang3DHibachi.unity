@@ -2082,12 +2082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa580f84885e7817a403eba46000ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &825531811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4501194246761750177, guid: c08f9af4c52804d4fb4967aa2d415368,
-    type: 3}
-  m_PrefabInstance: {fileID: 996532879}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &844352784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5572,18 +5566,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pillarDestroyedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8200095422621225536}
-        m_MethodName: onPillarDestroyed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  structureResetEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1946831968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8627154449721251643, guid: 59b7ec43ae4c2fabcb66c9f7c12a1272,
@@ -10212,31 +10198,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1936313049}
-        m_MethodName: onDestroyTaskActivation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   restaurantDestroyedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 825531811}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 45671537}
         m_MethodName: set_enabled
         m_Mode: 6
