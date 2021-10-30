@@ -158,9 +158,12 @@ public class Chef : MonoBehaviour
         targetRecipe = orderWindow.getCurrentRecipe();
         mealSprite.sprite = targetRecipe.foodSprite;
 
+        // Connect to events
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
         solutionSensor.solutionSensedEvent.AddListener(onSolutionSpotted);
         cookingStation.taintedMealEvent.AddListener(onPoisonedMeal);
+        levelInfo.restaurantDestroyedEvent.AddListener(lockChefInAnger);
+        levelInfo.destroyChefsEvent.AddListener(destroyChef);
     }
 
     // On update, update animator
@@ -899,6 +902,21 @@ public class Chef : MonoBehaviour
         }
 
         didHitRat = false;
+    }
+
+    // Main method to lock the chef in place, doing angry animation
+    public void lockChefInAnger() {
+        StopAllCoroutines();
+
+        navMeshAgent.enabled = false;
+        animator.SetBool("anticipating", false);
+        animator.SetBool("attacking", false);
+        animator.SetBool("angry", true);
+    }
+
+    // Main method to destroy the chef
+    public void destroyChef() {
+        Object.Destroy(gameObject);
     }
 
 }

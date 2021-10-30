@@ -75,7 +75,9 @@ public class RoomLoader : MonoBehaviour
         }
 
         foreach(Chef chef in roomChefs) {
-            chef.activateChef();
+            if (chef != null) {
+                chef.activateChef();
+            }
         }
     }
 
@@ -86,7 +88,9 @@ public class RoomLoader : MonoBehaviour
         }
 
         foreach (Chef chef in roomChefs) {
-            chef.deactivateChef();
+            if (chef != null) {
+                chef.deactivateChef();
+            }
         }
     }
 

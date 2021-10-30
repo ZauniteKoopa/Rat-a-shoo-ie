@@ -67,7 +67,7 @@ public class ToDoList : MonoBehaviour
 
     //Reference variables
     private UIAudioManager audioManager = null;
-    private LevelInfo levelInfo = null;
+    protected LevelInfo levelInfo = null;
 
     // Unity events
     public UnityEvent playerFinishAllTasksEvent;

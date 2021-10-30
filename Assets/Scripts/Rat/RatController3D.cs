@@ -481,4 +481,9 @@ public class RatController3D : MonoBehaviour
         facingRight = !facingRight;
         characterSprite.flipX = !characterSprite.flipX;
     }
+
+    // General method to make player invincible indefinitely, ONLY CALL THIS ON THE END OF THE LAST LEVEL
+    public void makeInvincible() {
+        invincible = true;
+    }
 }

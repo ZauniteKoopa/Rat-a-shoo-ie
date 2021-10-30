@@ -25,6 +25,10 @@ public class LevelInfo : MonoBehaviour
     [SerializeField]
     private Recipe[] foodMenu = null;
 
+    // Events that happens to all the chef
+    public UnityEvent restaurantDestroyedEvent;
+    public UnityEvent destroyChefsEvent;
+
 
     // Run before the first frame
     private void Awake() {
@@ -112,5 +116,15 @@ public class LevelInfo : MonoBehaviour
                 interactable.reset();
             }
         }
+    }
+
+    // Main method to trigger all chef event
+    public void onRestaurantDestroyed() {
+        restaurantDestroyedEvent.Invoke();
+    }
+
+    // On Chef destroy
+    public void destroyChefs() {
+        destroyChefsEvent.Invoke();
     }
 }

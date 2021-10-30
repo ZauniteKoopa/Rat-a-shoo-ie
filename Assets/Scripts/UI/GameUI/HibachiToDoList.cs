@@ -27,12 +27,23 @@ public class HibachiToDoList : ToDoList
             taskLabels[initialTasks.Count].color = Color.black;
             taskLabels[initialTasks.Count].fontStyle = FontStyles.Strikethrough;
 
-            restaurantDestroyedEvent.Invoke();
-            taskLabels[initialTasks.Count + 1].text = "Escape!!!!!";
-            taskLabels[initialTasks.Count + 1].color = notFinishedColor;
-            canEscape = true;
+            StartCoroutine(destroyRestaurantSequence());
         } else {
             taskLabels[initialTasks.Count].color = notFinishedColor;
         }
+    }
+
+    // Private IEnumerator that does the destruction sequence
+    private IEnumerator destroyRestaurantSequence() {
+        RatController3D player = FindObjectOfType<RatController3D>();
+        player.makeInvincible();
+
+        // Disable chefs and black out
+        restaurantDestroyedEvent.Invoke();
+        yield return new WaitForSeconds(0.2f);
+        yield return blackOutSequence(0.75f);
+
+        yield return new WaitForSeconds(0.75f);
+        GetComponent<SceneChanger>().ChangeScene("WinScreen");
     }
 }
