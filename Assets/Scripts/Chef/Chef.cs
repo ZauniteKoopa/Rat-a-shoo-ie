@@ -709,7 +709,7 @@ public class Chef : MonoBehaviour
     // Main sequence handler for dealing with not sensing the rat when the rat is in the process of dying
     private IEnumerator ignoreRatSequence() {
         canSpotRat = false;
-        yield return new WaitForSecondsRealtime(1.6f);
+        yield return new WaitForSecondsRealtime(2.5f);
         canSpotRat = true;
     }
 

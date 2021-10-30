@@ -5,6 +5,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private float CAMERA_MOVE_TIME = 0.4f;
+    private Vector3 trueCameraPosition;
+    private bool isShaking = false;
+
+    public void Awake() {
+        trueCameraPosition = transform.localPosition;
+    }
 
     // Main method to move the camera
     public void moveCamera(RoomView roomView) {
@@ -33,8 +39,31 @@ public class CameraController : MonoBehaviour
             timer += Time.deltaTime;
             float progress = timer / CAMERA_MOVE_TIME;
 
-            transform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, progress);
+            trueCameraPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, progress);
+
+            // If shaking, don't update localposition because it would be a race condition with shakeCameraSequence
+            if (!isShaking)
+                transform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, progress);
+            
             transform.localEulerAngles = Vector3.Lerp(startLocalRotation, endLocalRotation, progress);
         }
+    }
+
+    // Main method to shake the camera
+    public IEnumerator shakeCameraSequence(float duration, float magnitude) {
+        isShaking = true;
+        float timer = 0.0f;
+
+        while (timer < duration) {
+            yield return null;
+            float x = trueCameraPosition.x + (Random.Range(-1f, 1f) * magnitude);
+            float y = trueCameraPosition.y + (Random.Range(-1f, 1f) * magnitude);
+
+            transform.localPosition = new Vector3(x, y, trueCameraPosition.z);
+            timer += Time.deltaTime;
+        }
+
+        transform.localPosition = trueCameraPosition;
+        isShaking = false;
     }
 }
