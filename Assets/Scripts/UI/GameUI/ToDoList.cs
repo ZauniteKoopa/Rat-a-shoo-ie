@@ -31,7 +31,7 @@ public class ToDoList : MonoBehaviour
     [SerializeField]
     private float inViewX = -260f;
     [SerializeField]
-    private List<TMP_Text> taskLabels = null;
+    protected List<TMP_Text> taskLabels = null;
     [SerializeField]
     private Image indicator = null;
     [SerializeField]
@@ -39,7 +39,7 @@ public class ToDoList : MonoBehaviour
     [SerializeField]
     private TMP_Text warningUI = null;
     [SerializeField]
-    private Color notFinishedColor = Color.red;
+    protected Color notFinishedColor = Color.red;
     [SerializeField]
     private Image blackOutImage = null;
     [SerializeField]
@@ -54,12 +54,12 @@ public class ToDoList : MonoBehaviour
     // Task management
     [Header("Task Management")]
     [SerializeField]
-    private List<TaskType> initialTasks = null;
+    protected List<TaskType> initialTasks = null;
     [SerializeField]
     private List<int> taskRevealSequence = null;
     private Queue<int> taskRevealQueue;
     private int numTasksLeft = 0;
-    private bool canEscape = false;
+    protected bool canEscape = false;
 
     // Pause management
     private bool paused = false;
@@ -345,9 +345,8 @@ public class ToDoList : MonoBehaviour
             taskLabels[i].fontStyle = FontStyles.Strikethrough;
             taskLabels[i].color = Color.black;
             numTasksLeft--;
-            audioManager.playUISounds(5);
 
-            indicator.gameObject.SetActive(true);
+            activateIndicator();
 
             // If the player did the number of tasks indicated by the task reveal queue, update the task reveal queue
             if (taskRevealQueue.Count > 0 && (initialTasks.Count - numTasksLeft) >= taskRevealQueue.Peek()) {
@@ -362,12 +361,23 @@ public class ToDoList : MonoBehaviour
 
             // If number of tasks is equal to zero, allow escape
             if (numTasksLeft <= 0) {
-                taskLabels[initialTasks.Count].text = "ESCAPE!!!";
-                taskLabels[initialTasks.Count].color = notFinishedColor;
-                canEscape = true;
-                playerFinishAllTasksEvent.Invoke();
+                setUpLastTask();
             }
         }
+    }
+
+    // Protected virtual method used to set up the last task once to-do list is done
+    protected virtual void setUpLastTask() {
+        taskLabels[initialTasks.Count].text = "ESCAPE!!!";
+        taskLabels[initialTasks.Count].color = notFinishedColor;
+        canEscape = true;
+        playerFinishAllTasksEvent.Invoke();
+    }
+
+    // Protected method to activate the indicator
+    protected void activateIndicator() {
+        audioManager.playUISounds(5);
+        indicator.gameObject.SetActive(true);
     }
 
     // Wrapper functions for task done event handlers

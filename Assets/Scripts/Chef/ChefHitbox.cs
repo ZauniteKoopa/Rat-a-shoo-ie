@@ -8,11 +8,14 @@ public class ChefHitbox : MonoBehaviour
     private void OnTriggerEnter(Collider collider) {
         RatController3D ratPlayer = collider.GetComponent<RatController3D>();
         DestroyableObject destroyableObject = collider.GetComponent<DestroyableObject>();
+        RestaurantPillar pillar = collider.GetComponent<RestaurantPillar>();
 
         if (ratPlayer != null) {
             ratPlayer.takeDamage();
         } else if (destroyableObject != null && destroyableObject.breakable) {
             destroyableObject.destroyObject();
+        } else if (pillar != null && pillar.canDestroy()) {
+            pillar.destroy();
         }
     }
 }
