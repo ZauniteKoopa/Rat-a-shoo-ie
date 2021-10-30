@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public class RestaurantStructure : MonoBehaviour
 {
     // Variables concerning pillar management
-    [SerializeField]
-    private List<RestaurantPillar> pillars = null;
+    private RestaurantPillar[] pillars = null;
     private int pillarsDestroyed = 0;
     private bool activated = false;
 
@@ -16,6 +15,9 @@ public class RestaurantStructure : MonoBehaviour
 
     // On start, connect all pillars to onPillarDestroyed
     private void Start() {
+
+        pillars = FindObjectsOfType<RestaurantPillar>();
+
         foreach(RestaurantPillar pillar in pillars) {
             pillar.pillarDestroyedEvent.AddListener(onPillarDestroyed);
         }
@@ -23,7 +25,7 @@ public class RestaurantStructure : MonoBehaviour
 
     // Accessor methods
     public int getTotalPillars() {
-        return pillars.Count;
+        return pillars.Length;
     }
 
     public int getPillarsDestroyed() {

@@ -91,6 +91,7 @@ public class ToDoList : MonoBehaviour
         }
 
         initializeList();
+        additionalInitialization();
     }
 
     // Main method to initialize list: set all tasks to unfinished (colored red) and give their associated text
@@ -126,6 +127,9 @@ public class ToDoList : MonoBehaviour
 
         numTasksLeft = initialTasks.Count;
     }
+
+    // Method to do additional initialization if needed in subclases
+    protected virtual void additionalInitialization() {}
 
     // Main event handler for handling the task list
     public void onTaskList(InputAction.CallbackContext value) {

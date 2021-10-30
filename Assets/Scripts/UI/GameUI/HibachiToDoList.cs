@@ -7,14 +7,41 @@ using TMPro;
 public class HibachiToDoList : ToDoList
 {
     public UnityEvent restaurantDestroyedEvent;
-    [SerializeField]
+
+    // Reference variables
     private RestaurantStructure structure = null;
+    private RatController3D player = null;
+    private CameraController cameraControl = null;
+
+    // Designer specific fields
+    [SerializeField]
+    private float angryStartCameraShakeDuration = 1.0f;
+    [SerializeField]
+    private float cameraShakeMagnitude = 0.01f;
+    [SerializeField]
+    private float pillarDestroyedShakeDuration = 0.4f;
+    [SerializeField]
+    private float destroyRestaurantScreenDuration = 1.9f;
+    [SerializeField]
+    private float blackFadeOutDuration = 0.75f;
+    [SerializeField]
+    private float blackOutDuration = 0.75f;
+    private float destroyRestaurantShakeDuration;
+    
+
+    // Overriden method to do additional initialization
+    protected override void additionalInitialization() {
+        player = FindObjectOfType<RatController3D>();
+        cameraControl = FindObjectOfType<CameraController>();
+        structure = FindObjectOfType<RestaurantStructure>();
+        destroyRestaurantShakeDuration = destroyRestaurantScreenDuration + blackFadeOutDuration + 0.2f;
+    }
 
     // Overriden method to set up the last task
     protected override void setUpLastTask() {
         taskLabels[initialTasks.Count].text = "Destroy da restaurant! (0/" + structure.getTotalPillars() + ")";
         taskLabels[initialTasks.Count].color = notFinishedColor;
-        shakeCamera(1.0f, 0.01f);
+        shakeCamera(angryStartCameraShakeDuration, cameraShakeMagnitude);
         playerFinishAllTasksEvent.Invoke();
     }
 
@@ -28,31 +55,29 @@ public class HibachiToDoList : ToDoList
             taskLabels[initialTasks.Count].color = Color.black;
             taskLabels[initialTasks.Count].fontStyle = FontStyles.Strikethrough;
 
-            shakeCamera(3.0f, 0.01f);
+            shakeCamera(destroyRestaurantShakeDuration, cameraShakeMagnitude);
             StartCoroutine(destroyRestaurantSequence());
         } else {
             taskLabels[initialTasks.Count].color = notFinishedColor;
-            shakeCamera(0.4f, 0.01f);
+            shakeCamera(pillarDestroyedShakeDuration, cameraShakeMagnitude);
         }
     }
 
     // Private IEnumerator that does the destruction sequence
     private IEnumerator destroyRestaurantSequence() {
-        RatController3D player = FindObjectOfType<RatController3D>();
         player.makeInvincible();
 
         // Disable chefs and black out
         restaurantDestroyedEvent.Invoke();
-        yield return new WaitForSeconds(1.9f);
-        yield return blackOutSequence(0.75f);
+        yield return new WaitForSeconds(destroyRestaurantScreenDuration);
+        yield return blackOutSequence(blackFadeOutDuration);
 
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(blackOutDuration);
         GetComponent<SceneChanger>().ChangeScene("WinScreen");
     }
 
     // Main method to shake the camera
     private void shakeCamera(float duration, float magnitude) {
-        CameraController camera = FindObjectOfType<CameraController>();
-        StartCoroutine(camera.shakeCameraSequence(duration, magnitude));
+        StartCoroutine(cameraControl.shakeCameraSequence(duration, magnitude));
     }
 }
