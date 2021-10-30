@@ -63,8 +63,9 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
             rangedAttackTimer += Time.deltaTime;
 
             // Check if you can fire. If you can, fire a projectile
-            bool canMelee = chefSensing.currentRatTarget != null && navMeshAgent.remainingDistance <= meleeAttackingRange;
-            bool canFire = chefSensing.currentRatTarget != null && rangedAttackTimer > currentRangedCooldown && navMeshAgent.remainingDistance <= rangedAttackingRange;
+            bool sensingRat = chefSensing.currentRatTarget != null && !chefSensing.currentRatTarget.GetComponent<RatController3D>().respawning;
+            bool canMelee = sensingRat && navMeshAgent.remainingDistance <= meleeAttackingRange;
+            bool canFire = sensingRat && rangedAttackTimer > currentRangedCooldown && navMeshAgent.remainingDistance <= rangedAttackingRange;
             if (canFire && !canMelee) {
                 yield return fireProjectile(chefSensing.currentRatTarget.position);
                 rangedAttackTimer = 0.0f;
@@ -82,7 +83,8 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         }
 
         // Attack the player if in range, once in this mode, locked in this mode
-        if (chefSensing.currentRatTarget != null && navMeshAgent.remainingDistance <= meleeAttackingRange) {
+        bool senseRat = chefSensing.currentRatTarget != null && !chefSensing.currentRatTarget.GetComponent<RatController3D>().respawning;
+        if (senseRat && navMeshAgent.remainingDistance <= meleeAttackingRange) {
             yield return attackRat(chefSensing);
         }
     }

@@ -7,6 +7,8 @@ public class RestaurantPillar : MonoBehaviour
 {
     [SerializeField]
     private GameObject protectiveShell = null;
+    [SerializeField]
+    private GameObject signSprite = null;
     private bool activated = false;
     private bool destroyed = false;
     public UnityEvent pillarDestroyedEvent;
@@ -14,7 +16,8 @@ public class RestaurantPillar : MonoBehaviour
 
     // Method to activate pillar
     public void activate() {
-        Object.Destroy(protectiveShell);
+        protectiveShell.GetComponent<MeshRenderer>().enabled = false;
+        protectiveShell.GetComponent<Collider>().enabled = false;
         activated = true;
         pillarActivatedEvent.Invoke();
     }
@@ -28,6 +31,18 @@ public class RestaurantPillar : MonoBehaviour
     public void destroy() {
         destroyed = true;
         pillarDestroyedEvent.Invoke();
-        Object.Destroy(gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        signSprite.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    // Method to respawn pillars if activated
+    public void respawn() {
+        if (activated) {
+            destroyed = false;
+            GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<Collider>().enabled = true;
+            signSprite.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }

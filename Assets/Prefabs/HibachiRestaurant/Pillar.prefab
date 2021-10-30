@@ -202,7 +202,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   protectiveShell: {fileID: 8579404084500077367}
+  signSprite: {fileID: 8579404085944512469}
   pillarDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  pillarActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8579404085944512469

@@ -35,6 +35,9 @@ public class HibachiToDoList : ToDoList
         cameraControl = FindObjectOfType<CameraController>();
         structure = FindObjectOfType<RestaurantStructure>();
         destroyRestaurantShakeDuration = destroyRestaurantScreenDuration + blackFadeOutDuration + 0.2f;
+
+        structure.structureResetEvent.AddListener(onStructureReset);
+        structure.pillarDestroyedEvent.AddListener(onPillarDestroyed);
     }
 
     // Overriden method to set up the last task
@@ -61,6 +64,12 @@ public class HibachiToDoList : ToDoList
             taskLabels[initialTasks.Count].color = notFinishedColor;
             shakeCamera(pillarDestroyedShakeDuration, cameraShakeMagnitude);
         }
+    }
+
+    // Event handler method for when the structure resets
+    public void onStructureReset() {
+        taskLabels[initialTasks.Count].text = "Destroy da restaurant! (" + structure.getPillarsDestroyed() + "/" + structure.getTotalPillars() + ")";
+        taskLabels[initialTasks.Count].color = (structure.getPillarsDestroyed() >= structure.getTotalPillars()) ? Color.black : notFinishedColor;
     }
 
     // Private IEnumerator that does the destruction sequence

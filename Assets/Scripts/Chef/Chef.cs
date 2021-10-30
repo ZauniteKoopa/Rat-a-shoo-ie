@@ -239,7 +239,7 @@ public class Chef : MonoBehaviour
 
                 // Set up finish recipe variables
                 currentRecipeStep = targetRecipe.getNumSteps();
-                if (currentIngredientStage != RecipeStage.GET_FOOD || currentIngredientStage != RecipeStage.BRING_FOOD_TO_CUSTOMER) {
+                if (currentIngredientStage != RecipeStage.GET_FOOD && currentIngredientStage != RecipeStage.BRING_FOOD_TO_CUSTOMER) {
                     currentIngredientStage = RecipeStage.GET_FOOD;
                 }
 
@@ -709,7 +709,7 @@ public class Chef : MonoBehaviour
     // Main sequence handler for dealing with not sensing the rat when the rat is in the process of dying
     private IEnumerator ignoreRatSequence() {
         canSpotRat = false;
-        yield return new WaitForSecondsRealtime(2.5f);
+        yield return new WaitForSecondsRealtime(2.0f);
         canSpotRat = true;
     }
 
@@ -911,6 +911,7 @@ public class Chef : MonoBehaviour
         navMeshAgent.enabled = false;
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", false);
+        aggressiveAction.cancelAggressiveAction();
         animator.SetBool("angry", true);
     }
 

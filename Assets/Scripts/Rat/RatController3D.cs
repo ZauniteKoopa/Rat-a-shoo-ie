@@ -68,7 +68,7 @@ public class RatController3D : MonoBehaviour
     private Color invinicibleColor;
     private bool invincible = false;
     public UnityEvent playerHealthLossEvent;
-    private bool respawning = false;
+    public bool respawning = false;
 
     // Variables for jumping
     private bool onGround = false;

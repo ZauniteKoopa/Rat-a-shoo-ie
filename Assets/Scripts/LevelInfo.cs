@@ -11,6 +11,7 @@ public class LevelInfo : MonoBehaviour
     private Dictionary<SolutionType, Sprite> thoughtPool;
     private Dictionary<SolutionType, Transform> closetDictionary;
     private ResetInteractable[] resetInteractables = null;
+    private RestaurantStructure structure = null;
 
     // Event handling for when player is attacking versus when player is safe
     private int numNPCsChasing = 0;
@@ -35,6 +36,7 @@ public class LevelInfo : MonoBehaviour
         solutionLocations = new Dictionary<SolutionType, List<Vector3>>();
         SolutionObject[] allSolutions = Object.FindObjectsOfType<SolutionObject>();
         resetInteractables = Object.FindObjectsOfType<ResetInteractable>();
+        structure = Object.FindObjectOfType<RestaurantStructure>();
 
         // For each solution
         foreach(SolutionObject solution in allSolutions) {
@@ -115,6 +117,10 @@ public class LevelInfo : MonoBehaviour
             if (interactable != null) {
                 interactable.reset();
             }
+        }
+
+        if (structure != null) {
+            structure.resetAllStructures();
         }
     }
 

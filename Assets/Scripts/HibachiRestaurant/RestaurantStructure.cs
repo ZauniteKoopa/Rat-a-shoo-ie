@@ -12,6 +12,7 @@ public class RestaurantStructure : MonoBehaviour
 
     // Events
     public UnityEvent pillarDestroyedEvent;
+    public UnityEvent structureResetEvent;
 
     // On start, connect all pillars to onPillarDestroyed
     private void Start() {
@@ -32,6 +33,19 @@ public class RestaurantStructure : MonoBehaviour
         return pillarsDestroyed;
     }
 
+    // Main method to reset all structures
+    public void resetAllStructures() {
+        if (activated) {
+            pillarsDestroyed = 0;
+
+            foreach(RestaurantPillar pillar in pillars) {
+                pillar.respawn();
+            }
+
+            structureResetEvent.Invoke();
+        }
+    }
+
     // Event handler methods
     public void onDestroyTaskActivation() {
         if (!activated) {
@@ -40,6 +54,7 @@ public class RestaurantStructure : MonoBehaviour
             }
 
             activated = true;
+            structureResetEvent.Invoke();
         }
     }
 
