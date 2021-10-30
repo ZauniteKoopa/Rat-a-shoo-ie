@@ -10,11 +10,13 @@ public class RestaurantPillar : MonoBehaviour
     private bool activated = false;
     private bool destroyed = false;
     public UnityEvent pillarDestroyedEvent;
+    public UnityEvent pillarActivatedEvent;
 
     // Method to activate pillar
     public void activate() {
         Object.Destroy(protectiveShell);
         activated = true;
+        pillarActivatedEvent.Invoke();
     }
 
     // Method to check if you can destroy the pillar

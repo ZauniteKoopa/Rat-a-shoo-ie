@@ -37,6 +37,8 @@ public class FeetSensor3D : MonoBehaviour
             if (cageSensor != null) {
                 cageSensor.cagePlatformResetEvent.AddListener(onPlatformDestroyed);
             }
+
+            checkBreakablePillarOnEnter(collider);
         }
     }
 
@@ -67,6 +69,42 @@ public class FeetSensor3D : MonoBehaviour
             if (cageSensor != null) {
                 cageSensor.cagePlatformResetEvent.RemoveListener(onPlatformDestroyed);
             }
+
+            checkBreakablePillarOnExit(collider);
+        }
+    }
+
+    // Private helper method to check BreakablePillar on enter
+    private void checkBreakablePillarOnEnter(Collider collider) {
+        RestaurantPillar pillar = collider.GetComponent<RestaurantPillar>();
+        RestaurantPillar parentPillar = null;
+
+        if (collider.transform.parent != null) {
+            parentPillar = collider.transform.parent.GetComponent<RestaurantPillar>();
+        }
+
+        // Connect variables if possible
+        if (pillar != null) {
+            pillar.pillarDestroyedEvent.AddListener(onPlatformDestroyed);
+        } else if (parentPillar != null) {
+            parentPillar.pillarActivatedEvent.AddListener(onPlatformDestroyed);
+        }
+    }
+
+    // Private helper method to check BreakablePillar on exit
+    private void checkBreakablePillarOnExit(Collider collider) {
+        RestaurantPillar pillar = collider.GetComponent<RestaurantPillar>();
+        RestaurantPillar parentPillar = null;
+
+        if (collider.transform.parent != null) {
+            parentPillar = collider.transform.parent.GetComponent<RestaurantPillar>();
+        }
+
+        // Connect variables if possible
+        if (pillar != null) {
+            pillar.pillarDestroyedEvent.RemoveListener(onPlatformDestroyed);
+        } else if (parentPillar != null) {
+            parentPillar.pillarActivatedEvent.RemoveListener(onPlatformDestroyed);
         }
     }
 
