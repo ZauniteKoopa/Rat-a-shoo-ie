@@ -219,6 +219,12 @@ Transform:
   m_Father: {fileID: 1936313047}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!198 &126425045 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5250336059976363944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145147134
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnable: 0
   breakable: 1
+  destroyClip: {fileID: 0}
   destroyObjectEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5073,6 +5080,12 @@ MonoBehaviour:
   foodMenu:
   - {fileID: 11400000, guid: f53e1f7402d9ca160b549bf4cec18a4e, type: 2}
   - {fileID: 11400000, guid: b877e9996a6af7b6d9e62ca73d209270, type: 2}
+  restaurantDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyChefsEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4627152506435343530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5399,6 +5412,41 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721638, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: m_Name
@@ -5469,6 +5517,11 @@ PrefabInstance:
       propertyPath: userInterface
       value: 
       objectReference: {fileID: 828858107}
+    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: dashParticle
+      value: 
+      objectReference: {fileID: 126425045}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
 --- !u!1 &5250336059976363945 stripped
@@ -5693,6 +5746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SushiChef
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694601859610406235, guid: 4722e41532bca87cbb7d3599c61f953c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3694601859610406239, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}
