@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TrailingStatus {
+    STABLE,
+    FIRED,
+    CONVERGED
+}
+
 public class RangedExplosiveProjectile : RangedProjectile
 {
     // Boolean flags
@@ -14,17 +20,43 @@ public class RangedExplosiveProjectile : RangedProjectile
     [SerializeField]
     private GameObject explosionZone = null;
     [SerializeField]
-    private float explosiveAnticipationTime = 1.5f;
+    private float explosiveAnticipationTime = 0.5f;
     [SerializeField]
     private float explosiveAttackTime = 0.3f;
     [SerializeField]
     private Color startAnticipationColor = Color.black;
     [SerializeField]
     private Color endAnticipationColor = Color.black;
+
+    // Hook
     public LayerMask hookLayer;
     private float curDistance = 0.0f;
     private float hookedDistance = 0.0f;
 
+    // Handling of trailing children
+    [SerializeField]
+    private Transform[] trailingChildren = null;
+    [SerializeField]
+    private float childrenInterval = 0.3f;
+    private TrailingStatus[] childrenFiredStatus = null;
+    private Vector3[] childrenPositions = null;
+    private Vector3 originalPos = Vector3.zero;
+    private int numChildrenConverged = 0;
+    private int numChildrenFired = 0;
+    private float trailTimer = 0.0f;
+
+
+    // On awake, set up variables for trailing children
+    private void Awake() {
+        childrenFiredStatus = new TrailingStatus[trailingChildren.Length];
+        childrenPositions = new Vector3[trailingChildren.Length];
+        originalPos = transform.position;
+
+        for (int i = 0; i < trailingChildren.Length; i++) {
+            childrenFiredStatus[i] = TrailingStatus.STABLE;
+            childrenPositions[i] = originalPos;
+        }
+    }
 
     // Main method to move the projectile
     protected override void moveProjectile() {
@@ -47,6 +79,45 @@ public class RangedExplosiveProjectile : RangedProjectile
                 }
             }
         }
+
+        handleTrailingChildren();
+    }
+
+    // Private method to handle trailing children
+    private void handleTrailingChildren() {
+        // Update trailing status from STABLE -> MOVING depending on trailing time
+        if (numChildrenFired < trailingChildren.Length && trailTimer >= childrenInterval * (numChildrenFired + 1)){
+            childrenFiredStatus[numChildrenFired] = TrailingStatus.FIRED;
+            trailingChildren[numChildrenFired].gameObject.SetActive(true);
+            trailingChildren[numChildrenFired].position = originalPos;
+            childrenPositions[numChildrenFired] = originalPos;
+
+            numChildrenFired++;
+        }
+
+        // Update trailing status MOVING -> STOPPED if trailing children distance to stop distance is less than a threshold
+        if (numChildrenConverged < trailingChildren.Length && childrenFiredStatus[numChildrenConverged] == TrailingStatus.FIRED) {
+            bool didConverge = Vector3.Distance(trailingChildren[numChildrenConverged].position, transform.position) < 0.3f;
+
+            if (didConverge) {
+                trailingChildren[numChildrenConverged].gameObject.SetActive(false);
+                childrenFiredStatus[numChildrenConverged] = TrailingStatus.CONVERGED;
+                numChildrenConverged++;
+            }
+        }
+
+        // Update transform of trailing children
+        for (int i = 0; i < trailingChildren.Length; i++) {
+            TrailingStatus currentStatus = childrenFiredStatus[i];
+
+            if (currentStatus == TrailingStatus.FIRED) {
+                childrenPositions[i] += (Time.fixedDeltaTime * projectileSpeed * projectileDirection);
+                trailingChildren[i].position = childrenPositions[i];
+            }
+        }
+
+        // Update trail timer
+        trailTimer += Time.deltaTime;
     }
 
     // Main method to execute the after effects
@@ -68,15 +139,17 @@ public class RangedExplosiveProjectile : RangedProjectile
         anticipationRender.material.color = startAnticipationColor;
 
         // Anticipation timer
-        float timer = 0.0f;
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
-        while (timer <= explosiveAnticipationTime) {
+        while (numChildrenConverged < trailingChildren.Length) {
             yield return waitFrame;
-            timer += Time.deltaTime;
-
-            anticipationRender.material.color = Color.Lerp(startAnticipationColor, endAnticipationColor, timer / explosiveAnticipationTime);
+            
+            float progress = (float)numChildrenConverged / (float)trailingChildren.Length;
+            anticipationRender.material.color = Color.Lerp(startAnticipationColor, endAnticipationColor, progress);
         }
+
+        // Small anticipation after
+        yield return new WaitForSeconds(explosiveAnticipationTime);
 
         // Set explosive and then destroy object
         spriteTransform.GetComponent<SpriteRenderer>().enabled = false;
