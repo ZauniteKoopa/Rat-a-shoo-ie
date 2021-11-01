@@ -237,23 +237,16 @@ public class RatController3D : MonoBehaviour
         // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
             float currentSpeed = isSprinting ? sprintSpeed : landSpeed;
+
+            // Particle effects
             if (isSprinting && !dashParticle.isPlaying)
             {
-                Debug.Log("dash start");
                 dashParticle.Play();
-                if (dashParticle.isPlaying)
-                {
-                    Debug.Log("Emitter playing");
-                }
-                else
-                {
-                    Debug.Log("Emitter NOT PLAYING");
-
-                }
             }else if ((!isSprinting || !onGround) && dashParticle.isPlaying)
             {
                 dashParticle.Stop();
             }
+
             currentSpeed *= (slowSources > 0) ? slowFactor : 1.0f;
 
             moveVector *= (currentSpeed * Time.deltaTime);
