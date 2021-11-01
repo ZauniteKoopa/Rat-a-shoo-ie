@@ -239,7 +239,7 @@ public class RatController3D : MonoBehaviour
             float currentSpeed = isSprinting ? sprintSpeed : landSpeed;
 
             // Particle effects
-            if (isSprinting && !dashParticle.isPlaying)
+            if (isSprinting && !dashParticle.isPlaying && onGround)
             {
                 dashParticle.Play();
             }else if ((!isSprinting || !onGround) && dashParticle.isPlaying)
