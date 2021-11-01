@@ -3133,7 +3133,7 @@ PrefabInstance:
     - target: {fileID: 2444745176740619210, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2444745176740619213, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
@@ -28321,6 +28321,12 @@ MonoBehaviour:
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: 85e89910dd345b53ba15514a78b44b80, type: 2}
+  restaurantDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyChefsEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7293247471682924450
 GameObject:
   m_ObjectHideFlags: 0

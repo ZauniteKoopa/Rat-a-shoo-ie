@@ -6253,7 +6253,7 @@ PrefabInstance:
     - target: {fileID: 2444745176740619210, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2444745176740619213, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
