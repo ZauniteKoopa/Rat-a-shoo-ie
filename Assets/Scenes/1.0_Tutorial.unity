@@ -10493,7 +10493,7 @@ PrefabInstance:
     - target: {fileID: 2444745176740619210, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2444745176740619213, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
@@ -17653,7 +17653,7 @@ PrefabInstance:
     - target: {fileID: 2444745176740619210, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2444745176740619213, guid: 62d2c03925892f28e805d3a284e93165,
         type: 3}
@@ -18198,7 +18198,7 @@ PrefabInstance:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 25
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
@@ -18561,7 +18561,7 @@ PrefabInstance:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
@@ -24476,6 +24476,12 @@ MonoBehaviour:
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: f53e1f7402d9ca160b549bf4cec18a4e, type: 2}
+  restaurantDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyChefsEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7293247471682924450
 GameObject:
   m_ObjectHideFlags: 0

@@ -146,7 +146,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  HAZARD_EXPIRATION_DURATION: 8
+  HAZARD_EXPIRATION_DURATION: 4
 --- !u!82 &108580561059644619
 AudioSource:
   m_ObjectHideFlags: 0
