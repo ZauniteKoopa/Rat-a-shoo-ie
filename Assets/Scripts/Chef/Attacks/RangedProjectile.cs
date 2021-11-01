@@ -29,15 +29,18 @@ public class RangedProjectile : MonoBehaviour
     // Method for player collision
     private void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Platform") {
-            executeAfterEffects(false);
+            executeAfterEffects(false, collider);
         } else if (collider.GetComponent<RatController3D>() != null) {
-            collider.GetComponent<RatController3D>().takeDamage();
-            executeAfterEffects(true);
+            executeAfterEffects(true, collider);
         }
     }
 
     // Method to execute after effects when object finally lands on the ground
-    protected virtual void executeAfterEffects(bool hitPlayer) {
+    protected virtual void executeAfterEffects(bool hitPlayer, Collider playerCollider) {
+        if (hitPlayer) {
+            playerCollider.GetComponent<RatController3D>().takeDamage();
+        }
+
         Object.Destroy(gameObject);
     }
     

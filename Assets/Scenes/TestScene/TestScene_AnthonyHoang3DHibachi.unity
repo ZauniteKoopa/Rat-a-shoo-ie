@@ -5836,7 +5836,7 @@ MonoBehaviour:
   levelIndex: 0
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
-  - {fileID: 11400000, guid: ca4aefeef0d4c9503a8487b50baa5499, type: 2}
+  - {fileID: 11400000, guid: 85e89910dd345b53ba15514a78b44b80, type: 2}
   restaurantDestroyedEvent:
     m_PersistentCalls:
       m_Calls: []
