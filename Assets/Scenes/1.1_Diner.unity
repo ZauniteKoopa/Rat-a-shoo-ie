@@ -10748,8 +10748,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281945594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.0541, y: 30.58, z: -48.6}
-  m_LocalScale: {x: 1.2041, y: 1.2041, z: 1.1036781}
+  m_LocalPosition: {x: -7.63, y: 30.58, z: -47.71}
+  m_LocalScale: {x: 2.3189542, y: 1.2041, z: 1.1036781}
   m_Children:
   - {fileID: 1804971950}
   - {fileID: 1555810398}
@@ -20774,6 +20774,12 @@ MonoBehaviour:
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: f53e1f7402d9ca160b549bf4cec18a4e, type: 2}
+  restaurantDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyChefsEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7293247471682924450
 GameObject:
   m_ObjectHideFlags: 0
