@@ -4841,6 +4841,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133, type: 3}
+--- !u!1001 &931250783543089314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895713651012411967, guid: e68d105cc3c788f039bcf4ba5ce4df0c,
+        type: 3}
+      propertyPath: m_Name
+      value: EggIngredient
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e68d105cc3c788f039bcf4ba5ce4df0c, type: 3}
 --- !u!1001 &1004317131058756166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5341,6 +5410,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b83604ef5cf087466aa71ab2049615b3, type: 3}
+--- !u!1001 &2409280057624643649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3861435307028889907, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_Name
+      value: OnionIngredient
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94b8830071d7a1a91a9b63b55afff6a9, type: 3}
 --- !u!1001 &2444745178462000310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5698,7 +5836,7 @@ MonoBehaviour:
   levelIndex: 0
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
-  - {fileID: 11400000, guid: 85e89910dd345b53ba15514a78b44b80, type: 2}
+  - {fileID: 11400000, guid: ca4aefeef0d4c9503a8487b50baa5499, type: 2}
   restaurantDestroyedEvent:
     m_PersistentCalls:
       m_Calls: []
