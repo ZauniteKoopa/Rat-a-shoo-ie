@@ -10,7 +10,9 @@ public enum SolutionType {
     APPLE,
     CARROT,
     FISH,
-    RICE
+    RICE,
+    EGG,
+    ONION
 };
 
 public class SolutionObject : MonoBehaviour

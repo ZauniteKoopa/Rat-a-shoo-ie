@@ -27,6 +27,10 @@ public class RangedExplosiveProjectile : RangedProjectile
     private Color startAnticipationColor = Color.black;
     [SerializeField]
     private Color endAnticipationColor = Color.black;
+    [SerializeField]
+    private float startingSpriteScale = 0.3f;
+    [SerializeField]
+    private float endingSpriteScale = 0.5f;
 
     // Hook
     public LayerMask hookLayer;
@@ -75,7 +79,7 @@ public class RangedExplosiveProjectile : RangedProjectile
                 RaycastHit hit;
 
                 if (Physics.Raycast(transform.position, Vector3.down, out hit, 3f, hookLayer)) {
-                    executeAfterEffects(false);
+                    executeAfterEffects(false, null);
                 }
             }
         }
@@ -103,6 +107,10 @@ public class RangedExplosiveProjectile : RangedProjectile
                 trailingChildren[numChildrenConverged].gameObject.SetActive(false);
                 childrenFiredStatus[numChildrenConverged] = TrailingStatus.CONVERGED;
                 numChildrenConverged++;
+
+                // Set scale of sprite transform
+                float newScale = Mathf.Lerp(startingSpriteScale, endingSpriteScale, (float)numChildrenConverged / (float)trailingChildren.Length);
+                spriteTransform.localScale = new Vector3(newScale, newScale, newScale);
             }
         }
 
@@ -121,9 +129,10 @@ public class RangedExplosiveProjectile : RangedProjectile
     }
 
     // Main method to execute the after effects
-    protected override void executeAfterEffects(bool hitPlayer) {
-        if (hitPlayer) {
+    protected override void executeAfterEffects(bool hitPlayer, Collider playerCollider) {
+        if (hitPlayer && !bombTimerActivated) {
             Object.Destroy(gameObject);
+            playerCollider.GetComponent<RatController3D>().takeDamage();
         } else  {
             bombTimerActivated = true;
             GetComponent<Collider>().enabled = false;

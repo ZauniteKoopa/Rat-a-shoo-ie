@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dd45b0da2721bf0a173ed0b64f4d99, type: 3}
   m_Name: MainSolutionSprites
   m_EditorClassIdentifier: 
-  solutionTypeKeys: 00000000010000000400000003000000050000000600000007000000
+  solutionTypeKeys: 000000000100000004000000030000000500000006000000070000000800000009000000
   solutionTypeSprites:
   - {fileID: -1818541625063229167, guid: 589c2ce92d92d996e9e2e7c62b937cb5, type: 3}
   - {fileID: -7600872652282376241, guid: a1f5a9571db67a7b3ad7fd64749ae309, type: 3}
@@ -21,6 +21,8 @@ MonoBehaviour:
   - {fileID: -5859083586626064994, guid: 81ba8f3120adef7649948f4446eead22, type: 3}
   - {fileID: -1915776564401465818, guid: 41b163aeb5cf16a369022ee1c3970721, type: 3}
   - {fileID: -217780165254092952, guid: e8333638875c3eb1bafc647dbece5e13, type: 3}
+  - {fileID: -217944449337463117, guid: 8e741ff6cc97a600c8218721803e2416, type: 3}
+  - {fileID: 5465580561085644368, guid: fc62964879b8e97da9d02a505c4fe837, type: 3}
   solutionTypePrefabs:
   - {fileID: 5200052175799030984, guid: 85b2f7d8daf34f18d9f518f1abfd89e7, type: 3}
   - {fileID: 7249977245753802391, guid: 2d7e542a5c31c49e08f38b382ced8f15, type: 3}
@@ -29,3 +31,5 @@ MonoBehaviour:
   - {fileID: 8848861301276648338, guid: 3c365e97d59bd7bfda768bbb8fb621e3, type: 3}
   - {fileID: 3910053902676749348, guid: fa06c5ce188273f5c957b22dcf432b8f, type: 3}
   - {fileID: 3639406246330683654, guid: f73edc705241e09d2b6d1163509b08c0, type: 3}
+  - {fileID: 2895713651012411963, guid: e68d105cc3c788f039bcf4ba5ce4df0c, type: 3}
+  - {fileID: 3861435307028889911, guid: 94b8830071d7a1a91a9b63b55afff6a9, type: 3}

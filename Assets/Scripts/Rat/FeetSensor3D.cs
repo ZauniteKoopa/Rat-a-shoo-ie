@@ -18,6 +18,7 @@ public class FeetSensor3D : MonoBehaviour
             }
 
             numTouchingObjects++;
+            StartCoroutine(checkColliderStatus(collider));
 
             // Check if platform or its parent is destroyable
             DestroyableObject destroyable = collider.GetComponent<DestroyableObject>();
@@ -105,6 +106,20 @@ public class FeetSensor3D : MonoBehaviour
             pillar.pillarDestroyedEvent.RemoveListener(onPlatformDestroyed);
         } else if (parentPillar != null) {
             parentPillar.pillarActivatedEvent.RemoveListener(onPlatformDestroyed);
+        }
+    }
+
+    // Check collider status
+    //  If collider has been destroyed after 2 framee and numCollidingObject didn't update, update it
+    private IEnumerator checkColliderStatus(Collider collider) {
+        int startingNumObjects = numTouchingObjects;
+
+        for (int i = 0; i < 2; i++) {
+            yield return null;
+        }
+
+        if (collider == null && startingNumObjects >= numTouchingObjects) {
+            onPlatformDestroyed();
         }
     }
 

@@ -11,6 +11,7 @@ public class BlockerSensor : MonoBehaviour
     private void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Platform") {
             numCollidingObjects++;
+            StartCoroutine(checkColliderStatus(collider));
             DestroyableObject destroyableObject = collider.GetComponent<DestroyableObject>();
 
             // Get destroyable parent
@@ -87,9 +88,25 @@ public class BlockerSensor : MonoBehaviour
         }
     }
 
+    // Check collider status
+    //  If collider has been destroyed after 2 framee and numCollidingObject didn't update, update it
+    private IEnumerator checkColliderStatus(Collider collider) {
+        int startingNumObjects = numCollidingObjects;
+
+        for (int i = 0; i < 2; i++) {
+            yield return null;
+        }
+
+        if (collider == null && startingNumObjects >= numCollidingObjects) {
+            onColliderDestroyed();
+        }
+    }
+
     // Event handler for when object is destroyed
     private void onColliderDestroyed() {
-        numCollidingObjects--;
+        if (numCollidingObjects > 0) {
+            numCollidingObjects--;
+        }
     }
 
     // Public method to check if the sensor is blocked
