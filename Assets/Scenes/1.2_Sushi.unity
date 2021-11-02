@@ -2405,7 +2405,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
       propertyPath: m_Name
-      value: Cabinets
+      value: HiddenCabinets
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
@@ -2416,6 +2416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62968b18b3138b24da1f77257bf9ba0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62968b18b3138b24da1f77257bf9ba0f, type: 3}
@@ -4201,22 +4206,22 @@ PrefabInstance:
     - target: {fileID: 3013914484903549317, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
       propertyPath: cameraPosition.y
-      value: 65.95
+      value: 66.68
       objectReference: {fileID: 0}
     - target: {fileID: 3013914484903549317, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
       propertyPath: cameraPosition.z
-      value: -53.41
+      value: -81.37
       objectReference: {fileID: 0}
     - target: {fileID: 3013914484903549317, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
       propertyPath: cameraRotation.x
-      value: 51.712
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3013914484903549323, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.41
+      value: 70.523
       objectReference: {fileID: 0}
     - target: {fileID: 3013914484903549323, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
@@ -4226,7 +4231,7 @@ PrefabInstance:
     - target: {fileID: 3013914484903549323, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.34
+      value: -50.398
       objectReference: {fileID: 0}
     - target: {fileID: 3013914484903549323, guid: db23aa3c0eb824ec98f246ebe7ee07fa,
         type: 3}
@@ -5338,6 +5343,11 @@ PrefabInstance:
       propertyPath: angryPatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1838036378}
+    - target: {fileID: 3694601859610406234, guid: 4722e41532bca87cbb7d3599c61f953c,
+        type: 3}
+      propertyPath: dashRange
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3694601859610406235, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}
       propertyPath: m_Name
@@ -6458,7 +6468,7 @@ GameObject:
   - component: {fileID: 423976344}
   - component: {fileID: 423976343}
   - component: {fileID: 423976347}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9126,7 +9136,7 @@ GameObject:
   - component: {fileID: 616360866}
   - component: {fileID: 616360865}
   - component: {fileID: 616360864}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11923,7 +11933,7 @@ GameObject:
   - component: {fileID: 873884450}
   - component: {fileID: 873884449}
   - component: {fileID: 873884448}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11967,8 +11977,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0202606, y: 1, z: 1.003448}
-  m_Center: {x: 0.44098756, y: 0, z: 0.0017227966}
+  m_Size: {x: 0.9977838, y: 1, z: 1.003448}
+  m_Center: {x: 0.45222595, y: 0, z: 0.0017227966}
 --- !u!23 &873884450
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14180,7 +14190,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.33
+      value: 67.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
@@ -14519,7 +14529,7 @@ PrefabInstance:
     - target: {fileID: 9067951880021343712, guid: c88c4f6a5fe37ebca882dfaa517333cb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -57.49
+      value: -56.42
       objectReference: {fileID: 0}
     - target: {fileID: 9067951880021343712, guid: c88c4f6a5fe37ebca882dfaa517333cb,
         type: 3}
@@ -21010,8 +21020,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.035180993, y: 0.012610255, z: 0.02025671}
-  m_Center: {x: 0.017541528, y: -0.00267804, z: -0.005389709}
+  m_Size: {x: 0.049976587, y: 0.0126102595, z: 0.02025671}
+  m_Center: {x: 0.010143723, y: -0.0026780397, z: -0.0053897086}
 --- !u!1001 &1596726305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22975,7 +22985,7 @@ GameObject:
   - component: {fileID: 1795604888}
   - component: {fileID: 1795604887}
   - component: {fileID: 1795604891}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23019,8 +23029,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11940645, y: 1, z: 0.45850983}
-  m_Center: {x: 0.5592117, y: 0, z: 0.6276798}
+  m_Size: {x: 0.11940645, y: 1, z: 0.3903455}
+  m_Center: {x: 0.5592117, y: 0, z: 0.59359777}
 --- !u!23 &1795604889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23079,8 +23089,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0.00000023841858}
+  m_Size: {x: 1.4090117, y: 1, z: 1}
+  m_Center: {x: -0.20450668, y: 0, z: 0.00000022303306}
 --- !u!1001 &1800725006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23096,7 +23106,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d512b5959bb9abd48835fa02745d1c34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.04
+      value: 24.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d512b5959bb9abd48835fa02745d1c34,
         type: 3}
@@ -23167,6 +23177,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4637274236921720670, guid: d512b5959bb9abd48835fa02745d1c34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4637274236921720670, guid: d512b5959bb9abd48835fa02745d1c34,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4637274236921720670, guid: d512b5959bb9abd48835fa02745d1c34,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d512b5959bb9abd48835fa02745d1c34,
         type: 3}
@@ -24139,7 +24164,7 @@ GameObject:
   - component: {fileID: 1896545856}
   - component: {fileID: 1896545855}
   - component: {fileID: 1896545854}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24183,8 +24208,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0564667, y: 1, z: 1.1936345}
-  m_Center: {x: -0.028232444, y: 0, z: 0.09681642}
+  m_Size: {x: 0.99093145, y: 1, z: 1.1936345}
+  m_Center: {x: 0.00453552, y: 0, z: 0.09681642}
 --- !u!23 &1896545856
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24504,13 +24529,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917632412}
-  m_LocalRotation: {x: 0.43611437, y: -0, z: -0, w: 0.89989126}
-  m_LocalPosition: {x: 27.99, y: 65.95, z: -53.41}
+  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: 27.99, y: 66.86, z: -81.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 163
-  m_LocalEulerAnglesHint: {x: 51.712, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!1 &1920735224
 GameObject:
   m_ObjectHideFlags: 0
@@ -26274,12 +26299,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.4
+      value: 61.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.4
+      value: 28.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62968b18b3138b24da1f77257bf9ba0f,
         type: 3}
@@ -27963,7 +27988,7 @@ GameObject:
   - component: {fileID: 2127782482}
   - component: {fileID: 2127782481}
   - component: {fileID: 2127782485}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28007,8 +28032,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5983287, y: 1, z: 1.0230837}
-  m_Center: {x: 0.12577948, y: 0, z: 0.0115389945}
+  m_Size: {x: 1.5472496, y: 1, z: 1.0230837}
+  m_Center: {x: 0.1002402, y: 0, z: 0.011539017}
 --- !u!23 &2127782483
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28067,8 +28092,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.14300339, y: 1, z: 1.5952499}
-  m_Center: {x: -0.6046259, y: 0, z: 0.2976232}
+  m_Size: {x: 0.14300339, y: 1, z: 1.4690008}
+  m_Center: {x: -0.6046259, y: 0, z: 0.23449668}
 --- !u!1 &2134460818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 57995964a72d1ae47baff5f1d6779654,
@@ -28291,7 +28316,7 @@ PrefabInstance:
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.061
+      value: 0.038
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
@@ -28301,7 +28326,7 @@ PrefabInstance:
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.105
+      value: -1.187
       objectReference: {fileID: 0}
     - target: {fileID: 8299455592705188474, guid: 723999fa813fc4fb49da31fc0f7c1d9d,
         type: 3}
@@ -28370,7 +28395,7 @@ PrefabInstance:
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.23
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
@@ -28380,7 +28405,7 @@ PrefabInstance:
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.18
+      value: -30.11
       objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
@@ -28715,7 +28740,7 @@ GameObject:
   - component: {fileID: 7293247473059469975}
   - component: {fileID: 7293247473059469968}
   - component: {fileID: 7293247473059469963}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28733,8 +28758,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1.8573536, z: 1.0000001}
-  m_Center: {x: 0, y: 0.4286768, z: 0}
+  m_Size: {x: 0.9110615, y: 1.8573536, z: 1.0000001}
+  m_Center: {x: -0.044469252, y: 0.4286768, z: 0}
 --- !u!114 &7293247473059469968
 MonoBehaviour:
   m_ObjectHideFlags: 0
