@@ -477,6 +477,11 @@ PrefabInstance:
       propertyPath: angryPatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1261581624}
+    - target: {fileID: 3694601859610406234, guid: 4722e41532bca87cbb7d3599c61f953c,
+        type: 3}
+      propertyPath: dashRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3694601859610406235, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}
       propertyPath: m_Name
@@ -824,6 +829,11 @@ PrefabInstance:
       propertyPath: angryPatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1053779908}
+    - target: {fileID: 3694601859610406234, guid: 4722e41532bca87cbb7d3599c61f953c,
+        type: 3}
+      propertyPath: dashRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3694601859610406235, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}
       propertyPath: m_Name
@@ -5351,7 +5361,7 @@ PrefabInstance:
     - target: {fileID: 3694601859610406234, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}
       propertyPath: dashRange
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3694601859610406235, guid: 4722e41532bca87cbb7d3599c61f953c,
         type: 3}
@@ -7629,6 +7639,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 263.57645
       objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 6d8d4da647d6b8c49888ab649255c8ed,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 6d8d4da647d6b8c49888ab649255c8ed,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d8d4da647d6b8c49888ab649255c8ed,
         type: 3}
       propertyPath: m_Name
@@ -7879,7 +7899,7 @@ GameObject:
   m_Name: Cube (13)
   m_TagString: Platform
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!114 &568781541
@@ -9185,8 +9205,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9868543, y: 1, z: 1.1936345}
-  m_Center: {x: 0.0065727024, y: 0, z: 0.09681642}
+  m_Size: {x: 0.9247946, y: 1, z: 1.1936345}
+  m_Center: {x: -0.02445713, y: 0, z: 0.09681642}
 --- !u!23 &616360866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14534,7 +14554,7 @@ PrefabInstance:
     - target: {fileID: 9067951880021343712, guid: c88c4f6a5fe37ebca882dfaa517333cb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.42
+      value: -56.04
       objectReference: {fileID: 0}
     - target: {fileID: 9067951880021343712, guid: c88c4f6a5fe37ebca882dfaa517333cb,
         type: 3}
@@ -14850,6 +14870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2203725436489067516, guid: b83604ef5cf087466aa71ab2049615b3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e80374d39edc57ba78dd1169244f86a2, type: 2}
     - target: {fileID: 2980630014705839635, guid: b83604ef5cf087466aa71ab2049615b3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17082,6 +17107,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 263.57645
+      objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 6d8d4da647d6b8c49888ab649255c8ed,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 6d8d4da647d6b8c49888ab649255c8ed,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d8d4da647d6b8c49888ab649255c8ed,
         type: 3}
@@ -20912,6 +20947,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closet
       objectReference: {fileID: 0}
+    - target: {fileID: 2203725436489067516, guid: b83604ef5cf087466aa71ab2049615b3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e80374d39edc57ba78dd1169244f86a2, type: 2}
     - target: {fileID: 2980630014705839635, guid: b83604ef5cf087466aa71ab2049615b3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
