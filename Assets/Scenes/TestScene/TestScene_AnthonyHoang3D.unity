@@ -5240,6 +5240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closet
       objectReference: {fileID: 0}
+    - target: {fileID: 2980630014705839635, guid: b83604ef5cf087466aa71ab2049615b3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b83604ef5cf087466aa71ab2049615b3, type: 3}
 --- !u!1001 &2444745178462000310
@@ -5938,6 +5943,12 @@ MonoBehaviour:
   initialThoughtMap: {fileID: 11400000, guid: e2b722dc2bf0d3c27ad0158af72c5027, type: 2}
   foodMenu:
   - {fileID: 11400000, guid: 85e89910dd345b53ba15514a78b44b80, type: 2}
+  restaurantDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyChefsEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4627152506435343530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7608,6 +7619,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f9fad4fb5d15b6469d5da83efcfa079, type: 3}
   enrageSound:
   - {fileID: 8300000, guid: 3953edfe0a1b1c9409379cb159c7cdf9, type: 3}
+  weaponSounds: []
 --- !u!82 &8080022561904571321
 AudioSource:
   m_ObjectHideFlags: 0
