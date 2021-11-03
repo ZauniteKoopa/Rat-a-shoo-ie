@@ -5047,7 +5047,7 @@ PrefabInstance:
     - target: {fileID: 7801452236015366833, guid: 737e23cccf88c6c90a13bce1e2a1de33,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.34033
+      value: 12.34
       objectReference: {fileID: 0}
     - target: {fileID: 7801452236015366833, guid: 737e23cccf88c6c90a13bce1e2a1de33,
         type: 3}
@@ -5057,7 +5057,7 @@ PrefabInstance:
     - target: {fileID: 7801452236015366833, guid: 737e23cccf88c6c90a13bce1e2a1de33,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -65.687485
+      value: -66.53
       objectReference: {fileID: 0}
     - target: {fileID: 7801452236015366833, guid: 737e23cccf88c6c90a13bce1e2a1de33,
         type: 3}
@@ -6226,7 +6226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1842858010, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
       propertyPath: attackingRange
-      value: 1.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842858010, guid: 4d00e75600ccba920ad8d16a52ad5e23, type: 3}
+      propertyPath: angryAnticipationTime
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
@@ -6263,6 +6267,11 @@ PrefabInstance:
       propertyPath: angryPatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1705923768}
+    - target: {fileID: 4813905236207517741, guid: 4d00e75600ccba920ad8d16a52ad5e23,
+        type: 3}
+      propertyPath: angryMovementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4813905236207517747, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6872,7 +6881,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 281314ac9e2f7494f91d91d73f23e0dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.22
+      value: 21.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 281314ac9e2f7494f91d91d73f23e0dd,
         type: 3}
@@ -6932,7 +6941,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 281314ac9e2f7494f91d91d73f23e0dd,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 165.09348
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 281314ac9e2f7494f91d91d73f23e0dd,
         type: 3}
@@ -18198,7 +18207,7 @@ PrefabInstance:
     - target: {fileID: 280215772262042389, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
       propertyPath: HAZARD_EXPIRATION_DURATION
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 280215772262042390, guid: 30e1b2274f628472da3ca742315309dc,
         type: 3}
@@ -21828,6 +21837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closet
       objectReference: {fileID: 0}
+    - target: {fileID: 2203725436489067516, guid: b83604ef5cf087466aa71ab2049615b3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f9f55508e2f9444c9fea066f31c495a, type: 2}
     - target: {fileID: 2980630014705839635, guid: b83604ef5cf087466aa71ab2049615b3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
