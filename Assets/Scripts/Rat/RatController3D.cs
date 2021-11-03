@@ -237,7 +237,7 @@ public class RatController3D : MonoBehaviour
         // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
             float currentSpeed = isSprinting ? sprintSpeed : landSpeed;
-            audioManager.startFootsteps();
+            audioManager.startFootsteps(isSprinting);
 
             // Particle effects
             if (isSprinting && !dashParticle.isPlaying && onGround)

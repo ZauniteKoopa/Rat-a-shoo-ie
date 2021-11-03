@@ -1353,7 +1353,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 83acedf23605b4f4ea4abcf3fb5c9bd6, type: 3}
   - {fileID: 8300000, guid: 8f9fad4fb5d15b6469d5da83efcfa079, type: 3}
   enrageSound:
-  - {fileID: 8300000, guid: 3953edfe0a1b1c9409379cb159c7cdf9, type: 3}
+  - {fileID: 8300000, guid: 1d43e3450e5042a4d8bb2cfe5a713f54, type: 3}
+  weaponSounds:
+  - {fileID: 8300000, guid: ac0ece68c4dc3fc41acc484e81ed45c6, type: 3}
 --- !u!114 &1842858010
 MonoBehaviour:
   m_ObjectHideFlags: 0

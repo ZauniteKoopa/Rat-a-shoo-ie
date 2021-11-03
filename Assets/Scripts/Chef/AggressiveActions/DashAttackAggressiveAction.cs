@@ -119,6 +119,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
         dashHitbox.SetActive(true);
+        audioManager.playWeaponAttack();
 
         // Dash sequence
         while (timer <= maxDashTime) {

@@ -287,16 +287,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alertSounds:
-  - {fileID: 8300000, guid: b949ce9a7f8b2aa44805a9f93d43a9ec, type: 3}
-  - {fileID: 8300000, guid: 8d3847324f4601744b420188a584cb52, type: 3}
+  - {fileID: 8300000, guid: 19329e3e8b5da4e4b92adaf996490474, type: 3}
+  - {fileID: 8300000, guid: d32175a8294e83840a631c2626157a7c, type: 3}
   attackSounds:
-  - {fileID: 8300000, guid: 68b5a85612282524497b5c83412169c7, type: 3}
-  - {fileID: 8300000, guid: 2cc9720bdcf6b464ab5177d7b7aadeae, type: 3}
+  - {fileID: 8300000, guid: 63d43bf001c3b234f955cdd3a5538922, type: 3}
+  - {fileID: 8300000, guid: 644534f3ef2be7e4e88eb87b28afa347, type: 3}
   lostSounds:
-  - {fileID: 8300000, guid: 9dee31857659a93428e43f6315fc4395, type: 3}
-  - {fileID: 8300000, guid: 9c7b64da58301d34d988d3b4f334c7f9, type: 3}
+  - {fileID: 8300000, guid: 6441d11d1d0356842bf6846923c1154b, type: 3}
+  - {fileID: 8300000, guid: cdd0087dba47a42429a7ce7545015bef, type: 3}
   enrageSound:
-  - {fileID: 8300000, guid: 3953edfe0a1b1c9409379cb159c7cdf9, type: 3}
+  - {fileID: 8300000, guid: 1d43e3450e5042a4d8bb2cfe5a713f54, type: 3}
+  weaponSounds:
+  - {fileID: 8300000, guid: abebe0923a2b7a645bd8b601d5e958bf, type: 3}
 --- !u!114 &4016876861413822292
 MonoBehaviour:
   m_ObjectHideFlags: 0
