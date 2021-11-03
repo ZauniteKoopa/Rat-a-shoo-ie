@@ -7,6 +7,8 @@ public class RatAudioManager : MonoBehaviour
     public bool isWalking = false;
     private AudioSource speaker;
     [SerializeField]
+    private AudioClip dashCloud = null;
+    [SerializeField]
     private AudioClip[] ratDamageSoundClips = null;
     [SerializeField]
     private AudioClip[] ratPickupSoundClips = null;
@@ -85,6 +87,27 @@ public class RatAudioManager : MonoBehaviour
         }
         
     }
+
+    public IEnumerator DashCloudLoop()
+    {
+        while (true)
+        {
+            speaker.clip = dashCloud;
+            speaker.PlayOneShot(dashCloud, .2f);
+            yield return new WaitForSeconds(.4f);
+        }
+    }
+
+    public void startDashCloud()
+    {
+        StartCoroutine(DashCloudLoop());
+    }
+
+    public void stopDashCloud()
+    {
+        StopCoroutine(DashCloudLoop());
+    }
+
 
 
 
