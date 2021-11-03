@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 7137193228062446320}
   - component: {fileID: 7137193228062446323}
   - component: {fileID: 7137193229067051950}
+  - component: {fileID: -9030754621695777330}
   m_Layer: 5
   m_Name: HibachiUserInterface
   m_TagString: Untagged
@@ -537,8 +538,8 @@ MonoBehaviour:
   playerFinishAllTasksEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: onToDoListDone
+      - m_Target: {fileID: -9030754621695777330}
+        m_MethodName: pillarReveal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -564,6 +565,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: onRestaurantDestroyed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: -9030754621695777330}
+        m_MethodName: endCollapse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -791,6 +803,21 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-9030754621695777330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351344020529810479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75b4977681df88408ec04e81415f7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reveal: {fileID: 8300000, guid: dae7501785538be4db91c70056366433, type: 3}
+  damage: {fileID: 8300000, guid: 053ac630abf788a44b9250a25fe5cfb8, type: 3}
+  collapse: {fileID: 8300000, guid: 45b847c80405bcf4d8e3bfda955fea26, type: 3}
 --- !u!1 &1351344020614887120
 GameObject:
   m_ObjectHideFlags: 0
