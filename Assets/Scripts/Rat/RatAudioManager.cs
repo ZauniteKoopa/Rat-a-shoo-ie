@@ -12,8 +12,16 @@ public class RatAudioManager : MonoBehaviour
     private AudioClip[] ratPickupSoundClips = null;
     [SerializeField]
     private AudioClip[] ratDropSoundClips = null;
+
+    // Footstep methods
     [SerializeField]
     private AudioClip[] ratFootstepClips = null;
+    [SerializeField]
+    private float walkInterval = 0.3f;
+    [SerializeField]
+    private float sprintInterval = 0.2f;
+    private float curInterval = 0.3f;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -62,19 +70,20 @@ public class RatAudioManager : MonoBehaviour
         while (true)
         {
             emitFoootstepSound();
-            Debug.Log("Step");
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(curInterval);
         }
     }
 
-    public void startFootsteps()
+    public void startFootsteps(bool isSprinting)
     {
+        curInterval = (isSprinting) ? sprintInterval : walkInterval;
+
         if (!isWalking)
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             StartCoroutine(FootstepLoop());
             isWalking = true;
-        }     
+        }   
     }
 
     public void stopFootsteps()
@@ -82,6 +91,7 @@ public class RatAudioManager : MonoBehaviour
         if (isWalking)
         {
             StopAllCoroutines();
+            isWalking = false;
         }
         
     }
