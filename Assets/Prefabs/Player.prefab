@@ -759,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcf080dffe14e9f6a51ff6d45607624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWalking: 0
   ratDamageSoundClips:
   - {fileID: 8300000, guid: d4518db7eea71ef4aaf9869be7fd374a, type: 3}
   - {fileID: 8300000, guid: 42b7fcb8eb522cb47857ea4e27876f16, type: 3}
@@ -768,6 +769,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1c9cc6a4c8b559c4f894704f7fbbef13, type: 3}
   ratDropSoundClips:
   - {fileID: 8300000, guid: 0000edc7803fa1848ba674b7c64c1ffa, type: 3}
+  ratFootstepClips:
+  - {fileID: 8300000, guid: 53bc4d47bbf67d94d89475e2f53c2028, type: 3}
 --- !u!82 &7610873196788154302
 AudioSource:
   m_ObjectHideFlags: 0
