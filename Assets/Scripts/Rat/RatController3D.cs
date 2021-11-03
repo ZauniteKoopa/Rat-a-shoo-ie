@@ -237,14 +237,17 @@ public class RatController3D : MonoBehaviour
         // Apply speed to move vector if you're actually moving
         if (moveVector != Vector3.zero) {
             float currentSpeed = isSprinting ? sprintSpeed : landSpeed;
+            audioManager.startFootsteps();
 
             // Particle effects
             if (isSprinting && !dashParticle.isPlaying && onGround)
             {
                 dashParticle.Play();
+                
             }else if ((!isSprinting || !onGround) && dashParticle.isPlaying)
             {
                 dashParticle.Stop();
+                
             }
 
             currentSpeed *= (slowSources > 0) ? slowFactor : 1.0f;
@@ -253,9 +256,17 @@ public class RatController3D : MonoBehaviour
             if (!onGround) {
                 moveVector *= airControl;
             }
-        }else if (dashParticle.isPlaying)
+        }else 
+        
         {
-            dashParticle.Stop();
+            audioManager.stopFootsteps();
+
+            if (dashParticle.isPlaying) 
+            {
+                dashParticle.Stop();
+            }
+                
+            
         }
 
         // Do translation and manage spot shadow

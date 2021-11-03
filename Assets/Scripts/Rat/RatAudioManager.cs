@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RatAudioManager : MonoBehaviour
 {
+    public bool isWalking = false;
     private AudioSource speaker;
     [SerializeField]
     private AudioClip[] ratDamageSoundClips = null;
@@ -11,6 +12,8 @@ public class RatAudioManager : MonoBehaviour
     private AudioClip[] ratPickupSoundClips = null;
     [SerializeField]
     private AudioClip[] ratDropSoundClips = null;
+    [SerializeField]
+    private AudioClip[] ratFootstepClips = null;
 
     // Start is called before the first frame update
     void Awake()
@@ -44,4 +47,45 @@ public class RatAudioManager : MonoBehaviour
         speaker.clip = curClip;
         speaker.PlayOneShot(curClip, 0.6f);
     }
+
+    public void emitFoootstepSound()
+    {
+        int randomIndex = Random.Range(0, ratFootstepClips.Length);
+        AudioClip curClip = ratFootstepClips[randomIndex];
+
+        speaker.clip = curClip;
+        speaker.PlayOneShot(curClip, 0.1f);
+    }
+
+    public IEnumerator FootstepLoop()
+    {
+        while (true)
+        {
+            emitFoootstepSound();
+            Debug.Log("Step");
+            yield return new WaitForSeconds(.2f);
+        }
+    }
+
+    public void startFootsteps()
+    {
+        if (!isWalking)
+        {
+            StopAllCoroutines();
+            StartCoroutine(FootstepLoop());
+            isWalking = true;
+        }     
+    }
+
+    public void stopFootsteps()
+    {
+        if (isWalking)
+        {
+            StopAllCoroutines();
+        }
+        
+    }
+
+
+
 }
