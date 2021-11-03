@@ -9,6 +9,8 @@ public class RatAudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip dashCloud = null;
     [SerializeField]
+    private AudioClip jumpClip = null;
+    [SerializeField]
     private AudioClip[] ratDamageSoundClips = null;
     [SerializeField]
     private AudioClip[] ratPickupSoundClips = null;
@@ -40,6 +42,7 @@ public class RatAudioManager : MonoBehaviour
         speaker.PlayOneShot(curClip);
     }
 
+    // Public method to play pickup sound
     public void emitPickupSound()
     {
         int randomIndex = Random.Range(0, ratPickupSoundClips.Length);
@@ -49,6 +52,7 @@ public class RatAudioManager : MonoBehaviour
         speaker.PlayOneShot(curClip, 0.6f);
     }
 
+    // Public method to play drop sound
     public void emitDropSound()
     {
         int randomIndex = Random.Range(0, ratDropSoundClips.Length);
@@ -58,7 +62,8 @@ public class RatAudioManager : MonoBehaviour
         speaker.PlayOneShot(curClip, 0.6f);
     }
 
-    public void emitFoootstepSound()
+    // Private method to emit footstep sound
+    private void emitFoootstepSound()
     {
         int randomIndex = Random.Range(0, ratFootstepClips.Length);
         AudioClip curClip = ratFootstepClips[randomIndex];
@@ -67,7 +72,8 @@ public class RatAudioManager : MonoBehaviour
         speaker.PlayOneShot(curClip, 0.1f);
     }
 
-    public IEnumerator FootstepLoop()
+    // Main footstep looping 
+    private IEnumerator FootstepLoop()
     {
         while (true)
         {
@@ -76,6 +82,7 @@ public class RatAudioManager : MonoBehaviour
         }
     }
 
+    // Public method to start footstep with isSprinting on or off
     public void startFootsteps(bool isSprinting)
     {
         curInterval = (isSprinting) ? sprintInterval : walkInterval;
@@ -88,6 +95,7 @@ public class RatAudioManager : MonoBehaviour
         }   
     }
 
+    // Public method to stop footstep
     public void stopFootsteps()
     {
         if (isWalking)
@@ -98,33 +106,16 @@ public class RatAudioManager : MonoBehaviour
         
     }
 
+    // Public method to play dash sound effect
     public void playDash()
     {
         speaker.clip = dashCloud;
         speaker.PlayOneShot(dashCloud, .2f);
     }
 
-/*    public IEnumerator DashCloudLoop()
-    {
-        while (true)
-        {
-            speaker.clip = dashCloud;
-            speaker.PlayOneShot(dashCloud, .2f);
-            yield return new WaitForSeconds(.4f);
-        }
+    // Public method to play jump sound effect
+    public void playJump() {
+        speaker.clip = jumpClip;
+        speaker.PlayOneShot(jumpClip, 0.2f);
     }
-
-    public void startDashCloud()
-    {
-        StartCoroutine(DashCloudLoop());
-    }
-
-    public void stopDashCloud()
-    {
-        StopCoroutine(DashCloudLoop());
-    }*/
-
-
-
-
 }

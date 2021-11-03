@@ -163,6 +163,7 @@ public class RatController3D : MonoBehaviour
         if (canMove && onGround && value.started) {
             float heightVelocity = (slowSources <= 0) ? landJumpVelocity : landJumpVelocity * slowedJumpFactor;
             rigidBody.velocity = (Vector3.up * heightVelocity);
+            audioManager.playJump();
         }
     }
 
