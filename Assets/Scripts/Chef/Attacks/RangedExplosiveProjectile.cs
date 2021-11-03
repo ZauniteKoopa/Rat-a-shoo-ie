@@ -140,7 +140,7 @@ public class RangedExplosiveProjectile : RangedProjectile
         if (hitPlayer && !bombTimerActivated) {
             Object.Destroy(gameObject);
             playerCollider.GetComponent<RatController3D>().takeDamage();
-        } else  {
+        } else if (!bombTimerActivated) {
             bombTimerActivated = true;
             GetComponent<Collider>().enabled = false;
             StartCoroutine(bombSequence());
@@ -150,7 +150,8 @@ public class RangedExplosiveProjectile : RangedProjectile
     // IEnumerator to start bomb sequence
     private IEnumerator bombSequence() {
         // Set anticipation portion
-        // speaker.PlayOneShot(impact);
+        speaker.PlayOneShot(impact);
+
         anticipationZone.SetActive(true);
         MeshRenderer anticipationRender = anticipationZone.GetComponent<MeshRenderer>();
         anticipationRender.material.color = startAnticipationColor;

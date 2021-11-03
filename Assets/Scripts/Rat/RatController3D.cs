@@ -320,6 +320,7 @@ public class RatController3D : MonoBehaviour
     /* Method for taking damage */
     public void takeDamage() {
         if (!invincible) {
+            audioManager.stopFootsteps();
             dropGrabbedInteractable();
             StartCoroutine(respawnRoutine());
 
