@@ -31,6 +31,11 @@ public class RangedExplosiveProjectile : RangedProjectile
     private float startingSpriteScale = 0.3f;
     [SerializeField]
     private float endingSpriteScale = 0.5f;
+    [SerializeField]
+    private AudioClip impact = null;
+    [SerializeField]
+    private AudioClip explode = null;
+    private AudioSource speaker = null;
 
     // Hook
     public LayerMask hookLayer;
@@ -60,6 +65,8 @@ public class RangedExplosiveProjectile : RangedProjectile
             childrenFiredStatus[i] = TrailingStatus.STABLE;
             childrenPositions[i] = originalPos;
         }
+
+        speaker = GetComponent<AudioSource>();
     }
 
     // Main method to move the projectile
@@ -143,6 +150,7 @@ public class RangedExplosiveProjectile : RangedProjectile
     // IEnumerator to start bomb sequence
     private IEnumerator bombSequence() {
         // Set anticipation portion
+        // speaker.PlayOneShot(impact);
         anticipationZone.SetActive(true);
         MeshRenderer anticipationRender = anticipationZone.GetComponent<MeshRenderer>();
         anticipationRender.material.color = startAnticipationColor;
@@ -164,6 +172,8 @@ public class RangedExplosiveProjectile : RangedProjectile
         spriteTransform.GetComponent<SpriteRenderer>().enabled = false;
         anticipationRender.enabled = false;
         explosionZone.SetActive(true);
+
+        speaker.PlayOneShot(explode);
 
         yield return new WaitForSeconds(explosiveAttackTime);
 

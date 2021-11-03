@@ -329,6 +329,8 @@ MonoBehaviour:
   endAnticipationColor: {r: 1, g: 0.40739924, b: 0, a: 0.2}
   startingSpriteScale: 0.3
   endingSpriteScale: 0.4
+  impact: {fileID: 8300000, guid: 4a98c3784b585974d95430f69b436f03, type: 3}
+  explode: {fileID: 8300000, guid: 824b21a69619e9745b85409ff62758cb, type: 3}
   hookLayer:
     serializedVersion: 2
     m_Bits: 256
