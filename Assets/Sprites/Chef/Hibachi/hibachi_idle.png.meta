@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: f85559f12bf034a05a0362aeebb4832f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2772260224922986028
+    second: hibachi_idle_0
+  - first:
+      213: -1554054840754881280
+    second: hibachi_idle_1
+  - first:
+      213: 8787271182753422854
+    second: hibachi_idle_2
+  - first:
+      213: -7665755256293459316
+    second: hibachi_idle_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +83,105 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hibachi_idle_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 1055
+        height: 1904
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26aa7b8cfb097620800000000000000
+      internalID: 2772260224922986028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_idle_1
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 29
+        width: 1058
+        height: 1891
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d34572b53ee6ae0800000000000000
+      internalID: -1554054840754881280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_idle_2
+      rect:
+        serializedVersion: 2
+        x: 2232
+        y: 36
+        width: 1057
+        height: 1884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e5b017598a2f970800000000000000
+      internalID: 8787271182753422854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_idle_3
+      rect:
+        serializedVersion: 2
+        x: 3348
+        y: 8
+        width: 1053
+        height: 1912
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a7b859534cd9590800000000000000
+      internalID: -7665755256293459316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

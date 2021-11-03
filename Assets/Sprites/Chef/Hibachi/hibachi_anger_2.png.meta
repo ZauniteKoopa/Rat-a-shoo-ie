@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: f2060f34939a2433ca97e06f04c1f658
+guid: 83b401bfe422b4eaa8422dd8a3cf3775
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1729391000347751953
-    second: hibachi_chase_0
+      213: 1458090537979822182
+    second: hibachi_anger_2_0
   - first:
-      213: -7422542660419821135
-    second: hibachi_chase_1
+      213: -7709121953096966278
+    second: hibachi_anger_2_1
   - first:
-      213: -3782905043317987535
-    second: hibachi_chase_2
+      213: 19961134329317930
+    second: hibachi_anger_2_2
   - first:
-      213: 32368155271879909
-    second: hibachi_chase_3
+      213: -9124412975588647640
+    second: hibachi_anger_2_3
+  - first:
+      213: 2544982558471451346
+    second: hibachi_anger_2_4
+  - first:
+      213: -9117698334204532857
+    second: hibachi_anger_2_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,85 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hibachi_chase_0
+      name: hibachi_anger_2_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 1320
-        height: 1936
-      alignment: 9
-      pivot: {x: 0.552801, y: 0.50450015}
+        x: 5
+        y: 12
+        width: 1685
+        height: 1961
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9c3824c08fff7e0800000000000000
-      internalID: -1729391000347751953
+      spriteID: 66045a67e9d2c3410800000000000000
+      internalID: 1458090537979822182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hibachi_chase_1
+      name: hibachi_anger_2_1
       rect:
         serializedVersion: 2
-        x: 1343
-        y: 246
-        width: 1312
-        height: 1697
-      alignment: 9
-      pivot: {x: 0.5332018, y: 0.44866157}
+        x: 1700
+        y: 5
+        width: 1683
+        height: 1968
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b16e73d6c4ddf890800000000000000
-      internalID: -7422542660419821135
+      spriteID: a7f5d77ad62b30590800000000000000
+      internalID: -7709121953096966278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hibachi_chase_2
+      name: hibachi_anger_2_2
       rect:
         serializedVersion: 2
-        x: 2669
-        y: 7
-        width: 1320
-        height: 1936
-      alignment: 9
-      pivot: {x: 0.5726015, y: 0.4909999}
+        x: 3393
+        y: 12
+        width: 1688
+        height: 1961
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1376ff1e7eb608bc0800000000000000
-      internalID: -3782905043317987535
+      spriteID: a2a4301cb8ae64000800000000000000
+      internalID: 19961134329317930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hibachi_chase_3
+      name: hibachi_anger_2_3
       rect:
         serializedVersion: 2
-        x: 4005
-        y: 253
-        width: 1312
-        height: 1697
-      alignment: 9
-      pivot: {x: 0.55312365, y: 0.42812616}
+        x: 5091
+        y: 4
+        width: 1683
+        height: 1969
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ecd30d6aaef27000800000000000000
-      internalID: 32368155271879909
+      spriteID: 82dd21eedb29f5180800000000000000
+      internalID: -9124412975588647640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_anger_2_4
+      rect:
+        serializedVersion: 2
+        x: 6784
+        y: 12
+        width: 1683
+        height: 1961
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2714d2728915320800000000000000
+      internalID: 2544982558471451346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_anger_2_5
+      rect:
+        serializedVersion: 2
+        x: 8477
+        y: 4
+        width: 1683
+        height: 1969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78761943cad677180800000000000000
+      internalID: -9117698334204532857
       vertices: []
       indices: 
       edges: []

@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 58a00e75c73124086a8c23cb5cabe6dd
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -388802510114228600
+    second: hibachi_walk_back_0
+  - first:
+      213: 4075862550387975615
+    second: hibachi_walk_back_1
+  - first:
+      213: 1503784787862442302
+    second: hibachi_walk_back_2
+  - first:
+      213: 7607776976259098825
+    second: hibachi_walk_back_3
+  - first:
+      213: -4120919732217978087
+    second: hibachi_walk_back_4
+  - first:
+      213: -690259015699712207
+    second: hibachi_walk_back_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +89,147 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hibachi_walk_back_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 128
+        width: 996
+        height: 1849
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8867cd05d22ba9af0800000000000000
+      internalID: -388802510114228600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_walk_back_1
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 58
+        width: 996
+        height: 1919
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5613d056f509830800000000000000
+      internalID: 4075862550387975615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_walk_back_2
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 8
+        width: 993
+        height: 1969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e315d231c448ed410800000000000000
+      internalID: 1503784787862442302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_walk_back_3
+      rect:
+        serializedVersion: 2
+        x: 3236
+        y: 128
+        width: 996
+        height: 1849
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8a1582ad0449960800000000000000
+      internalID: 7607776976259098825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_walk_back_4
+      rect:
+        serializedVersion: 2
+        x: 4311
+        y: 58
+        width: 996
+        height: 1919
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913ef3d465d8fc6c0800000000000000
+      internalID: -4120919732217978087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_walk_back_5
+      rect:
+        serializedVersion: 2
+        x: 5389
+        y: 8
+        width: 993
+        height: 1969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13735361515bb66f0800000000000000
+      internalID: -690259015699712207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
