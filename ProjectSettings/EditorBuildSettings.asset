@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: db552b27eaf60af5893d6f1168611fef
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene/TestScene_AnthonyHoang3D.unity
     guid: 68a677f2f336b60ccb04a2830afd89e9
   m_configObjects: {}

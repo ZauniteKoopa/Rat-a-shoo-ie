@@ -90,8 +90,8 @@ public class RatAudioManager : MonoBehaviour
         if (!isWalking)
         {
             //StopAllCoroutines();
-            StartCoroutine(FootstepLoop());
             isWalking = true;
+            StartCoroutine(FootstepLoop());
         }   
     }
 
@@ -100,8 +100,8 @@ public class RatAudioManager : MonoBehaviour
     {
         if (isWalking)
         {
-            StopAllCoroutines();
             isWalking = false;
+            StopAllCoroutines();
         }
         
     }
