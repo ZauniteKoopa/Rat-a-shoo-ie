@@ -5719,18 +5719,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0edc520b1e7c1f8a7c69b147bc7a8a, type: 3}
---- !u!114 &3669427621893849988 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2882620876251204557, guid: 74369ba2e418df512829a7322a094ea7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1940291200337135689}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a1784ac4ad2b441a65b7ef8ae4bb8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3842852895751323168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6628,11 +6616,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HibachiUserInterface
       objectReference: {fileID: 0}
-    - target: {fileID: 1351344020529810514, guid: e0aa8da650c89717d942933095a0cc07,
-        type: 3}
-      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3669427621893849988}
     - target: {fileID: 1351344020529810514, guid: e0aa8da650c89717d942933095a0cc07,
         type: 3}
       propertyPath: restaurantDestroyedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
