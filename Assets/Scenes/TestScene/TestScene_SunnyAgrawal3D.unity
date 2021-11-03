@@ -5412,6 +5412,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3149129238780747774, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: ratFootstepClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149129238780747774, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: ratFootstepClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 53bc4d47bbf67d94d89475e2f53c2028, type: 3}
     - target: {fileID: 4858750488894198126, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: stopAction
