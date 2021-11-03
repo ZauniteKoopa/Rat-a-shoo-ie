@@ -13,6 +13,8 @@ public class ChefAudioManager : MonoBehaviour
     private AudioClip[] lostSounds = null;
     [SerializeField]
     private AudioClip[] enrageSound = null;
+    [SerializeField]
+    private AudioClip[] weaponSounds = null;
 
 
     // Reference variable
@@ -47,11 +49,17 @@ public class ChefAudioManager : MonoBehaviour
         playRandomTrack(enrageSound);
     }
 
+    public void playWeaponAttack()
+    {
+        playRandomTrack(weaponSounds);
+    }
+
+
     // Private helper function to play a random track from an audio clip array
     private void playRandomTrack(AudioClip[] playableClips) {
         int randomIndex = Random.Range(0, playableClips.Length);
         AudioClip curClip = playableClips[randomIndex];
         speaker.clip = curClip;
-        speaker.Play();
+        speaker.PlayOneShot(curClip);
     }
 }

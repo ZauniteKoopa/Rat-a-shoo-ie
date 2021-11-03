@@ -141,6 +141,7 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         meleeHitbox.SetActive(true);
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
+        audioManager.playWeaponAttack();
 
         yield return new WaitForSeconds(meleeAttackingTime);
 
