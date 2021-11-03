@@ -98,7 +98,13 @@ public class RatAudioManager : MonoBehaviour
         
     }
 
-    public IEnumerator DashCloudLoop()
+    public void playDash()
+    {
+        speaker.clip = dashCloud;
+        speaker.PlayOneShot(dashCloud, .2f);
+    }
+
+/*    public IEnumerator DashCloudLoop()
     {
         while (true)
         {
@@ -116,7 +122,7 @@ public class RatAudioManager : MonoBehaviour
     public void stopDashCloud()
     {
         StopCoroutine(DashCloudLoop());
-    }
+    }*/
 
 
 

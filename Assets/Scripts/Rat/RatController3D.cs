@@ -242,12 +242,13 @@ public class RatController3D : MonoBehaviour
             // Particle effects
             if (isSprinting && !dashParticle.isPlaying && onGround)
             {
-                audioManager.startDashCloud();
+                audioManager.playDash();
+                //audioManager.startDashCloud();
                 dashParticle.Play();
                 
             }else if ((!isSprinting || !onGround) && dashParticle.isPlaying)
             {
-                audioManager.stopDashCloud();
+                //audioManager.stopDashCloud();
                 dashParticle.Stop();
                 
             }
@@ -265,7 +266,7 @@ public class RatController3D : MonoBehaviour
 
             if (dashParticle.isPlaying) 
             {
-                audioManager.stopDashCloud();
+                //audioManager.stopDashCloud();
                 dashParticle.Stop();
             }
                 
