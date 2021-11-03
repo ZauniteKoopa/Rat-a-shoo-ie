@@ -5428,6 +5428,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8181828447850039712, guid: 4722e41532bca87cbb7d3599c61f953c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4722e41532bca87cbb7d3599c61f953c, type: 3}
 --- !u!1001 &348875501
@@ -7899,7 +7904,7 @@ GameObject:
   m_Name: Cube (13)
   m_TagString: Platform
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!114 &568781541
@@ -13263,6 +13268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cabinets (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62968b18b3138b24da1f77257bf9ba0f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62968b18b3138b24da1f77257bf9ba0f, type: 3}
