@@ -689,7 +689,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 60608fd2e1378cb4abf77804a4364871, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -824,6 +824,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 12f8c4b9-4819-469d-b9c0-d7930c4098bd
     m_ActionName: UI/TaskList[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc41e066-c487-452e-92ba-dcca0c37218e
+    m_ActionName: Touch/PrimaryPosition[/Simulated Touchscreen/primaryTouch/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 91bc1fb5-793f-456a-91fd-8924ecea468a
+    m_ActionName: Touch/TouchContact[/Simulated Touchscreen/primaryTouch/press]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
