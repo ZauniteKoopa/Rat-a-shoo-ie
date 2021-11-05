@@ -19539,6 +19539,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7293247472585627826}
     m_Modifications:
+    - target: {fileID: 384371068654700401, guid: 6f01df2e4064513408dfa812d69ce67a,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 384371068654700401, guid: 6f01df2e4064513408dfa812d69ce67a,
+        type: 3}
+      propertyPath: m_StopNaN
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 384371068654700401, guid: 6f01df2e4064513408dfa812d69ce67a,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283282611448278810, guid: 6f01df2e4064513408dfa812d69ce67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7918280956766933249, guid: 6f01df2e4064513408dfa812d69ce67a,
         type: 3}
       propertyPath: m_LocalPosition.x
