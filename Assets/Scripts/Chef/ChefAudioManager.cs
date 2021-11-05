@@ -51,7 +51,9 @@ public class ChefAudioManager : MonoBehaviour
 
     public void playWeaponAttack()
     {
-        playRandomTrack(weaponSounds);
+        if (weaponSounds != null && weaponSounds.Length > 0) {
+            playRandomTrack(weaponSounds);
+        }
     }
 
 

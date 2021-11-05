@@ -121,12 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: dda26a5e4a511a0c1b6304013fa6ec99, type: 2}
---- !u!122 &45671537 stripped
-Halo:
-  m_CorrespondingSourceObject: {fileID: 1584449588854265831, guid: d20ba2a8134437e3d80f1253d92197b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 718384026285508505}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &96452039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1804,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &960233947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7822395791820793456, guid: d20ba2a8134437e3d80f1253d92197b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 718384026285508505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &985756387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2352,7 +2352,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 45671537}
+      objectReference: {fileID: 960233947}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2412,6 +2412,11 @@ PrefabInstance:
         type: 3}
       propertyPath: initialTasks.Array.data[0]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
+        type: 3}
+      propertyPath: playerFinishAllTasksEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8200095423333824991, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
@@ -6402,7 +6407,8 @@ PrefabInstance:
       propertyPath: userInterface
       value: 
       objectReference: {fileID: 828858107}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 645808194, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
 --- !u!4 &5271032150378219367
 Transform:

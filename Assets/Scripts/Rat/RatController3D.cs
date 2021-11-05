@@ -65,7 +65,6 @@ public class RatController3D : MonoBehaviour
     [SerializeField]
     private float haloDuration = 3.0f;
     public UnityEvent playerBlackOutEvent;
-    private Component spawnHalo = null;
     private bool facingRight = false;
     private Color invinicibleColor;
     private bool invincible = false;
@@ -106,8 +105,6 @@ public class RatController3D : MonoBehaviour
     {
         invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
         spawnPosition = transform.position;
-
-        spawnHalo = GetComponent("Halo");
         myCollider = GetComponent<Collider>();
         rigidBody = GetComponent<Rigidbody>();
         audioManager = GetComponent<RatAudioManager>();
@@ -368,7 +365,7 @@ public class RatController3D : MonoBehaviour
         userInterface.blinkBack();
 
         // Make rat glow so that player notices where their character is. In this section, so some spawning animation or particle effects
-        spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, true, null);
+        // <Enable spawn halo here>
         yield return new WaitForSeconds(spawnInSequenceDuration);
 
         // Actually allow movement, but still have the spawn halo / inviciblity around the player
@@ -383,7 +380,7 @@ public class RatController3D : MonoBehaviour
         yield return new WaitForSeconds(haloDuration - invincibilityDuration);
 
         // Disable halo and invincibility
-        spawnHalo.GetType().GetProperty("enabled").SetValue(spawnHalo, false, null);
+        // <Disable spawn halo here>
     }
 
 
