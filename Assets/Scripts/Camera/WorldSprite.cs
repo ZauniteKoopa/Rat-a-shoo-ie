@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class WorldSprite : MonoBehaviour
 {
+    Transform mainCamera = null;
+
+    // Set main camera transform
+    private void Awake() {
+        mainCamera = FindObjectOfType<CameraController>().transform;
+    }
 
     // Update is called once per frame: make sure the sprite is always facing the camera
     void Update()
     {
-        transform.forward = (transform.position - Camera.main.transform.position).normalized;
+        transform.forward = (transform.position - mainCamera.position).normalized;
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
     }
 

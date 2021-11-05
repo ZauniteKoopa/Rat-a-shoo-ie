@@ -16,8 +16,8 @@ public class RoomView : MonoBehaviour
     private CameraController cameraController;
 
     // On awake, get camera.main
-    void Start() {
-        cameraController = Camera.main.transform.GetComponent<CameraController>();
+    void Awake() {
+        cameraController = FindObjectOfType<CameraController>();
     }
 
     // Public event method when player enters this room view 
