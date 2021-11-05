@@ -114,10 +114,7 @@ public class RatController3D : MonoBehaviour
     void Update()
     {
         if (canMove) {
-            if (!onGround)
-            {
                 animator.SetFloat("yVelocity", rigidBody.velocity.y);
-            }
             // Handling target interactable, highlight the nearest interactable that's in front of the player.
             if (onGround && grabbedInteractable == null && interactableSensor.isNearInteractable()) {
                 GeneralInteractable previousTarget = targetedInteractable;
