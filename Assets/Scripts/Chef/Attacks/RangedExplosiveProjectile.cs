@@ -47,6 +47,8 @@ public class RangedExplosiveProjectile : RangedProjectile
     private Transform[] trailingChildren = null;
     [SerializeField]
     private float childrenInterval = 0.3f;
+    [SerializeField]
+    private Sprite[] stackingSprites = null;
     private TrailingStatus[] childrenFiredStatus = null;
     private Vector3[] childrenPositions = null;
     private Vector3 originalPos = Vector3.zero;
@@ -114,6 +116,11 @@ public class RangedExplosiveProjectile : RangedProjectile
                 trailingChildren[numChildrenConverged].gameObject.SetActive(false);
                 childrenFiredStatus[numChildrenConverged] = TrailingStatus.CONVERGED;
                 numChildrenConverged++;
+
+                // Change sprite based on stacking
+                if (stackingSprites != null && stackingSprites[numChildrenConverged] != null) {
+                    spriteTransform.GetComponent<SpriteRenderer>().sprite = stackingSprites[numChildrenConverged];
+                }
 
                 // Set scale of sprite transform
                 float newScale = Mathf.Lerp(startingSpriteScale, endingSpriteScale, (float)numChildrenConverged / (float)trailingChildren.Length);

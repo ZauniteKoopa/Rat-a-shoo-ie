@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: f68def85153fc496fbfa8162f27bd430
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3552909395434423424
+    second: hibachi_ranged_attack_0
+  - first:
+      213: 8857623283913388122
+    second: hibachi_ranged_attack_1
+  - first:
+      213: -9201713286212881662
+    second: hibachi_ranged_attack_2
+  - first:
+      213: 2994833362947090174
+    second: hibachi_ranged_attack_3
+  - first:
+      213: 5170292907412352975
+    second: hibachi_ranged_attack_4
+  - first:
+      213: 4024552989160954198
+    second: hibachi_ranged_attack_5
+  - first:
+      213: -3942368374634784018
+    second: hibachi_ranged_attack_6
+  - first:
+      213: -4723901206732211978
+    second: hibachi_ranged_attack_7
+  - first:
+      213: -2459849294664245899
+    second: hibachi_ranged_attack_8
+  - first:
+      213: 986325175571257789
+    second: hibachi_ranged_attack_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 85
+        width: 1237
+        height: 1889
+      alignment: 9
+      pivot: {x: 0.54519767, y: 0.5197317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 084440265487e4130800000000000000
+      internalID: 3552909395434423424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_1
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 3
+        width: 980
+        height: 1971
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a50f2ef62799cea70800000000000000
+      internalID: 8857623283913388122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_2
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 110
+        width: 1074
+        height: 1864
+      alignment: 9
+      pivot: {x: 0.44794282, y: 0.5199962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203f94ad482fc4080800000000000000
+      internalID: -9201713286212881662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_3
+      rect:
+        serializedVersion: 2
+        x: 3352
+        y: 66
+        width: 1512
+        height: 1908
+      alignment: 9
+      pivot: {x: 0.3397661, y: 0.51953506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef623f78319cf8920800000000000000
+      internalID: 2994833362947090174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_4
+      rect:
+        serializedVersion: 2
+        x: 4876
+        y: 141
+        width: 1125
+        height: 1833
+      alignment: 9
+      pivot: {x: 0.45030338, y: 0.52033466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcfe803810290c740800000000000000
+      internalID: 5170292907412352975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_5
+      rect:
+        serializedVersion: 2
+        x: 6007
+        y: 66
+        width: 1518
+        height: 1908
+      alignment: 9
+      pivot: {x: 0.35267672, y: 0.5097679}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659dca2ee951ad730800000000000000
+      internalID: 4024552989160954198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_6
+      rect:
+        serializedVersion: 2
+        x: 7531
+        y: 141
+        width: 1081
+        height: 1833
+      alignment: 9
+      pivot: {x: 0.46552038, y: 0.52033454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eead820d9d4e949c0800000000000000
+      internalID: -3942368374634784018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_7
+      rect:
+        serializedVersion: 2
+        x: 8619
+        y: 66
+        width: 1518
+        height: 1908
+      alignment: 9
+      pivot: {x: 0.3526761, y: 0.51953506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8ffaa71e4517eb0800000000000000
+      internalID: -4723901206732211978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_8
+      rect:
+        serializedVersion: 2
+        x: 10143
+        y: 141
+        width: 1124
+        height: 1833
+      alignment: 9
+      pivot: {x: 0.4336789, y: 0.52033454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57dda8e691cdcddd0800000000000000
+      internalID: -2459849294664245899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hibachi_ranged_attack_9
+      rect:
+        serializedVersion: 2
+        x: 11280
+        y: 66
+        width: 1512
+        height: 1908
+      alignment: 9
+      pivot: {x: 0.35209212, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db913fa758120bd00800000000000000
+      internalID: 986325175571257789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

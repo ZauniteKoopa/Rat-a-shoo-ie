@@ -29,8 +29,6 @@ public class RatController3D : MonoBehaviour
     private float slowedJumpFactor = 0.3f;
     private int slowSources = 0;
     [SerializeField]
-    private Transform spotShadow = null;
-    [SerializeField]
     private BlockerSensor leftBlockSensor = null;
     [SerializeField]
     private BlockerSensor rightBlockSensor = null;
@@ -38,9 +36,8 @@ public class RatController3D : MonoBehaviour
     private BlockerSensor forwardBlockSensor = null;
     [SerializeField]
     private BlockerSensor backwardBlockSensor = null;
-    
+    public LayerMask throwCollisionLayer;
     public ParticleSystem dashParticle;
-    public LayerMask spotShadowCollisionLayer;
     private bool canMove = true;
     private bool isSprinting = false;
     private bool trapped = false;
@@ -66,7 +63,7 @@ public class RatController3D : MonoBehaviour
     private float haloDuration = 3.0f;
     public UnityEvent playerBlackOutEvent;
     private bool facingRight = false;
-    private Color invinicibleColor;
+    private Color invincibleColor;
     private bool invincible = false;
     public UnityEvent playerHealthLossEvent;
     public bool respawning = false;
@@ -103,7 +100,7 @@ public class RatController3D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        invinicibleColor = new Color(1.0f, 1.0f, 1.0f, 0.4f);
+        invincibleColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
         spawnPosition = transform.position;
         myCollider = GetComponent<Collider>();
         rigidBody = GetComponent<Rigidbody>();
@@ -136,9 +133,6 @@ public class RatController3D : MonoBehaviour
             // Handle ground movement
             handleGroundMovement(moveInputVector.x, moveInputVector.y);
         }
-
-        // Manage usability things
-        manageSpotShadow();
     }
 
     // Fixed update to apply gravity to the player
@@ -280,16 +274,6 @@ public class RatController3D : MonoBehaviour
         transform.Translate(moveVector);
     }
 
-
-    /* Main method to manage spot shadow */
-    private void manageSpotShadow() {
-        RaycastHit hit; 
-
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, ~spotShadowCollisionLayer)) {
-            spotShadow.position = hit.point;
-        }
-    }
-
     /* Method to handle interactable */
     private void handleInteractable() {
         // If rat is not grabbing anything and rat has a target, check if the player wants to grab it
@@ -352,7 +336,7 @@ public class RatController3D : MonoBehaviour
 
         // when screen is completely black, teleport character to spawn so player doesn't see camera movement. and then blink bAack
         transform.position = spawnPosition;
-        characterSprite.color = invinicibleColor;
+        characterSprite.color = invincibleColor;
         playerBlackOutEvent.Invoke();
         Time.timeScale = unconsciousTimeScale;
 
@@ -434,12 +418,25 @@ public class RatController3D : MonoBehaviour
             // If the rat is grabbing a light object, drop light object in front of you and freeze its rotation
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
                 Vector3 grabbedPosition = transform.TransformPoint(grabbableHook);
-                Vector3 maxThrowPosition = (groundForward * throwDistance) + transform.TransformPoint(grabbableHook);
+                Vector3 maxThrowPosition = (groundForward * throwDistance) + grabbedPosition;
 
-                // Do a raycast check to avoid throwing interactables through walls
-                RaycastHit hit; 
-                if (Physics.Raycast(transform.position, groundForward, out hit, throwDistance, ~spotShadowCollisionLayer)) {
-                    grabbedInteractable.transform.position = hit.point;
+                // Do raycast check
+                RaycastHit[] hits = Physics.RaycastAll(grabbedPosition, groundForward, throwDistance, ~throwCollisionLayer);
+                float minDistance = throwDistance + 1.0f;
+                RaycastHit bestHit = new RaycastHit();
+
+                for (int i = 0; i < hits.Length; i++) {
+                    RaycastHit currentHit = hits[i];
+
+                    // Check if its a valid hit at the minimum distance
+                    if (!currentHit.collider.isTrigger && Vector3.Distance(currentHit.point, grabbedPosition) < minDistance) {
+                        bestHit = currentHit;
+                    }
+                }
+
+                // Depending on raycast check, set interactable position
+                if (bestHit.collider != null) {
+                    grabbedInteractable.transform.position = bestHit.point;
                 } else {
                     grabbedInteractable.transform.position = maxThrowPosition;
                 }

@@ -356,6 +356,7 @@ public class Chef : MonoBehaviour
     private IEnumerator finishRecipe() {
         // Force chef to move at passive speed
         navMeshAgent.speed = passiveMovementSpeed;
+        //Debug.Log(currentRecipeStep + " " + targetRecipe.getNumSteps());
 
         // Go through each step in the recipe, keeping track of the state of the recipe as you go
         for (int i = currentRecipeStep; i < targetRecipe.getNumSteps(); i++) {

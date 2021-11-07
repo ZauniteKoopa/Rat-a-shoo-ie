@@ -25,6 +25,7 @@ public class SolutionObject : MonoBehaviour
     [SerializeField]
     private AudioClip[] usageSounds = null;
     private AudioSource speaker = null;
+    private float randomVariance = 0.15f;
 
     // On start, get the initial location of this solution
     private void Start() {
@@ -35,6 +36,7 @@ public class SolutionObject : MonoBehaviour
     // in getDuration, make a switch statement that decides the duration of the object based on enum
     //  MUST BE UPDATED WHEN ADDING ANOTHER SOLUTION TYPE TO THE ENUM
     public float getDuration() {
+
         switch(solutionType) {
             case SolutionType.FIRE_EXTINGUISHER:
                 return 1.0f;
@@ -43,7 +45,8 @@ public class SolutionObject : MonoBehaviour
             case SolutionType.BROOM:
                 return 1.0f;
             default:
-                return 1.0f;
+                float duration = 1.0f;
+                return Random.Range(duration - randomVariance, duration + randomVariance);
         }
     }
 

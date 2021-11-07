@@ -96,6 +96,7 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
     private IEnumerator fireProjectile(Vector3 ratTarget) {
         navMeshAgent.enabled = false;
 
+        animator.SetBool("ranged", true);
         animator.SetBool("anticipating", true);
         yield return new WaitForSeconds(rangedAnticipationTime);
 
@@ -134,6 +135,7 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
         transform.forward = (flattenTarget - flattenPosition).normalized;
 
+        animator.SetBool("ranged", false);
         animator.SetBool("anticipating", true);
         anticipationBox.SetActive(true);
         float currentmeleeAnticipationTime = (angered) ? angryMeleeAnticipationTime : meleeAnticipationTime;
