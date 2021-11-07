@@ -25,6 +25,7 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
     private float angerAcceleration = 10f;
     private float MAX_LOCAL_HEIGHT = 0.45f;
     private float MIN_LOCAL_HEIGHT = -0.32f;
+    private float randomVariance = 0.2f;
     private bool angered = false;
 
     // Main sequence to do aggressive actions
@@ -37,6 +38,10 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
         while (navMeshAgent.pathPending) {
             yield return waitFrame;
         }
+
+        // Set up current cooldown
+        float currentCooldown = (angered) ? angryAttackCooldown : attackCooldown;
+        currentCooldown = Random.Range(currentCooldown - randomVariance, currentCooldown + randomVariance);
 
         // Chase the player: if player out of sight, go to the last position chef saw the player
         while (navMeshAgent.remainingDistance > attackingRange) {
@@ -52,8 +57,6 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
 
             yield return waitFrame;
             attackTimer += Time.deltaTime;
-            float currentCooldown = (angered) ? angryAttackCooldown : attackCooldown;
-
 
             if (attackTimer >= currentCooldown && chefSensing.currentRatTarget != null) {
 
@@ -63,6 +66,10 @@ public class RangedAggressiveAction : AbstractAggressiveChefAction
                 if (!Physics.Raycast(chefEye.position, rayCastDir.normalized, out hit, rayCastDir.magnitude, aimCollisionLayerMask)) {
                     yield return throwProjectile(chefSensing.currentRatTarget.transform.position);
                     attackTimer = 0.0f;
+
+                    // Update current cooldown
+                    currentCooldown = (angered) ? angryAttackCooldown : attackCooldown;
+                    currentCooldown = Random.Range(currentCooldown - randomVariance, currentCooldown + randomVariance);
                 }
             }
         }

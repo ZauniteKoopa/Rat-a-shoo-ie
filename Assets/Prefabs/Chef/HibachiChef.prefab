@@ -331,7 +331,7 @@ MonoBehaviour:
   animator: {fileID: 4258309610525924186}
   anticipationBox: {fileID: 5248394463005246887}
   meleeHitbox: {fileID: 7696455108441512627}
-  meleeAttackingRange: 3
+  meleeAttackingRange: 4
   meleeAnticipationTime: 0.8
   angryMeleeAnticipationTime: 0.7
   meleeAttackingTime: 0.3

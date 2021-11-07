@@ -19,6 +19,7 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
     private float attackingTime = 0.3f;
     [SerializeField]
     private float angerAcceleration = 10f;
+    private float randomVariance = 0.05f;
     private bool angered = false;
 
     // Main override method to do aggressive action
@@ -64,6 +65,7 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
 
         animator.SetBool("anticipating", true);
         float currentAnticipationTime = (angered) ? angryAnticipationTime : anticipationTime;
+        currentAnticipationTime = Random.Range(currentAnticipationTime - randomVariance, currentAnticipationTime + randomVariance);
         anticipationBox.SetActive(true);
         yield return new WaitForSeconds(currentAnticipationTime);
 

@@ -1481,7 +1481,7 @@ MonoBehaviour:
   animator: {fileID: 5897396795823706298}
   chefHitbox: {fileID: 1710969171}
   anticipationBox: {fileID: 2676389023078276131}
-  attackingRange: 3
+  attackingRange: 3.5
   anticipationTime: 0.5
   angryAnticipationTime: 0.4
   attackingTime: 0.3
