@@ -346,12 +346,6 @@ MonoBehaviour:
   localCameraPosition: {x: 0, y: 0, z: 0}
   localCameraRotation: {x: 0, y: 0, z: 0}
   spawnPoint: {fileID: 0}
---- !u!122 &45671537 stripped
-Halo:
-  m_CorrespondingSourceObject: {fileID: 1584449588854265831, guid: d20ba2a8134437e3d80f1253d92197b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 718384026285508505}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &96452039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,7 +3218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1584176457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5491,46 +5485,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HibachiChef
       objectReference: {fileID: 0}
-    - target: {fileID: 2882620876251204567, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455108441512627, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455109181378534, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455109181378534, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455109217927013, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455109217927014, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455109217927014, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696455109217927014, guid: 74369ba2e418df512829a7322a094ea7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.34
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74369ba2e418df512829a7322a094ea7, type: 3}
 --- !u!1001 &2117015208607938060
@@ -6829,7 +6783,7 @@ PrefabInstance:
         type: 3}
       propertyPath: restaurantDestroyedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 45671537}
+      objectReference: {fileID: 0}
     - target: {fileID: 1351344020529810514, guid: e0aa8da650c89717d942933095a0cc07,
         type: 3}
       propertyPath: restaurantDestroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target

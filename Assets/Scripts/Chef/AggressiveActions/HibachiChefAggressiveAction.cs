@@ -7,6 +7,8 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
     // Melee attack
     [Header("Melee Attack")]
     [SerializeField]
+    private GameObject anticipationBox = null;
+    [SerializeField]
     private GameObject meleeHitbox = null;
     [SerializeField]
     private float meleeAttackingRange = 1f;
@@ -133,11 +135,13 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         transform.forward = (flattenTarget - flattenPosition).normalized;
 
         animator.SetBool("anticipating", true);
+        anticipationBox.SetActive(true);
         float currentmeleeAnticipationTime = (angered) ? angryMeleeAnticipationTime : meleeAnticipationTime;
         yield return new WaitForSeconds(currentmeleeAnticipationTime);
 
         // Activate hit box and attack
         audioManager.playChefAttack();
+        anticipationBox.SetActive(false);
         meleeHitbox.SetActive(true);
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
@@ -153,6 +157,7 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
 
     // Main method to cancel aggressive action based off of the behavior tree
     public override void cancelAggressiveAction() {
+        anticipationBox.SetActive(false);
         meleeHitbox.SetActive(false);
     }
 
