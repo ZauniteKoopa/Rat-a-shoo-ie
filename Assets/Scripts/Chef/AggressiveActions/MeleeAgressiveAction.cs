@@ -19,6 +19,8 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
     private float attackingTime = 0.3f;
     [SerializeField]
     private float angerAcceleration = 10f;
+    [SerializeField]
+    private ParticleSystem attackEffect = null;
     private bool angered = false;
 
     // Main override method to do aggressive action
@@ -73,6 +75,7 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
         chefHitbox.SetActive(true);
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
+        attackEffect.Play();
         audioManager.playWeaponAttack();
 
         yield return new WaitForSeconds(attackingTime);
