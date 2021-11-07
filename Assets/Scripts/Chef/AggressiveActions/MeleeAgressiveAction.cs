@@ -8,6 +8,8 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
     [SerializeField]
     private GameObject chefHitbox = null;
     [SerializeField]
+    private GameObject anticipationBox = null;
+    [SerializeField]
     private float attackingRange = 5f;
     [SerializeField]
     private float anticipationTime = 0.65f;
@@ -62,10 +64,12 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
 
         animator.SetBool("anticipating", true);
         float currentAnticipationTime = (angered) ? angryAnticipationTime : anticipationTime;
+        anticipationBox.SetActive(true);
         yield return new WaitForSeconds(currentAnticipationTime);
 
         // Activate hit box and attack
         audioManager.playChefAttack();
+        anticipationBox.SetActive(false);
         chefHitbox.SetActive(true);
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
@@ -82,6 +86,7 @@ public class MeleeAgressiveAction : AbstractAggressiveChefAction
     // Main method to cancel aggressive action based off of the behavior tree
     public override void cancelAggressiveAction() {
         chefHitbox.SetActive(false);
+        anticipationBox.SetActive(false);
     }
 
     // Main method to make action more scarier
