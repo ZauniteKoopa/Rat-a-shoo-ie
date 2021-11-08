@@ -87,7 +87,7 @@ public class RangedExplosiveProjectile : RangedProjectile
             } else {
                 RaycastHit hit;
 
-                if (Physics.Raycast(transform.position, Vector3.down, out hit, 3f, hookLayer)) {
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f, hookLayer)) {
                     executeAfterEffects(false, null);
                 }
             }

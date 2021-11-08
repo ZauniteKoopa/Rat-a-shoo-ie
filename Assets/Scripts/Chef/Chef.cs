@@ -412,14 +412,14 @@ public class Chef : MonoBehaviour
         if (currentIngredientStage == RecipeStage.BRING_FOOD_TO_CUSTOMER) {
             yield return goToPosition(orderWindow.transform.position);
             orderWindow.serveFood(servedFood);
-            targetRecipe = orderWindow.getCurrentRecipe();
             mealSprite.sprite = targetRecipe.foodSprite;
             mealBox.SetActive(false);
-            currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
         }
 
         // Reset recipe steps
+        targetRecipe = orderWindow.getCurrentRecipe();
         currentRecipeStep = 0;
+        currentIngredientStage = RecipeStage.GO_TO_INGREDIENT;
     }
 
     // Main IEnumerator to do aggressive action

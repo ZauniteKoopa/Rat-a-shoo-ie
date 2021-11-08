@@ -114,7 +114,7 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         // Decide the projectile direction by flatterning the y axis
         Vector3 projDir = new Vector3(ratTarget.x - chefEye.position.x, 0f, ratTarget.z - chefEye.position.z);
         curProjectile.GetComponent<RangedProjectile>().setDirection(projDir);
-        curProjectile.GetComponent<RangedExplosiveProjectile>().setHookDistance(Vector3.Distance(projectileSpawnPos, localRatPos) + 3f);
+        curProjectile.GetComponent<RangedExplosiveProjectile>().setHookDistance(Vector3.Distance(projectileSpawnPos, localRatPos) + 2f);
 
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
@@ -133,7 +133,10 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         // Face target
         Vector3 flattenTarget = new Vector3(lockedTarget.position.x, 0, lockedTarget.position.z);
         Vector3 flattenPosition = new Vector3(transform.position.x, 0, transform.position.z);
-        transform.forward = (flattenTarget - flattenPosition).normalized;
+        Vector3 flattenDir = (flattenTarget - flattenPosition).normalized;
+        if (flattenDir != Vector3.zero) {
+            transform.forward = flattenDir;
+        }
 
         animator.SetBool("ranged", false);
         animator.SetBool("anticipating", true);
