@@ -754,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de315516ce5ba738ba5ad28e58e3d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicFlatRotation: 0
 --- !u!1 &2027171323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de315516ce5ba738ba5ad28e58e3d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicFlatRotation: 0
 --- !u!1 &2676389023078276131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1489,7 @@ MonoBehaviour:
   angryAnticipationTime: 0.4
   attackingTime: 0.3
   angerAcceleration: 8
+  attackEffect: {fileID: 2500467106116019812}
 --- !u!114 &3781264584203556428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,6 +1640,12 @@ PrefabInstance:
 --- !u!4 &8517016017513698058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6367070379991124080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2500467106116019812 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8858318040305004052, guid: 4ca601e6680dd134c97081bac81a85b4,
     type: 3}
   m_PrefabInstance: {fileID: 6367070379991124080}
   m_PrefabAsset: {fileID: 0}
