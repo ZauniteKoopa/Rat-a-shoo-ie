@@ -5,6 +5,8 @@ using UnityEngine;
 public class WorldSprite : MonoBehaviour
 {
     Transform mainCamera = null;
+    [SerializeField]
+    private bool basicFlatRotation = false;
 
     // Set main camera transform
     private void Awake() {
@@ -14,8 +16,12 @@ public class WorldSprite : MonoBehaviour
     // Update is called once per frame: make sure the sprite is always facing the camera
     void Update()
     {
-        transform.forward = (transform.position - mainCamera.position).normalized;
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
+        if (!basicFlatRotation) {
+            transform.forward = (transform.position - mainCamera.position).normalized;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
+        } else {
+            transform.forward = Vector3.back;
+        }
     }
 
 
