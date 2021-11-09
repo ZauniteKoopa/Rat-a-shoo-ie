@@ -1214,7 +1214,6 @@ Transform:
   - {fileID: 2134804485}
   - {fileID: 7323574232244143832}
   - {fileID: 4108538940049491150}
-  - {fileID: 8517016017513698058}
   - {fileID: 4650824916064649263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1539,6 +1538,7 @@ Transform:
   m_Children:
   - {fileID: 1710969172}
   - {fileID: 6836157589921696889}
+  - {fileID: 8517016017513698058}
   m_Father: {fileID: 4813905236207517747}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1599,7 +1599,7 @@ PrefabInstance:
     - target: {fileID: 6401327994730512828, guid: 550448d1eda00a53b89b9a9e76a1e695,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6401327994730512828, guid: 550448d1eda00a53b89b9a9e76a1e695,
         type: 3}
@@ -1644,7 +1644,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4813905236207517747}
+    m_TransformParent: {fileID: 4108538940049491150}
     m_Modifications:
     - target: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
         type: 3}
@@ -1684,7 +1684,7 @@ PrefabInstance:
     - target: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
         type: 3}
@@ -1704,7 +1704,7 @@ PrefabInstance:
     - target: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
         type: 3}
@@ -1720,6 +1720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChefAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858318040305004052, guid: 4ca601e6680dd134c97081bac81a85b4,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca601e6680dd134c97081bac81a85b4, type: 3}
