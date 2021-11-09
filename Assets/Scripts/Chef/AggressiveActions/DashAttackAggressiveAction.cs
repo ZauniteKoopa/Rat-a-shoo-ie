@@ -34,6 +34,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     private Vector3 lockedTarget = Vector3.zero;
     private bool locked = false;
     private bool angered = false;
+    private SpotShadow chefShadow = null;
 
     // Reference variables: DashLineRender - goes from position 1 to position 0
     private Collider chefCollider;
@@ -43,6 +44,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     protected override void initialSetup() {
         chefCollider = GetComponent<Collider>();
         dashLineRender = GetComponent<LineRenderer>();
+        chefShadow = GetComponentInChildren<SpotShadow>();
         dashLineRender.enabled = false;
     }
 
@@ -111,6 +113,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         float timer = 0.0f;
         Vector3 originalPos = transform.position;
         chefCollider.enabled = false;
+        chefShadow.disable();
 
         // Set up animations / audio / dash lines
         dashLineRender.SetPosition(1, transform.position);
@@ -136,6 +139,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         dashHitbox.SetActive(false);
         transform.position = lockedTarget;
         dashLineRender.enabled = false;
+        chefShadow.enable();
 
         // Slash sequence
         slashHitbox.SetActive(true);
@@ -174,6 +178,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         dashHitbox.SetActive(false);
         transform.position = lockedTarget;
         dashLineRender.enabled = false;
+        chefShadow.enable();
 
         // Slash sequence
         slashHitbox.SetActive(true);

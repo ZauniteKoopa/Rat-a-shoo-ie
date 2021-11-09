@@ -55,7 +55,19 @@ public class SpotShadow : MonoBehaviour
             }
         }
 
+        bestHeight += 0.001f;
+
         // Set the position
         transform.position = new Vector3(transform.parent.position.x, bestHeight, transform.parent.position.z);
+    }
+
+    // Main method to enable spot shadow
+    public void enable() {
+        gameObject.SetActive(true);
+    }
+
+    // Main method to disable spot shadow
+    public void disable() {
+        gameObject.SetActive(false);
     }
 }

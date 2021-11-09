@@ -731,10 +731,16 @@ public class Chef : MonoBehaviour
         solution.transform.localPosition = solutionHook;
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         solution.canChefGrab = false;
+
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
+        SpotShadow shadow = solution.GetComponentInChildren<SpotShadow>();
 
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = true;
+        }
+
+        if (shadow != null) {
+            shadow.disable();
         }
 
         if (solutionInteractable != null) {
@@ -748,10 +754,16 @@ public class Chef : MonoBehaviour
         solution.canChefGrab = true;
         solution.transform.position = targetedSolution.getInitialLocation();
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
+        SpotShadow shadow = solution.GetComponentInChildren<SpotShadow>();
 
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = false;
+        }
+
+        if (shadow != null) {
+            shadow.enable();
         }
 
         if (solutionInteractable != null) {
@@ -765,10 +777,16 @@ public class Chef : MonoBehaviour
         solution.canChefGrab = true;
         solution.transform.position = transform.position;
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
+        SpotShadow shadow = solution.GetComponentInChildren<SpotShadow>();
 
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = false;
+        }
+
+        if (shadow != null) {
+            shadow.enable();
         }
 
         if (solutionInteractable != null) {
