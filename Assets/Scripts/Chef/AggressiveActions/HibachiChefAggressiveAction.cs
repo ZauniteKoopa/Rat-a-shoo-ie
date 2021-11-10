@@ -18,6 +18,8 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
     private float angryMeleeAnticipationTime = 0.4f;
     [SerializeField]
     private float meleeAttackingTime = 0.3f;
+    [SerializeField]
+    public GameObject explosion;
 
     // Ranged attack
     [Header("Ranged explosive attack")]
@@ -151,6 +153,11 @@ public class HibachiChefAggressiveAction : AbstractAggressiveChefAction
         animator.SetBool("anticipating", false);
         animator.SetBool("attacking", true);
         audioManager.playWeaponAttack();
+
+
+        // TODO Get the splash to show up, this is jank
+        //var expl = Instantiate(explosion, new Vector3(transform.position.x, 0, transform.position.z + 10), Quaternion.identity);
+        //Destroy(expl, 3); 
 
         yield return new WaitForSeconds(meleeAttackingTime);
 

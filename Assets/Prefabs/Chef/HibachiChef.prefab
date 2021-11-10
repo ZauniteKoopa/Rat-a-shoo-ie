@@ -568,6 +568,8 @@ MonoBehaviour:
   meleeAnticipationTime: 0.8
   angryMeleeAnticipationTime: 0.7
   meleeAttackingTime: 0.3
+  explosion: {fileID: 280215772262042390, guid: cd4fab58245424deab36dbe1974411a2,
+    type: 3}
   aimCollisionLayerMask:
     serializedVersion: 2
     m_Bits: 256
