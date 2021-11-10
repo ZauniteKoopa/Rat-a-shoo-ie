@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de315516ce5ba738ba5ad28e58e3d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicFlatRotation: 0
 --- !u!1 &5250336059709721638
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWalking: 0
   dashCloud: {fileID: 8300000, guid: 71285be0e54c83548ba255bddfbddf7a, type: 3}
-  jumpClip: {fileID: 8300000, guid: 23765d0f46236c347bf67c5c3d1df5c4, type: 3}
+  jumpClip: {fileID: 8300000, guid: 596a9847d9f7c62409de145a226aa8d1, type: 3}
   ratDamageSoundClips:
   - {fileID: 8300000, guid: d4518db7eea71ef4aaf9869be7fd374a, type: 3}
   - {fileID: 8300000, guid: 42b7fcb8eb522cb47857ea4e27876f16, type: 3}
@@ -691,7 +692,10 @@ MonoBehaviour:
   ratDropSoundClips:
   - {fileID: 8300000, guid: 0000edc7803fa1848ba674b7c64c1ffa, type: 3}
   ratFootstepClips:
-  - {fileID: 8300000, guid: 53bc4d47bbf67d94d89475e2f53c2028, type: 3}
+  - {fileID: 8300000, guid: 1dbd5a437a6a5f746b4b62f970ad82cd, type: 3}
+  - {fileID: 8300000, guid: 7a1a47a2f61721949ac186610aa9e9ff, type: 3}
+  - {fileID: 8300000, guid: 84ed6f39b6120af449a03006519a921b, type: 3}
+  - {fileID: 8300000, guid: e0c39e38bbef55c47937c231e3cd241f, type: 3}
   walkInterval: 0.3
   sprintInterval: 0.2
 --- !u!82 &7610873196788154302
