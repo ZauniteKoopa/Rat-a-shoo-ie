@@ -5485,6 +5485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HibachiChef
       objectReference: {fileID: 0}
+    - target: {fileID: 7696455108441512627, guid: 74369ba2e418df512829a7322a094ea7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74369ba2e418df512829a7322a094ea7, type: 3}
 --- !u!1001 &2117015208607938060
