@@ -69,7 +69,7 @@ public class RatAudioManager : MonoBehaviour
         AudioClip curClip = ratFootstepClips[randomIndex];
 
         speaker.clip = curClip;
-        speaker.PlayOneShot(curClip, 0.45f);
+        speaker.PlayOneShot(curClip, 0.6f);
     }
 
     // Main footstep looping 
@@ -110,7 +110,7 @@ public class RatAudioManager : MonoBehaviour
     public void playDash()
     {
         speaker.clip = dashCloud;
-        speaker.PlayOneShot(dashCloud, .25f);
+        speaker.PlayOneShot(dashCloud, .2f);
     }
 
     // Public method to play jump sound effect

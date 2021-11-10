@@ -692,10 +692,10 @@ MonoBehaviour:
   ratDropSoundClips:
   - {fileID: 8300000, guid: 0000edc7803fa1848ba674b7c64c1ffa, type: 3}
   ratFootstepClips:
-  - {fileID: 8300000, guid: 1dbd5a437a6a5f746b4b62f970ad82cd, type: 3}
-  - {fileID: 8300000, guid: 7a1a47a2f61721949ac186610aa9e9ff, type: 3}
-  - {fileID: 8300000, guid: 84ed6f39b6120af449a03006519a921b, type: 3}
-  - {fileID: 8300000, guid: e0c39e38bbef55c47937c231e3cd241f, type: 3}
+  - {fileID: 8300000, guid: 2defa53b77385544bb5a719e949e2d6b, type: 3}
+  - {fileID: 8300000, guid: 6df43c853d912944983cbd0e314a7ddd, type: 3}
+  - {fileID: 8300000, guid: 21fee11e4a9875d45a4745ca897d46f2, type: 3}
+  - {fileID: 8300000, guid: d60ada058612e654791c6ba9716eae65, type: 3}
   walkInterval: 0.3
   sprintInterval: 0.2
 --- !u!82 &7610873196788154302
