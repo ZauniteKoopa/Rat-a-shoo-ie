@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 280215772262042394}
   - component: {fileID: 280215772262042395}
   - component: {fileID: 280215772262042388}
-  - component: {fileID: 280215772262042389}
+  - component: {fileID: 5121153536121976357}
   - component: {fileID: -7535250814169411300}
   m_Layer: 14
   m_Name: Bottle
@@ -211,7 +211,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &280215772262042389
+--- !u!114 &5121153536121976357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 280215772262042390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8c65bc3ea865844bc0270031d5a42d, type: 3}
+  m_Script: {fileID: 11500000, guid: be4d0a80251ae2f6f8bbfa6f5b3444f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0
@@ -232,19 +232,9 @@ MonoBehaviour:
   impactSound: {fileID: 8300000, guid: d713778de0952184693329b59efd5653, type: 3}
   hazardCreatedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: onMadeMess
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  HAZARD_EXPIRATION_DURATION: 11
+      m_Calls: []
+  HAZARD_EXPIRATION_DURATION: 10
+  nearFireDuration: 22
 --- !u!82 &-7535250814169411300
 AudioSource:
   m_ObjectHideFlags: 0
