@@ -82,6 +82,8 @@ public class RatController3D : MonoBehaviour
     private float throwDistance = 1.5f;
     [SerializeField]
     private InteractableSensor interactableSensor = null;
+    [SerializeField]
+    private float repelForce = 0.75f;
     private GeneralInteractable grabbedInteractable = null;
     private GeneralInteractable targetedInteractable = null;
 
@@ -420,30 +422,14 @@ public class RatController3D : MonoBehaviour
 
             // If the rat is grabbing a light object, drop light object in front of you and freeze its rotation
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
-                Vector3 grabbedPosition = transform.TransformPoint(grabbableHook);
+                Vector3 grabbedPosition = transform.TransformPoint(grabbableHook * 0.75f);
                 Vector3 maxThrowPosition = (groundForward * throwDistance) + grabbedPosition;
 
                 // Do raycast check
-                RaycastHit[] hits = Physics.RaycastAll(grabbedPosition, groundForward, throwDistance, ~throwCollisionLayer);
-                float minDistance = throwDistance + 1.0f;
-                RaycastHit bestHit = new RaycastHit();
-
-                for (int i = 0; i < hits.Length; i++) {
-                    RaycastHit currentHit = hits[i];
-
-                    // Check if its a valid hit at the minimum distance
-                    if (!currentHit.collider.isTrigger && Vector3.Distance(currentHit.point, grabbedPosition) < minDistance) {
-                        bestHit = currentHit;
-                    }
-                }
+                float distanceThrown = getDistanceThrown(grabbedPosition);
 
                 // Depending on raycast check, set interactable position
-                if (bestHit.collider != null) {
-                    grabbedInteractable.transform.position = bestHit.point;
-                } else {
-                    grabbedInteractable.transform.position = maxThrowPosition;
-                }
-
+                grabbedInteractable.transform.position = grabbedPosition + (groundForward * (distanceThrown - repelForce));
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
 
@@ -458,6 +444,30 @@ public class RatController3D : MonoBehaviour
             grabbedInteractable.transform.parent = null;
             grabbedInteractable = null;
         }
+    }
+
+    // Private helper method to get max distance thrown by sending out 3 raycast
+    private float getDistanceThrown(Vector3 grabbedPosition) {
+        Vector3 sideVector = Vector3.Cross(groundForward, Vector3.up);
+        float minDistance = throwDistance + repelForce;
+
+        // Create 3 raycasts 
+        for (int s = -1; s <= 1; s++) {
+            Vector3 raySource = grabbedPosition + (sideVector * s * 0.45f);
+            RaycastHit[] hits = Physics.RaycastAll(raySource, groundForward, throwDistance + repelForce, ~throwCollisionLayer);
+            Debug.DrawRay(raySource, groundForward * (throwDistance + repelForce), Color.blue, 100.0f);
+
+            for (int i = 0; i < hits.Length; i++) {
+                RaycastHit currentHit = hits[i];
+
+                // Check if its a valid hit at the minimum distance
+                if (!currentHit.collider.isTrigger && Vector3.Distance(currentHit.point, grabbedPosition) < minDistance) {
+                    minDistance = Vector3.Distance(currentHit.point, grabbedPosition);
+                }
+            }
+        }
+
+        return minDistance;
     }
 
     /* Main IEnumerator for handling targeted interactables that are static */
