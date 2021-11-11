@@ -55,7 +55,7 @@ public class SpotShadow : MonoBehaviour
             }
         }
 
-        bestHeight += 0.001f;
+        bestHeight += 0.05f;
 
         // Set the position
         transform.position = new Vector3(transform.parent.position.x, bestHeight, transform.parent.position.z);
