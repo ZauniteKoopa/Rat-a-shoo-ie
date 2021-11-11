@@ -455,7 +455,6 @@ public class RatController3D : MonoBehaviour
         for (int s = -1; s <= 1; s++) {
             Vector3 raySource = grabbedPosition + (sideVector * s * 0.45f);
             RaycastHit[] hits = Physics.RaycastAll(raySource, groundForward, throwDistance + repelForce, ~throwCollisionLayer);
-            Debug.DrawRay(raySource, groundForward * (throwDistance + repelForce), Color.blue, 100.0f);
 
             for (int i = 0; i < hits.Length; i++) {
                 RaycastHit currentHit = hits[i];

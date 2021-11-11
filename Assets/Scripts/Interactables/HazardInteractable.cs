@@ -21,9 +21,9 @@ public class HazardInteractable : ResetInteractable
     // Spawn position management
     private Vector3 spawnPosition;
     [SerializeField]
-    private float HAZARD_EXPIRATION_DURATION = 8.0f;
+    protected float HAZARD_EXPIRATION_DURATION = 8.0f;
     private float SPAWN_OFFSET_DURATION = 1.5f;
-    private IssueObject curHazard = null;
+    protected IssueObject curHazard = null;
 
 
     // On awake, get rigidbody component
@@ -76,8 +76,8 @@ public class HazardInteractable : ResetInteractable
                 interactableCollider.enabled = false;
                 canBePickedUp = false;
 
-                StartCoroutine(timedHazardExpiration());
                 curHazard.issueRemovedEvent.AddListener(onHazardRemove);
+                StartCoroutine(timedHazardExpiration());
 
             }
             else
@@ -95,12 +95,19 @@ public class HazardInteractable : ResetInteractable
         curHazard.issueRemovedEvent.RemoveListener(onHazardRemove);
 
         // Move object back to spawn position
+        StopAllCoroutines();
         StartCoroutine(timedRespawn());
+    }
+
+    // protected method to get current duration
+    protected virtual float getDuration() {
+        return HAZARD_EXPIRATION_DURATION;
     }
 
     // Private IEnumerator to do a timed expiration for hazard
     private IEnumerator timedHazardExpiration() {
-        yield return new WaitForSeconds(HAZARD_EXPIRATION_DURATION);
+        float curHazardDuration = getDuration();
+        yield return new WaitForSeconds(curHazardDuration);
 
         if (curHazard != null && !curHazard.isBeingDealtWith) {
             Object.Destroy(curHazard.gameObject);
