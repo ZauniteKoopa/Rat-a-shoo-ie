@@ -3364,7 +3364,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1351344020529810514}
         m_MethodName: unpauseGame
         m_Mode: 1
         m_Arguments:
