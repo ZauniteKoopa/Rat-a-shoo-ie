@@ -17,8 +17,8 @@ public class IntroCutsceneManager : MonoBehaviour
 
     // Main method to play the coroutine
     private IEnumerator playCutscene() {
-        float videoLength = videoPlayer.frameCount * videoPlayer.frameRate;
-        yield return new WaitForSeconds(videoLength);
+        float videoLength = videoPlayer.frameCount / videoPlayer.frameRate;
+        yield return new WaitForSeconds(videoLength + 1);
         SceneManager.LoadScene("MainMenu");
     }
 
