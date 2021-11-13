@@ -272,6 +272,56 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cutscene"",
+            ""id"": ""b2731dc4-6208-4931-85dc-64cb8c8f5dea"",
+            ""actions"": [
+                {
+                    ""name"": ""Interrupt"",
+                    ""type"": ""Button"",
+                    ""id"": ""b68f1b7d-a8ad-45d4-a292-fb8d46f3361a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a91961ba-e735-4985-bd73-6fbc973343f2"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interrupt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dffe1a5a-fc32-4dc3-8230-c9873596cf65"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interrupt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""988155f4-e941-4a36-8886-4b3bc36ffe74"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interrupt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -290,6 +340,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
         m_Touch_PrimaryPosition = m_Touch.FindAction("PrimaryPosition", throwIfNotFound: true);
         m_Touch_TouchContact = m_Touch.FindAction("TouchContact", throwIfNotFound: true);
+        // Cutscene
+        m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
+        m_Cutscene_Interrupt = m_Cutscene.FindAction("Interrupt", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -484,6 +537,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public TouchActions @Touch => new TouchActions(this);
+
+    // Cutscene
+    private readonly InputActionMap m_Cutscene;
+    private ICutsceneActions m_CutsceneActionsCallbackInterface;
+    private readonly InputAction m_Cutscene_Interrupt;
+    public struct CutsceneActions
+    {
+        private @PlayerControls m_Wrapper;
+        public CutsceneActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interrupt => m_Wrapper.m_Cutscene_Interrupt;
+        public InputActionMap Get() { return m_Wrapper.m_Cutscene; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CutsceneActions set) { return set.Get(); }
+        public void SetCallbacks(ICutsceneActions instance)
+        {
+            if (m_Wrapper.m_CutsceneActionsCallbackInterface != null)
+            {
+                @Interrupt.started -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnInterrupt;
+                @Interrupt.performed -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnInterrupt;
+                @Interrupt.canceled -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnInterrupt;
+            }
+            m_Wrapper.m_CutsceneActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Interrupt.started += instance.OnInterrupt;
+                @Interrupt.performed += instance.OnInterrupt;
+                @Interrupt.canceled += instance.OnInterrupt;
+            }
+        }
+    }
+    public CutsceneActions @Cutscene => new CutsceneActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -500,5 +586,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
         void OnPrimaryPosition(InputAction.CallbackContext context);
         void OnTouchContact(InputAction.CallbackContext context);
+    }
+    public interface ICutsceneActions
+    {
+        void OnInterrupt(InputAction.CallbackContext context);
     }
 }
