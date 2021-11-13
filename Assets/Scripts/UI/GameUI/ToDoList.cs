@@ -14,7 +14,8 @@ public enum TaskType {
     MAKE_MESS,
     TUTORIAL_MOVE,
     TUTORIAL_JUMP,
-    TUTORIAL_CLOSET
+    TUTORIAL_CLOSET,
+    TUTORIAL_SPRINT
 }
 
 public class ToDoList : MonoBehaviour
@@ -117,6 +118,9 @@ public class ToDoList : MonoBehaviour
                 taskLabels[i].text = "Jump with the " + jumpControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_CLOSET) {
                 taskLabels[i].text = "Hide the chef's ingredients!";
+            } else if (initialTasks[i] == TaskType.TUTORIAL_SPRINT) {
+                string sprintControls = (Application.platform == RuntimePlatform.Android) ? "SPRINT button" : "Left-Shift";
+                taskLabels[i].text = "Make big jump by sprinting! (" + sprintControls + ")";
             }
 
             // If the task is NOT revealed, then hide it
