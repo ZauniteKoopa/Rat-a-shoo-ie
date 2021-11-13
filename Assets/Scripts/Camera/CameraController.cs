@@ -26,9 +26,14 @@ public class CameraController : MonoBehaviour
         Vector3 startLocalPosition = transform.localPosition;
         Vector3 endLocalPosition = roomView.localCameraPosition;
 
-        // get rotation
+        // get rotation: modify the end y rotation to disable 
         Vector3 startLocalRotation = transform.localEulerAngles;
         Vector3 endLocalRotation = roomView.localCameraRotation;
+
+        float endYRot = endLocalRotation.y;
+        endYRot = (Mathf.Abs(endYRot - startLocalRotation.y) < Mathf.Abs(endYRot + 360 - startLocalRotation.y)) ? 0.0f : 360.0f;
+        Vector3 interpolatedRotation = endLocalRotation + (Vector3.up * endYRot);
+
 
         float timer = 0f;
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
@@ -45,8 +50,10 @@ public class CameraController : MonoBehaviour
             if (!isShaking)
                 transform.localPosition = Vector3.Lerp(startLocalPosition, endLocalPosition, progress);
             
-            transform.localEulerAngles = Vector3.Lerp(startLocalRotation, endLocalRotation, progress);
+            transform.localEulerAngles = Vector3.Lerp(startLocalRotation, interpolatedRotation, progress);
         }
+
+        transform.localEulerAngles = endLocalRotation;
     }
 
     // Main method to shake the camera
