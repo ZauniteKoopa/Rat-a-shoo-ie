@@ -20,6 +20,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_292A4322:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_2FCA53F8:
+        m_Texture: {fileID: 2800000, guid: 47f5b3d37d192a149bb0e64047c297a0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_93AE646C:
+        m_Texture: {fileID: 2800000, guid: 442e6933888925c48b05d56bcfba9809, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CFB56B0A:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E97A8D7F:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 47f5b3d37d192a149bb0e64047c297a0, type: 3}
         m_Scale: {x: 1.22, y: 0.3}
@@ -65,14 +85,37 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - BOOLEAN_20A2BDA1: 1
+    - BOOLEAN_27296089: 0
+    - BOOLEAN_7188B8F1: 1
+    - BOOLEAN_74AD49CB: 0
+    - BOOLEAN_797A78DA: 1
+    - Vector1_16D642D1: 0
+    - Vector1_41AC1DD: 0
+    - Vector1_704BC890: 0
+    - Vector1_75A29695: 0
+    - Vector1_7E42FC8C: 0
+    - Vector1_B0C56F42: 0
+    - Vector1_E0A63449: 0.781
     - _AlphaClip: 0
     - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ColorMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0.1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _FlipbookBlending: 0
+    - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -84,6 +127,9 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
@@ -91,9 +137,17 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_268D2273: {r: 0, g: 0, b: 0, a: 1}
+    - Color_505A8FDF: {r: 0.4245283, g: 0.20363551, b: 0, a: 1}
+    - Color_80F92342: {r: 1, g: 1, b: 1, a: 1}
+    - Color_87594BF8: {r: 1, g: 1, b: 1, a: 0}
+    - Color_C0AD5F7B: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &2353726315722388026
 MonoBehaviour:

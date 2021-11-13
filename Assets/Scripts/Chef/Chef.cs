@@ -869,7 +869,22 @@ public class Chef : MonoBehaviour
 
         if (inStartAngerSequence) {
             StopAllCoroutines();
-            StartCoroutine(startAngerSequence());
+            
+            // Method to set chef to angry mode without going through start sequence
+            animator.GetComponent<SpriteRenderer>().color = angryColor;
+
+            navMeshAgent.enabled = true;
+            canSpotRat = true;
+            aggressiveAction.makeAngry();
+            inStartAngerSequence = false;
+
+            if (chefSensing.currentRatTarget != null) {
+                aggressive = true;
+                StartCoroutine(spotRat());
+            } else {
+                StartCoroutine(mainAngerLoop());
+            }
+
         } else if (angered && isAngrilyPassive) {
             StopAllCoroutines();
             StartCoroutine(mainAngerLoop());
