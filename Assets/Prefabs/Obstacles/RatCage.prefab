@@ -689,7 +689,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60608fd2e1378cb4abf77804a4364871, type: 2}
+  - {fileID: 2100000, guid: 8b7c263b9ab77304d9f32aa074218a05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -832,6 +832,11 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 91bc1fb5-793f-456a-91fd-8924ecea468a
     m_ActionName: Touch/TouchContact[/Simulated Touchscreen/primaryTouch/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b68f1b7d-a8ad-45d4-a292-fb8d46f3361a
+    m_ActionName: Cutscene/Interrupt[/Keyboard/anyKey,/Mouse/leftButton,/Simulated
+      Touchscreen/primaryTouch/tap]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
