@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de315516ce5ba738ba5ad28e58e3d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicFlatRotation: 0
 --- !u!95 &4617627944100021721
 Animator:
   serializedVersion: 3
@@ -229,7 +230,7 @@ MonoBehaviour:
   anticipationTime: 0.7
   attackTime: 0.7
   initialStartTime: 1.5
-  normalColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  normalColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
   anticipationColor: {r: 1, g: 0.6092597, b: 0.023584902, a: 1}
   attackColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!82 &7453150606191698233
