@@ -333,6 +333,7 @@ public class RatController3D : MonoBehaviour
         }
 
         // Do death sequence / animation before fading to black
+        animator.SetFloat("yVelocity", 0.0f);
         animator.SetTrigger("death");
         yield return new WaitForSeconds(deathAnimationDuration);
 
