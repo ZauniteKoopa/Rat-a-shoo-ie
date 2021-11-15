@@ -210,7 +210,6 @@ public class Chef : MonoBehaviour
 
         // Main loop
         while (true) {
-
             if (highestPriorityIssue != null) {                         // Branch for when chef is dealing with issue
                 yield return solveIssue(interrupted);
                 interrupted = false;
@@ -692,6 +691,8 @@ public class Chef : MonoBehaviour
             didHitRat = true;
         }
 
+        levelInfo.StartCoroutine(ignoreRatSequence());
+
         if (willDeactivate) {
             // Disable aggressive behaviors manually
             aggressiveAction.cancelAggressiveAction();
@@ -702,8 +703,6 @@ public class Chef : MonoBehaviour
 
             StopAllCoroutines();
             StartCoroutine(deactivateChefFromActiveBranch());
-        } else {
-            levelInfo.StartCoroutine(ignoreRatSequence());
         }
     }
 
@@ -864,8 +863,8 @@ public class Chef : MonoBehaviour
         willDeactivate = false;
 
         // Check if chef is literally in any state that's not passive first
-        bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
-        bool isAngrilyPassive = sensedTrap == null && !aggressive && !inStartAngerSequence && !didHitRat;
+        bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !mealPoisoned;
+        bool isAngrilyPassive = sensedTrap == null && !aggressive && !inStartAngerSequence;
 
         if (inStartAngerSequence) {
             StopAllCoroutines();
@@ -886,9 +885,13 @@ public class Chef : MonoBehaviour
             }
 
         } else if (angered && isAngrilyPassive) {
+            didHitRat = false;
+
             StopAllCoroutines();
             StartCoroutine(mainAngerLoop());
         } else if (!angered && isNormallyPassive) {
+            didHitRat = false;
+
             StopAllCoroutines();
             StartCoroutine(mainIntelligenceLoop());
         }
@@ -898,8 +901,8 @@ public class Chef : MonoBehaviour
     public void deactivateChef() {
         
         // Check if chef can just easily deactivate (In the most passive state)
-        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive && !mealPoisoned && !didHitRat;
-        bool isAngrilyPassive = angered && sensedTrap == null && !aggressive && !inStartAngerSequence && !didHitRat;
+        bool isNormallyPassive = !angered && highestPriorityIssue == null && !aggressive && !mealPoisoned;
+        bool isAngrilyPassive = angered && sensedTrap == null && !aggressive && !inStartAngerSequence;
 
         if (isNormallyPassive || isAngrilyPassive) {
             StopAllCoroutines();
