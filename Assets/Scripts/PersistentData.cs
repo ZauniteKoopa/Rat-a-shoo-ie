@@ -8,6 +8,7 @@ public class PersistentData : MonoBehaviour
 
     public bool[] levelCleared;
     public int numLevels = 3;
+    public int lastLevelCleared = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,6 +24,7 @@ public class PersistentData : MonoBehaviour
 
     // Public void method to save level state
     public void saveVictory(int levelIndex) {
+        lastLevelCleared = levelIndex;
         PersistentData.instance.levelCleared[levelIndex] = true;
     }
 

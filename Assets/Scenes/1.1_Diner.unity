@@ -2380,17 +2380,17 @@ PrefabInstance:
     - target: {fileID: 7918280956766933249, guid: 6f01df2e4064513408dfa812d69ce67a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.8
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 7918280956766933249, guid: 6f01df2e4064513408dfa812d69ce67a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.6
+      value: 41.91
       objectReference: {fileID: 0}
     - target: {fileID: 7918280956766933249, guid: 6f01df2e4064513408dfa812d69ce67a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.2
+      value: -43.13
       objectReference: {fileID: 0}
     - target: {fileID: 7918280956766933249, guid: 6f01df2e4064513408dfa812d69ce67a,
         type: 3}
@@ -15240,7 +15240,7 @@ GameObject:
   - component: {fileID: 1455529223}
   m_Layer: 8
   m_Name: Cube (49)
-  m_TagString: Player
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -23066,6 +23066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCleared: 
   numLevels: 3
+  lastLevelCleared: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0
