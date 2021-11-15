@@ -15,7 +15,8 @@ public enum TaskType {
     TUTORIAL_MOVE,
     TUTORIAL_JUMP,
     TUTORIAL_CLOSET,
-    TUTORIAL_SPRINT
+    TUTORIAL_SPRINT,
+    FIND_ROOM
 }
 
 public class ToDoList : MonoBehaviour
@@ -107,20 +108,22 @@ public class ToDoList : MonoBehaviour
             if (initialTasks[i] == TaskType.POISON_SOUP) {
                 taskLabels[i].text = "Poison da customers!";
             } else if (initialTasks[i] == TaskType.MAKE_FIRE) {
-                taskLabels[i].text = "Burn up property!";
+                taskLabels[i].text = "Burn up things!";
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
-                taskLabels[i].text = "Break big fragile property!";
+                taskLabels[i].text = "Break big fragile things!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_MOVE) {
                 string movementControls = (Application.platform == RuntimePlatform.Android) ? "left stick" : "WASD";
                 taskLabels[i].text = "Move with " + movementControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_JUMP) {
                 string jumpControls = (Application.platform == RuntimePlatform.Android) ? "JUMP button" : "SPACEBAR";
-                taskLabels[i].text = "Jump with the " + jumpControls + "!";
+                taskLabels[i].text = "Jump with da " + jumpControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_CLOSET) {
-                taskLabels[i].text = "Hide the chef's ingredients!";
+                taskLabels[i].text = "Hide chef's ingredients!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_SPRINT) {
                 string sprintControls = (Application.platform == RuntimePlatform.Android) ? "SPRINT button" : "Left-Shift";
                 taskLabels[i].text = "Make big jump by sprinting! (" + sprintControls + ")";
+            } else if (initialTasks[i] == TaskType.FIND_ROOM) {
+                taskLabels[i].text = "Find da main kitchen!"
             }
 
             // If the task is NOT revealed, then hide it

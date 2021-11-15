@@ -4259,7 +4259,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-35970
+  m_Name: pb_Mesh-9668
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5158,12 +5158,12 @@ PrefabInstance:
     - target: {fileID: 879368796756056632, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
       propertyPath: breakable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 879368796756056632, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
       propertyPath: burnable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 879368796756056633, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
@@ -5669,7 +5669,7 @@ PrefabInstance:
     - target: {fileID: 7696455108441512632, guid: 74369ba2e418df512829a7322a094ea7,
         type: 3}
       propertyPath: canBreak
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7696455108441512632, guid: 74369ba2e418df512829a7322a094ea7,
         type: 3}
