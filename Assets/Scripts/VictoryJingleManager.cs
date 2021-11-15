@@ -11,17 +11,17 @@ public class VictoryJingleManager : MonoBehaviour
 
     private void Awake()
     {
-        if (PersistentData.instance.levelCleared[2])
+        if (PersistentData.instance.lastLevelCleared == 2)
         {
             AudioClip jingleLevel = jingles[2];
             victoryJingles.clip = jingleLevel;
             victoryJingles.Play();
-        } else if (PersistentData.instance.levelCleared[1])
+        } else if (PersistentData.instance.lastLevelCleared == 1)
         {
             AudioClip jingleLevel = jingles[1];
             victoryJingles.clip = jingleLevel;
             victoryJingles.Play();
-        } else if (PersistentData.instance.levelCleared[0])
+        } else if (PersistentData.instance.lastLevelCleared == 0)
         {
             AudioClip jingleLevel = jingles[0];
             victoryJingles.clip = jingleLevel;
