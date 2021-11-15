@@ -38,7 +38,6 @@ public class IntroCutsceneManager : MonoBehaviour
     // Event handler for when video has started
     private void onVideoStarted(UnityEngine.Video.VideoPlayer vp) {
         if (speaker != null) {
-            Debug.Log("Test");
             speaker.Play();
         }
     }
