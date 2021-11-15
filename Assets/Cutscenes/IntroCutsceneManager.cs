@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class IntroCutsceneManager : MonoBehaviour
 {
     private bool interrupted = false;
     private UnityEngine.Video.VideoPlayer videoPlayer;
+    private AudioSource speaker = null;
 
     // Start is called before the first frame update
     void Start()
     {
         videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
+        speaker = GetComponent<AudioSource>();
+        videoPlayer.started += onVideoStarted;
         StartCoroutine(playCutscene());
     }
 
@@ -28,6 +32,14 @@ public class IntroCutsceneManager : MonoBehaviour
             interrupted = true;
             StopAllCoroutines();
             SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    // Event handler for when video has started
+    private void onVideoStarted(UnityEngine.Video.VideoPlayer vp) {
+        if (speaker != null) {
+            Debug.Log("Test");
+            speaker.Play();
         }
     }
 }
