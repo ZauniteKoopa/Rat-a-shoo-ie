@@ -3171,7 +3171,7 @@ PrefabInstance:
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: initialTasks.Array.data[0]
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
@@ -8241,6 +8241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PatrolChef2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197135048500274197, guid: 0e27779f2c16abd7fba6b1b73ce29007,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1197135048500274202, guid: 0e27779f2c16abd7fba6b1b73ce29007,
         type: 3}
