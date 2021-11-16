@@ -123,7 +123,7 @@ public class ToDoList : MonoBehaviour
                 string sprintControls = (Application.platform == RuntimePlatform.Android) ? "SPRINT button" : "Left-Shift";
                 taskLabels[i].text = "Make big jump by sprinting! (" + sprintControls + ")";
             } else if (initialTasks[i] == TaskType.FIND_ROOM) {
-                taskLabels[i].text = "Find da main kitchen!"
+                taskLabels[i].text = "Find da main kitchen!";
             }
 
             // If the task is NOT revealed, then hide it
