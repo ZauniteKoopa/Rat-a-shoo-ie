@@ -66,10 +66,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_A84F4E2D: 0.1
+    - Vector1_A84F4E2D: 0.4
     - Vector1_DE5A2AD3: 0
     - Vector1_F36C0E40: 0
-    - Vector1_FAD152AD: 0.2
+    - Vector1_FAD152AD: 0.1
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
