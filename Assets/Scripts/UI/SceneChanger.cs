@@ -15,4 +15,17 @@ public class SceneChanger : MonoBehaviour
     public void Exit() {
         Application.Quit();
     }
+
+    // Method to take to victory screen
+    public void takeToVictoryScreen(int levelIndex) {
+        if (levelIndex == 0) {
+            ChangeScene("WinScreen_Home");
+        } else if (levelIndex == 1) {
+            ChangeScene("WinScreen_Diner");
+        } else if (levelIndex == 2) {
+            ChangeScene("WinScreen_Sushi");
+        } else if (levelIndex == 3) {
+            ChangeScene("WinScreen_Hibachi");
+        }
+    }
 }

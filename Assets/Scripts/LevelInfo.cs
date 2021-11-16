@@ -111,6 +111,11 @@ public class LevelInfo : MonoBehaviour
         PersistentData.instance.saveVictory(levelIndex);
     }
 
+    // Public method to get the level index
+    public int getLevelIndex() {
+        return levelIndex;
+    }
+
     // Public method to reset all reset interactables
     public void resetLevel() {
         foreach(ResetInteractable interactable in resetInteractables) {

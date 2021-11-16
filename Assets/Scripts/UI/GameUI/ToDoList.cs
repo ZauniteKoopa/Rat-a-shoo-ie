@@ -290,7 +290,7 @@ public class ToDoList : MonoBehaviour
     public void onPlayerEscape() {
         if (canEscape) {
             levelInfo.saveLevelSuccess();
-            GetComponent<SceneChanger>().ChangeScene("WinScreen");
+            GetComponent<SceneChanger>().takeToVictoryScreen(levelInfo.getLevelIndex());
         } else {
             if (!warningActive) {
                 StartCoroutine(warningSequence("You still haven't finished tasks yet"));
