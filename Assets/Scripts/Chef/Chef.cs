@@ -190,17 +190,27 @@ public class Chef : MonoBehaviour
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         bool interrupted = false;
+        bool holdsUnrelatedSolution = targetedSolution != null;
+
+        if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
+            holdsUnrelatedSolution = true;
+        } else if (holdsUnrelatedSolution) {
+            holdsUnrelatedSolution = targetedSolution.solutionType != targetRecipe.getSolutionStep(currentRecipeStep);
+        }
 
         // If you were interrupted by a higher priority issue and you were holding onto a solutionObject for a hazard, put the solution object back
-        if (targetedSolution != null && highestPriorityIssue != null) {
-            navMeshAgent.enabled = false;
-            faceHighPriorityIssue();
-            audioManager.playChefAlert();
-            yield return new WaitForSeconds(surprisedAtIssueDuration);
-            navMeshAgent.enabled = true;
-            navMeshAgent.speed = chaseMovementSpeed;
+        if (holdsUnrelatedSolution) {
+            if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
+                navMeshAgent.enabled = false;
+                faceHighPriorityIssue();
+                audioManager.playChefAlert();
+                yield return new WaitForSeconds(surprisedAtIssueDuration);
+                navMeshAgent.enabled = true;
+                navMeshAgent.speed = chaseMovementSpeed;
 
-            thoughtBubble.thinkOfSolution(highestPriorityIssue.getNthStep(0));
+                thoughtBubble.thinkOfSolution(highestPriorityIssue.getNthStep(0));
+            }
+            
             yield return goToPosition(targetedSolution.getInitialLocation());
             dropSolutionObject(targetedSolution);
             targetedSolution = null;
@@ -865,6 +875,7 @@ public class Chef : MonoBehaviour
         // Check if chef is literally in any state that's not passive first
         bool isNormallyPassive = highestPriorityIssue == null && !aggressive && !mealPoisoned;
         bool isAngrilyPassive = sensedTrap == null && !aggressive && !inStartAngerSequence;
+        navMeshAgent.enabled = true;
 
         if (inStartAngerSequence) {
             StopAllCoroutines();
@@ -872,7 +883,6 @@ public class Chef : MonoBehaviour
             // Method to set chef to angry mode without going through start sequence
             animator.GetComponent<SpriteRenderer>().color = angryColor;
 
-            navMeshAgent.enabled = true;
             canSpotRat = true;
             aggressiveAction.makeAngry();
             inStartAngerSequence = false;
