@@ -95,12 +95,12 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
         Transform ratTarget = chefSensing.currentRatTarget;
-        lockedTarget = new Vector3(ratTarget.position.x, transform.position.y, ratTarget.position.z);
-        lockedTarget = lockedTarget + (dashThroughDistance * (lockedTarget - transform.position).normalized);
+        Vector3 flattenTarget = new Vector3(ratTarget.position.x, transform.position.y, ratTarget.position.z);
+        lockedTarget = flattenTarget + (dashThroughDistance * (lockedTarget - transform.position).normalized);
         lockedTarget = getNearestValidNavMeshPosition(lockedTarget);
 
         // Face target
-        transform.forward = (lockedTarget - transform.position).normalized;
+        transform.forward = (flattenTarget - transform.position).normalized;
         float currentAnticipation = (angered) ? angryDashAnticipation : dashAnticipation;
         currentAnticipation = Random.Range(currentAnticipation - randomVariance, currentAnticipation + randomVariance);
         animator.SetBool("anticipating", true);

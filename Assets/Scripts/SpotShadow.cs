@@ -33,6 +33,11 @@ public class SpotShadow : MonoBehaviour
             Vector3 raycastStart = transform.parent.position + (rayDir * raycastRadius);
 
             if (Physics.Raycast(raycastStart, Vector3.down, out hit, Mathf.Infinity, ~spotShadowCollisionLayer)) {
+                // Main way to debug spot shadow on player
+                // if (transform.parent.GetComponent<RatController3D>() != null) {
+                //     Debug.Log(hit.collider);
+                // }
+
                 if (heightFrequencyMap.ContainsKey(hit.point.y)) {
                     heightFrequencyMap[hit.point.y]++;
                 } else {

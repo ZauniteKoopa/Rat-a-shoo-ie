@@ -190,36 +190,40 @@ public class Chef : MonoBehaviour
     // Main intelligence loop
     private IEnumerator mainIntelligenceLoop() {
         bool interrupted = false;
-        bool holdsUnrelatedSolution = targetedSolution != null;
-
-        if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
-            holdsUnrelatedSolution = true;
-        } else if (holdsUnrelatedSolution) {
-            holdsUnrelatedSolution = targetedSolution.solutionType != targetRecipe.getSolutionStep(currentRecipeStep);
-        }
-
-        // If you were interrupted by a higher priority issue and you were holding onto a solutionObject for a hazard, put the solution object back
-        if (holdsUnrelatedSolution) {
-            if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
-                navMeshAgent.enabled = false;
-                faceHighPriorityIssue();
-                audioManager.playChefAlert();
-                yield return new WaitForSeconds(surprisedAtIssueDuration);
-                navMeshAgent.enabled = true;
-                navMeshAgent.speed = chaseMovementSpeed;
-
-                thoughtBubble.thinkOfSolution(highestPriorityIssue.getNthStep(0));
-            }
-            
-            yield return goToPosition(targetedSolution.getInitialLocation());
-            dropSolutionObject(targetedSolution);
-            targetedSolution = null;
-
-            interrupted = true;
-        }
 
         // Main loop
         while (true) {
+            // Main method to process unrelated info
+            bool holdsUnrelatedSolution = targetedSolution != null && !aggressive;
+
+            if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
+                holdsUnrelatedSolution = true;
+            } else if (holdsUnrelatedSolution) {
+                holdsUnrelatedSolution = targetedSolution.solutionType != targetRecipe.getSolutionStep(currentRecipeStep);
+            }
+
+            // If you were interrupted by a higher priority issue and you were holding onto a solutionObject for a hazard, put the solution object back
+            if (holdsUnrelatedSolution) {
+                if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
+                    navMeshAgent.enabled = false;
+                    faceHighPriorityIssue();
+                    audioManager.playChefAlert();
+                    yield return new WaitForSeconds(surprisedAtIssueDuration);
+                    navMeshAgent.enabled = true;
+                    navMeshAgent.speed = chaseMovementSpeed;
+
+                    thoughtBubble.thinkOfSolution(highestPriorityIssue.getNthStep(0));
+                }
+                
+                yield return goToPosition(targetedSolution.getInitialLocation());
+                dropSolutionObject(targetedSolution);
+                targetedSolution = null;
+
+                interrupted = true;
+            }
+
+
+            // MAIN TREE
             if (highestPriorityIssue != null) {                         // Branch for when chef is dealing with issue
                 yield return solveIssue(interrupted);
                 interrupted = false;

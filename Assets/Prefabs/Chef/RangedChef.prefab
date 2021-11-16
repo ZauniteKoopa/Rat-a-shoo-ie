@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 5120923864022173181}
   - component: {fileID: 6999256089365357559}
   - component: {fileID: 3182641333024245819}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FOVPrism (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1443,6 +1443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47f90fcc9acf2226995764777885c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canBreak: 1
+  canBurn: 0
 --- !u!1 &7533911141299582160
 GameObject:
   m_ObjectHideFlags: 0

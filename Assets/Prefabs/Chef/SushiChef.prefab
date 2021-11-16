@@ -1553,7 +1553,7 @@ GameObject:
   - component: {fileID: 6884152082350412932}
   - component: {fileID: 7744866124637444092}
   - component: {fileID: 6574114646538336935}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FOVPrism (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

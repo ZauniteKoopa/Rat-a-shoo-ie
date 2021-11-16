@@ -498,6 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47f90fcc9acf2226995764777885c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canBreak: 1
+  canBurn: 0
 --- !u!54 &7802904550453519480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -887,7 +889,7 @@ GameObject:
   - component: {fileID: 9010874578433694366}
   - component: {fileID: 6432253672026003577}
   - component: {fileID: 1126680465318910249}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FOVPrism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
