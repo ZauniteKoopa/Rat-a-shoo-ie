@@ -29,7 +29,7 @@ public class DashAttackAggressiveAction : AbstractAggressiveChefAction
     private GameObject slashHitbox = null;
     [SerializeField]
     private float slashTime = 0.25f;
-    private float randomVariance = 0.05f;
+    private float randomVariance = 0.1f;
 
     private Vector3 lockedTarget = Vector3.zero;
     private bool locked = false;
