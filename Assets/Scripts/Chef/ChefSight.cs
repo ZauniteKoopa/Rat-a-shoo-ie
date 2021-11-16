@@ -21,6 +21,7 @@ public class ChefSight : MonoBehaviour
 
     // Variables concerning IssueObjects that are in range
     private HashSet<IssueObject> inRangeIssues = null;
+    private HashSet<IssueObject> unseenIssues = null;
 
     public IntelligenceIssueDelegate issueEnterEvent;
 
@@ -28,10 +29,12 @@ public class ChefSight : MonoBehaviour
     private void Awake() {
         issueEnterEvent = new IntelligenceIssueDelegate();
         inRangeIssues = new HashSet<IssueObject>();
+        unseenIssues = new HashSet<IssueObject>();
     }
 
     // On update, if player is in range, check raycast
     private void Update() {
+        // Main method to check player
         if (inRangePlayer != null) {
             Vector3 directionToTarget = (inRangePlayer.position - chefEye.position).normalized;
             float distanceToTarget = Vector3.Distance(inRangePlayer.position, chefEye.position);
@@ -58,6 +61,48 @@ public class ChefSight : MonoBehaviour
                 currentRatTarget = null;
             }
         }
+
+        // Method to check unseen issues
+        checkUnseenIssues();
+    }
+
+    // Private helper method to checj unseen issues
+    private void checkUnseenIssues() {
+        if (unseenIssues.Count > 0) {
+            List<IssueObject> issuesToRemove = new List<IssueObject>();
+
+            foreach(IssueObject unseenIssue in unseenIssues) {
+                // Do a basic check to see if its already being dealt with or been deleted
+                if (unseenIssue == null || unseenIssue.isBeingDealtWith) {
+                    issuesToRemove.Add(unseenIssue);
+                }
+
+                // If you can actually see the issue, put it in inRangeIssues and trigger event
+                if (canSeeIssue(unseenIssue)) {
+                    issuesToRemove.Add(unseenIssue);
+
+                    inRangeIssues.Add(unseenIssue);
+                    issueEnterEvent.Invoke(unseenIssue);
+                }
+            }
+
+            // Remove issues
+            foreach(IssueObject removedIssue in issuesToRemove) {
+                unseenIssues.Remove(removedIssue);
+            }
+        }
+    }
+
+    // Main method to check if you can see the issue
+    private bool canSeeIssue(IssueObject targetIssue) {
+        Vector3 directionToTarget = (targetIssue.transform.position - chefEye.position).normalized;
+        float distanceToTarget = Vector3.Distance(targetIssue.transform.position, chefEye.position);
+
+        if (Physics.Raycast(chefEye.position, directionToTarget, distanceToTarget, obstructionMask)) {
+            return false;
+        } else {
+            return true;
+        }
     }
     
     // When player enters trigger, say that the rat is in range
@@ -72,8 +117,13 @@ public class ChefSight : MonoBehaviour
 
         // If an issue went in range, record the issue and alert the parent chef AI that an issue has surfaced
         if (issue != null && !issue.isBeingDealtWith) {
-            inRangeIssues.Add(issue);
-            issueEnterEvent.Invoke(issue);
+
+            if (canSeeIssue(issue)) {
+                inRangeIssues.Add(issue);
+                issueEnterEvent.Invoke(issue);
+            } else {
+                unseenIssues.Add(issue);
+            }
         }
     }
 
@@ -91,6 +141,7 @@ public class ChefSight : MonoBehaviour
         // important issue, even when he's not looking at it
         if (issue != null) {
             inRangeIssues.Remove(issue);
+            unseenIssues.Remove(issue);
         }
     }
 
