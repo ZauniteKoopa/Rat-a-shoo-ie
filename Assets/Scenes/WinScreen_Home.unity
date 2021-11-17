@@ -928,10 +928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jingles:
-  - {fileID: 8300000, guid: 0207a748b7c9ce340a584e7c61408bdf, type: 3}
-  - {fileID: 8300000, guid: b4c91645696c38349995fa98d5f60d39, type: 3}
-  - {fileID: 8300000, guid: 6ecb26b2aaa7bb1479a293c27e0619a0, type: 3}
-  - {fileID: 8300000, guid: c98ed6c83a2f2114d87274582f03580d, type: 3}
+  - {fileID: 8300000, guid: 5327b3d9e480a8b42a1432c5fba5d3b4, type: 3}
+  - {fileID: 8300000, guid: 8d66b7b97afac3c4b8ae54641884d0fa, type: 3}
+  - {fileID: 8300000, guid: 6d551301341ab50468f81b3c4938ec67, type: 3}
+  - {fileID: 8300000, guid: 0bea86f5a5468544f954ca303bb1075c, type: 3}
   victoryJingles: {fileID: 1261444707}
 --- !u!4 &1261444709
 Transform:

@@ -1577,7 +1577,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1947,15 +1947,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca601e6680dd134c97081bac81a85b4, type: 3}
---- !u!198 &2500467106116019812 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8858318040305004052, guid: 4ca601e6680dd134c97081bac81a85b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 6367070379991124080}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8517016017513698058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6367070379991124080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2500467106116019812 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8858318040305004052, guid: 4ca601e6680dd134c97081bac81a85b4,
     type: 3}
   m_PrefabInstance: {fileID: 6367070379991124080}
   m_PrefabAsset: {fileID: 0}

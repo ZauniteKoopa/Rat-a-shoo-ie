@@ -234,6 +234,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   HAZARD_EXPIRATION_DURATION: 10
+  pushDirection: {x: -1, y: 0, z: 0}
+  oneTimeUse: 0
   nearFireDuration: 22
 --- !u!82 &-7535250814169411300
 AudioSource:
@@ -247,7 +249,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -17054,12 +17054,12 @@ PrefabInstance:
         type: 3}
       propertyPath: mainTrack
       value: 
-      objectReference: {fileID: 8300000, guid: c45ac372e2601a3459fc6e593e952538, type: 3}
+      objectReference: {fileID: 8300000, guid: 1d2f92ee8d4829b4fb81efc352d852ca, type: 3}
     - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: chaseTrack
       value: 
-      objectReference: {fileID: 8300000, guid: a15345c7ee5f0c14eafb298511485ac4, type: 3}
+      objectReference: {fileID: 8300000, guid: c28bc9d3556e2114d96cf7df3e360391, type: 3}
     - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: ambientTrack
