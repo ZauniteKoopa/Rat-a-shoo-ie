@@ -24,6 +24,10 @@ public class HazardInteractable : ResetInteractable
     protected float HAZARD_EXPIRATION_DURATION = 8.0f;
     private float SPAWN_OFFSET_DURATION = 1.5f;
     protected IssueObject curHazard = null;
+    [SerializeField]
+    private Vector3 pushDirection = Vector3.left;
+    [SerializeField]
+    private bool oneTimeUse = false;
 
 
     // On awake, get rigidbody component
@@ -56,6 +60,12 @@ public class HazardInteractable : ResetInteractable
         }
 
         falling = false;
+    }
+
+    // Public method to force a fall at a specific vector3 position
+    public void forceHazardFall() {
+        transform.position = transform.position + pushDirection * 1.5f;
+        StartCoroutine(checkFallingObject());
     }
 
     // Private onCollisionEnter: if this interactable hits a collider with initiated tag when falling, create hazard object at that location
@@ -96,7 +106,10 @@ public class HazardInteractable : ResetInteractable
 
         // Move object back to spawn position
         StopAllCoroutines();
-        StartCoroutine(timedRespawn());
+
+        if (!oneTimeUse) {
+            StartCoroutine(timedRespawn());
+        }
     }
 
     // protected method to get current duration
@@ -111,7 +124,10 @@ public class HazardInteractable : ResetInteractable
 
         if (curHazard != null && !curHazard.isBeingDealtWith) {
             Object.Destroy(curHazard.gameObject);
-            yield return timedRespawn();
+
+            if (!oneTimeUse) {
+                yield return timedRespawn();
+            }
         }
     }
 

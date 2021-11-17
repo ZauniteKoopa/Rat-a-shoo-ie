@@ -227,10 +227,14 @@ public class Chef : MonoBehaviour
             if (highestPriorityIssue != null) {                         // Branch for when chef is dealing with issue
                 yield return solveIssue(interrupted);
                 interrupted = false;
+                aggressive = chefSensing.currentRatTarget != null;
 
                 if (willDeactivate && highestPriorityIssue == null && !aggressive && !mealPoisoned) {
                     yield return deactivateChefFromActiveBranch();
                 }
+
+                if (aggressive)
+                    yield return spotRat();
             }
             else if (aggressive)                                        // Branch for when chef is chasing rat
             {
