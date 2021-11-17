@@ -54,7 +54,7 @@ MonoBehaviour:
   ambientMusic: {fileID: 3406701521727349938}
   fadeOutFactor: 0.5
   fadeInFactor: 0.5
-  maxVolume: 0.4
+  maxVolume: 0.15
 --- !u!82 &1263184369974570298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

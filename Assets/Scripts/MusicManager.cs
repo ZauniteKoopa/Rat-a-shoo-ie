@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
 
     public float fadeOutFactor = 0.5f;
     public float fadeInFactor = 0.5f;
-    public float maxVolume = 1f;
+    public float maxVolume = 0.4f;
 
     private void Awake()
     {
