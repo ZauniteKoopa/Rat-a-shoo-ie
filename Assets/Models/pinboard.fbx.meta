@@ -3,7 +3,17 @@ guid: c3a0dbb3735d6a24a8f9b5492f5ffb96
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mirror
+    second: {fileID: 2100000, guid: e1a3e309e6553e5a999969d69646bb59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_Trim
+    second: {fileID: 2100000, guid: ebe74595f35e8e627a6cd397a39b0168, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

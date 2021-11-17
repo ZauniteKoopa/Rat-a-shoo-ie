@@ -11,12 +11,11 @@ public class SpotShadow : MonoBehaviour
     private Vector3[] CARDINAL_DIRECTIONS;
 
     private void Start() {
-        CARDINAL_DIRECTIONS = new Vector3[5];
+        CARDINAL_DIRECTIONS = new Vector3[4];
         CARDINAL_DIRECTIONS[0] = Vector3.left;
         CARDINAL_DIRECTIONS[1] = Vector3.right;
         CARDINAL_DIRECTIONS[2] = Vector3.forward;
         CARDINAL_DIRECTIONS[3] = Vector3.back;
-        CARDINAL_DIRECTIONS[4] = Vector3.zero;
     }
 
 

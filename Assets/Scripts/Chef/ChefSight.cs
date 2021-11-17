@@ -75,10 +75,9 @@ public class ChefSight : MonoBehaviour
                 // Do a basic check to see if its already being dealt with or been deleted
                 if (unseenIssue == null || unseenIssue.isBeingDealtWith) {
                     issuesToRemove.Add(unseenIssue);
-                }
 
                 // If you can actually see the issue, put it in inRangeIssues and trigger event
-                if (canSeeIssue(unseenIssue)) {
+                } else if (canSeeIssue(unseenIssue)) {
                     issuesToRemove.Add(unseenIssue);
 
                     inRangeIssues.Add(unseenIssue);
