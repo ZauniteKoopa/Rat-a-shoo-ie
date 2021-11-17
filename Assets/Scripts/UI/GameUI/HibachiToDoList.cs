@@ -82,7 +82,7 @@ public class HibachiToDoList : ToDoList
         yield return blackOutSequence(blackFadeOutDuration);
 
         yield return new WaitForSeconds(blackOutDuration);
-        GetComponent<SceneChanger>().ChangeScene("WinScreen");
+        GetComponent<SceneChanger>().takeToVictoryScreen(levelInfo.getLevelIndex());
     }
 
     // Main method to shake the camera
