@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 899fe5edb7ac9be4ba2e654a50592783,
+  m_Motion: {fileID: 1827226128182048838, guid: 5690c26c356e9424c961b71764451030,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: ea2caa361a70b0d49b362c24f40bdd67,
+  m_Motion: {fileID: 1827226128182048838, guid: 82e9e634f6be4014e97f0c23b3e7dd92,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -139,7 +139,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MouseTrapActivateAnim
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5178295225744212942}
@@ -152,7 +152,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: ad6cdc6843159874b826406cdf86b637,
+  m_Motion: {fileID: 1827226128182048838, guid: 4f604a064570bc046836637943705422,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
