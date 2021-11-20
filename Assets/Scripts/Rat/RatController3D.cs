@@ -69,7 +69,12 @@ public class RatController3D : MonoBehaviour
     public bool respawning = false;
 
     // Variables for jumping
-    private bool onGround = false;
+    [Header("Jump Management")]
+    [SerializeField]
+    private float coyoteTime = 1.0f;
+    private bool canJump = false;           // Boolean flag handling coyote time
+    private bool onGround = false;          // Boolean flag handling whether or not you're on ground
+    
 
     // Ground forward
     private Vector3 groundForward = Vector3.back;
@@ -142,8 +147,12 @@ public class RatController3D : MonoBehaviour
 
     // Fixed update to apply gravity to the player
     void FixedUpdate() {
-        if (!onGround) {
+        if (!onGround && !canJump) {
             rigidBody.AddForce(Vector3.down * rigidBody.mass * gravityForce);
+        } else if (onGround) {
+            Debug.Log("no gravity because im on the ground");
+        } else if (canJump) {
+            Debug.Log("no gravity because in coyote time");
         }
         
     }
@@ -157,12 +166,19 @@ public class RatController3D : MonoBehaviour
 
     /* Event handler method for when the jump button was pressed */
     public void onJump(InputAction.CallbackContext value) {
-        if (canMove && onGround && value.started) {
-            float heightVelocity = (slowSources <= 0) ? landJumpVelocity : landJumpVelocity * slowedJumpFactor;
-            rigidBody.velocity = (Vector3.up * heightVelocity);
-            audioManager.playJump();
-            animator.SetTrigger("jump");
+        if (canMove && canJump && value.started) {
+            doPlayerJump();
         }
+    }
+
+    /* Main method to do player jump */
+    private void doPlayerJump() {
+        canJump = false;
+
+        float heightVelocity = (slowSources <= 0) ? landJumpVelocity : landJumpVelocity * slowedJumpFactor;
+        rigidBody.velocity = (Vector3.up * heightVelocity);
+        audioManager.playJump();
+        animator.SetTrigger("jump");
     }
 
     /* Event handler for when the sprint button is being held 
@@ -302,11 +318,30 @@ public class RatController3D : MonoBehaviour
     /* Event handler when rat lands on ground */
     public void onLanding() {
         onGround = true;
+        canJump = true;
+        rigidBody.velocity = Vector3.zero;
     }
 
     /* Event handler method when rat leaves the ground */
     public void onLeavingGround() {
         onGround = false;
+        StartCoroutine(coyoteTimeSequence());
+
+    }
+
+    /* Private IEnumerator for Coyote Time sequence */
+    private IEnumerator coyoteTimeSequence() {
+
+        float coyoteTimer = 0.0f;
+        while (coyoteTimer < coyoteTime && !onGround && canJump) {
+            yield return null;
+            coyoteTimer += Time.deltaTime;
+        }
+        
+
+        if (!onGround) {
+            canJump = false;
+        }
     }
 
     /* Method for taking damage */
