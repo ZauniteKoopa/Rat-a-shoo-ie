@@ -6313,12 +6313,12 @@ PrefabInstance:
     - target: {fileID: 879368796756056632, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
       propertyPath: breakable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 879368796756056632, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
       propertyPath: burnable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 879368796756056633, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
@@ -6328,7 +6328,7 @@ PrefabInstance:
     - target: {fileID: 879368796756056636, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.22
+      value: -5.16
       objectReference: {fileID: 0}
     - target: {fileID: 879368796756056636, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
@@ -6338,7 +6338,7 @@ PrefabInstance:
     - target: {fileID: 879368796756056636, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.84
+      value: 2.47
       objectReference: {fileID: 0}
     - target: {fileID: 879368796756056636, guid: 3fcf0fd1bf8a931a6ab1c7f665eda133,
         type: 3}
@@ -8045,7 +8045,17 @@ PrefabInstance:
     - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
       propertyPath: coyoteTime
-      value: 0.1
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: tapJumpVelocity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: jumpProcessFrame
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}

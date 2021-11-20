@@ -72,8 +72,12 @@ public class RatController3D : MonoBehaviour
     [Header("Jump Management")]
     [SerializeField]
     private float coyoteTime = 1.0f;
+    [SerializeField]
+    private int jumpCheckFrames = 10;
+    private float tapJumpVelocity = 6.0f;
     private bool canJump = false;           // Boolean flag handling coyote time
     private bool onGround = false;          // Boolean flag handling whether or not you're on ground
+    private bool jumpButtonPressed = false; // Boolean flag on whether jump button was pressed
     
 
     // Ground forward
@@ -162,8 +166,15 @@ public class RatController3D : MonoBehaviour
 
     /* Event handler method for when the jump button was pressed */
     public void onJump(InputAction.CallbackContext value) {
+        if (value.started) {
+            jumpButtonPressed = true;
+        } else if (value.canceled) {
+            jumpButtonPressed = false;
+        }
+
         if (canMove && canJump && value.started) {
-            doPlayerJump();
+            //doPlayerJump();
+            StartCoroutine(jumpTypeTest());
         }
     }
 
@@ -175,6 +186,29 @@ public class RatController3D : MonoBehaviour
         rigidBody.velocity = (Vector3.up * heightVelocity);
         audioManager.playJump();
         animator.SetTrigger("jump");
+    }
+
+    /* IEnumeraotr on jump button press */
+    private IEnumerator jumpTypeTest() {
+        bool fullJump = false;
+        int curFrame = 0;
+        doPlayerJump();
+
+        while (jumpButtonPressed && curFrame < jumpCheckFrames) {
+            yield return null;
+            curFrame++;
+        }
+
+        fullJump = jumpButtonPressed;
+
+        while (curFrame < jumpCheckFrames) {
+            yield return null;
+            curFrame++;
+        }
+
+        if (!fullJump) {
+            rigidBody.velocity = Vector3.zero;
+        }
     }
 
     /* Event handler for when the sprint button is being held 
