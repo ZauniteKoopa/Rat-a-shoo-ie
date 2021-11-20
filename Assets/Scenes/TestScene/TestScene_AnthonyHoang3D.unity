@@ -5637,6 +5637,7 @@ MonoBehaviour:
       m_Calls: []
   HAZARD_EXPIRATION_DURATION: 3
   pushDirection: {x: -1, y: 0, z: 0}
+  oneTimeUse: 0
   nearFireDuration: 15
 --- !u!1001 &251867769767365128
 PrefabInstance:
@@ -8041,6 +8042,11 @@ PrefabInstance:
       propertyPath: userInterface
       value: 
       objectReference: {fileID: 828858107}
+    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: coyoteTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
 --- !u!4 &5271032150378219367

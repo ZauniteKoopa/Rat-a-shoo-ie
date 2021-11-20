@@ -149,10 +149,6 @@ public class RatController3D : MonoBehaviour
     void FixedUpdate() {
         if (!onGround && !canJump) {
             rigidBody.AddForce(Vector3.down * rigidBody.mass * gravityForce);
-        } else if (onGround) {
-            Debug.Log("no gravity because im on the ground");
-        } else if (canJump) {
-            Debug.Log("no gravity because in coyote time");
         }
         
     }
