@@ -349,6 +349,8 @@ public class RatController3D : MonoBehaviour
     public void onLanding() {
         onGround = true;
         canJump = true;
+        Debug.Log("landed");
+        animator.SetTrigger("landed");
         rigidBody.velocity = Vector3.zero;
     }
 
