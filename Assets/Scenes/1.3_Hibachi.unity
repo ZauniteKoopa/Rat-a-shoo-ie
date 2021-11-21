@@ -8334,7 +8334,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2858
+  m_Name: pb_Mesh-100934
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14922,6 +14922,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263184369974570298, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406701521727349938, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3649817916582978191, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: m_Name
@@ -15012,6 +15022,11 @@ PrefabInstance:
       propertyPath: ambientTrack
       value: 
       objectReference: {fileID: 8300000, guid: 16779cbce07671148894aaaedc5dc0f6, type: 3}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: maxVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
 --- !u!1001 &768705066
@@ -17812,6 +17827,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HibachiChef
       objectReference: {fileID: 0}
+    - target: {fileID: 7696455108965432303, guid: 74369ba2e418df512829a7322a094ea7,
+        type: 3}
+      propertyPath: weaponSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fd72e1071f6af304caf3f49a6d6e167f, type: 3}
     - target: {fileID: 8145832111823055959, guid: 74369ba2e418df512829a7322a094ea7,
         type: 3}
       propertyPath: m_Mesh
@@ -37622,7 +37642,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-5164
+  m_Name: pb_Mesh-103012
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
