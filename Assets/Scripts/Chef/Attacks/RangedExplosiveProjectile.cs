@@ -181,7 +181,7 @@ public class RangedExplosiveProjectile : RangedProjectile
         anticipationRender.enabled = false;
         explosionZone.SetActive(true);
 
-        speaker.PlayOneShot(explode);
+        speaker.PlayOneShot(explode, 1.5f);
 
         yield return new WaitForSeconds(explosiveAttackTime);
 

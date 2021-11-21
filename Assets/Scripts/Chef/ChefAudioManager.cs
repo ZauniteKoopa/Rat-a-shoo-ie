@@ -52,7 +52,16 @@ public class ChefAudioManager : MonoBehaviour
     public void playWeaponAttack()
     {
         if (weaponSounds != null && weaponSounds.Length > 0) {
-            playRandomTrack(weaponSounds);
+            if (weaponSounds[0].name == "fx_chef_hibachi_attack_v2")
+            {
+                AudioClip curClip = weaponSounds[0];
+                speaker.clip = curClip;
+                speaker.PlayOneShot(curClip, 1.5f);
+            }
+            else 
+            { 
+                playRandomTrack(weaponSounds);
+            }
         }
     }
 
