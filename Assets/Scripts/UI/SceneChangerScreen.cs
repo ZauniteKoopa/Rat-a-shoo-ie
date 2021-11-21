@@ -16,7 +16,7 @@ public class SceneChangerScreen : SceneChanger
     private Image cheese = null;
 
     private float ratInitialPos = 0.0f;
-    private float pseudo = 0.0f;
+    // private float pseudo = 0.0f;
 
     // Main method to load a level
     public void ChangeSceneAsync(string sceneName) {

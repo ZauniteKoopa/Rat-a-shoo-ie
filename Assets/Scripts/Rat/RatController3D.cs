@@ -74,7 +74,6 @@ public class RatController3D : MonoBehaviour
     private float coyoteTime = 1.0f;
     [SerializeField]
     private int jumpCheckFrames = 10;
-    private float tapJumpVelocity = 6.0f;
     private bool canJump = false;           // Boolean flag handling coyote time
     private bool onGround = false;          // Boolean flag handling whether or not you're on ground
     private bool jumpButtonPressed = false; // Boolean flag on whether jump button was pressed
@@ -193,16 +192,17 @@ public class RatController3D : MonoBehaviour
         bool fullJump = false;
         int curFrame = 0;
         doPlayerJump();
+        WaitForFixedUpdate waitFrame = new WaitForFixedUpdate();
 
         while (jumpButtonPressed && curFrame < jumpCheckFrames) {
-            yield return null;
+            yield return waitFrame;
             curFrame++;
         }
 
         fullJump = jumpButtonPressed;
 
         while (curFrame < jumpCheckFrames) {
-            yield return null;
+            yield return waitFrame;
             curFrame++;
         }
 
