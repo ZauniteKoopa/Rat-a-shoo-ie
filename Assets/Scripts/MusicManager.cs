@@ -15,27 +15,34 @@ public class MusicManager : MonoBehaviour
     public AudioSource chaseMusic;
     public AudioSource ambientMusic;
 
+    // Fade in / out
     public float fadeOutFactor = 0.5f;
     public float fadeInFactor = 0.5f;
-    public float maxVolume = 0.4f;
 
-    private void Awake()
-    {
-        int curLevel = SceneManager.GetActiveScene().buildIndex;
-        // print("level" + curLevel);
+    // Max volumes for volume management
+    public float maxChaseVolume = 0.4f;
+    private float maxBaseVolume;
+    private float curChaseVolume;
+
+    private void Start()
+    {        
         AudioClip baseLevel = mainTrack;
         AudioClip chaseLevel = chaseTrack;
         AudioClip ambientLevel = ambientTrack;
 
         baseMusic.clip = baseLevel;
         baseMusic.Play();
+        maxBaseVolume = baseMusic.volume;
 
         chaseMusic.clip = chaseLevel;
         chaseMusic.volume = 0.0f;
+        curChaseVolume = maxChaseVolume;
         chaseMusic.Play();
 
         ambientMusic.clip = ambientLevel;
         ambientMusic.Play();
+
+        onMusicVolumeChanged(PersistentData.instance.musicVolume);
     }
 
     // Event handler method for when the rat is being chased
@@ -51,7 +58,7 @@ public class MusicManager : MonoBehaviour
     private IEnumerator fadeInChaseMusic() {
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
-        while (chaseMusic.volume < maxVolume) {
+        while (chaseMusic.volume < curChaseVolume) {
             yield return waitFrame;
             chaseMusic.volume += fadeInFactor * Time.deltaTime;
         }
@@ -73,6 +80,16 @@ public class MusicManager : MonoBehaviour
         while (chaseMusic.volume > 0.0f) {
             yield return waitFrame;
             chaseMusic.volume -= fadeInFactor * Time.deltaTime;
+        }
+    }
+
+    // Event handler for when music manager changed
+    public void onMusicVolumeChanged(float newVolume) {
+        baseMusic.volume = maxBaseVolume * newVolume;
+        curChaseVolume = maxChaseVolume * newVolume;
+
+        if (chaseMusic.volume > 0.0001f) {
+            chaseMusic.volume = curChaseVolume;
         }
     }
 }
