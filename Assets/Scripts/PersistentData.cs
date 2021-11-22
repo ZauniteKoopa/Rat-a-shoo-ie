@@ -24,7 +24,7 @@ public class PersistentData : MonoBehaviour
     public AudioMixer soundEffectsChannel = null;
     public float effectsVolume = 1.0f;
     private float maxVolume = 0.0f;
-    private float minVolume = -20.0f;
+    private float minVolume = -30.0f;
     private float noVolume = -80.0f;
 
     // Start is called before the first frame update

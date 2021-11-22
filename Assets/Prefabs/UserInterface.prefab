@@ -3313,7 +3313,8 @@ AudioSource:
   m_GameObject: {fileID: 8200095421523678778}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2d43d191f1dea34eeb69051ab8debb67,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.4
@@ -3511,6 +3512,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 91bc1fb5-793f-456a-91fd-8924ecea468a
     m_ActionName: Touch/TouchContact[/Simulated Touchscreen/primaryTouch/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b68f1b7d-a8ad-45d4-a292-fb8d46f3361a
+    m_ActionName: Cutscene/Interrupt[/Keyboard/anyKey,/Simulated Touchscreen/primaryTouch/tap]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

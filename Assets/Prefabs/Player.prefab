@@ -664,6 +664,7 @@ MonoBehaviour:
       m_Calls: []
   respawning: 0
   coyoteTime: 0.06
+  jumpCheckFrames: 10
   grabbableHook: {x: 0, y: 1.25, z: 0}
   throwDistance: 1.75
   interactableSensor: {fileID: 336077375}
@@ -709,7 +710,8 @@ AudioSource:
   m_GameObject: {fileID: 5250336059709721638}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2d43d191f1dea34eeb69051ab8debb67,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
