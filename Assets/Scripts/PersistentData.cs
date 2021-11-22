@@ -27,6 +27,9 @@ public class PersistentData : MonoBehaviour
     private float minVolume = -30.0f;
     private float noVolume = -80.0f;
 
+    // Fullscreen variables
+    private bool isFullScreen = true;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -86,5 +89,11 @@ public class PersistentData : MonoBehaviour
             float curVolume = Mathf.Lerp(minVolume, maxVolume, fxVolume);
             soundEffectsChannel.SetFloat("SoundEffectVolume", curVolume);
         }
+    }
+
+    // Method to update fullscreen status
+    public void updateFullscreen(bool newFullScreen) {
+        isFullScreen = newFullScreen;
+        Screen.SetResolution(Screen.width, Screen.height, newFullScreen);
     }
 }
