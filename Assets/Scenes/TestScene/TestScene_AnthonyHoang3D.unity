@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 8064441241663747961, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8064441241663747962, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
@@ -2182,7 +2182,7 @@ PrefabInstance:
     - target: {fileID: 8064441241663747961, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8064441241663747966, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
@@ -2582,7 +2582,7 @@ PrefabInstance:
     - target: {fileID: 8064441241663747961, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8064441241663747962, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
@@ -3235,7 +3235,7 @@ PrefabInstance:
     - target: {fileID: 8064441241663747961, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8064441241663747966, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
@@ -3326,6 +3326,7 @@ MonoBehaviour:
   levelCleared: 
   numLevels: 3
   lastLevelCleared: 0
+  musicVolume: 1
 --- !u!4 &1132321848
 Transform:
   m_ObjectHideFlags: 0
@@ -3526,6 +3527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BrokenStove (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064441241663747961, guid: 91838634ca0fbff87a82c7df95c91a56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8064441241663747966, guid: 91838634ca0fbff87a82c7df95c91a56,
         type: 3}
@@ -8057,6 +8063,12 @@ PrefabInstance:
       propertyPath: jumpProcessFrame
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7610873196788154302, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 2d43d191f1dea34eeb69051ab8debb67,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
 --- !u!4 &5271032150378219367

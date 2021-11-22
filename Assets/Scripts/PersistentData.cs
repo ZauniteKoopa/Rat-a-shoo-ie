@@ -41,7 +41,10 @@ public class PersistentData : MonoBehaviour
         musicVolumeChangeEvent.RemoveAllListeners();
 
         MusicManager musicManager = FindObjectOfType<MusicManager>();
-        musicVolumeChangeEvent.AddListener(musicManager.onMusicVolumeChanged);
+
+        if (musicManager != null) {
+            musicVolumeChangeEvent.AddListener(musicManager.onMusicVolumeChanged);
+        }
     }
 
     // Public void method to save level state
