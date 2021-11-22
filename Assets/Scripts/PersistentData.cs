@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 // Main event to handle audio volume changes
 public class AudioVolumeDelegate : UnityEvent<float> {}
@@ -18,6 +19,13 @@ public class PersistentData : MonoBehaviour
     // Audio options
     public float musicVolume = 1.0f;
     private AudioVolumeDelegate musicVolumeChangeEvent;
+
+    // Sound effect variables
+    public AudioMixer soundEffectsChannel = null;
+    public float effectsVolume = 1.0f;
+    private float maxVolume = 0.0f;
+    private float minVolume = -20.0f;
+    private float noVolume = -80.0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -66,5 +74,17 @@ public class PersistentData : MonoBehaviour
     public void updateMusicVolume(float musicVolume) {
         this.musicVolume = musicVolume;
         musicVolumeChangeEvent.Invoke(musicVolume);
+    }
+
+    // Method to update sound effects volume
+    public void updateSoundEffectsVolume(float fxVolume) {
+        effectsVolume = fxVolume;
+
+        if (fxVolume < 0.00001) {
+            soundEffectsChannel.SetFloat("SoundEffectVolume", noVolume);
+        } else {
+            float curVolume = Mathf.Lerp(minVolume, maxVolume, fxVolume);
+            soundEffectsChannel.SetFloat("SoundEffectVolume", curVolume);
+        }
     }
 }

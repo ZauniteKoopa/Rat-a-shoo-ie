@@ -683,6 +683,8 @@ MonoBehaviour:
   numLevels: 3
   lastLevelCleared: 0
   musicVolume: 1
+  soundEffectsChannel: {fileID: 24100000, guid: 2d43d191f1dea34eeb69051ab8debb67,
+    type: 2}
 --- !u!4 &432601406
 Transform:
   m_ObjectHideFlags: 0
@@ -2060,7 +2062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa1d7ce31bcd45d4aa1ce061aa14099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioChannel: {fileID: 24100000, guid: 2d43d191f1dea34eeb69051ab8debb67, type: 2}
   sliderChangedEvent:
     m_PersistentCalls:
       m_Calls: []
