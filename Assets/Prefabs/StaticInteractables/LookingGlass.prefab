@@ -184,6 +184,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 91bc1fb5-793f-456a-91fd-8924ecea468a
     m_ActionName: Touch/TouchContact[/Simulated Touchscreen/primaryTouch/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b68f1b7d-a8ad-45d4-a292-fb8d46f3361a
+    m_ActionName: Cutscene/Interrupt[/Keyboard/anyKey,/Simulated Touchscreen/primaryTouch/tap]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -201,7 +205,7 @@ GameObject:
   - component: {fileID: 6556684304548457606}
   - component: {fileID: 6556684303735254014}
   m_Layer: 0
-  m_Name: CheeseSprite
+  m_Name: LookingGlassSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

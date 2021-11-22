@@ -54,7 +54,7 @@ MonoBehaviour:
   ambientMusic: {fileID: 3406701521727349938}
   fadeOutFactor: 0.5
   fadeInFactor: 0.5
-  maxVolume: 0.15
+  maxChaseVolume: 0.4
 --- !u!82 &1263184369974570298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -256,7 +256,8 @@ AudioSource:
   m_GameObject: {fileID: 3649817916582978191}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2d43d191f1dea34eeb69051ab8debb67,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.3
