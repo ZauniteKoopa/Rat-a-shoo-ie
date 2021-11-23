@@ -30,6 +30,9 @@ public class PersistentData : MonoBehaviour
     // Fullscreen variables
     public bool isFullScreen = true;
 
+    // Screen resolution variables
+    public int screenResolutionIndex;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,6 +42,11 @@ public class PersistentData : MonoBehaviour
             musicVolumeChangeEvent = new AudioVolumeDelegate();
             onLevelLoad();
             levelCleared = new bool[numLevels];
+
+            screenResolutionIndex = Screen.resolutions.Length - 1;
+            if (screenResolutionIndex > 0) {
+                updateScreenResolution(screenResolutionIndex);
+            }
 
             instance = this;
         } else if (instance != this) {
@@ -95,5 +103,17 @@ public class PersistentData : MonoBehaviour
     public void updateFullscreen(bool newFullScreen) {
         isFullScreen = newFullScreen;
         Screen.SetResolution(Screen.width, Screen.height, newFullScreen);
+    }
+
+    // Method to update resolution status
+    public void updateScreenResolution(int newIndex) {
+
+        if (newIndex >= 0 && newIndex < Screen.resolutions.Length) {
+            screenResolutionIndex = newIndex;
+            int width = Screen.resolutions[newIndex].width;
+            int height = Screen.resolutions[newIndex].height;
+
+            Screen.SetResolution(width, height, isFullScreen);
+        }
     }
 }

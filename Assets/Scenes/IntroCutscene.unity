@@ -369,6 +369,58 @@ MonoBehaviour:
   textBox: {fileID: 824675843}
   pcText: Press any key to skip
   androidText: Tap anywhere to skip
+--- !u!1 &1009262150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009262152}
+  - component: {fileID: 1009262151}
+  m_Layer: 0
+  m_Name: PersistentData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1009262151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009262150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4741ce8683c6d8804b688ad8a6e4b723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCleared: 
+  numLevels: 3
+  lastLevelCleared: 0
+  musicVolume: 1
+  soundEffectsChannel: {fileID: 24100000, guid: 2d43d191f1dea34eeb69051ab8debb67,
+    type: 2}
+  effectsVolume: 1
+  isFullScreen: 1
+  screenResolutionIndex: 0
+--- !u!4 &1009262152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009262150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1141.5825, y: 756.3155, z: -521.9013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038622408
 GameObject:
   m_ObjectHideFlags: 0
