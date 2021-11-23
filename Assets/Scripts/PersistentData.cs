@@ -28,7 +28,7 @@ public class PersistentData : MonoBehaviour
     private float noVolume = -80.0f;
 
     // Fullscreen variables
-    private bool isFullScreen = true;
+    public bool isFullScreen = true;
 
     // Start is called before the first frame update
     void Awake()
