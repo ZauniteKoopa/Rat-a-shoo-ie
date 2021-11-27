@@ -3680,7 +3680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sound Effects:'
+  m_text: 'FX:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 575d6916f041b341e92c750f2d183b66, type: 2}
   m_sharedMaterial: {fileID: 555092266835552508, guid: 575d6916f041b341e92c750f2d183b66,
@@ -3750,10 +3750,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4557871589149491502}
-    characterCount: 14
+    characterCount: 3
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
