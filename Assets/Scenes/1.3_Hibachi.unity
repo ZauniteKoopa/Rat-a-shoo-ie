@@ -39554,6 +39554,11 @@ MonoBehaviour:
   levelCleared: 
   numLevels: 3
   lastLevelCleared: 0
+  musicVolume: 1
+  soundEffectsChannel: {fileID: 0}
+  effectsVolume: 1
+  isFullScreen: 1
+  screenResolutionIndex: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0
@@ -41354,6 +41359,16 @@ PrefabInstance:
         type: 3}
       propertyPath: playerHealthLossEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6906078090943260088}
+    - target: {fileID: 5250336059709721660, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: playerBlackOutEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: resetLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adde864650e7b4269f1069e7d2a4f7b, type: 3}
