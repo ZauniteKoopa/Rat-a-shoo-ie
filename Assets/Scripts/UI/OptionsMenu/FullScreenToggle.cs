@@ -14,12 +14,16 @@ public class FullScreenToggle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainToggle = GetComponent<Toggle>();
-        toggleChangedEvent = new ToggleEvent();
-        mainToggle.onValueChanged.AddListener(onToggleChange);
+        if (Application.platform == RuntimePlatform.Android) {
+            transform.parent.gameObject.SetActive(false);
+        } else {
+            mainToggle = GetComponent<Toggle>();
+            toggleChangedEvent = new ToggleEvent();
+            mainToggle.onValueChanged.AddListener(onToggleChange);
 
-        toggleChangedEvent.AddListener(PersistentData.instance.updateFullscreen);
-        mainToggle.isOn = PersistentData.instance.isFullScreen;
+            toggleChangedEvent.AddListener(PersistentData.instance.updateFullscreen);
+            mainToggle.isOn = PersistentData.instance.isFullScreen;
+        }
     }
 
     // Event handler method for when toggle has been clicked
