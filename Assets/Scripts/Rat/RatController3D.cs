@@ -36,6 +36,8 @@ public class RatController3D : MonoBehaviour
     private BlockerSensor forwardBlockSensor = null;
     [SerializeField]
     private BlockerSensor backwardBlockSensor = null;
+    [SerializeField]
+    private BlockerSensor jumpBlockSensor = null;
     public LayerMask throwCollisionLayer;
     public ParticleSystem dashParticle;
     private bool canMove = true;
@@ -171,9 +173,15 @@ public class RatController3D : MonoBehaviour
             jumpButtonPressed = false;
         }
 
+        // If you canMove and canJump, jump
         if (canMove && canJump && value.started) {
-            //doPlayerJump();
-            StartCoroutine(jumpTypeTest());
+            // If the jump blocker senses something blocking jump immediately, don't jump. Just play the sound effect
+            if (jumpBlockSensor.isBlocked()) {
+                audioManager.playJump();
+            } else {
+                //doPlayerJump();
+                StartCoroutine(jumpTypeTest());
+            }
         }
     }
 
@@ -246,11 +254,11 @@ public class RatController3D : MonoBehaviour
         Vector3 moveVector = forwardVector.normalized;
 
         // constrain movement depending on blockers
-        float moveVectorX = (leftBlockSensor.isBlocked() && moveVector.x < 0f) ? 0f : moveVector.x;
-        moveVectorX = (rightBlockSensor.isBlocked() && moveVector.x > 0f) ? 0f : moveVectorX;
+        float moveVectorX = (moveVector.x < 0f && leftBlockSensor.isBlocked()) ? 0f : moveVector.x;
+        moveVectorX = (moveVector.x > 0f && rightBlockSensor.isBlocked()) ? 0f : moveVectorX;
 
-        float moveVectorZ = (backwardBlockSensor.isBlocked() && moveVector.z < 0f) ? 0f : moveVector.z;
-        moveVectorZ = (forwardBlockSensor.isBlocked() && moveVector.z > 0f) ? 0f : moveVectorZ;
+        float moveVectorZ = (moveVector.z < 0f && backwardBlockSensor.isBlocked()) ? 0f : moveVector.z;
+        moveVectorZ = (moveVector.z > 0f && forwardBlockSensor.isBlocked()) ? 0f : moveVectorZ;
 
         moveVector = new Vector3(moveVectorX, 0, moveVectorZ);
 
