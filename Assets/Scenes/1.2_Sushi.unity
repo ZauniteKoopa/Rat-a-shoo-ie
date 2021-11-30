@@ -2975,6 +2975,11 @@ PrefabInstance:
       propertyPath: poisonMealEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6314569364784473732, guid: b31095c936d9e8c7e90c3b2eef11f274,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.236
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31095c936d9e8c7e90c3b2eef11f274, type: 3}
 --- !u!1001 &178121830
@@ -8217,7 +8222,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-81966
+  m_Name: pb_Mesh-7890
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11511,6 +11516,11 @@ PrefabInstance:
       propertyPath: ambientTrack
       value: 
       objectReference: {fileID: 8300000, guid: 16779cbce07671148894aaaedc5dc0f6, type: 3}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: maxChaseVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
 --- !u!1001 &767129262
@@ -20454,7 +20464,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-79856
+  m_Name: pb_Mesh-5768
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23784,7 +23794,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-80898
+  m_Name: pb_Mesh-6816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24238,7 +24248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-80028
+  m_Name: pb_Mesh-5940
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26786,6 +26796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: poisonMealEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314569364784473732, guid: b31095c936d9e8c7e90c3b2eef11f274,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31095c936d9e8c7e90c3b2eef11f274, type: 3}
@@ -29664,6 +29679,11 @@ MonoBehaviour:
   levelCleared: 
   numLevels: 3
   lastLevelCleared: 0
+  musicVolume: 1
+  soundEffectsChannel: {fileID: 0}
+  effectsVolume: 1
+  isFullScreen: 1
+  screenResolutionIndex: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0

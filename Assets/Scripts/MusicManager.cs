@@ -21,8 +21,10 @@ public class MusicManager : MonoBehaviour
 
     // Max volumes for volume management
     public float maxChaseVolume = 0.4f;
+    public float minBaseVolume = 0.2f;
     private float maxBaseVolume;
     private float curChaseVolume;
+    private float curBaseVolume;
 
     private void Start()
     {        
@@ -31,6 +33,7 @@ public class MusicManager : MonoBehaviour
         AudioClip ambientLevel = ambientTrack;
 
         baseMusic.clip = baseLevel;
+        curBaseVolume = maxBaseVolume;
         baseMusic.Play();
         maxBaseVolume = baseMusic.volume;
 
@@ -51,6 +54,7 @@ public class MusicManager : MonoBehaviour
         if (gameObject.activeInHierarchy) {
             StopAllCoroutines();
             StartCoroutine(fadeInChaseMusic());
+            StartCoroutine(duckBaseMusic());
         }
     }
 
@@ -64,12 +68,25 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    // Private IEnumerator to duck base music
+    private IEnumerator duckBaseMusic()
+    {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        while(baseMusic.volume > minBaseVolume)
+        {
+            yield return waitFrame;
+            baseMusic.volume -= fadeOutFactor * Time.deltaTime;
+        }
+    }
+
     // Event handler method for when the rat is safe after a chase sequence
     public void ratNotSeen()
     {
         if (gameObject.activeInHierarchy) {
             StopAllCoroutines();
             StartCoroutine(fadeOutChaseMusic());
+            StartCoroutine(unduckBaseMusic());
         }
     }
 
@@ -79,17 +96,33 @@ public class MusicManager : MonoBehaviour
 
         while (chaseMusic.volume > 0.0f) {
             yield return waitFrame;
-            chaseMusic.volume -= fadeInFactor * Time.deltaTime;
+            chaseMusic.volume -= fadeOutFactor * Time.deltaTime;
+        }
+    }
+
+    //Private IEnumerator to return base music
+    private IEnumerator unduckBaseMusic()
+    {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        while(baseMusic.volume < curBaseVolume)
+        {
+            yield return waitFrame;
+            baseMusic.volume += fadeInFactor * Time.deltaTime;
         }
     }
 
     // Event handler for when music manager changed
     public void onMusicVolumeChanged(float newVolume) {
-        baseMusic.volume = maxBaseVolume * newVolume;
+        curBaseVolume = maxBaseVolume * newVolume;
         curChaseVolume = maxChaseVolume * newVolume;
 
         if (chaseMusic.volume > 0.0001f) {
             chaseMusic.volume = curChaseVolume;
+        }
+        if (baseMusic.volume > 0.0001f)
+        {
+            baseMusic.volume = curBaseVolume;
         }
     }
 }

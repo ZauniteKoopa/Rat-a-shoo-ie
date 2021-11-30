@@ -20,18 +20,18 @@ public class UIAudioManager : MonoBehaviour
         AudioClip curClip = UISounds[sound];
         if (sound == 0)
         {
-            speaker.volume = 0.2f;
+            speaker.volume = 0.5f;
         }
         else if (sound == 1)
         {
-            speaker.volume = 0.2f;
+            speaker.volume = 0.5f;
         } else if (sound == 5)
         {
-            speaker.volume = 0.15f;
+            speaker.volume = 0.6f;
         }
         else
         {
-            speaker.volume = 0.2f;
+            speaker.volume = 0.5f;
         }
 
         speaker.clip = curClip;
