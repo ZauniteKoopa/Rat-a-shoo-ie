@@ -9339,7 +9339,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59420
+  m_Name: pb_Mesh-22802
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13376,6 +13376,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 228067339}
     m_Modifications:
+    - target: {fileID: 1263184369974570298, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3649817916582978191, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: m_Name
@@ -13461,6 +13466,16 @@ PrefabInstance:
       propertyPath: ambientTrack
       value: 
       objectReference: {fileID: 8300000, guid: 8ba05d64ded26db4c8635e6a31f577e3, type: 3}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: minBaseVolume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: maxChaseVolume
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
 --- !u!1001 &777222215
@@ -19775,7 +19790,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-60428
+  m_Name: pb_Mesh-23806
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
