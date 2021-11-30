@@ -291,12 +291,10 @@ public class RatController3D : MonoBehaviour
             if (isSprinting && !dashParticle.isPlaying && onGround)
             {
                 audioManager.playDash();
-                //audioManager.startDashCloud();
                 dashParticle.Play();
                 
             }else if ((!isSprinting || !onGround) && dashParticle.isPlaying)
             {
-                //audioManager.stopDashCloud();
                 dashParticle.Stop();
                 
             }
