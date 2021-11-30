@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11516,6 +11516,11 @@ PrefabInstance:
       propertyPath: ambientTrack
       value: 
       objectReference: {fileID: 8300000, guid: 16779cbce07671148894aaaedc5dc0f6, type: 3}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: maxChaseVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
 --- !u!1001 &767129262
