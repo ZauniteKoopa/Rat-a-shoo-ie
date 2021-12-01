@@ -20,14 +20,20 @@ public class UIAudioManager : MonoBehaviour
         AudioClip curClip = UISounds[sound];
         if (sound == 0)
         {
-            speaker.volume = 0.5f;
+            //speaker.volume = 0.5f;
+            speaker.PlayOneShot(UISounds[0], 0.5f);
         }
         else if (sound == 1)
         {
-            speaker.volume = 0.5f;
+            //speaker.volume = 0.5f;
+            speaker.PlayOneShot(UISounds[1], 0.4f);
+        } else if (sound == 2) 
+        {
+            speaker.PlayOneShot(UISounds[2], 0.3f);
         } else if (sound == 5)
         {
-            speaker.volume = 0.6f;
+            //speaker.volume = 0.6f;
+            speaker.PlayOneShot(UISounds[5], 0.5f);
         }
         else
         {
