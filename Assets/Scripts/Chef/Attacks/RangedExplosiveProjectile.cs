@@ -157,7 +157,7 @@ public class RangedExplosiveProjectile : RangedProjectile
     // IEnumerator to start bomb sequence
     private IEnumerator bombSequence() {
         // Set anticipation portion
-        speaker.PlayOneShot(impact);
+        speaker.PlayOneShot(impact, 2f);
 
         anticipationZone.SetActive(true);
         MeshRenderer anticipationRender = anticipationZone.GetComponent<MeshRenderer>();
@@ -181,7 +181,7 @@ public class RangedExplosiveProjectile : RangedProjectile
         anticipationRender.enabled = false;
         explosionZone.SetActive(true);
 
-        speaker.PlayOneShot(explode, 1.5f);
+        speaker.PlayOneShot(explode, 2.5f);
 
         yield return new WaitForSeconds(explosiveAttackTime);
 

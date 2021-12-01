@@ -56,7 +56,7 @@ public class ChefAudioManager : MonoBehaviour
             {
                 AudioClip curClip = weaponSounds[0];
                 speaker.clip = curClip;
-                speaker.PlayOneShot(curClip, 1.5f);
+                speaker.PlayOneShot(curClip, speaker.volume * 2.25f);
             }
             else if (weaponSounds[0].name == "fx_chef_sushi_attack")
             {

@@ -21,7 +21,7 @@ public class HibachiEventAudioManager : MonoBehaviour
     public void pillarReveal()
     {
         Debug.Log("reveal");
-        speaker.PlayOneShot(reveal, 2.5f);
+        speaker.PlayOneShot(reveal, 2.75f);
     }
 
     public void pillarDamage()
