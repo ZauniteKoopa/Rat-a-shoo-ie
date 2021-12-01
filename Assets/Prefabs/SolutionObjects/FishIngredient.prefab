@@ -385,6 +385,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3910053902676749348}
     m_Modifications:
+    - target: {fileID: 3550174755797393908, guid: 550448d1eda00a53b89b9a9e76a1e695,
+        type: 3}
+      propertyPath: doesShadowScaling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6401327994730512828, guid: 550448d1eda00a53b89b9a9e76a1e695,
         type: 3}
       propertyPath: m_LocalPosition.x

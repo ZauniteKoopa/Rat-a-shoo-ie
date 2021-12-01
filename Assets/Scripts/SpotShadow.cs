@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class SpotShadow : MonoBehaviour
 {
-    // Spot shadow collision layer
+    // Variables for detecting position of shadow
     public LayerMask spotShadowCollisionLayer;
     [SerializeField]
     private float raycastRadius = 0.1f;
     private Vector3[] CARDINAL_DIRECTIONS;
 
+    // Variables for calculating scale of the shadow
+    [SerializeField]
+    private bool doesShadowScaling = false;
+    [SerializeField]
+    private float minimumShadowSizePercent = 0.5f;
+    private float minShadowSize;
+    private float groundShadowSize;
+
     private void Start() {
+        // Get the groundShadowSize
+        groundShadowSize = transform.localScale.x;
+        minShadowSize = groundShadowSize * minimumShadowSizePercent;
+
+        // Set up cardinal directions
         CARDINAL_DIRECTIONS = new Vector3[4];
         CARDINAL_DIRECTIONS[0] = Vector3.left;
         CARDINAL_DIRECTIONS[1] = Vector3.right;
@@ -22,6 +35,19 @@ public class SpotShadow : MonoBehaviour
     // Update is called once per frame to manage spot shadow
     void Update()
     {
+        // Get position of shadow
+        float bestHeight = getShadowHeightPosition();
+        transform.position = new Vector3(transform.parent.position.x, bestHeight, transform.parent.position.z);
+
+        // Get shadow scaling
+        if (doesShadowScaling) {
+            float shadowScale = getScaledShadowSize(bestHeight);
+            transform.localScale = new Vector3(shadowScale, transform.localScale.y, shadowScale);
+        }
+    }
+
+    // Private helper method to get the height position of the shadow
+    private float getShadowHeightPosition() {
         // Send out 4 raycasts to fill the dictionary
         RaycastHit hit;
         Dictionary<float, int> heightFrequencyMap = new Dictionary<float, int>();
@@ -60,9 +86,17 @@ public class SpotShadow : MonoBehaviour
         }
 
         bestHeight += 0.05f;
+        return bestHeight;
+    }
 
-        // Set the position
-        transform.position = new Vector3(transform.parent.position.x, bestHeight, transform.parent.position.z);
+    // Main private helper method to get the overall size of the shadow
+    private float getScaledShadowSize(float currentShadowY) {
+        float shadowDistance = transform.parent.position.y - currentShadowY;
+        shadowDistance = Mathf.Clamp(shadowDistance, 1.0f, 3.0f);
+        float interp = (shadowDistance - 1.0f) / (3.0f - 1.0f);
+
+        float shadowScale = Mathf.Lerp(groundShadowSize, minShadowSize, interp);
+        return shadowScale;
     }
 
     // Main method to enable spot shadow
