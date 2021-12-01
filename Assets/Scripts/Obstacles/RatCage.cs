@@ -64,7 +64,7 @@ public class RatCage : MonoBehaviour
         // Anticipation
         meshRender.material.color = Color.magenta;
         speaker.clip = cageAnticipationSound;
-        speaker.Play();
+        speaker.PlayOneShot(cageAnticipationSound, 1.75f);
         yield return new WaitForSeconds(anticipationTime);
 
         // Turn on cage sensor and see if there was something there
@@ -72,7 +72,7 @@ public class RatCage : MonoBehaviour
         meshRender.material.color = Color.red;
         cageModel.SetActive(true);
         speaker.clip = cageLockSound;
-        speaker.Play();
+        speaker.PlayOneShot(cageLockSound, 1.75f);
 
         // If cage caught a player, enforce mashing sequence
         RatController3D caughtPlayer = cageSensor.getCaughtPlayer();
@@ -112,7 +112,7 @@ public class RatCage : MonoBehaviour
 
         cageModel.SetActive(false);
         speaker.clip = cageResetSound;
-        speaker.Play();
+        speaker.PlayOneShot(cageResetSound, 1.5f);
 
         // If trap is still sensing an object. Trigger it again.
         triggering = trapSensor.isSensingObject();

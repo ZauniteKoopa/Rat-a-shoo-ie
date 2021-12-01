@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-292112
+  m_Name: pb_Mesh-69068
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7286,10 +7286,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 388062794271741776, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1263184369974570298, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: m_Volume
-      value: 0.075
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3649817916582978191, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
@@ -7385,6 +7390,16 @@ PrefabInstance:
         type: 3}
       propertyPath: maxVolume
       value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: minBaseVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: maxChaseVolume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
@@ -8490,7 +8505,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-290186
+  m_Name: pb_Mesh-66858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23809,6 +23824,11 @@ MonoBehaviour:
   levelCleared: 
   numLevels: 3
   lastLevelCleared: 0
+  musicVolume: 1
+  soundEffectsChannel: {fileID: 0}
+  effectsVolume: 1
+  isFullScreen: 1
+  screenResolutionIndex: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0
