@@ -18,6 +18,10 @@ public class SpotShadow : MonoBehaviour
     private float minShadowSize;
     private float groundShadowSize;
 
+    // Main way to render the shadow
+    private MeshRenderer render = null;
+    private bool isActive = true;
+
     private void Start() {
         // Get the groundShadowSize
         groundShadowSize = transform.localScale.x;
@@ -29,6 +33,9 @@ public class SpotShadow : MonoBehaviour
         CARDINAL_DIRECTIONS[1] = Vector3.right;
         CARDINAL_DIRECTIONS[2] = Vector3.forward;
         CARDINAL_DIRECTIONS[3] = Vector3.back;
+
+        // Get MeshRenderer
+        render = GetComponent<MeshRenderer>();
     }
 
 
@@ -36,13 +43,15 @@ public class SpotShadow : MonoBehaviour
     void Update()
     {
         // Get position of shadow
-        float bestHeight = getShadowHeightPosition();
-        transform.position = new Vector3(transform.parent.position.x, bestHeight, transform.parent.position.z);
+        if (isActive) {
+            float bestHeight = getShadowHeightPosition();
+            transform.position = new Vector3(transform.parent.position.x, bestHeight, transform.parent.position.z);
 
-        // Get shadow scaling
-        if (doesShadowScaling) {
-            float shadowScale = getScaledShadowSize(bestHeight);
-            transform.localScale = new Vector3(shadowScale, transform.localScale.y, shadowScale);
+            // Get shadow scaling
+            if (doesShadowScaling) {
+                float shadowScale = getScaledShadowSize(bestHeight);
+                transform.localScale = new Vector3(shadowScale, transform.localScale.y, shadowScale);
+            }
         }
     }
 
@@ -101,11 +110,13 @@ public class SpotShadow : MonoBehaviour
 
     // Main method to enable spot shadow
     public void enable() {
-        gameObject.SetActive(true);
+        isActive = true;
+        render.enabled = true;
     }
 
     // Main method to disable spot shadow
     public void disable() {
-        gameObject.SetActive(false);
+        isActive = false;
+        render.enabled = false;
     }
 }

@@ -774,7 +774,6 @@ public class Chef : MonoBehaviour
 
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
         SpotShadow shadow = solution.GetComponentInChildren<SpotShadow>();
-        // Debug.Log(shadow);
 
         if (solution.GetComponent<Ingredient>() != null) {
             solution.GetComponent<Ingredient>().isHeldByChef = false;
