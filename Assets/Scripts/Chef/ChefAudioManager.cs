@@ -58,8 +58,14 @@ public class ChefAudioManager : MonoBehaviour
                 speaker.clip = curClip;
                 speaker.PlayOneShot(curClip, 1.5f);
             }
-            else 
-            { 
+            else if (weaponSounds[0].name == "fx_chef_sushi_attack")
+            {
+                AudioClip curClip = weaponSounds[0];
+                speaker.clip = curClip;
+                speaker.PlayOneShot(curClip, speaker.volume * 0.5f);
+            }
+            else
+            {
                 playRandomTrack(weaponSounds);
             }
         }
