@@ -211,6 +211,12 @@ MonoBehaviour:
   - waitingSprite: {fileID: 21300000, guid: e427e20aa98164a6692a8d966cd0d96e, type: 3}
     happySprite: {fileID: 21300000, guid: 5c9265dcd04b20fdeaa5e4173007a4cd, type: 3}
     poisonedSprite: {fileID: 21300000, guid: d09174660a2c35c8497be5b59c5c7839, type: 3}
+  - waitingSprite: {fileID: 21300000, guid: 36a094be8d9204590bf8953cfe43dcd2, type: 3}
+    happySprite: {fileID: 21300000, guid: 910ffcf2581e74713ada9aa2352a22be, type: 3}
+    poisonedSprite: {fileID: 21300000, guid: 11b19adb79ec2458b949a4f3f23ffcaf, type: 3}
+  - waitingSprite: {fileID: 21300000, guid: bc56cf23a908240e1b80fcd40a378318, type: 3}
+    happySprite: {fileID: 21300000, guid: 3f517436c43c547babfd32fb9410ad9d, type: 3}
+    poisonedSprite: {fileID: 21300000, guid: 77770b07ae97c444ba26843625466094, type: 3}
   happyDuration: 0.4
   customerLeaveDuration: 0.3
   emptyCustomerWindowDuration: 0.5
