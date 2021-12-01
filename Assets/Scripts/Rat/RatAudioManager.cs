@@ -39,7 +39,7 @@ public class RatAudioManager : MonoBehaviour
         AudioClip curClip = ratDamageSoundClips[randomIndex];
 
         speaker.clip = curClip;
-        speaker.PlayOneShot(curClip);
+        speaker.PlayOneShot(curClip, 2f);
     }
 
     // Public method to play pickup sound
