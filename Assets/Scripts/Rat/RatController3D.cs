@@ -193,6 +193,7 @@ public class RatController3D : MonoBehaviour
         rigidBody.velocity = (Vector3.up * heightVelocity);
         audioManager.playJump();
         animator.SetTrigger("jump");
+        animator.ResetTrigger("landed");
     }
 
     /* IEnumeraotr on jump button press */
@@ -377,6 +378,7 @@ public class RatController3D : MonoBehaviour
         
 
         if (!onGround) {
+            animator.ResetTrigger("landed");
             canJump = false;
         }
     }
@@ -468,6 +470,7 @@ public class RatController3D : MonoBehaviour
         if (!respawning) {
             if (grabbedInteractable.weight == InteractableWeight.LIGHT) {
                 audioManager.emitPickupSound();
+                animator.SetBool("interacting", false);
 
                 // Disable physics and place transform in hook
                 grabbedInteractable.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

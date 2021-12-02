@@ -13,10 +13,11 @@ public class SpotShadow : MonoBehaviour
     // Variables for calculating scale of the shadow
     [SerializeField]
     private bool doesShadowScaling = false;
-    [SerializeField]
-    private float minimumShadowSizePercent = 0.5f;
+    private float minimumShadowSizePercent = 0.4f;
     private float minShadowSize;
     private float groundShadowSize;
+    private float minShadowDistance = 1.0f;
+    private float maxShadowDistance = 4.0f;
 
     // Main way to render the shadow
     private MeshRenderer render = null;
@@ -101,8 +102,8 @@ public class SpotShadow : MonoBehaviour
     // Main private helper method to get the overall size of the shadow
     private float getScaledShadowSize(float currentShadowY) {
         float shadowDistance = transform.parent.position.y - currentShadowY;
-        shadowDistance = Mathf.Clamp(shadowDistance, 1.0f, 3.0f);
-        float interp = (shadowDistance - 1.0f) / (3.0f - 1.0f);
+        shadowDistance = Mathf.Clamp(shadowDistance, minShadowDistance, maxShadowDistance);
+        float interp = (shadowDistance - minShadowDistance) / (maxShadowDistance - minShadowDistance);
 
         float shadowScale = Mathf.Lerp(groundShadowSize, minShadowSize, interp);
         return shadowScale;
