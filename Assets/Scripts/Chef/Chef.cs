@@ -198,7 +198,7 @@ public class Chef : MonoBehaviour
 
             if (holdsUnrelatedSolution &&  highestPriorityIssue != null) {
                 holdsUnrelatedSolution = true;
-            } else if (holdsUnrelatedSolution) {
+            } else if (holdsUnrelatedSolution && currentRecipeStep < targetRecipe.getNumSteps()) {
                 holdsUnrelatedSolution = targetedSolution.solutionType != targetRecipe.getSolutionStep(currentRecipeStep);
             }
 
