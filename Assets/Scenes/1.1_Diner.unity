@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-69068
+  m_Name: pb_Mesh-21280
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1255,7 +1255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -6966210089895576417, guid: 716648741375047f1a9647f97f909e8c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1275,6 +1275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1361067811, guid: b31095c936d9e8c7e90c3b2eef11f274, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3842852895958644097, guid: b31095c936d9e8c7e90c3b2eef11f274,
         type: 3}
       propertyPath: m_Name
@@ -1379,6 +1383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: poisonMealEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994560068042932416, guid: b31095c936d9e8c7e90c3b2eef11f274,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31095c936d9e8c7e90c3b2eef11f274, type: 3}
@@ -8505,7 +8514,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-66858
+  m_Name: pb_Mesh-19070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15715,6 +15724,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1288012316137227126, guid: ab0edc520b1e7c1f8a7c69b147bc7a8a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2463006486549422636, guid: ab0edc520b1e7c1f8a7c69b147bc7a8a,
         type: 3}
       propertyPath: m_Name
@@ -17102,7 +17116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -6966210089895576417, guid: 716648741375047f1a9647f97f909e8c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
