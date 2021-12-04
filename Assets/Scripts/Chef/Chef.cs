@@ -58,6 +58,10 @@ public class Chef : MonoBehaviour
     [SerializeField]
     private Transform[] angryPatrolPoints = null;
     private int angerPatrolIndex = 0;
+
+    // Trap sensing
+    [SerializeField]
+    private RatCage[] initialTraps = null;
     private Transform sensedTrap = null;
 
     // Serialized variables for attacking and chasing the rat
@@ -157,6 +161,13 @@ public class Chef : MonoBehaviour
         thoughtBubble.mainLevel = levelInfo;
         targetRecipe = orderWindow.getCurrentRecipe();
         mealSprite.sprite = targetRecipe.foodSprite;
+
+        // Set up traps
+        if (initialTraps != null) {
+            foreach(RatCage trap in initialTraps) {
+                trap.trapTriggerEvent.AddListener(onRatCageSetOff);
+            }
+        }
 
         // Connect to events
         chefSensing.issueEnterEvent.AddListener(onIssueSpotted);
