@@ -770,6 +770,7 @@ public class Chef : MonoBehaviour
         solution.transform.parent = null;
         solution.canChefGrab = true;
         solution.transform.position = targetedSolution.getInitialLocation();
+        solution.transform.rotation = Quaternion.identity;
         solution.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
         GeneralInteractable solutionInteractable = solution.GetComponent<GeneralInteractable>();
