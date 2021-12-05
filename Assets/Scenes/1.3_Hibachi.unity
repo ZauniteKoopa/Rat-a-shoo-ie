@@ -40384,6 +40384,7 @@ GameObject:
   - component: {fileID: 2056331504}
   - component: {fileID: 2056331503}
   - component: {fileID: 2056331502}
+  - component: {fileID: 2056331507}
   m_Layer: 0
   m_Name: MainRoomLoader
   m_TagString: Untagged
@@ -40430,8 +40431,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.2888196}
-  m_Center: {x: 0, y: 0, z: 0.14441107}
+  m_Size: {x: 0.56019354, y: 1, z: 0.7083563}
+  m_Center: {x: -0.04425011, y: 0, z: 0.25383934}
 --- !u!33 &2056331505
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -40454,6 +40455,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056331507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056331501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6635c61410b83598897dea131a282a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockDurationInFrames: 2
 --- !u!1001 &2059772550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40838,6 +40852,7 @@ MonoBehaviour:
   effectsVolume: 1
   isFullScreen: 1
   screenResolutionIndex: 0
+  maxScreenResolutionIndex: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0

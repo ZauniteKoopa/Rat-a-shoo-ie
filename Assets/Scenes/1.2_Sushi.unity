@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3988,7 +3988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4989ec6be12f58ba91fd77b3d60cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localCameraPosition: {x: 0.336, y: 14.32, z: -0.447}
+  localCameraPosition: {x: 0.336, y: 14.32, z: -0.75}
   localCameraRotation: {x: 40, y: 0, z: 0}
   spawnPoint: {fileID: 1262689049}
 --- !u!65 &195743610
@@ -9043,7 +9043,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9138
+  m_Name: pb_Mesh-105766
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21824,7 +21824,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7010
+  m_Name: pb_Mesh-103638
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22231,7 +22231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4989ec6be12f58ba91fd77b3d60cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localCameraPosition: {x: 0.027, y: 13.1, z: -0.447}
+  localCameraPosition: {x: 0.027, y: 13.1, z: -0.75}
   localCameraRotation: {x: 40, y: 0, z: 0}
   spawnPoint: {fileID: 1262689049}
 --- !u!65 &1327750429
@@ -23217,7 +23217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4989ec6be12f58ba91fd77b3d60cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localCameraPosition: {x: 0.3571, y: 13.1, z: -0.447}
+  localCameraPosition: {x: 0.3571, y: 13.1, z: -0.75}
   localCameraRotation: {x: 40, y: 0, z: 0}
   spawnPoint: {fileID: 1262689049}
 --- !u!65 &1387269496
@@ -25703,7 +25703,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8058
+  m_Name: pb_Mesh-104686
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26138,7 +26138,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7182
+  m_Name: pb_Mesh-103810
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31842,6 +31842,7 @@ MonoBehaviour:
   effectsVolume: 1
   isFullScreen: 1
   screenResolutionIndex: 0
+  maxScreenResolutionIndex: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0

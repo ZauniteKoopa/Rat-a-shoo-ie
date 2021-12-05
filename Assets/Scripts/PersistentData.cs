@@ -32,6 +32,7 @@ public class PersistentData : MonoBehaviour
 
     // Screen resolution variables
     public int screenResolutionIndex;
+    public int maxScreenResolutionIndex;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,7 +44,9 @@ public class PersistentData : MonoBehaviour
             onLevelLoad();
             levelCleared = new bool[numLevels];
 
-            screenResolutionIndex = Screen.resolutions.Length - 1;
+            screenResolutionIndex = (Application.platform == RuntimePlatform.Android) ? Screen.resolutions.Length - 1 : getMaxPCResolutionIndex();
+            maxScreenResolutionIndex = screenResolutionIndex;
+
             if (screenResolutionIndex > 0) {
                 updateScreenResolution(screenResolutionIndex);
             }
@@ -115,5 +118,17 @@ public class PersistentData : MonoBehaviour
 
             Screen.SetResolution(width, height, isFullScreen);
         }
+    }
+
+    //  Method to get the max resolution index
+    //      Resolution height <= 900 and resolution width <= 1600
+    public int getMaxPCResolutionIndex() {
+        int i = 0;
+
+        while (i < Screen.resolutions.Length && Screen.resolutions[i].height <= 900 && Screen.resolutions[i].width <= 1600) {
+            i++;
+        }
+
+        return i;
     }
 }

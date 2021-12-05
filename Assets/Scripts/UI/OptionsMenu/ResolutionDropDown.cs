@@ -23,7 +23,8 @@ public class ResolutionDropDown : MonoBehaviour
         List<string> dropOptions = new List<string>();
 
         if (screenResolutions.Length > 0) {
-            foreach(Resolution resolution in screenResolutions) {
+            for(int i = 0; i < PersistentData.instance.maxScreenResolutionIndex; i++) {
+                Resolution resolution = screenResolutions[i];
                 string label = "" + resolution.width + " x " + resolution.height;
                 dropOptions.Add(label);
             }

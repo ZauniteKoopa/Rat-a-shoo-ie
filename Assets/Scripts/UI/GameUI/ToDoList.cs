@@ -46,6 +46,8 @@ public class ToDoList : MonoBehaviour
     private Image blackOutImage = null;
     [SerializeField]
     private GameObject androidControls = null;
+    [SerializeField]
+    private GameObject optionsMenu = null;
     private bool warningActive = false;
     private const float DELTA_TIME = 0.04f;
 
@@ -250,6 +252,7 @@ public class ToDoList : MonoBehaviour
         pauseButtonPressed = false;
         audioManager.playUISounds(4);
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     // Sequence to display warning
