@@ -128,7 +128,7 @@ public class PersistentData : MonoBehaviour
     public int getMaxPCResolutionIndex() {
         int i = 0;
 
-        while (i < Screen.resolutions.Length && Screen.resolutions[i].height <= 900 && Screen.resolutions[i].width <= 1600) {
+        while (i < Screen.resolutions.Length && Screen.resolutions[i].height <= 1080 && Screen.resolutions[i].width <= 1920) {
             i++;
         }
 
