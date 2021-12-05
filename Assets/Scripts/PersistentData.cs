@@ -48,7 +48,10 @@ public class PersistentData : MonoBehaviour
             maxScreenResolutionIndex = screenResolutionIndex;
 
             if (screenResolutionIndex > 0) {
-                updateScreenResolution(screenResolutionIndex);
+                int screenWidth = Screen.resolutions[maxScreenResolutionIndex].width;
+                int screenHeight = Screen.resolutions[maxScreenResolutionIndex].height;
+
+                Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
             }
 
             instance = this;
@@ -113,10 +116,10 @@ public class PersistentData : MonoBehaviour
 
         if (newIndex >= 0 && newIndex < Screen.resolutions.Length) {
             screenResolutionIndex = newIndex;
-            int width = Screen.resolutions[newIndex].width;
-            int height = Screen.resolutions[newIndex].height;
+            int screenWidth = Screen.resolutions[newIndex].width;
+            int screenHeight = Screen.resolutions[newIndex].height;
 
-            Screen.SetResolution(width, height, isFullScreen);
+            Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
         }
     }
 
@@ -129,6 +132,6 @@ public class PersistentData : MonoBehaviour
             i++;
         }
 
-        return i;
+        return (i == 0) ? i : i - 1;
     }
 }
