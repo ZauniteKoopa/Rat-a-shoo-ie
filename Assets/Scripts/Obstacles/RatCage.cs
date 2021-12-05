@@ -45,6 +45,7 @@ public class RatCage : MonoBehaviour
     // Current mash variables
     private bool trapped = false;
     private int currentMashTimes = 0;
+    public bool caughtPlayer = false;
 
     // On awake, set color to black
     private void Awake() {
@@ -134,5 +135,10 @@ public class RatCage : MonoBehaviour
         if (!triggering) {
             StartCoroutine(triggeringSequence());
         }
+    }
+
+    // Main accessor method to check if the cage currently holds a caught player
+    public bool hasCaughtPlayer() {
+        return trapped;
     }
 }

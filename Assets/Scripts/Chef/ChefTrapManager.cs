@@ -32,9 +32,17 @@ public class ChefTrapManager : MonoBehaviour
             cageManagementQueue.Enqueue(cageInstance);
             cageInstance.GetComponent<RatCage>().trapTriggerEvent.AddListener(onRatCageSetOff);
 
-            // If there are too many cages, despawn the earliest cage
+            // If there are too many cages, despawn the earliest cage that has not caught a player:
+            // there's only 1 player, if the first destroyedCage caught player, just assume the second one is free
             if (cageManagementQueue.Count > maxNumTraps) {
                 Transform destroyedCage = cageManagementQueue.Dequeue();
+
+                // If earliest cage has caught the player, destroy the next earliest
+                if (destroyedCage.GetComponent<RatCage>().hasCaughtPlayer()) {
+                    cageManagementQueue.Enqueue(destroyedCage);
+                    destroyedCage = cageManagementQueue.Dequeue();
+                }
+
                 destroyedCage.GetComponent<RatCage>().trapTriggerEvent.RemoveListener(onRatCageSetOff);
                 Object.Destroy(destroyedCage.gameObject);
             }   

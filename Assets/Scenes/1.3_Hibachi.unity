@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8517,7 +8517,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117080
+  m_Name: pb_Mesh-36354
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18039,6 +18039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HibachiChef
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824797584140869036, guid: 74369ba2e418df512829a7322a094ea7,
+        type: 3}
+      propertyPath: maxNumTraps
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7696455108965432303, guid: 74369ba2e418df512829a7322a094ea7,
         type: 3}
@@ -40638,12 +40643,12 @@ PrefabInstance:
         type: 3}
       propertyPath: leftSwipeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1655306655}
     - target: {fileID: 251867769140864067, guid: 7f7b4d9f0e149db54b8eb273d341a235,
         type: 3}
       propertyPath: rightSwipeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1655306655}
     - target: {fileID: 251867769140864067, guid: 7f7b4d9f0e149db54b8eb273d341a235,
         type: 3}
       propertyPath: leftSwipeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
