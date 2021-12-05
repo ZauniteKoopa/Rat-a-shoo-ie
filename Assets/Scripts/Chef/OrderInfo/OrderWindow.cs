@@ -95,7 +95,7 @@ public class OrderWindow : MonoBehaviour
 
     // Main sequence to do customer poisoned animation
     private IEnumerator poisonCustomerSequence() {
-        customerSpriteRender.sprite = customerSprites[curCustomerIndex].waitingSprite;
+        customerSpriteRender.sprite = customerSprites[curCustomerIndex].poisonedSprite;
         customerSpriteRender.color = Color.white;
 
         yield return new WaitForSeconds(customerBarfDuration);

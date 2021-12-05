@@ -220,7 +220,7 @@ MonoBehaviour:
   happyDuration: 0.4
   customerLeaveDuration: 0.3
   emptyCustomerWindowDuration: 0.5
-  customerBarfDuration: 0.5
+  customerBarfDuration: 1
   customerDeathDuration: 0.5
 --- !u!82 &1039702668
 AudioSource:

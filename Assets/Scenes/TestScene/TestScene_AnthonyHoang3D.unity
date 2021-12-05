@@ -649,7 +649,7 @@ PrefabInstance:
     - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5918312167162974530, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
@@ -3812,7 +3812,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-54632
+  m_Name: pb_Mesh-36860
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7576,6 +7576,7 @@ MonoBehaviour:
   angryPatrolPoints:
   - {fileID: 1266226521}
   - {fileID: 1338635230}
+  initialTraps: []
   chaseMovementSpeed: 9
   angryMovementSpeed: 11
   angryColor: {r: 1, g: 0.73333335, b: 0.73333335, a: 1}
