@@ -26,6 +26,10 @@ public class MusicManager : MonoBehaviour
     private float curChaseVolume;
     private float curBaseVolume;
 
+    // Boolean flags for when music is playing
+    private bool chaseMusicPlaying = false;
+    private bool baseMusicDucked = false;
+
     private void Start()
     {        
         AudioClip baseLevel = mainTrack;
@@ -33,9 +37,9 @@ public class MusicManager : MonoBehaviour
         AudioClip ambientLevel = ambientTrack;
 
         baseMusic.clip = baseLevel;
+        maxBaseVolume = baseMusic.volume;
         curBaseVolume = maxBaseVolume;
         baseMusic.Play();
-        maxBaseVolume = baseMusic.volume;
 
         chaseMusic.clip = chaseLevel;
         chaseMusic.volume = 0.0f;
@@ -66,6 +70,8 @@ public class MusicManager : MonoBehaviour
             yield return waitFrame;
             chaseMusic.volume += fadeInFactor * Time.deltaTime;
         }
+
+        chaseMusicPlaying = true;
     }
 
     // Private IEnumerator to duck base music
@@ -78,6 +84,8 @@ public class MusicManager : MonoBehaviour
             yield return waitFrame;
             baseMusic.volume -= fadeOutFactor * Time.deltaTime;
         }
+
+        baseMusicDucked = true;
     }
 
     // Event handler method for when the rat is safe after a chase sequence
@@ -98,6 +106,8 @@ public class MusicManager : MonoBehaviour
             yield return waitFrame;
             chaseMusic.volume -= fadeOutFactor * Time.deltaTime;
         }
+
+        chaseMusicPlaying = false;
     }
 
     //Private IEnumerator to return base music
@@ -110,6 +120,8 @@ public class MusicManager : MonoBehaviour
             yield return waitFrame;
             baseMusic.volume += fadeInFactor * Time.deltaTime;
         }
+
+        baseMusicDucked = false;
     }
 
     // Event handler for when music manager changed
@@ -117,10 +129,10 @@ public class MusicManager : MonoBehaviour
         curBaseVolume = maxBaseVolume * newVolume;
         curChaseVolume = maxChaseVolume * newVolume;
 
-        if (chaseMusic.volume > 0.0001f) {
+        if (chaseMusicPlaying) {
             chaseMusic.volume = curChaseVolume;
         }
-        if (baseMusic.volume > 0.0001f)
+        if (!baseMusicDucked)
         {
             baseMusic.volume = curBaseVolume;
         }
