@@ -1356,8 +1356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75b4977681df88408ec04e81415f7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reveal: {fileID: 8300000, guid: dae7501785538be4db91c70056366433, type: 3}
-  damage: {fileID: 8300000, guid: 053ac630abf788a44b9250a25fe5cfb8, type: 3}
+  reveal: {fileID: 8300000, guid: efedcde01c4c6144ca3e502763b06a3e, type: 3}
+  damage: {fileID: 8300000, guid: 70d6825bcb9dd364f985fdaf290e513d, type: 3}
   collapse: {fileID: 8300000, guid: 45b847c80405bcf4d8e3bfda955fea26, type: 3}
 --- !u!82 &7137193228062446320
 AudioSource:
@@ -1372,7 +1372,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.9
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

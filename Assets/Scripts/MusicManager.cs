@@ -18,6 +18,7 @@ public class MusicManager : MonoBehaviour
     // Fade in / out
     public float fadeOutFactor = 0.5f;
     public float fadeInFactor = 0.5f;
+    public float hibachiFadeOut = 0.5f;
 
     // Max volumes for volume management
     public float maxChaseVolume = 0.4f;
@@ -122,6 +123,24 @@ public class MusicManager : MonoBehaviour
         }
 
         baseMusicDucked = false;
+    }
+
+    private IEnumerator finalFadeOut()
+    {
+        WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
+
+        while(baseMusic.volume > 0.0f)
+        {
+            yield return waitFrame;
+            baseMusic.volume -= hibachiFadeOut * Time.deltaTime;
+            chaseMusic.volume -= (2 * hibachiFadeOut) * Time.deltaTime;
+        }
+    }
+    public void hibachiCollapseAudio()
+    {
+        Debug.Log("THIS IS IT LUIGI");
+        StopAllCoroutines();
+        StartCoroutine(finalFadeOut());
     }
 
     // Event handler for when music manager changed

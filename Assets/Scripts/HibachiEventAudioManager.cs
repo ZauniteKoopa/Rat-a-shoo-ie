@@ -20,16 +20,17 @@ public class HibachiEventAudioManager : MonoBehaviour
 
     public void pillarReveal()
     {
-        speaker.PlayOneShot(reveal, 2.75f);
+        speaker.PlayOneShot(reveal, 1.75f);
     }
 
     public void pillarDamage()
     {
-        speaker.PlayOneShot(damage);
+        speaker.PlayOneShot(damage, 2.5f);
     }
 
     public void endCollapse()
     {
         speaker.PlayOneShot(collapse, 2f);
+        GameObject.Find("MusicPlayer").GetComponent<MusicManager>().hibachiCollapseAudio();
     }
 }

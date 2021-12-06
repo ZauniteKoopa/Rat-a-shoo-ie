@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e64d6d946cb6449a302b54d3bc3713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warningSound: {fileID: 8300000, guid: c5c7e4d7007fafc4f9d8cd8f07d234ac, type: 3}
+  warningSound: {fileID: 8300000, guid: b94924dae58dcb047a0094c1bbc11907, type: 3}
   fireSound: {fileID: 8300000, guid: 0e73cc0b31fa99d46ba0bf22749b6ffb, type: 3}
 --- !u!1 &8064441243679755473
 GameObject:

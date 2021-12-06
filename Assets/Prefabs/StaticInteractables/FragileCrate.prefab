@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnable: 0
   breakable: 1
-  destroyClip: {fileID: 8300000, guid: 0bda20d7f1e8c4442b9e7324297ecd91, type: 3}
+  destroyClip: {fileID: 8300000, guid: c4c8e6666392935488738b4ff7e55d44, type: 3}
   destroyObjectEvent:
     m_PersistentCalls:
       m_Calls: []

@@ -8478,7 +8478,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-33670
+  m_Name: pb_Mesh-76376
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14913,7 +14913,7 @@ PrefabInstance:
     - target: {fileID: 1263184369974570298, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 3406701521727349938, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
@@ -15018,12 +15018,17 @@ PrefabInstance:
     - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: maxChaseVolume
-      value: 0.35
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: minBaseVolume
-      value: 0.2
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
+        type: 3}
+      propertyPath: hibachiFadeOut
+      value: 0.125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2605c88285110404a84fd066825cb93e, type: 3}
@@ -38513,7 +38518,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-37126
+  m_Name: pb_Mesh-79832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
