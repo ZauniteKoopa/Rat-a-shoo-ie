@@ -7333,7 +7333,7 @@ PrefabInstance:
     - target: {fileID: 1263184369974570298, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3649817916582978191, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
@@ -7433,7 +7433,7 @@ PrefabInstance:
     - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
       propertyPath: minBaseVolume
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7071126992825281240, guid: 2605c88285110404a84fd066825cb93e,
         type: 3}
@@ -23888,6 +23888,7 @@ MonoBehaviour:
   effectsVolume: 1
   isFullScreen: 1
   screenResolutionIndex: 0
+  maxScreenResolutionIndex: 0
 --- !u!4 &2073828638
 Transform:
   m_ObjectHideFlags: 0
