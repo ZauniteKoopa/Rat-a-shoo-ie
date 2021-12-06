@@ -146,6 +146,7 @@ MonoBehaviour:
   angryPatrolPoints:
   - {fileID: 0}
   - {fileID: 0}
+  initialTraps: []
   chaseMovementSpeed: 6
   angryMovementSpeed: 12
   angryColor: {r: 1, g: 0.73333335, b: 0.73333335, a: 1}
@@ -189,7 +190,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 250
   Pan2D: 0

@@ -763,6 +763,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  caughtPlayer: 0
 --- !u!114 &489603629815181389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,7 +879,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 250
   Pan2D: 0
