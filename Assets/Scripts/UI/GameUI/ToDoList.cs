@@ -114,7 +114,7 @@ public class ToDoList : MonoBehaviour
             } else if (initialTasks[i] == TaskType.MAKE_MESS) {
                 taskLabels[i].text = "Break big fragile things!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_MOVE) {
-                string movementControls = (Application.platform == RuntimePlatform.Android) ? "left stick" : "WASD";
+                string movementControls = (Application.platform == RuntimePlatform.Android) ? "left stick" : "WASD / Arrow Keys";
                 taskLabels[i].text = "Move with " + movementControls + "!";
             } else if (initialTasks[i] == TaskType.TUTORIAL_JUMP) {
                 string jumpControls = (Application.platform == RuntimePlatform.Android) ? "JUMP button" : "SPACEBAR";
