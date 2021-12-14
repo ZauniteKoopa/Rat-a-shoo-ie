@@ -101,11 +101,11 @@ Material:
     m_Colors:
     - Color_9A4F1DB2: {r: 1, g: 1, b: 1, a: 0}
     - Color_ABE85C80: {r: 0, g: 0, b: 0, a: 0}
-    - Vector2_133DD58F: {r: 1.09, g: 0.94, b: 0, a: 0}
+    - Vector2_133DD58F: {r: 1, g: 0.79, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Offset: {r: -0.01, g: 0.34, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &8028338611240256959
 MonoBehaviour:
