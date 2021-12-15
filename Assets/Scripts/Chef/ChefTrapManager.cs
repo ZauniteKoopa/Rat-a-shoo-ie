@@ -11,6 +11,9 @@ public class ChefTrapManager : MonoBehaviour
     private int maxNumTraps = 5;
     public LayerMask trapCollisionMask;
     private Queue<Transform> cageManagementQueue = null;
+
+    private bool firstTrap = true;
+
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,15 @@ public class ChefTrapManager : MonoBehaviour
 
         // If trap is not present in area, set trap down
         if (!isTrapPresent) {
+
+            if (firstTrap) {
+                firstTrap = false;
+                Transform firstCageInstance = Object.Instantiate(trapPrefab, transform.position + Vector3.up, Quaternion.identity);
+                StartCoroutine(destroyCage(firstCageInstance));
+            }
+
             Transform cageInstance = Object.Instantiate(trapPrefab, transform.position, Quaternion.identity);
+
             cageManagementQueue.Enqueue(cageInstance);
             cageInstance.GetComponent<RatCage>().trapTriggerEvent.AddListener(onRatCageSetOff);
 
@@ -48,4 +59,9 @@ public class ChefTrapManager : MonoBehaviour
             }   
         }
     }
+
+    private IEnumerator destroyCage(Transform cage) {
+        yield return new WaitForSeconds(0.2f);
+        Object.Destroy(cage.gameObject);
+    } 
 }

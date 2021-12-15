@@ -129,6 +129,10 @@ public class RatCage : MonoBehaviour
             currentMashTimes++;
             mashBar.fillAmount = (float)currentMashTimes / (float)mashRequirement;
         }
+
+        if (value.started) {
+            Debug.Log(gameObject.name);
+        }
     }
 
     // Event handler method for when player gets caught on trap
