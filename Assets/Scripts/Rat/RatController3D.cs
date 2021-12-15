@@ -155,7 +155,6 @@ public class RatController3D : MonoBehaviour
         if (!onGround && !canJump) {
             rigidBody.AddForce(Vector3.down * rigidBody.mass * gravityForce);
         }
-        
     }
 
     /* Event handler when the interact button was pressed */

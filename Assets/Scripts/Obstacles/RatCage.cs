@@ -47,9 +47,12 @@ public class RatCage : MonoBehaviour
     private int currentMashTimes = 0;
     public bool caughtPlayer = false;
 
+    private Rigidbody rb;
+
     // On awake, set color to black
     private void Awake() {
         meshRender = GetComponent<MeshRenderer>();
+        rb = GetComponent<Rigidbody>();
         meshRender.material.color = Color.black;
         trapSensor.trapSensedEvent.AddListener(onTrapSensed);
         speaker = GetComponent<AudioSource>();
@@ -66,6 +69,7 @@ public class RatCage : MonoBehaviour
         meshRender.material.color = Color.magenta;
         speaker.clip = cageAnticipationSound;
         speaker.PlayOneShot(cageAnticipationSound, 1.75f);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         yield return new WaitForSeconds(anticipationTime);
 
         // Turn on cage sensor and see if there was something there
