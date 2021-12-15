@@ -44,12 +44,14 @@ public class CageSensor : MonoBehaviour
     public void activatePlatform() {
         GetComponent<Collider>().isTrigger = false;
         tag = "Platform";
+        gameObject.layer = 0;
     }
 
     // Public method to reset the platform
     public void resetPlatform() {
         GetComponent<Collider>().isTrigger = true;
         tag = "Untagged";
+        gameObject.layer = 2;
         cagePlatformResetEvent.Invoke();
     }
 }

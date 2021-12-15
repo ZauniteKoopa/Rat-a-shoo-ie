@@ -649,7 +649,7 @@ PrefabInstance:
     - target: {fileID: 4813905236207517751, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5918312167162974530, guid: 4d00e75600ccba920ad8d16a52ad5e23,
         type: 3}
@@ -3813,7 +3813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-281678
+  m_Name: pb_Mesh338030
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6555,10 +6555,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 489603629413983595, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 489603629815181383, guid: ecc890dd4114ad34baea12b9c56370c6,
         type: 3}
       propertyPath: m_Name
       value: RatCage
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603629815181383, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 489603629815181386, guid: ecc890dd4114ad34baea12b9c56370c6,
         type: 3}
@@ -6619,6 +6629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489603630488702241, guid: ecc890dd4114ad34baea12b9c56370c6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecc890dd4114ad34baea12b9c56370c6, type: 3}
@@ -8534,6 +8549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250336059709721639, guid: 4adde864650e7b4269f1069e7d2a4f7b,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 5250336059709721659, guid: 4adde864650e7b4269f1069e7d2a4f7b,
         type: 3}
