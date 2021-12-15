@@ -74,6 +74,7 @@ public class RatCage : MonoBehaviour
         cageModel.SetActive(true);
         speaker.clip = cageLockSound;
         speaker.PlayOneShot(cageLockSound, 1.75f);
+        yield return null;
 
         // If cage caught a player, enforce mashing sequence
         RatController3D caughtPlayer = cageSensor.getCaughtPlayer();

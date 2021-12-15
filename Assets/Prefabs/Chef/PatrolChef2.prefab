@@ -1940,15 +1940,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca601e6680dd134c97081bac81a85b4, type: 3}
---- !u!4 &2621651628586628904 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 724831546510797906}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &8133517559293379142 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8858318040305004052, guid: 4ca601e6680dd134c97081bac81a85b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 724831546510797906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2621651628586628904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3345862500699544442, guid: 4ca601e6680dd134c97081bac81a85b4,
     type: 3}
   m_PrefabInstance: {fileID: 724831546510797906}
   m_PrefabAsset: {fileID: 0}
@@ -1959,6 +1959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1197135048500274193}
     m_Modifications:
+    - target: {fileID: 3550174755797393908, guid: 550448d1eda00a53b89b9a9e76a1e695,
+        type: 3}
+      propertyPath: spotShadowCollisionLayer.m_Bits
+      value: 95748
+      objectReference: {fileID: 0}
     - target: {fileID: 6401327994730512828, guid: 550448d1eda00a53b89b9a9e76a1e695,
         type: 3}
       propertyPath: m_LocalPosition.x

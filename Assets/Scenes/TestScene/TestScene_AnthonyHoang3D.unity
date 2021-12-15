@@ -2218,7 +2218,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-14596
+  m_Name: pb_Mesh-119690
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3602,7 +3602,7 @@ PrefabInstance:
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
       propertyPath: initialTasks.Array.data[0]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8200095421523678783, guid: ce650d94a633399e89b9f9633bd86d83,
         type: 3}
@@ -3792,6 +3792,7 @@ MonoBehaviour:
   effectsVolume: 1
   isFullScreen: 1
   screenResolutionIndex: 0
+  maxScreenResolutionIndex: 0
 --- !u!4 &1132321848
 Transform:
   m_ObjectHideFlags: 0
@@ -3812,7 +3813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-36860
+  m_Name: pb_Mesh-116260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4878,7 +4879,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13678
+  m_Name: pb_Mesh-118770
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5789,7 +5790,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-14336
+  m_Name: pb_Mesh-119428
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
